@@ -1,0 +1,4 @@
+-cp gen
+-main Main
+-lib markdown
+--interp
