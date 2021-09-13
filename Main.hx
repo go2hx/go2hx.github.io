@@ -21,6 +21,7 @@ function main() {
             break;
         }
     }
+    execUrl("./index.html");
 }
 
 private function saveContent(dir,path,file) {
@@ -29,4 +30,16 @@ private function saveContent(dir,path,file) {
         var temp = new Template(File.getContent(Path.join([dir,path,"index.html"])));
         File.saveContent(Path.join([path,"index.html"]),temp.execute({content: content}));
     }
+}
+
+private function execUrl(url:String):Void {
+	switch (Sys.systemName()) {
+		case "Linux", "BSD":
+			Sys.command("xdg-open", [url]);
+		case "Mac":
+			Sys.command("open", [url]);
+		case "Windows":
+			Sys.command("start", [url]);
+		default:
+	}
 }

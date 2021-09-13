@@ -12,7 +12,7 @@ Go devs get the portability of Haxe and access to the chosen target's eco system
 
 * **[Get started](https://github.com/go2hx/go2hx#getting-started)**
 * **[Wiki](https://github.com/go2hx/go2hx/wiki)**
-* **[Test883](/test883)**
+* **[Test883](./test883)**
 
 ## FAQ:
 
