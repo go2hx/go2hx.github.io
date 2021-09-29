@@ -42,8 +42,7 @@ function main() {
 	var options = {
 		type: 'scatter',
 		stacked: false,
-		pointRadius: 10,
-		pointHoverRadius: 14,
+		pointRadius: 6,
 		interaction: {
 			intersect: false,
 			mode: 'index',
@@ -65,15 +64,6 @@ function main() {
 					}
 				}
 			}
-		},
-		animation: {
-			duration: 0,
-			x: {
-				duration: delayBetweenPoints,
-				easing: 'easeInSine',
-				from: Syntax.code("NaN"),
-				delay: (ctx) -> ctx.index * delayBetweenPoints,
-			},
 		},
 		scales: {
 			x: {
