@@ -24,4 +24,7 @@ Go devs get the portability of Haxe and access to the chosen target's eco system
 <br><br>
 * Q: Is it possible for Haxe to Compile Go?
 * A: Yes it will be possible 100% when go2hx gets bootstrapped to be in 100% Haxe, currently the project is 95% Haxe.
+<br><br>
+* Q: Plans on Cgo support?
+* A: No plan at the moment, however it would be nice in the future for go2hx to support it.
 
