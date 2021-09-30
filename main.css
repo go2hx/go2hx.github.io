@@ -156,7 +156,7 @@ body {
     font-family: var(--font-family);
     letter-spacing: 0.2px;
     line-height: 0.5;
-    text-align: center;
+    margin: 0 15%;
     padding: 20px;
 }
 
