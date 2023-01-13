@@ -115,39 +115,19 @@ h1 {
 }
 
 :root {
-    --font-family: "Roboto", sans-serif;
-    --font-family-heading: "Montserrat", sans-serif;
-    --color-highlight: #1d60df;
-    --color-text: #312f2f;
-    --color-background: #f6fcfc;
-    --color-background-alt: #dfecec;
-    --color-chart-point-border: rgba(0, 0, 0, 0.3);
-    --color-chart-passed: #19db6e;
-    --color-chart-failed: #f70c4e;
-    --color-chart-skipped: #ffca28;
-    --color-chart-metadata-error: #5c6bc0;
-    --color-chart-harness-error: #26a69a;
-    --color-chart-timeout-error: #26c6da;
-    --color-chart-process-error: #ab47bc;
-    --color-chart-runner-exception: #ff7043;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-      --color-highlight: #03a9f4;
-      --color-text: #dddddd;
-      --color-background: #191922;
-      --color-background-alt: #262635;
-      --color-chart-point-border: rgba(255, 255, 255, 0.5);
-      --color-chart-passed: #18b55d;
-      --color-chart-failed: #c80f43;
-      --color-chart-skipped: #ffb300;
-      --color-chart-metadata-error: #3949ab;
-      --color-chart-harness-error: #00897b;
-      --color-chart-timeout-error: #00acc1;
-      --color-chart-process-error: #8e24aa;
-      --color-chart-runner-exception: #f4511e;
-    }
+	--color-highlight: #03a9f4;
+	--color-text: #dddddd;
+	--color-background: #191922;
+	--color-background-alt: #262635;
+	--color-chart-point-border: rgba(255, 255, 255, 0.5);
+	--color-chart-passed: #18b55d;
+	--color-chart-failed: #c80f43;
+	--color-chart-skipped: #ffb300;
+	--color-chart-metadata-error: #3949ab;
+	--color-chart-harness-error: #00897b;
+	--color-chart-timeout-error: #00acc1;
+	--color-chart-process-error: #8e24aa;
+	--color-chart-runner-exception: #f4511e;
 }
 
 body {
