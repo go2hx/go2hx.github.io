@@ -1,7 +1,5 @@
 on:
-  # Runs on pushes targeting the default branch
   push:
-  branches: ["master"]
   pull_request:
   schedule:
     - cron:  '0 0,4,8,12,16,20 * * *'
