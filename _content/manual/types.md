@@ -1,6 +1,6 @@
 # Basic Types
 
-| go2hx | underlying type | Haxe | go |
+| go2hx | underlying type | Haxe equivalent | go |
 | --- | --- | --- | --- |
 | <pre><code class="language-haxe">GoInt</code></pre> | <pre><code class="language-haxe">Int</code></pre> | <pre><code class="language-haxe">Int</code></pre> | <pre><code class="language-go">int32</code></pre> |
 | <pre><code class="language-haxe">GoInt64</code></pre> | <pre><code class="language-haxe">haxe.Int64</code></pre> | <pre><code class="language-haxe">haxe.Int64</code></pre> | <pre><code class="language-go">int64/int</code></pre> |
@@ -13,7 +13,7 @@
 
 
 # Pointer Types
-| go2hx | underlying type | Haxe | go |
+| go2hx | underlying type | Haxe equivalent | go |
 | --- | --- | --- | --- |
 | <pre><code class="language-haxe">stdgo.Pointer<T></code></pre> | <pre><code class="language-haxe">stdgo.Pointer.PointerData<T></code></pre> | n/a | <pre><code class="language-go">*T</code></pre> |
 | <pre><code class="language-haxe">Ref<T> | <pre><code class="language-haxe">typedef Ref<T> = T</code></pre> | n/a | <pre><code class="language-go">*T</code></pre> |
@@ -21,14 +21,14 @@
 * Ref is used for all pass by ref values, all other Haxe types besides BasicTypes.
 
 # Channel Type
-| go2hx | underlying type | Haxe | go 
+| go2hx | underlying type | Haxe equivalent | go 
 | --- | --- | --- | --- |
 | <pre><code class="language-haxe">stdgo.Chan<T></code></pre> | n/a | n/a | <pre><code class="language-go">chan[T]</code></pre> |
 * Uses Haxe locks/mutexs internally.
 * Used for goroutine data passing in a thread safe way.
 
 # Map Type
-| go2hx | underlying type | Haxe | go |
+| go2hx | underlying type | Haxe equivalent | go |
 | --- | --- | --- | --- |
 | <pre><code class="language-haxe">stdgo.GoMap<K,V></code></pre> | <pre><code class="language-haxe">stdgo.GoMap.GoMapData<K,V></code></pre> | <pre><code class="language-haxe">Map<K,V></code></pre> | <pre><code class="language-go">map[K]V</code></pre> |
 * Key equality is preformed using deep equality thereby structs for go2hx can be keys.
@@ -36,7 +36,7 @@
 * GoMap always holds the GoType information.
 
 # Array Types
-| go2hx | underlying type | Haxe | go |
+| go2hx | underlying type | Haxe equivalent | go |
 | --- | --- | --- | --- |
 | <pre><code class="language-haxe">stdgo.Slice<T></code></pre> | <pre><code class="language-haxe">haxe.ds.Vector<T></code></pre> | <pre><code class="language-haxe">Array<T></code></pre> | <pre><code class="language-go">[]T</code></pre> |
 | <pre><code class="language-haxe">stdgo.GoArray<T></code></pre> | <pre><code class="language-haxe">haxe.ds.Vector<T> | <pre><code class="language-haxe">haxe.ds.Vector<T></code></pre> | <pre><code class="language-go">[]T</code></pre> |
