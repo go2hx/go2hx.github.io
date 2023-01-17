@@ -32,7 +32,6 @@ function main() {
         }
     }
     stdgo();
-    //execUrl("./index.html");
 }
 
 private function prettyprint(content:String) {
@@ -42,7 +41,8 @@ private function prettyprint(content:String) {
 }
 
 private function stdgo() {
-    //Sys.command("git clone --depth 1 https://github.com/go2hx/go2hx");
+    if (!FileSystem.exists("go2hx"))
+        Sys.command("git clone --depth 1 https://github.com/go2hx/go2hx");
     stdgoRecursive("go2hx/stdgo",1);
 }
 
@@ -82,10 +82,10 @@ private function stdgoRecursive(dir:String,depth:Int) {
 
 private function saveContent(dir,path,file) {
     var content = File.getContent(Path.join([dir,path,file]));
-    content = highlight(content);
     var temp = new Template(content);
     content = temp.execute({support: support}); // index.md template
     content = prettyprint(Markdown.markdownToHtml(content));
+    content = highlight(content);
     if (FileSystem.exists(Path.join([dir,path,"index.html"]))) {
         temp = new Template(File.getContent(Path.join([dir,path,"index.html"])));
         trace(Path.join([dir,path,file]) + " -> " + Path.join([path,Path.withoutExtension(file) + ".html"]));
