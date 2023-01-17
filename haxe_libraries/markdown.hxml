@@ -1,0 +1,4 @@
+# @install: lix --silent download "gh://github.com/pxshadow/haxe-markdown#a5a12d0796d41f2b76b04bc43ace75f65da8b03e" into markdown/1.1.2/github/a5a12d0796d41f2b76b04bc43ace75f65da8b03e
+# @run: haxelib run-dir markdown "${HAXE_LIBCACHE}/markdown/1.1.2/github/a5a12d0796d41f2b76b04bc43ace75f65da8b03e"
+-cp ${HAXE_LIBCACHE}/markdown/1.1.2/github/a5a12d0796d41f2b76b04bc43ace75f65da8b03e/src
+-D markdown=1.1.2
