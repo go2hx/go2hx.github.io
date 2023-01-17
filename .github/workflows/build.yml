@@ -1,0 +1,41 @@
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron:  '0 0,4,8,12,16,20 * * *'
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+      fail-fast: true
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: apt-get update
+        run: sudo apt-get update
+      - uses: actions/checkout@v3
+        with:
+          go-version: '1.19.0' # The Go version to download (if necessary) and use.
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      - name: Build
+        run: npx haxe build.hxml
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
