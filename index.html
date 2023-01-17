@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>go2hx</title>
     <link rel="shortcut icon" href="logo.svg">
-    <link rel="stylesheet" href="main.css" />
     <meta property="og:title" content="go2hx"/>
     <meta property="og:type" content="Website"/>
     <meta property="og:url" content="https://go2hx.github.io"/>
@@ -21,19 +20,64 @@
     <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
     <meta name="twitter:image" content="logo.png">
     <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
 </head>
 <body>
-    <p align="center">
-        <img src="logo.svg" />
-      </p>
-    <h1>go2hx</h1>
-<p>A source-to-source compiler that compiles Go code into Haxe.</p>
-<p>Integrates seamlessly with both the front end Go compiler and the Haxe build tools.</p>
-<p>Haxe developers get the library support of Golang, with the portability and usefulness of the Haxe language.</p>
-<p>Go devs get the portability of Haxe and access to the chosen target's eco system, ( jvm/lua/python etc), while utilizing Go libraries.</p><ul><li><strong><a href="https://github.com/go2hx/go2hx#getting-started">Get started</a></strong></li><li><strong><a href="https://github.com/go2hx/go2hx/wiki">Wiki</a></strong></li><li><strong><a href="./test883">Test883</a></strong></li></ul>
-<h2>FAQ:</h2><ul><li>Q: What about a Go target for Haxe?</li><li>A: That could be a very nice Haxe target, however it's not in the scope of this project.
-<br><br></li><li>Q: Why go2hx instead of Go web assembly and/or gopherjs?</li><li>A: Haxe's js target is battle tested and allows dead code elimination, direct access to the js api etc.
-<br><br></li><li>Q: Is it possible for Haxe to Compile Go?</li><li>A: Yes it will be possible 100% when go2hx gets bootstrapped to be in 100% Haxe, currently the project is 95% Haxe.
-<br><br></li><li>Q: Plans on Cgo support?</li><li>A: No plan at the moment, however it would be nice in the future for go2hx to support it.</li></ul>
+    <script src="prism.js"></script>
+    <article class="markdown-body">
+        <img src="logo.svg" width="400" align="right" style="margin-bottom:-4000px;"/><h1><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></h1>
+<p><em>warning: experimental version.</em></p>
+<p>Source-to-Source <font color="#357b99">Go</font> to <font color="#e2ac3f">Haxe</font> compiler.</p>
+<p>Use <font color="#357b99">Go</font> libs with ease! <a href="https://github.com/go2hx/go2hx#getting-started">Get started!</a></p>
+<p><a href="https://github.com/go2hx/go2hx/issues"><img alt="issues" src="powered-by-issues.svg" /></a>
+<a href="https://haxe.org"><img alt="haxe" src="made-with-haxe.svg" /></a></p>
+<p><a href="./manual/index.html">Manual</a> (detailed info about the project)</p><details><summary>Standard Library compatibility/api docs</summary><h1><a name="library-compilation-and-test-results">Library compilation and test results</a></h1><table><thead><th>module</th><th>compile</th><th>tests</th><th>cpp</th><th>hl</th><th>interp</th><th>jvm</th><th align="null"></th></thead><tbody><tr><td><a href="./stdgo/bufio/index.html">stdgo.bufio</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/bytes/index.html">stdgo.bytes</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>❌</td><td>❌</td></tr><tr><td><a href="./stdgo/encoding/index.html">stdgo.encoding</a></td><td>❌</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/encoding/base64/index.html">stdgo.encoding.base64</a></td><td>✅</td><td>yes</td><td></td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><a href="./stdgo/encoding/binary/index.html">stdgo.encoding.binary</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/errors/index.html">stdgo.errors</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td><a href="./stdgo/flag/index.html">stdgo.flag</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/fmt/index.html">stdgo.fmt</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/index.html">stdgo.internal</a></td><td>❌</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/abi/index.html">stdgo.internal.abi</a></td><td>❌</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/bytealg/index.html">stdgo.internal.bytealg</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/cpu/index.html">stdgo.internal.cpu</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/fuzz/index.html">stdgo.internal.fuzz</a></td><td>❌</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/goarch/index.html">stdgo.internal.goarch</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/godebug/index.html">stdgo.internal.godebug</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/goexperiment/index.html">stdgo.internal.goexperiment</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/goos/index.html">stdgo.internal.goos</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/oserror/index.html">stdgo.internal.oserror</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/poll/index.html">stdgo.internal.poll</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/reflect/index.html">stdgo.internal.reflect</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/reflectlite/index.html">stdgo.internal.reflectlite</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/syscall/unix/index.html">stdgo.internal.syscall.unix</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/internal/testenv/index.html">stdgo.internal.testenv</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/io/index.html">stdgo.io</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/io/fs/index.html">stdgo.io.fs</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/log/index.html">stdgo.log</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/math/index.html">stdgo.math</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/math/bits/index.html">stdgo.math.bits</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td><a href="./stdgo/math/cmplx/index.html">stdgo.math.cmplx</a></td><td>✅</td><td>yes</td><td></td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><a href="./stdgo/math/rand/index.html">stdgo.math.rand</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/os/index.html">stdgo.os</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/path/index.html">stdgo.path</a></td><td>✅</td><td>yes</td><td></td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><a href="./stdgo/reflect/index.html">stdgo.reflect</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/regexp/index.html">stdgo.regexp</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/regexp/syntax/index.html">stdgo.regexp.syntax</a></td><td>✅</td><td>yes</td><td></td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><a href="./stdgo/runtime/index.html">stdgo.runtime</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/runtime/debug/index.html">stdgo.runtime.debug</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/sort/index.html">stdgo.sort</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td><a href="./stdgo/strconv/index.html">stdgo.strconv</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>❌</td><td>❌</td></tr><tr><td><a href="./stdgo/strings/index.html">stdgo.strings</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td><a href="./stdgo/sync/index.html">stdgo.sync</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/sync/atomic/index.html">stdgo.sync.atomic</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/syscall/index.html">stdgo.syscall</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/syscall/js/index.html">stdgo.syscall.js</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/testing/index.html">stdgo.testing</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/testing/fstest/index.html">stdgo.testing.fstest</a></td><td>✅</td><td>yes</td><td></td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><a href="./stdgo/testing/internal/testdeps/index.html">stdgo.testing.internal.testdeps</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/testing/iotest/index.html">stdgo.testing.iotest</a></td><td>✅</td><td>yes</td><td></td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><a href="./stdgo/time/index.html">stdgo.time</a></td><td>❌</td><td>yes</td><td></td><td></td><td></td><td></td></tr><tr><td><a href="./stdgo/unicode/index.html">stdgo.unicode</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td><a href="./stdgo/unicode/utf16/index.html">stdgo.unicode.utf16</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td><a href="./stdgo/unicode/utf8/index.html">stdgo.unicode.utf8</a></td><td>✅</td><td>yes</td><td></td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td><a href="./stdgo/unsafe/index.html">stdgo.unsafe</a></td><td>✅</td><td>no</td><td></td><td></td><td></td><td></td></tr></tbody></table></details>
+<details><summary>FAQ</summary><ul><li>Q: Can library X be compiled using <font color="#357b99">go</font>2<font color="#e2ac3f">hx</font>?</li><li>A: Maybe, to see if the library is supported at the moment <code>go get library_here</code> the library and then run:</li></ul>
+<pre><code class="prettyprint sh">go list -f '{{ .Imports }}' library here</code></pre>
+<p>Then check to see if the standard libraries used are all passing with the compatibility table above.</p><ul><li>Q: Does the compiler support <font color="#357b99">Go</font> as a <font color="#e2ac3f">Haxe</font> target?</li><li>
+<p>A: No and it's not within the scope of the project.</p></li><li>
+<p>Q: Why not use externs instead of compiling <font color="#357b99">Go</font> code into Haxe?</p></li><li>
+<p>A: Because externs can target lock a code base and they require maintenance, abstraction code etc.</p></li><li>
+<p>Q: Cgo support?</p></li><li>
+<p>A: Not available but planned and happily accepting contributions for it!</p></li><li>
+<p>Q: How does this compare to Gopherjs or <font color="#357b99">Go</font> wasm?</p></li><li>
+<p>A: <font color="#357b99">go</font>2<font color="#e2ac3f">hx</font>'s design is built with <font color="#e2ac3f">Haxe</font> devs in mind, therefore the goals align with <font color="#e2ac3f">Haxe</font> dev advantages of the compiler, with that said go2hx does have some advantages already, smaller code generation, access to <font color="#e2ac3f">Haxe's</font> compiler tooling such as dce and optimizations, and <font color="#e2ac3f">Haxe</font> as a language being very portable, high level and statically typed.</p></li><li>
+<p>Q: What internals does <font color="#357b99">go</font>2<font color="#e2ac3f">hx</font>'s stdlib use (stdgo)</p></li><li>A: <font color="#357b99">go</font>2<font color="#e2ac3f">hx</font>'s compiler, compiles the standard library packages for example <code>os</code>. After compilation a Patcher system switches out functions/variables/structs for a <font color="#e2ac3f">Haxe</font> equivalent, for example <code>os.Open</code> uses <code>sys.io.File.read</code> and <code>sys.io.File.write</code>.</li></ul>
+<p></details></p>
+<h3><a name="contributing:">Contributing:</a></h3>
+<p>The project is still at an experimental level, so expect undocumented problems to spring up.
+<strong>The best way to contribute</strong> is to simply use the compiler on code you would like and inevitably run into errors. From there we can answer some questions to see:</p><details>
+<summary>how to proceed!</summary>
+<h2><a name="what-time-is-the-error-happening?:">What time is the error happening?:</a></h2><ul><li><font color="#357b99">go</font> compiler time (<code>./export.go</code> named: go4hx)</li><li><font color="#e2ac3f">Haxe</font> compiler time (<code>src/Typer.hx</code> and <code>./stdgo/internal/reflect/Reflect.hx</code> etc)</li><li>compile time (<font color="#e2ac3f">Haxe</font> build tools example: <code>haxe build.hxml</code>)</li><li>runtime (Code running example: <code>hl build.hl</code> or <code>node build.js</code>).</li></ul>
+<h2><a name="how-can-the-code-causing-the-error-be-reduced-to-a-simple-sample?">How can the code causing the error be reduced to a simple sample?</a></h2><ul><li>Use <code>./rnd/main.go</code> as a testbed and run it with: <code>haxe rnd.hxml</code></li><li>Modify the <font color="#357b99">go</font> code with debug prints or the <font color="#e2ac3f">Haxe</font> compiled code with traces and figure out where is the precise error point.</li><li>Copy over structs and interfaces if needed that are used by the erroring code sample.</li><li>Make usage of <font color="#357b99">go</font>2<font color="#e2ac3f">hx</font>'s reflection for example:</li></ul>
+<pre><code class="language-go">println(reflect.TypeOf(value).String())</code></pre>
+<h2><a name="does-the-code-throw-"not-implemented"-error?">Does the code throw "not implemented" error?</a></h2><ul><li>Look at the unimplemented function's <a href="https://pkg.go.dev/std">documentation</a></li><li>Implement the missing functionality into the Patcher <code>./src/Patch.hx</code> following the naming convention <code>path:FunctionName</code> or <code>path.Type:FunctionName</code> for <a href="./ast.html">recv functions</a>.</li></ul>
+<h2><a name="is-the-type-casting-invalid?">Is the type casting invalid?</a></h2><ul><li>Look into <code>./src/Typer.hx</code> and search for <code>function checkType</code> for implicit type conversions and for casts <code>function castTranslate</code></li><li>A lot of helper type functions are called in <code>./stdgo/internal/reflect/Reflect</code> for example <code>getUnderlying</code> and the entire module is imported into <code>Typer.hx</code> so you won't see clear reference that the code is there.</li></ul>
+<p></details></p>
+<h4><a name="have-issues-and/or-want-to-contribute?">Have issues and/or want to contribute?</a></h4>
+<p><a href="https://github.com/go2hx/go2hx"><img alt="github" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" /></a>
+<a href="https://discord.gg/ewnMZAV"><img alt="discord" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&amp;logo=discord&amp;logoColor=white" /></a></p>
+    </article>
 </body>
 </html>

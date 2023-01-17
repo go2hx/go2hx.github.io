@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.testing.internal.testdeps</code></h1>
+<p><a href="../../../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<p>Package testdeps provides access to dependencies needed by test execution.��//��// This package is imported by the generated main package, which passes��// TestDeps into testing.Main. This allows tests to use packages at run time��// without making those packages direct dependencies of package testing.��// Direct dependencies of package testing are harder to write tests for. </p>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#variables">Variables</a></p></li><li>
+<p><a href="#class-t_testlog_static_extension">class T_testLog_static_extension</a></p></li><li>
+<p><a href="#t_testlog_static_extension-function-_add"><code>function _add(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _op:stdgo.GoString, _name:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#t_testlog_static_extension-function-chdir"><code>function chdir(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _name:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#t_testlog_static_extension-function-getenv"><code>function getenv(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _key:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#t_testlog_static_extension-function-open"><code>function open(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _name:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#t_testlog_static_extension-function-stat"><code>function stat(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _name:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#class-testdeps">class TestDeps</a></p></li><li>
+<p><a href="#testdeps-function-new"><code>function new():Void</code></a></p></li><li>
+<p><a href="#testdeps-function-checkcorpus"><code>function checkCorpus( _vals:stdgo.Slice&lt;stdgo.AnyInterface&gt;, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;):stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps-function-coordinatefuzzing"><code>function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice&lt;{values:stdgo.Slice&lt;stdgo.AnyInterface&gt;, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice&lt;stdgo.GoUInt8&gt;}&gt;, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps-function-importpath"><code>function importPath():stdgo.GoString</code></a></p></li><li>
+<p><a href="#testdeps-function-matchstring"><code>function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}</code></a></p></li><li>
+<p><a href="#testdeps-function-readcorpus"><code>function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;):{_1:stdgo.Error, _0:stdgo.Slice&lt;{values:stdgo.Slice&lt;stdgo.AnyInterface&gt;, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice&lt;stdgo.GoUInt8&gt;}&gt;}</code></a></p></li><li>
+<p><a href="#testdeps-function-resetcoverage"><code>function resetCoverage():Void</code></a></p></li><li>
+<p><a href="#testdeps-function-runfuzzworker"><code>function runFuzzWorker( _fn:()):stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps-function-setpaniconexit0"><code>function setPanicOnExit0( _v:Bool):Void</code></a></p></li><li>
+<p><a href="#testdeps-function-snapshotcoverage"><code>function snapshotCoverage():Void</code></a></p></li><li>
+<p><a href="#testdeps-function-startcpuprofile"><code>function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps-function-starttestlog"><code>function startTestLog( _w:stdgo.io.Writer):Void</code></a></p></li><li>
+<p><a href="#testdeps-function-stopcpuprofile"><code>function stopCPUProfile():Void</code></a></p></li><li>
+<p><a href="#testdeps-function-stoptestlog"><code>function stopTestLog():stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps-function-writeprofileto"><code>function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.GoInt):stdgo.Error</code></a></p></li><li>
+<p><a href="#class-testdeps_static_extension">class TestDeps_static_extension</a></p></li><li>
+<p><a href="#testdeps_static_extension-function-checkcorpus"><code>function checkCorpus( _vals:stdgo.Slice&lt;stdgo.AnyInterface&gt;, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;):stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-coordinatefuzzing"><code>function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice&lt;{values:stdgo.Slice&lt;stdgo.AnyInterface&gt;, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice&lt;stdgo.GoUInt8&gt;}&gt;, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-importpath"><code>function importPath():stdgo.GoString</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-matchstring"><code>function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-readcorpus"><code>function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;):{_1:stdgo.Error, _0:stdgo.Slice&lt;{values:stdgo.Slice&lt;stdgo.AnyInterface&gt;, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice&lt;stdgo.GoUInt8&gt;}&gt;}</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-resetcoverage"><code>function resetCoverage():Void</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-runfuzzworker"><code>function runFuzzWorker( _fn:()):stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-setpaniconexit0"><code>function setPanicOnExit0( _v:Bool):Void</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-snapshotcoverage"><code>function snapshotCoverage():Void</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-startcpuprofile"><code>function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-starttestlog"><code>function startTestLog( _w:stdgo.io.Writer):Void</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-stopcpuprofile"><code>function stopCPUProfile():Void</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-stoptestlog"><code>function stopTestLog():stdgo.Error</code></a></p></li><li>
+<p><a href="#testdeps_static_extension-function-writeprofileto"><code>function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.GoInt):stdgo.Error</code></a></p></li></ul>
+<h1><a name="variables">Variables</a></h1>
+<pre><code class="language-haxe">import stdgo.testing.internal.testdeps.Testdeps</code></pre>
+<pre><code class="language-haxe">var importPath:stdgo.GoString</code></pre>
+<p>ImportPath is the import path of the testing binary, set by the generated main function. </p>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.testing.internal.testdeps.*</code></pre>
+<h2>class T_testLog_static_extension</h2>
+<h3>T_testLog_static_extension function _add</h3>
+<pre><code class="language-haxe">function _add(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _op:stdgo.GoString, _name:stdgo.GoString):Void</code></pre>
+<p>add adds the (op, name) pair to the test log. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L298"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_testLog_static_extension function chdir</h3>
+<pre><code class="language-haxe">function chdir(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _name:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L302"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_testLog_static_extension function getenv</h3>
+<pre><code class="language-haxe">function getenv(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _key:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L314"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_testLog_static_extension function open</h3>
+<pre><code class="language-haxe">function open(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _name:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L310"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_testLog_static_extension function stat</h3>
+<pre><code class="language-haxe">function stat(_l:stdgo.Ref&lt;stdgo.testing.internal.testdeps._Testdeps.T_testLog&gt;, _name:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L306"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-testdeps">class TestDeps</a></h2>
+<p>TestDeps is an implementation of the testing.testDeps interface,��// suitable for passing to testing.MainStart. </p>
+<h3><a name="testdeps-function-new">TestDeps function new</a></h3>
+<pre><code class="language-haxe">function new():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L38"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-checkcorpus">TestDeps function checkCorpus</a></h3>
+<pre><code class="language-haxe">function checkCorpus( _vals:stdgo.Slice&lt;stdgo.AnyInterface&gt;, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L181"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-coordinatefuzzing">TestDeps function coordinateFuzzing</a></h3>
+<pre><code class="language-haxe">function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice&lt;{values:stdgo.Slice&lt;stdgo.AnyInterface&gt;, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice&lt;stdgo.GoUInt8&gt;}&gt;, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L216"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-importpath">TestDeps function importPath</a></h3>
+<pre><code class="language-haxe">function importPath():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L235"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-matchstring">TestDeps function matchString</a></h3>
+<pre><code class="language-haxe">function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L251"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-readcorpus">TestDeps function readCorpus</a></h3>
+<pre><code class="language-haxe">function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;):{_1:stdgo.Error, _0:stdgo.Slice&lt;{values:stdgo.Slice&lt;stdgo.AnyInterface&gt;, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice&lt;stdgo.GoUInt8&gt;}&gt;}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-resetcoverage">TestDeps function resetCoverage</a></h3>
+<pre><code class="language-haxe">function resetCoverage():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L177"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-runfuzzworker">TestDeps function runFuzzWorker</a></h3>
+<pre><code class="language-haxe">function runFuzzWorker( _fn:()):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L203"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-setpaniconexit0">TestDeps function setPanicOnExit0</a></h3>
+<pre><code class="language-haxe">function setPanicOnExit0( _v:Bool):Void</code></pre>
+<p>SetPanicOnExit0 tells the os package whether to panic on os.Exit(0). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L223"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-snapshotcoverage">TestDeps function snapshotCoverage</a></h3>
+<pre><code class="language-haxe">function snapshotCoverage():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L173"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-startcpuprofile">TestDeps function startCPUProfile</a></h3>
+<pre><code class="language-haxe">function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L247"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-starttestlog">TestDeps function startTestLog</a></h3>
+<pre><code class="language-haxe">function startTestLog( _w:stdgo.io.Writer):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L231"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-stopcpuprofile">TestDeps function stopCPUProfile</a></h3>
+<pre><code class="language-haxe">function stopCPUProfile():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L243"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-stoptestlog">TestDeps function stopTestLog</a></h3>
+<pre><code class="language-haxe">function stopTestLog():stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L227"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="testdeps-function-writeprofileto">TestDeps function writeProfileTo</a></h3>
+<pre><code class="language-haxe">function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.GoInt):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L239"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TestDeps_static_extension</h2>
+<h3>TestDeps_static_extension function checkCorpus</h3>
+<pre><code class="language-haxe">function checkCorpus( _vals:stdgo.Slice&lt;stdgo.AnyInterface&gt;, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L181"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function coordinateFuzzing</h3>
+<pre><code class="language-haxe">function coordinateFuzzing( _timeout:stdgo.time.Duration, _limit:stdgo.GoInt64, _minimizeTimeout:stdgo.time.Duration, _minimizeLimit:stdgo.GoInt64, _parallel:stdgo.GoInt, _seed:stdgo.Slice&lt;{values:stdgo.Slice&lt;stdgo.AnyInterface&gt;, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice&lt;stdgo.GoUInt8&gt;}&gt;, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;, _corpusDir:stdgo.GoString, _cacheDir:stdgo.GoString):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L216"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function importPath</h3>
+<pre><code class="language-haxe">function importPath():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L235"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function matchString</h3>
+<pre><code class="language-haxe">function matchString( _pat:stdgo.GoString, _str:stdgo.GoString):{_1:stdgo.Error, _0:Bool}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L251"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function readCorpus</h3>
+<pre><code class="language-haxe">function readCorpus( _dir:stdgo.GoString, _types:stdgo.Slice&lt;stdgo.reflect.Type&gt;):{_1:stdgo.Error, _0:stdgo.Slice&lt;{values:stdgo.Slice&lt;stdgo.AnyInterface&gt;, path:stdgo.GoString, parent:stdgo.GoString, isSeed:Bool, generation:stdgo.GoInt, data:stdgo.Slice&lt;stdgo.GoUInt8&gt;}&gt;}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function resetCoverage</h3>
+<pre><code class="language-haxe">function resetCoverage():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L177"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function runFuzzWorker</h3>
+<pre><code class="language-haxe">function runFuzzWorker( _fn:()):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L203"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function setPanicOnExit0</h3>
+<pre><code class="language-haxe">function setPanicOnExit0( _v:Bool):Void</code></pre>
+<p>SetPanicOnExit0 tells the os package whether to panic on os.Exit(0). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L223"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function snapshotCoverage</h3>
+<pre><code class="language-haxe">function snapshotCoverage():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L173"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function startCPUProfile</h3>
+<pre><code class="language-haxe">function startCPUProfile( _w:stdgo.io.Writer):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L247"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function startTestLog</h3>
+<pre><code class="language-haxe">function startTestLog( _w:stdgo.io.Writer):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L231"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function stopCPUProfile</h3>
+<pre><code class="language-haxe">function stopCPUProfile():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L243"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function stopTestLog</h3>
+<pre><code class="language-haxe">function stopTestLog():stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L227"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>TestDeps_static_extension function writeProfileTo</h3>
+<pre><code class="language-haxe">function writeProfileTo( _name:stdgo.GoString, _w:stdgo.io.Writer, _debug:stdgo.GoInt):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/internal/testdeps//Testdeps.hx#L239"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+    </article>
+</body>
+</html>

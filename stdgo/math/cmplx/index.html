@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.math.cmplx</code></h1>
+<p><a href="../../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<p>Package cmplx provides basic constants and mathematical functions for��// complex numbers. Special case handling conforms to the C99 standard��// Annex G IEC 60559-compatible complex arithmetic. </p><details><summary>hl tests failed</summary>
+<p>
+<pre><code>Error: Command failed with error 1
+=== RUN   TestAbs
+--- PASS: TestAbs (6.50882720947266e-05)
+=== RUN   TestAcos
+Acos((0+0i)) = (1.5707963267949+0i), want (1.5707963267949+-0i)</code></pre>
+<p></p>
+</details></p><details><summary>interp tests failed</summary>
+<p>
+<pre><code>=== RUN   TestAbs
+--- PASS: TestAbs (0.000113964080810546875)
+=== RUN   TestAcos
+Acos((0+0i)) = (1.57079632679489656+0i), want (1.57079632679489656+-0i)</code></pre>
+<p></p>
+</details></p><details><summary>jvm tests failed</summary>
+<p>
+<pre><code>IO.Overflow("write_ui16")</code></pre>
+<p></p>
+</details></p>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#function-_alike"><code>function _alike(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool</code></a></p></li><li>
+<p><a href="#function-_calike"><code>function _cAlike(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128):Bool</code></a></p></li><li>
+<p><a href="#function-_csoclose"><code>function _cSoclose(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128, _e:stdgo.GoFloat64):Bool</code></a></p></li><li>
+<p><a href="#function-_ctolerance"><code>function _cTolerance(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128, _e:stdgo.GoFloat64):Bool</code></a></p></li><li>
+<p><a href="#function-_cveryclose"><code>function _cVeryclose(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128):Bool</code></a></p></li><li>
+<p><a href="#function-_isexact"><code>function _isExact(_x:stdgo.GoFloat64):Bool</code></a></p></li><li>
+<p><a href="#function-_reducepi"><code>function _reducePi(_x:stdgo.GoFloat64):stdgo.GoFloat64</code></a></p></li><li>
+<p><a href="#function-_sinhcosh"><code>function _sinhcosh(_x:stdgo.GoFloat64):{_1:stdgo.GoFloat64, _0:stdgo.GoFloat64}</code></a></p></li><li>
+<p><a href="#function-_tanseries"><code>function _tanSeries(_z:stdgo.GoComplex128):stdgo.GoFloat64</code></a></p></li><li>
+<p><a href="#function-_tolerance"><code>function _tolerance(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64, _e:stdgo.GoFloat64):Bool</code></a></p></li><li>
+<p><a href="#function-_veryclose"><code>function _veryclose(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool</code></a></p></li><li>
+<p><a href="#function-abs"><code>function abs(_x:stdgo.GoComplex128):stdgo.GoFloat64</code></a></p></li><li>
+<p><a href="#function-acos"><code>function acos(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-acosh"><code>function acosh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-asin"><code>function asin(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-asinh"><code>function asinh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-atan"><code>function atan(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-atanh"><code>function atanh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-benchmarkabs"><code>function benchmarkAbs(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkacos"><code>function benchmarkAcos(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkacosh"><code>function benchmarkAcosh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkasin"><code>function benchmarkAsin(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkasinh"><code>function benchmarkAsinh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkatan"><code>function benchmarkAtan(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkatanh"><code>function benchmarkAtanh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkconj"><code>function benchmarkConj(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkcos"><code>function benchmarkCos(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkcosh"><code>function benchmarkCosh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkexp"><code>function benchmarkExp(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarklog"><code>function benchmarkLog(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarklog10"><code>function benchmarkLog10(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkphase"><code>function benchmarkPhase(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkpolar"><code>function benchmarkPolar(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkpow"><code>function benchmarkPow(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkrect"><code>function benchmarkRect(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksin"><code>function benchmarkSin(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksinh"><code>function benchmarkSinh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksqrt"><code>function benchmarkSqrt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarktan"><code>function benchmarkTan(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarktanh"><code>function benchmarkTanh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-conj"><code>function conj(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-cos"><code>function cos(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-cosh"><code>function cosh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-cot"><code>function cot(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-exp"><code>function exp(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-inf"><code>function inf():stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-isinf"><code>function isInf(_x:stdgo.GoComplex128):Bool</code></a></p></li><li>
+<p><a href="#function-isnan"><code>function isNaN(_x:stdgo.GoComplex128):Bool</code></a></p></li><li>
+<p><a href="#function-log"><code>function log(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-log10"><code>function log10(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-nan"><code>function naN():stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-phase"><code>function phase(_x:stdgo.GoComplex128):stdgo.GoFloat64</code></a></p></li><li>
+<p><a href="#function-polar"><code>function polar(_x:stdgo.GoComplex128):{_1:stdgo.GoFloat64, _0:stdgo.GoFloat64}</code></a></p></li><li>
+<p><a href="#function-pow"><code>function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-rect"><code>function rect(_r:stdgo.GoFloat64, __952:stdgo.GoFloat64):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-sin"><code>function sin(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-sinh"><code>function sinh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-sqrt"><code>function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-tan"><code>function tan(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-tanh"><code>function tanh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></a></p></li><li>
+<p><a href="#function-testabs"><code>function testAbs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testacos"><code>function testAcos(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testacosh"><code>function testAcosh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testasin"><code>function testAsin(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testasinh"><code>function testAsinh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testatan"><code>function testAtan(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testatanh"><code>function testAtanh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testconj"><code>function testConj(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testcos"><code>function testCos(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testcosh"><code>function testCosh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testexp"><code>function testExp(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testinfiniteloopintanseries"><code>function testInfiniteLoopIntanSeries(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testisnan"><code>function testIsNaN(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testlog"><code>function testLog(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testlog10"><code>function testLog10(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testpolar"><code>function testPolar(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testpow"><code>function testPow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testrect"><code>function testRect(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testsin"><code>function testSin(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testsinh"><code>function testSinh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testsqrt"><code>function testSqrt(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testtan"><code>function testTan(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testtanhuge"><code>function testTanHuge(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testtanh"><code>function testTanh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#class-t__struct_0_static_extension">class T__struct_0_static_extension</a></p></li></ul>
+<h1><a name="examples">Examples</a></h1><ul><li>
+<p><a href="#exampleabs"><code>exampleAbs</code></a></p></li><li>
+<p><a href="#exampleexp"><code>exampleExp</code></a></p></li><li>
+<p><a href="#examplepolar"><code>examplePolar</code></a></p></li></ul>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.math.cmplx.Cmplx</code></pre>
+<h2><a name="function-_alike">function _alike</a></h2>
+<pre><code class="language-haxe">function _alike(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L745"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_calike">function _cAlike</a></h2>
+<pre><code class="language-haxe">function _cAlike(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L773"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_csoclose">function _cSoclose</a></h2>
+<pre><code class="language-haxe">function _cSoclose(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128, _e:stdgo.GoFloat64):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L765"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_ctolerance">function _cTolerance</a></h2>
+<pre><code class="language-haxe">function _cTolerance(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128, _e:stdgo.GoFloat64):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L754"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_cveryclose">function _cVeryclose</a></h2>
+<pre><code class="language-haxe">function _cVeryclose(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L769"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_isexact">function _isExact</a></h2>
+<pre><code class="language-haxe">function _isExact(_x:stdgo.GoFloat64):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L791"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_reducepi">function _reducePi</a></h2>
+<pre><code class="language-haxe">function _reducePi(_x:stdgo.GoFloat64):stdgo.GoFloat64</code></pre>
+<p>reducePi reduces the input argument x to the range (-Pi/2, Pi/2].��// x must be greater than or equal to 0. For small arguments it��// uses Cody-Waite reduction in 3 float64 parts based on:��// "Elementary Function Evaluation:  Algorithms and Implementation"��// Jean-Michel Muller, 1997.��// For very large arguments it uses Payne-Hanek range reduction based on:��// "ARGUMENT REDUCTION FOR HUGE ARGUMENTS: Good to the Last Bit"��// K. C. Ng et al, March 24, 1992. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2291"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_sinhcosh">function _sinhcosh</a></h2>
+<pre><code class="language-haxe">function _sinhcosh(_x:stdgo.GoFloat64):{_1:stdgo.GoFloat64, _0:stdgo.GoFloat64}</code></pre>
+<p>calculate sinh and cosh </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2162"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_tanseries">function _tanSeries</a></h2>
+<pre><code class="language-haxe">function _tanSeries(_z:stdgo.GoComplex128):stdgo.GoFloat64</code></pre>
+<p>Taylor series expansion for cosh(2y) - cos(2x) </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2348"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_tolerance">function _tolerance</a></h2>
+<pre><code class="language-haxe">function _tolerance(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64, _e:stdgo.GoFloat64):Bool</code></pre>
+<p>functions borrowed from pkg/math/all_test.go </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_veryclose">function _veryclose</a></h2>
+<pre><code class="language-haxe">function _veryclose(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L741"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-abs">function abs</a></h2>
+<pre><code class="language-haxe">function abs(_x:stdgo.GoComplex128):stdgo.GoFloat64</code></pre>
+<p>Abs returns the absolute value (also called the modulus) of x. </p>
+<h3><a name="exampleabs">exampleAbs</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleAbs():Void {
+	stdgo.fmt.Fmt.printf(Go.str("%.1f"), Go.toInterface(stdgo.math.cmplx.Cmplx.abs(((3 : GoFloat64) + new GoComplex128(0, 4)))));
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L571"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-acos">function acos</a></h2>
+<pre><code class="language-haxe">function acos(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Acos returns the inverse cosine of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L657"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-acosh">function acosh</a></h2>
+<pre><code class="language-haxe">function acosh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Acosh returns the inverse hyperbolic cosine of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L665"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-asin">function asin</a></h2>
+<pre><code class="language-haxe">function asin(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Asin returns the inverse sine of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L578"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-asinh">function asinh</a></h2>
+<pre><code class="language-haxe">function asinh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Asinh returns the inverse hyperbolic sine of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L619"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-atan">function atan</a></h2>
+<pre><code class="language-haxe">function atan(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Atan returns the inverse tangent of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L679"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-atanh">function atanh</a></h2>
+<pre><code class="language-haxe">function atanh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Atanh returns the inverse hyperbolic tangent of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L718"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkabs">function benchmarkAbs</a></h2>
+<pre><code class="language-haxe">function benchmarkAbs(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1664"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkacos">function benchmarkAcos</a></h2>
+<pre><code class="language-haxe">function benchmarkAcos(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1673"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkacosh">function benchmarkAcosh</a></h2>
+<pre><code class="language-haxe">function benchmarkAcosh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1682"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkasin">function benchmarkAsin</a></h2>
+<pre><code class="language-haxe">function benchmarkAsin(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1691"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkasinh">function benchmarkAsinh</a></h2>
+<pre><code class="language-haxe">function benchmarkAsinh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1700"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkatan">function benchmarkAtan</a></h2>
+<pre><code class="language-haxe">function benchmarkAtan(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1709"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkatanh">function benchmarkAtanh</a></h2>
+<pre><code class="language-haxe">function benchmarkAtanh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1718"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkconj">function benchmarkConj</a></h2>
+<pre><code class="language-haxe">function benchmarkConj(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkcos">function benchmarkCos</a></h2>
+<pre><code class="language-haxe">function benchmarkCos(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1736"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkcosh">function benchmarkCosh</a></h2>
+<pre><code class="language-haxe">function benchmarkCosh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1745"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkexp">function benchmarkExp</a></h2>
+<pre><code class="language-haxe">function benchmarkExp(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1754"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarklog">function benchmarkLog</a></h2>
+<pre><code class="language-haxe">function benchmarkLog(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1763"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarklog10">function benchmarkLog10</a></h2>
+<pre><code class="language-haxe">function benchmarkLog10(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1772"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkphase">function benchmarkPhase</a></h2>
+<pre><code class="language-haxe">function benchmarkPhase(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1781"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkpolar">function benchmarkPolar</a></h2>
+<pre><code class="language-haxe">function benchmarkPolar(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1790"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkpow">function benchmarkPow</a></h2>
+<pre><code class="language-haxe">function benchmarkPow(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1799"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkrect">function benchmarkRect</a></h2>
+<pre><code class="language-haxe">function benchmarkRect(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1808"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksin">function benchmarkSin</a></h2>
+<pre><code class="language-haxe">function benchmarkSin(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1817"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksinh">function benchmarkSinh</a></h2>
+<pre><code class="language-haxe">function benchmarkSinh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1826"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksqrt">function benchmarkSqrt</a></h2>
+<pre><code class="language-haxe">function benchmarkSqrt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1835"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarktan">function benchmarkTan</a></h2>
+<pre><code class="language-haxe">function benchmarkTan(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1844"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarktanh">function benchmarkTanh</a></h2>
+<pre><code class="language-haxe">function benchmarkTanh(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1853"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-conj">function conj</a></h2>
+<pre><code class="language-haxe">function conj(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Conj returns the complex conjugate of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1865"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-cos">function cos</a></h2>
+<pre><code class="language-haxe">function cos(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Cos returns the cosine of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2102"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-cosh">function cosh</a></h2>
+<pre><code class="language-haxe">function cosh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Cosh returns the hyperbolic cosine of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2132"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-cot">function cot</a></h2>
+<pre><code class="language-haxe">function cot(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Cot returns the cotangent of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2389"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-exp">function exp</a></h2>
+<pre><code class="language-haxe">function exp(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Exp returns e\<em>\</em>x, the base-e exponential of x. </p>
+<h3><a name="exampleexp">exampleExp</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleExp():Void {
+	stdgo.fmt.Fmt.printf(Go.str("%.1f"),
+		Go.toInterface(stdgo.math.cmplx.Cmplx.exp(((0 : GoFloat64) + new GoComplex128(0, 3.141592653589793))) + ((1 : GoFloat64) + new GoComplex128(0, 0))));
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1872"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-inf">function inf</a></h2>
+<pre><code class="language-haxe">function inf():stdgo.GoComplex128</code></pre>
+<p>Inf returns a complex infinity, complex(+Inf, +Inf). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1925"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-isinf">function isInf</a></h2>
+<pre><code class="language-haxe">function isInf(_x:stdgo.GoComplex128):Bool</code></pre>
+<p>IsInf reports whether either real(x) or imag(x) is an infinity. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1915"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-isnan">function isNaN</a></h2>
+<pre><code class="language-haxe">function isNaN(_x:stdgo.GoComplex128):Bool</code></pre>
+<p>IsNaN reports whether either real(x) or imag(x) is NaN��// and neither is an infinity. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1934"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-log">function log</a></h2>
+<pre><code class="language-haxe">function log(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Log returns the natural logarithm of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1954"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-log10">function log10</a></h2>
+<pre><code class="language-haxe">function log10(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Log10 returns the decimal logarithm of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1961"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-nan">function naN</a></h2>
+<pre><code class="language-haxe">function naN():stdgo.GoComplex128</code></pre>
+<p>NaN returns a complex “not-a-number” value. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1946"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-phase">function phase</a></h2>
+<pre><code class="language-haxe">function phase(_x:stdgo.GoComplex128):stdgo.GoFloat64</code></pre>
+<p>Phase returns the phase (also called the argument) of x.��// The returned value is in the range [-Pi, Pi]. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1970"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-polar">function polar</a></h2>
+<pre><code class="language-haxe">function polar(_x:stdgo.GoComplex128):{_1:stdgo.GoFloat64, _0:stdgo.GoFloat64}</code></pre>
+<p>Polar returns the absolute value r and phase θ of x,��// such that x = r \<em> e\</em>*θi.��// The phase is in the range [-Pi, Pi]. </p>
+<h3><a name="examplepolar">examplePolar</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function examplePolar():Void {
+	var __tmp__ = stdgo.math.cmplx.Cmplx.polar(((0 : GoFloat64) + new GoComplex128(0, 2))),
+		_r:GoFloat64 = __tmp__._0,
+		_theta:GoFloat64 = __tmp__._1;
+	stdgo.fmt.Fmt.printf(Go.str("r: %.1f, θ: %.1f*π"), Go.toInterface(_r), Go.toInterface(_theta / (3.141592653589793 : GoFloat64)));
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1979"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-pow">function pow</a></h2>
+<pre><code class="language-haxe">function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Pow returns x\<em>\</em>y, the base-x exponential of y.��// For generalized compatibility with math.Pow:��//��//�Pow(0, ±0) returns 1+0i��//�Pow(0, c) for real(c)\&lt;0 returns Inf+0i if imag(c) is zero, otherwise Inf+Inf i. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1991"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-rect">function rect</a></h2>
+<pre><code class="language-haxe">function rect(_r:stdgo.GoFloat64, __952:stdgo.GoFloat64):stdgo.GoComplex128</code></pre>
+<p>Rect returns the complex number x with polar coordinates r, θ. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2032"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-sin">function sin</a></h2>
+<pre><code class="language-haxe">function sin(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Sin returns the sine of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2042"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-sinh">function sinh</a></h2>
+<pre><code class="language-haxe">function sinh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Sinh returns the hyperbolic sine of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2072"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-sqrt">function sqrt</a></h2>
+<pre><code class="language-haxe">function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Sqrt returns the square root of x.��// The result r is chosen so that real(r) ≥ 0 and imag(r) has the same sign as imag(x). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2177"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-tan">function tan</a></h2>
+<pre><code class="language-haxe">function tan(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Tan returns the tangent of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2229"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-tanh">function tanh</a></h2>
+<pre><code class="language-haxe">function tanh(_x:stdgo.GoComplex128):stdgo.GoComplex128</code></pre>
+<p>Tanh returns the hyperbolic tangent of x. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L2258"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testabs">function testAbs</a></h2>
+<pre><code class="language-haxe">function testAbs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L797"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testacos">function testAcos</a></h2>
+<pre><code class="language-haxe">function testAcos(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L823"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testacosh">function testAcosh</a></h2>
+<pre><code class="language-haxe">function testAcosh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L865"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testasin">function testAsin</a></h2>
+<pre><code class="language-haxe">function testAsin(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L907"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testasinh">function testAsinh</a></h2>
+<pre><code class="language-haxe">function testAsinh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L958"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testatan">function testAtan</a></h2>
+<pre><code class="language-haxe">function testAtan(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1009"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testatanh">function testAtanh</a></h2>
+<pre><code class="language-haxe">function testAtanh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1060"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testconj">function testConj</a></h2>
+<pre><code class="language-haxe">function testConj(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1111"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testcos">function testCos</a></h2>
+<pre><code class="language-haxe">function testCos(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1137"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testcosh">function testCosh</a></h2>
+<pre><code class="language-haxe">function testCosh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1177"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testexp">function testExp</a></h2>
+<pre><code class="language-haxe">function testExp(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1217"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testinfiniteloopintanseries">function testInfiniteLoopIntanSeries</a></h2>
+<pre><code class="language-haxe">function testInfiniteLoopIntanSeries(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>See issue 17577 </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1654"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testisnan">function testIsNaN</a></h2>
+<pre><code class="language-haxe">function testIsNaN(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1248"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testlog">function testLog</a></h2>
+<pre><code class="language-haxe">function testLog(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1263"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testlog10">function testLog10</a></h2>
+<pre><code class="language-haxe">function testLog10(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1305"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testpolar">function testPolar</a></h2>
+<pre><code class="language-haxe">function testPolar(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1336"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testpow">function testPow</a></h2>
+<pre><code class="language-haxe">function testPow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1367"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testrect">function testRect</a></h2>
+<pre><code class="language-haxe">function testRect(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1422"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testsin">function testSin</a></h2>
+<pre><code class="language-haxe">function testSin(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1449"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testsinh">function testSinh</a></h2>
+<pre><code class="language-haxe">function testSinh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1489"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testsqrt">function testSqrt</a></h2>
+<pre><code class="language-haxe">function testSqrt(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1529"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testtan">function testTan</a></h2>
+<pre><code class="language-haxe">function testTan(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1571"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testtanhuge">function testTanHuge</a></h2>
+<pre><code class="language-haxe">function testTanHuge(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1901"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testtanh">function testTanh</a></h2>
+<pre><code class="language-haxe">function testTanh(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/cmplx//Cmplx.hx#L1611"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.math.cmplx.*</code></pre>
+<h2>class T__struct_0_static_extension</h2>
+    </article>
+</body>
+</html>

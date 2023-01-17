@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx manual</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx manual"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.Go</code></h1>
+<p><a href="./stdgo.md">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#class-anyinterfacedata">class AnyInterfaceData</a></p></li><li>
+<p><a href="#anyinterfacedata-function-new"><code>function new(value:Any, type:stdgo.internal.reflect._Type):Void</code></a></p></li><li>
+<p><a href="#anyinterfacedata-function-tostring"><code>function toString():String</code></a></p></li><li>
+<p><a href="#class-chandata">class ChanData</a></p></li><li>
+<p><a href="#chandata-function-iterator"><code>function iterator():stdgo._Chan.ChanIterator&lt;stdgo.ChanData.T&gt;</code></a></p></li><li>
+<p><a href="#chandata-function-keyvalueiterator"><code>function keyValueIterator():stdgo._Chan.ChanKeyValueIterator&lt;stdgo.ChanData.T&gt;</code></a></p></li><li>
+<p><a href="#chandata-function-new"><code>function new(length:stdgo.GoInt, defaultValue:():stdgo.ChanData.T):Void</code></a></p></li><li>
+<p><a href="#chandata-function-tostring"><code>function toString():String</code></a></p></li><li>
+<p><a href="#class-complex">class Complex</a></p></li><li>
+<p><a href="#complex-function-new"><code>function new(r:stdgo.Complex.T, i:stdgo.Complex.T):Void</code></a></p></li><li>
+<p><a href="#complex-function-tostring"><code>function toString():String</code></a></p></li><li>
+<p><a href="#class-go">class Go</a></p></li><li>
+<p><a href="#go-function-asinterface"><code>function asInterface(expr:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-cfor"><code>function cfor(cond:Dynamic, post:Dynamic, expr:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-copyslice"><code>function copySlice(dst:Dynamic, src:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-expectedvalue"><code>function expectedValue():Dynamic</code></a></p></li><li>
+<p><a href="#go-function-map"><code>function map(exprs:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-multireturn"><code>function multireturn(expr:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-pointer"><code>function pointer(expr:Dynamic, hasSet:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-routine"><code>function routine(func:():Void):Void</code></a></p></li><li>
+<p><a href="#go-function-select"><code>function select(expr:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-setkeys"><code>function setKeys(expr:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-str"><code>function str(exprs:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-string"><code>function string(s:Dynamic):String</code></a></p></li><li>
+<p><a href="#go-function-tointerface"><code>function toInterface(expr:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-typeassert"><code>function typeAssert(expr:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-typeequals"><code>function typeEquals(expr:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-typefunction"><code>function typeFunction(e:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#go-function-unquote"><code>function unquote(qvalue:Dynamic):Dynamic</code></a></p></li><li>
+<p><a href="#class-gointiterator">class GoIntIterator</a></p></li><li>
+<p><a href="#gointiterator-function-hasnext"><code>function hasNext():Bool</code></a></p></li><li>
+<p><a href="#gointiterator-function-new"><code>function new(min:stdgo.GoInt, max:stdgo.GoInt):Void</code></a></p></li><li>
+<p><a href="#gointiterator-function-next"><code>function next():stdgo.GoInt</code></a></p></li><li>
+<p><a href="#class-goobjectmap">class GoObjectMap</a></p></li><li>
+<p><a href="#goobjectmap-function-clear"><code>function clear():Void</code></a></p></li><li>
+<p><a href="#goobjectmap-function-copy"><code>function copy():stdgo.GoObjectMap&lt;stdgo.GoObjectMap.K, stdgo.GoObjectMap.V&gt;</code></a></p></li><li>
+<p><a href="#goobjectmap-function-defaultvalue"><code>function defaultValue():stdgo.GoObjectMap.V</code></a></p></li><li>
+<p><a href="#goobjectmap-function-exists"><code>function exists(key:stdgo.GoObjectMap.K):Bool</code></a></p></li><li>
+<p><a href="#goobjectmap-function-get"><code>function get(key:stdgo.GoObjectMap.K):Null&lt;stdgo.GoObjectMap.V&gt;</code></a></p></li><li>
+<p><a href="#goobjectmap-function-iterator"><code>function iterator():Iterator&lt;stdgo.GoObjectMap.V&gt;</code></a></p></li><li>
+<p><a href="#goobjectmap-function-keyvalueiterator"><code>function keyValueIterator():KeyValueIterator&lt;stdgo.GoObjectMap.K, stdgo.GoObjectMap.V&gt;</code></a></p></li><li>
+<p><a href="#goobjectmap-function-keys"><code>function keys():Iterator&lt;stdgo.GoObjectMap.K&gt;</code></a></p></li><li>
+<p><a href="#goobjectmap-function-new"><code>function new(t:stdgo.internal.reflect._Type):Void</code></a></p></li><li>
+<p><a href="#goobjectmap-function-remove"><code>function remove(key:stdgo.GoObjectMap.K):Bool</code></a></p></li><li>
+<p><a href="#goobjectmap-function-set"><code>function set(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V):Void</code></a></p></li><li>
+<p><a href="#goobjectmap-function-tostring"><code>function toString():String</code></a></p></li><li>
+<p><a href="#class-gostringtools">class GoStringTools</a></p></li><li>
+<p><a href="#gostringtools-function-indexof"><code>function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int</code></a></p></li><li>
+<p><a href="#gostringtools-function-lastindexof"><code>function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int</code></a></p></li><li>
+<p><a href="#gostringtools-function-substr"><code>function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString</code></a></p></li><li>
+<p><a href="#gostringtools-function-tostring"><code>function toString(str:stdgo.GoString):String</code></a></p></li><li>
+<p><a href="#class-pointerdata">class PointerData</a></p></li><li>
+<p><a href="#pointerdata-function-assign"><code>function assign():stdgo.PointerData.T</code></a></p></li><li>
+<p><a href="#pointerdata-function-convert"><code>function convert()</code></a></p></li><li>
+<p><a href="#pointerdata-function-get"><code>function get():stdgo.PointerData.T</code></a></p></li><li>
+<p><a href="#pointerdata-function-new"><code>function new(?get:():stdgo.PointerData.T, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer&lt;Any&gt;, ?underlying:Any, ?underlyingIndex:Any):Void</code></a></p></li><li>
+<p><a href="#pointerdata-function-set"><code>function set()</code></a></p></li><li>
+<p><a href="#pointerdata-function-tostring"><code>function toString():String</code></a></p></li><li>
+<p><a href="#class-slicedata">class SliceData</a></p></li><li>
+<p><a href="#slicedata-function-get"><code>function get(index:Int):stdgo.SliceData.T</code></a></p></li><li>
+<p><a href="#slicedata-function-grow"><code>function grow():Void</code></a></p></li><li>
+<p><a href="#slicedata-function-new"><code>function new(length:Int, capacity:Int, args:haxe.Rest&lt;stdgo.SliceData.T&gt;):Void</code></a></p></li><li>
+<p><a href="#slicedata-function-set"><code>function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T</code></a></p></li><li>
+<p><a href="#slicedata-function-toarray"><code>function toArray():Array&lt;stdgo.SliceData.T&gt;</code></a></p></li><li>
+<p><a href="#slicedata-function-tostring"><code>function toString():String</code></a></p></li><li>
+<p><a href="#slicedata-function-tovector"><code>function toVector():haxe.ds.Vector&lt;stdgo.SliceData.T&gt;</code></a></p></li><li>
+<p><a href="#class-t_errorstring_static_extension">class T_errorString_static_extension</a></p></li><li>
+<p><a href="#t_errorstring_static_extension-function-error"><code>function error(_e:stdgo._Error.T_errorString):stdgo.GoString</code></a></p></li><li>
+<p><a href="#t_errorstring_static_extension-function-runtimeerror"><code>function runtimeError(_e:stdgo._Error.T_errorString):Void</code></a></p></li><li>
+<p><a href="#class-unknown">class Unknown</a></p></li><li>
+<p><a href="#class-vectordata">class VectorData</a></p></li><li>
+<p><a href="#vectordata-function-get"><code>function get(i:Int):stdgo.VectorData.T</code></a></p></li><li>
+<p><a href="#vectordata-function-new"><code>function new(length:Int):Void</code></a></p></li><li>
+<p><a href="#vectordata-function-set"><code>function set(i:Int, value:stdgo.VectorData.T):stdgo.VectorData.T</code></a></p></li><li>
+<p><a href="#vectordata-function-tostring"><code>function toString():String</code></a></p></li><li>
+<p><a href="#typedef-complex128">typedef Complex128</a></p></li><li>
+<p><a href="#typedef-complex64">typedef Complex64</a></p></li><li>
+<p><a href="#typedef-error">typedef Error</a></p></li><li>
+<p><a href="#typedef-gobyte">typedef GoByte</a></p></li><li>
+<p><a href="#typedef-gofloat">typedef GoFloat</a></p></li><li>
+<p><a href="#typedef-goint">typedef GoInt</a></p></li><li>
+<p><a href="#typedef-gorune">typedef GoRune</a></p></li><li>
+<p><a href="#typedef-gouint">typedef GoUInt</a></p></li><li>
+<p><a href="#typedef-invalidtype">typedef InvalidType</a></p></li><li>
+<p><a href="#typedef-mapaccess">typedef MapAccess</a></p></li><li>
+<p><a href="#typedef-ref">typedef Ref</a></p></li><li>
+<p><a href="#typedef-structtype">typedef StructType</a></p></li></ul>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.*</code></pre>
+<h2><a name="class-anyinterfacedata">class AnyInterfaceData</a></h2>
+<pre><code class="language-haxe">var type:stdgo.internal.reflect._Type</code></pre>
+<pre><code class="language-haxe">var value:Any</code></pre>
+<h3><a name="anyinterfacedata-function-new">AnyInterfaceData function new</a></h3>
+<pre><code class="language-haxe">function new(value:Any, type:stdgo.internal.reflect._Type):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//StdGoTypes.hx#L1763">(view code)</a></p>
+<h3><a name="anyinterfacedata-function-tostring">AnyInterfaceData function toString</a></h3>
+<pre><code class="language-haxe">function toString():String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//StdGoTypes.hx#L1769">(view code)</a></p>
+<h2><a name="class-chandata">class ChanData</a></h2>
+<pre><code class="language-haxe">var capacity:stdgo.GoInt</code></pre>
+<pre><code class="language-haxe">var length:stdgo.GoInt</code></pre>
+<h3><a name="chandata-function-iterator">ChanData function iterator</a></h3>
+<pre><code class="language-haxe">function iterator():stdgo._Chan.ChanIterator&lt;stdgo.ChanData.T&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Chan.hx#L127">(view code)</a></p>
+<h3><a name="chandata-function-keyvalueiterator">ChanData function keyValueIterator</a></h3>
+<pre><code class="language-haxe">function keyValueIterator():stdgo._Chan.ChanKeyValueIterator&lt;stdgo.ChanData.T&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Chan.hx#L124">(view code)</a></p>
+<h3><a name="chandata-function-new">ChanData function new</a></h3>
+<pre><code class="language-haxe">function new(length:stdgo.GoInt, defaultValue:():stdgo.ChanData.T):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Chan.hx#L50">(view code)</a></p>
+<h3><a name="chandata-function-tostring">ChanData function toString</a></h3>
+<pre><code class="language-haxe">function toString():String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Chan.hx#L129">(view code)</a></p>
+<h2><a name="class-complex">class Complex</a></h2>
+<pre><code class="language-haxe">var imag:stdgo.Complex.T</code></pre>
+<pre><code class="language-haxe">var real:stdgo.Complex.T</code></pre>
+<h3><a name="complex-function-new">Complex function new</a></h3>
+<pre><code class="language-haxe">function new(r:stdgo.Complex.T, i:stdgo.Complex.T):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//StdGoTypes.hx#L233">(view code)</a></p>
+<h3><a name="complex-function-tostring">Complex function toString</a></h3>
+<pre><code class="language-haxe">function toString():String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//StdGoTypes.hx#L239">(view code)</a></p>
+<h2><a name="class-go">class Go</a></h2>
+<pre><code class="language-haxe">var recover_exception:stdgo.AnyInterface</code></pre>
+<h3><a name="go-function-asinterface">Go function asInterface</a></h3>
+<pre><code class="language-haxe">function asInterface(expr:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-cfor">Go function cfor</a></h3>
+<pre><code class="language-haxe">function cfor(cond:Dynamic, post:Dynamic, expr:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-copyslice">Go function copySlice</a></h3>
+<pre><code class="language-haxe">function copySlice(dst:Dynamic, src:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-expectedvalue">Go function expectedValue</a></h3>
+<pre><code class="language-haxe">function expectedValue():Dynamic</code></pre>
+<h3><a name="go-function-map">Go function map</a></h3>
+<pre><code class="language-haxe">function map(exprs:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-multireturn">Go function multireturn</a></h3>
+<pre><code class="language-haxe">function multireturn(expr:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-pointer">Go function pointer</a></h3>
+<pre><code class="language-haxe">function pointer(expr:Dynamic, hasSet:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-routine">Go function routine</a></h3>
+<pre><code class="language-haxe">function routine(func:():Void):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Go.hx#L169">(view code)</a></p>
+<h3><a name="go-function-select">Go function select</a></h3>
+<pre><code class="language-haxe">function select(expr:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-setkeys">Go function setKeys</a></h3>
+<pre><code class="language-haxe">function setKeys(expr:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-str">Go function str</a></h3>
+<pre><code class="language-haxe">function str(exprs:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-string">Go function string</a></h3>
+<pre><code class="language-haxe">function string(s:Dynamic):String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Go.hx#L153">(view code)</a></p>
+<h3><a name="go-function-tointerface">Go function toInterface</a></h3>
+<pre><code class="language-haxe">function toInterface(expr:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-typeassert">Go function typeAssert</a></h3>
+<pre><code class="language-haxe">function typeAssert(expr:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-typeequals">Go function typeEquals</a></h3>
+<pre><code class="language-haxe">function typeEquals(expr:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-typefunction">Go function typeFunction</a></h3>
+<pre><code class="language-haxe">function typeFunction(e:Dynamic):Dynamic</code></pre>
+<h3><a name="go-function-unquote">Go function unquote</a></h3>
+<pre><code class="language-haxe">function unquote(qvalue:Dynamic):Dynamic</code></pre>
+<h2><a name="class-gointiterator">class GoIntIterator</a></h2>
+<h3><a name="gointiterator-function-hasnext">GoIntIterator function hasNext</a></h3>
+<pre><code class="language-haxe">function hasNext():Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//StdGoTypes.hx#L1923">(view code)</a></p>
+<h3><a name="gointiterator-function-new">GoIntIterator function new</a></h3>
+<pre><code class="language-haxe">function new(min:stdgo.GoInt, max:stdgo.GoInt):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//StdGoTypes.hx#L1918">(view code)</a></p>
+<h3><a name="gointiterator-function-next">GoIntIterator function next</a></h3>
+<pre><code class="language-haxe">function next():stdgo.GoInt</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//StdGoTypes.hx#L1927">(view code)</a></p>
+<h2><a name="class-goobjectmap">class GoObjectMap</a></h2>
+<pre><code class="language-haxe">var t:stdgo.internal.reflect._Type</code></pre>
+<h3><a name="goobjectmap-function-clear">GoObjectMap function clear</a></h3>
+<pre><code class="language-haxe">function clear():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L162">(view code)</a></p>
+<h3><a name="goobjectmap-function-copy">GoObjectMap function copy</a></h3>
+<pre><code class="language-haxe">function copy():stdgo.GoObjectMap&lt;stdgo.GoObjectMap.K, stdgo.GoObjectMap.V&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L148">(view code)</a></p>
+<h3><a name="goobjectmap-function-defaultvalue">GoObjectMap function defaultValue</a></h3>
+<pre><code class="language-haxe">function defaultValue():stdgo.GoObjectMap.V</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L103">(view code)</a></p>
+<h3><a name="goobjectmap-function-exists">GoObjectMap function exists</a></h3>
+<pre><code class="language-haxe">function exists(key:stdgo.GoObjectMap.K):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L119">(view code)</a></p>
+<h3><a name="goobjectmap-function-get">GoObjectMap function get</a></h3>
+<pre><code class="language-haxe">function get(key:stdgo.GoObjectMap.K):Null&lt;stdgo.GoObjectMap.V&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L111">(view code)</a></p>
+<h3><a name="goobjectmap-function-iterator">GoObjectMap function iterator</a></h3>
+<pre><code class="language-haxe">function iterator():Iterator&lt;stdgo.GoObjectMap.V&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L142">(view code)</a></p>
+<h3><a name="goobjectmap-function-keyvalueiterator">GoObjectMap function keyValueIterator</a></h3>
+<pre><code class="language-haxe">function keyValueIterator():KeyValueIterator&lt;stdgo.GoObjectMap.K, stdgo.GoObjectMap.V&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L144">(view code)</a></p>
+<h3><a name="goobjectmap-function-keys">GoObjectMap function keys</a></h3>
+<pre><code class="language-haxe">function keys():Iterator&lt;stdgo.GoObjectMap.K&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L139">(view code)</a></p>
+<h3><a name="goobjectmap-function-new">GoObjectMap function new</a></h3>
+<pre><code class="language-haxe">function new(t:stdgo.internal.reflect._Type):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L71">(view code)</a></p>
+<h3><a name="goobjectmap-function-remove">GoObjectMap function remove</a></h3>
+<pre><code class="language-haxe">function remove(key:stdgo.GoObjectMap.K):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L127">(view code)</a></p>
+<h3><a name="goobjectmap-function-set">GoObjectMap function set</a></h3>
+<pre><code class="language-haxe">function set(key:stdgo.GoObjectMap.K, value:stdgo.GoObjectMap.V):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L75">(view code)</a></p>
+<h3><a name="goobjectmap-function-tostring">GoObjectMap function toString</a></h3>
+<pre><code class="language-haxe">function toString():String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoMap.hx#L155">(view code)</a></p>
+<h2><a name="class-gostringtools">class GoStringTools</a></h2>
+<h3><a name="gostringtools-function-indexof">GoStringTools function indexOf</a></h3>
+<pre><code class="language-haxe">function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoString.hx#L253">(view code)</a></p>
+<h3><a name="gostringtools-function-lastindexof">GoStringTools function lastIndexOf</a></h3>
+<pre><code class="language-haxe">function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoString.hx#L250">(view code)</a></p>
+<h3><a name="gostringtools-function-substr">GoStringTools function substr</a></h3>
+<pre><code class="language-haxe">function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoString.hx#L256">(view code)</a></p>
+<h3><a name="gostringtools-function-tostring">GoStringTools function toString</a></h3>
+<pre><code class="language-haxe">function toString(str:stdgo.GoString):String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoString.hx#L259">(view code)</a></p>
+<h2><a name="class-pointerdata">class PointerData</a></h2>
+<pre><code class="language-haxe">var hasSet:Bool</code></pre>
+<pre><code class="language-haxe">var previous:stdgo.Pointer&lt;Any&gt;</code></pre>
+<pre><code class="language-haxe">var ref:stdgo.PointerData.T</code></pre>
+<pre><code class="language-haxe">var underlying:Any</code></pre>
+<pre><code class="language-haxe">var underlyingIndex:Any</code></pre>
+<h3><a name="pointerdata-function-assign">PointerData function assign</a></h3>
+<pre><code class="language-haxe">function assign():stdgo.PointerData.T</code></pre>
+<h3><a name="pointerdata-function-convert">PointerData function convert</a></h3>
+<pre><code class="language-haxe">function convert()</code></pre>
+<h3><a name="pointerdata-function-get">PointerData function get</a></h3>
+<pre><code class="language-haxe">function get():stdgo.PointerData.T</code></pre>
+<h3><a name="pointerdata-function-new">PointerData function new</a></h3>
+<pre><code class="language-haxe">function new(?get:():stdgo.PointerData.T, ?set:(value:stdgo.PointerData.T):stdgo.PointerData.T, ?hasSet:Bool, ?previous:stdgo.Pointer&lt;Any&gt;, ?underlying:Any, ?underlyingIndex:Any):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Pointer.hx#L87">(view code)</a></p>
+<h3><a name="pointerdata-function-set">PointerData function set</a></h3>
+<pre><code class="language-haxe">function set()</code></pre>
+<h3><a name="pointerdata-function-tostring">PointerData function toString</a></h3>
+<pre><code class="language-haxe">function toString():String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Pointer.hx#L102">(view code)</a></p>
+<h2><a name="class-slicedata">class SliceData</a></h2>
+<pre><code class="language-haxe">var capacity:Int</code></pre>
+<pre><code class="language-haxe">var length:Int</code></pre>
+<pre><code class="language-haxe">var offset:Int</code></pre>
+<pre><code class="language-haxe">var vector:haxe.ds.Vector&lt;stdgo.SliceData.T&gt;</code></pre>
+<h3><a name="slicedata-function-get">SliceData function get</a></h3>
+<pre><code class="language-haxe">function get(index:Int):stdgo.SliceData.T</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Slice.hx#L241">(view code)</a></p>
+<h3><a name="slicedata-function-grow">SliceData function grow</a></h3>
+<pre><code class="language-haxe">function grow():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Slice.hx#L267">(view code)</a></p>
+<h3><a name="slicedata-function-new">SliceData function new</a></h3>
+<pre><code class="language-haxe">function new(length:Int, capacity:Int, args:haxe.Rest&lt;stdgo.SliceData.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Slice.hx#L218">(view code)</a></p>
+<h3><a name="slicedata-function-set">SliceData function set</a></h3>
+<pre><code class="language-haxe">function set(index:Int, value:stdgo.SliceData.T):stdgo.SliceData.T</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Slice.hx#L246">(view code)</a></p>
+<h3><a name="slicedata-function-toarray">SliceData function toArray</a></h3>
+<pre><code class="language-haxe">function toArray():Array&lt;stdgo.SliceData.T&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Slice.hx#L251">(view code)</a></p>
+<h3><a name="slicedata-function-tostring">SliceData function toString</a></h3>
+<pre><code class="language-haxe">function toString():String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Slice.hx#L259">(view code)</a></p>
+<h3><a name="slicedata-function-tovector">SliceData function toVector</a></h3>
+<pre><code class="language-haxe">function toVector():haxe.ds.Vector&lt;stdgo.SliceData.T&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Slice.hx#L255">(view code)</a></p>
+<h2>class T_errorString_static_extension</h2>
+<h3>T_errorString_static_extension function error</h3>
+<pre><code class="language-haxe">function error(_e:stdgo._Error.T_errorString):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Error.hx#L53">(view code)</a></p>
+<h3>T_errorString_static_extension function runtimeError</h3>
+<pre><code class="language-haxe">function runtimeError(_e:stdgo._Error.T_errorString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//Error.hx#L58">(view code)</a></p>
+<h2><a name="class-unknown">class Unknown</a></h2>
+<h2><a name="class-vectordata">class VectorData</a></h2>
+<pre><code class="language-haxe">var capacity:Int</code></pre>
+<pre><code class="language-haxe">var length:Int</code></pre>
+<pre><code class="language-haxe">var vector:haxe.ds.Vector&lt;stdgo.VectorData.T&gt;</code></pre>
+<h3><a name="vectordata-function-get">VectorData function get</a></h3>
+<pre><code class="language-haxe">function get(i:Int):stdgo.VectorData.T</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoArray.hx#L29">(view code)</a></p>
+<h3><a name="vectordata-function-new">VectorData function new</a></h3>
+<pre><code class="language-haxe">function new(length:Int):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoArray.hx#L24">(view code)</a></p>
+<h3><a name="vectordata-function-set">VectorData function set</a></h3>
+<pre><code class="language-haxe">function set(i:Int, value:stdgo.VectorData.T):stdgo.VectorData.T</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoArray.hx#L32">(view code)</a></p>
+<h3><a name="vectordata-function-tostring">VectorData function toString</a></h3>
+<pre><code class="language-haxe">function toString():String</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master//GoArray.hx#L35">(view code)</a></p>
+<h1><a name="typedefs">Typedefs</a></h1>
+<pre><code class="language-haxe">import stdgo.*</code></pre>
+<h2><a name="typedef-complex128">typedef Complex128</a></h2>
+<pre><code class="language-haxe">typedef Complex128 = var c:stdgo._StdGoTypes.Float64</code></pre>
+<h2><a name="typedef-complex64">typedef Complex64</a></h2>
+<pre><code class="language-haxe">typedef Complex64 = var c:stdgo._StdGoTypes.Float32</code></pre>
+<h2><a name="typedef-error">typedef Error</a></h2>
+<pre><code class="language-haxe">typedef Error = var a:{&lt;__underlying__&gt; | ():stdgo.GoString | ():stdgo.AnyInterface}</code></pre>
+<h2><a name="typedef-gobyte">typedef GoByte</a></h2>
+<pre><code class="language-haxe">typedef GoByte = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-gofloat">typedef GoFloat</a></h2>
+<pre><code class="language-haxe">typedef GoFloat = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-goint">typedef GoInt</a></h2>
+<pre><code class="language-haxe">typedef GoInt = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-gorune">typedef GoRune</a></h2>
+<pre><code class="language-haxe">typedef GoRune = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-gouint">typedef GoUInt</a></h2>
+<pre><code class="language-haxe">typedef GoUInt = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-invalidtype">typedef InvalidType</a></h2>
+<pre><code class="language-haxe">typedef InvalidType = var d:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-mapaccess">typedef MapAccess</a></h2>
+<pre><code class="language-haxe">typedef MapAccess = var a:{&lt;get&gt; | (k:stdgo.MapAccess.K, v:stdgo.MapAccess.V):Void | (k:stdgo.MapAccess.K):Null&lt;stdgo.MapAccess.V&gt;}</code></pre>
+<h2><a name="typedef-ref">typedef Ref</a></h2>
+<pre><code class="language-haxe">typedef Ref = var c:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-structtype">typedef StructType</a></h2>
+<pre><code class="language-haxe">typedef StructType = var a:__underlying__:():stdgo.AnyInterface</code></pre>
+    </article>
+
+    <script src="https://utteranc.es/client.js"
+        repo="go2hx/go2hx.github.io"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+    </script>
+</body>
+</html>

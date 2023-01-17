@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.internal.goexperiment</code></h1>
+<p><a href="../../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<p>Package goexperiment implements support for toolchain experiments.��//��// Toolchain experiments are controlled by the GOEXPERIMENT��// environment variable. GOEXPERIMENT is a comma-separated list of��// experiment names. GOEXPERIMENT can be set at make.bash time, which��// sets the default experiments for binaries built with the tool��// chain; or it can be set at build time. GOEXPERIMENT can also be set��// to "none", which disables any experiments that were enabled at��// make.bash time.��//��// Experiments are exposed to the build in the following ways:��//��// - Build tag goexperiment.x is set if experiment x (lower case) is��// enabled.��//��// - For each experiment x (in camel case), this package contains a��// boolean constant x and an integer constant xInt.��//��// - In runtime assembly, the macro GOEXPERIMENT_x is defined if��// experiment x (lower case) is enabled.��//��// In the toolchain, the set of experiments enabled for the current��// build should be accessed via objabi.Experiment.��//��// The set of experiments is included in the output of runtime.Version()��// and "go version \<binary\>" if it differs from the default experiments.��//��// For the set of experiments supported by the current toolchain, see��// "go doc goexperiment.Flags".��//��// Note that this package defines the set of experiments (in Flags)��// and records the experiments that were enabled when the package��// was compiled (as boolean and integer constants).��//��// Note especially that this package does not itself change behavior��// at run time based on the GOEXPERIMENT variable.��// The code used in builds to interpret the GOEXPERIMENT variable��// is in the separate package internal/buildcfg. </p>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#constants">Constants</a></p></li><li>
+<p><a href="#class-flags">class Flags</a></p></li><li>
+<p><a href="#flags-function-new"><code>function new(?fieldTrack:Bool, ?preemptibleLoops:Bool, ?staticLockRanking:Bool, ?boringCrypto:Bool, ?unified:Bool, ?regabiWrappers:Bool, ?regabiArgs:Bool, ?heapMinimum512KiB:Bool):Void</code></a></p></li></ul>
+<h1><a name="constants">Constants</a></h1>
+<pre><code class="language-haxe">import stdgo.internal.goexperiment.Goexperiment</code></pre>
+<pre><code class="language-haxe">final boringCrypto:stdgo.InvalidType = null</code></pre>
+<pre><code class="language-haxe">final boringCryptoInt:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
+<pre><code class="language-haxe">final fieldTrack:stdgo.InvalidType = null</code></pre>
+<pre><code class="language-haxe">final fieldTrackInt:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
+<pre><code class="language-haxe">final heapMinimum512KiB:stdgo.InvalidType = null</code></pre>
+<pre><code class="language-haxe">final heapMinimum512KiBInt:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
+<pre><code class="language-haxe">final preemptibleLoops:stdgo.InvalidType = null</code></pre>
+<pre><code class="language-haxe">final preemptibleLoopsInt:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
+<pre><code class="language-haxe">final regabiArgs:stdgo.InvalidType = null</code></pre>
+<pre><code class="language-haxe">final regabiArgsInt:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
+<pre><code class="language-haxe">final regabiWrappers:stdgo.InvalidType = null</code></pre>
+<pre><code class="language-haxe">final regabiWrappersInt:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
+<pre><code class="language-haxe">final staticLockRanking:stdgo.InvalidType = null</code></pre>
+<pre><code class="language-haxe">final staticLockRankingInt:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
+<pre><code class="language-haxe">final unified:stdgo.InvalidType = null</code></pre>
+<pre><code class="language-haxe">final unifiedInt:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.internal.goexperiment.*</code></pre>
+<h2><a name="class-flags">class Flags</a></h2>
+<p>Flags is the set of experiments that can be enabled or disabled in��// the current toolchain.��//��// When specified in the GOEXPERIMENT environment variable or as build��// tags, experiments use the strings.ToLower of their field name.��//��// For the baseline experimental configuration, see��// objabi.experimentBaseline.��//��// If you change this struct definition, run "go generate". </p>
+<pre><code class="language-haxe">var boringCrypto:Bool</code></pre>
+<pre><code class="language-haxe">var fieldTrack:Bool</code></pre>
+<pre><code class="language-haxe">var heapMinimum512KiB:Bool</code></pre>
+<p>HeapMinimum512KiB reduces the minimum heap size to 512 KiB.���//���// This was originally reduced as part of PacerRedesign, but���// has been broken out to its own experiment that is disabled���// by default. </p>
+<pre><code class="language-haxe">var preemptibleLoops:Bool</code></pre>
+<pre><code class="language-haxe">var regabiArgs:Bool</code></pre>
+<p>RegabiArgs enables register arguments/results in all���// compiled Go functions.���//���// Requires wrappers (to do ABI translation), and reflect (so���// reflection calls use registers). </p>
+<pre><code class="language-haxe">var regabiWrappers:Bool</code></pre>
+<p>RegabiWrappers enables ABI wrappers for calling between���// ABI0 and ABIInternal functions. Without this, the ABIs are���// assumed to be identical so cross-ABI calls are direct. </p>
+<pre><code class="language-haxe">var staticLockRanking:Bool</code></pre>
+<pre><code class="language-haxe">var unified:Bool</code></pre>
+<p>Unified enables the compiler's unified IR construction���// experiment. </p>
+<h3><a name="flags-function-new">Flags function new</a></h3>
+<pre><code class="language-haxe">function new(?fieldTrack:Bool, ?preemptibleLoops:Bool, ?staticLockRanking:Bool, ?boringCrypto:Bool, ?unified:Bool, ?regabiWrappers:Bool, ?regabiArgs:Bool, ?heapMinimum512KiB:Bool):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/internal/goexperiment//Goexperiment.hx#L121"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+    </article>
+</body>
+</html>

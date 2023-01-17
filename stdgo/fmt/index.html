@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.fmt</code></h1>
+<p><a href="../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#function-errorf"><code>function errorf(fmt:stdgo.GoString, args:haxe.Rest&lt;stdgo.AnyInterface&gt;):stdgo.Error</code></a></p></li><li>
+<p><a href="#function-fprint"><code>function fprint(w:stdgo.io.Writer, args:haxe.Rest&lt;Dynamic&gt;):Void</code></a></p></li><li>
+<p><a href="#function-fprintf"><code>function fprintf(w:stdgo.io.Writer, fmt:stdgo.GoString, args:haxe.Rest&lt;Dynamic&gt;):Void</code></a></p></li><li>
+<p><a href="#function-fprintln"><code>function fprintln(w:stdgo.io.Writer, args:haxe.Rest&lt;Dynamic&gt;):Void</code></a></p></li><li>
+<p><a href="#function-print"><code>function print(args:haxe.Rest&lt;Dynamic&gt;):{_1:stdgo.Error, _0:Int}</code></a></p></li><li>
+<p><a href="#function-printf"><code>function printf(fmt:stdgo.GoString, args:haxe.Rest&lt;stdgo.AnyInterface&gt;):Void</code></a></p></li><li>
+<p><a href="#function-println"><code>function println(args:haxe.Rest&lt;Dynamic&gt;):{_1:stdgo.Error, _0:Int}</code></a></p></li><li>
+<p><a href="#function-sprint"><code>function sprint(args:haxe.Rest&lt;Dynamic&gt;):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-sprintf"><code>function sprintf(fmt:stdgo.GoString, args:haxe.Rest&lt;stdgo.AnyInterface&gt;):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-sprintln"><code>function sprintln(args:haxe.Rest&lt;Dynamic&gt;):stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-formatter">typedef Formatter</a></p></li><li>
+<p><a href="#typedef-gostringer">typedef GoStringer</a></p></li><li>
+<p><a href="#typedef-scanstate">typedef ScanState</a></p></li><li>
+<p><a href="#typedef-scanner">typedef Scanner</a></p></li><li>
+<p><a href="#typedef-state">typedef State</a></p></li><li>
+<p><a href="#typedef-stringer">typedef Stringer</a></p></li></ul>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.fmt.Fmt</code></pre>
+<h2><a name="function-errorf">function errorf</a></h2>
+<pre><code class="language-haxe">function errorf(fmt:stdgo.GoString, args:haxe.Rest&lt;stdgo.AnyInterface&gt;):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L47"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-fprint">function fprint</a></h2>
+<pre><code class="language-haxe">function fprint(w:stdgo.io.Writer, args:haxe.Rest&lt;Dynamic&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L71"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-fprintf">function fprintf</a></h2>
+<pre><code class="language-haxe">function fprintf(w:stdgo.io.Writer, fmt:stdgo.GoString, args:haxe.Rest&lt;Dynamic&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L69"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-fprintln">function fprintln</a></h2>
+<pre><code class="language-haxe">function fprintln(w:stdgo.io.Writer, args:haxe.Rest&lt;Dynamic&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L70"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-print">function print</a></h2>
+<pre><code class="language-haxe">function print(args:haxe.Rest&lt;Dynamic&gt;):{_1:stdgo.Error, _0:Int}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L60"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-printf">function printf</a></h2>
+<pre><code class="language-haxe">function printf(fmt:stdgo.GoString, args:haxe.Rest&lt;stdgo.AnyInterface&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L65"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-println">function println</a></h2>
+<pre><code class="language-haxe">function println(args:haxe.Rest&lt;Dynamic&gt;):{_1:stdgo.Error, _0:Int}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L55"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-sprint">function sprint</a></h2>
+<pre><code class="language-haxe">function sprint(args:haxe.Rest&lt;Dynamic&gt;):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L73"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-sprintf">function sprintf</a></h2>
+<pre><code class="language-haxe">function sprintf(fmt:stdgo.GoString, args:haxe.Rest&lt;stdgo.AnyInterface&gt;):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L89"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-sprintln">function sprintln</a></h2>
+<pre><code class="language-haxe">function sprintln(args:haxe.Rest&lt;Dynamic&gt;):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt//Fmt.hx#L77"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="typedefs">Typedefs</a></h1>
+<pre><code class="language-haxe">import stdgo.fmt.*</code></pre>
+<h2><a name="typedef-formatter">typedef Formatter</a></h2>
+<pre><code class="language-haxe">typedef Formatter = var a:{&lt;__underlying__&gt; | (_f:stdgo.fmt.State, _verb:stdgo.GoRune):Void | ():stdgo.AnyInterface}</code></pre>
+<h2><a name="typedef-gostringer">typedef GoStringer</a></h2>
+<pre><code class="language-haxe">typedef GoStringer = var a:{&lt;__underlying__&gt; | ():stdgo.GoString | ():stdgo.AnyInterface}</code></pre>
+<h2><a name="typedef-scanstate">typedef ScanState</a></h2>
+<pre><code class="language-haxe">typedef ScanState = var a:{&lt;__underlying__&gt; | ():{_1:Bool, _0:stdgo.GoInt} | ():stdgo.Error | (_skipSpace:Bool, _f:()):{_1:stdgo.Error, _0:stdgo.Slice&lt;stdgo.GoByte&gt;} | ():Void | ():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune} | (_buf:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt} | ():stdgo.AnyInterface}</code></pre>
+<h2><a name="typedef-scanner">typedef Scanner</a></h2>
+<pre><code class="language-haxe">typedef Scanner = var a:{&lt;__underlying__&gt; | (_state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error | ():stdgo.AnyInterface}</code></pre>
+<h2><a name="typedef-state">typedef State</a></h2>
+<pre><code class="language-haxe">typedef State = var a:{&lt;__underlying__&gt; | (_b:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt} | ():{_1:Bool, _0:stdgo.GoInt} | ():{_1:Bool, _0:stdgo.GoInt} | (_c:stdgo.GoInt):Bool | ():stdgo.AnyInterface}</code></pre>
+<h2><a name="typedef-stringer">typedef Stringer</a></h2>
+<pre><code class="language-haxe">typedef Stringer = var a:{&lt;__underlying__&gt; | ():stdgo.GoString | ():stdgo.AnyInterface}</code></pre>
+    </article>
+</body>
+</html>

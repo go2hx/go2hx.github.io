@@ -1,30 +1,82 @@
 
+<img src="logo.svg" width="400" align="right" style="margin-bottom:-4000px;"/>
 
-# go2hx
 
-A source-to-source compiler that compiles Go code into Haxe.
+<h1><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></h1>
 
-Integrates seamlessly with both the front end Go compiler and the Haxe build tools.
+*warning: experimental version.*
 
-Haxe developers get the library support of Golang, with the portability and usefulness of the Haxe language.
+Source-to-Source Go to Haxe compiler.
 
-Go devs get the portability of Haxe and access to the chosen target's eco system, ( jvm/lua/python etc), while utilizing Go libraries.
+Use Go libs with ease! [Get started!](https://github.com/go2hx/go2hx#getting-started)
 
-* **[Get started](https://github.com/go2hx/go2hx#getting-started)**
-* **[Wiki](https://github.com/go2hx/go2hx/wiki)**
-* **[Test883](./test883)**
+[![issues](powered-by-issues.svg)](https://github.com/go2hx/go2hx/issues)
+[![haxe](made-with-haxe.svg)](https://haxe.org)
 
-## FAQ:
 
-* Q: What about a Go target for Haxe?
-* A: That could be a very nice Haxe target, however it's not in the scope of this project.
-<br><br>
-* Q: Why go2hx instead of Go web assembly and/or gopherjs?
-* A: Haxe's js target is battle tested and allows dead code elimination, direct access to the js api etc.
-<br><br>
-* Q: Is it possible for Haxe to Compile Go?
-* A: Yes it will be possible 100% when go2hx gets bootstrapped to be in 100% Haxe, currently the project is 95% Haxe.
-<br><br>
-* Q: Plans on Cgo support?
-* A: No plan at the moment, however it would be nice in the future for go2hx to support it.
 
+[Manual](./manual/index.html) (detailed info about the project)
+
+<details><summary>Standard Library compatibility/api docs</summary>::support::</details>
+<details><summary>FAQ</summary>
+
+* Q: Can library X be compiled using go2hx?
+* A: Maybe, to see if the library is supported at the moment ``go get library_here`` the library and then run:
+```sh
+go list -f '{{ .Imports }}' library here
+```
+Then check to see if the standard libraries used are all passing with the compatibility table above.
+
+* Q: Does the compiler support Go as a Haxe target?
+* A: No and it's not within the scope of the project.
+
+* Q: Why not use externs instead of compiling Go code into Haxe?
+* A: Because externs can target lock a code base and they require maintenance, abstraction code etc.
+
+* Q: Cgo support?
+* A: Not available but planned and happily accepting contributions for it!
+
+* Q: How does this compare to Gopherjs or Go wasm?
+* A: go2hx's design is built with Haxe devs in mind, therefore the goals align with Haxe dev advantages of the compiler, with that said go2hx does have some advantages already, smaller code generation, access to Haxe's compiler tooling such as dce and optimizations, and Haxe as a language being very portable, high level and statically typed.
+
+* Q: What internals does go2hx's stdlib use (stdgo)
+* A: go2hx's compiler, compiles the standard library packages for example ``os``. After compilation a Patcher system switches out functions/variables/structs for a Haxe equivalent, for example ``os.Open`` uses ``sys.io.File.read`` and ``sys.io.File.write``.
+
+</details>
+
+### Contributing:
+
+The project is still at an experimental level, so expect undocumented problems to spring up.
+**The best way to contribute** is to simply use the compiler on code you would like and inevitably run into errors. From there we can answer some questions to see:
+
+<details>
+<summary>how to proceed!</summary>
+
+## What time is the error happening?: 
+* go compiler time (``./export.go`` named: go4hx)
+* Haxe compiler time (``src/Typer.hx`` and ``./stdgo/internal/reflect/Reflect.hx`` etc)
+* compile time (Haxe build tools example: ``haxe build.hxml``)
+* runtime (Code running example: ``hl build.hl`` or ``node build.js``).
+
+## How can the code causing the error be reduced to a simple sample?
+* Use ``./rnd/main.go`` as a testbed and run it with: ``haxe rnd.hxml``
+* Modify the go code with debug prints or the Haxe compiled code with traces and figure out where is the precise error point.
+* Copy over structs and interfaces if needed that are used by the erroring code sample.
+* Make usage of go2hx's reflection for example:
+```go
+println(reflect.TypeOf(value).String())
+```
+
+## Does the code throw "not implemented" error?
+* Look at the unimplemented function's [documentation](https://pkg.go.dev/std)
+* Implement the missing functionality into the Patcher ``./src/Patch.hx`` following the naming convention ``path:FunctionName`` or ``path.Type:FunctionName`` for [recv functions](./ast.html).
+
+## Is the type casting invalid?
+* Look into ``./src/Typer.hx`` and search for ``function checkType`` for implicit type conversions and for casts ``function castTranslate``
+* A lot of helper type functions are called in ``./stdgo/internal/reflect/Reflect`` for example ``getUnderlying`` and the entire module is imported into ``Typer.hx`` so you won't see clear reference that the code is there.
+
+</details>
+
+#### Have issues and/or want to contribute?
+[![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/go2hx/go2hx)
+[![discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/ewnMZAV)

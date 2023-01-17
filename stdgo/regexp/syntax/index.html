@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.regexp.syntax</code></h1>
+<p><a href="../../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1><table><thead><th align="null">*��Package syntax parses regular expressions into parse trees and compiles��parse trees into programs. Most clients of regular expressions will use the��facilities of package regexp (such as Compile and Match) instead of this package.���# Syntax���The regular expression syntax understood by this package when parsing with the Perl flag is as follows.��Parts of the syntax can be disabled by passing alternate flags to Parse.���Single characters:����.              any character, possibly including newline (flag s=true)���[xyz]          character class���[^xyz]         negated character class���\d             Perl character class���\D             negated Perl character class���[[:alpha:]]    ASCII character class���[[:^alpha:]]   negated ASCII character class���\pN            Unicode character class (one-letter name)���\p{Greek}      Unicode character class���\PN            negated Unicode character class (one-letter name)���\P{Greek}      negated Unicode character class���Composites:����xy             x followed by y���x</th><th align="null">y            x or y (prefer x)���Repetitions:����x\<em>             zero or more x, prefer more���x+             one or more x, prefer more���x?             zero or one x, prefer one���x{n,m}         n or n+1 or ... or m x, prefer more���x{n,}          n or more x, prefer more���x{n}           exactly n x���x\</em>?            zero or more x, prefer fewer���x+?            one or more x, prefer fewer���x??            zero or one x, prefer zero���x{n,m}?        n or n+1 or ... or m x, prefer fewer���x{n,}?         n or more x, prefer fewer���x{n}?          exactly n x���Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n}��reject forms that create a minimum or maximum repetition count above 1000.��Unlimited repetitions are not subject to this restriction.���Grouping:����(re)           numbered capturing group (submatch)���(?P\<name\>re)   named &amp; numbered capturing group (submatch)���(?:re)         non-capturing group���(?flags)       set flags within current group; non-capturing���(?flags:re)    set flags during re; non-capturing����Flag syntax is xyz (set) or -xyz (clear) or xy-z (set xy, clear z). The flags are:����i              case-insensitive (default false)���m              multi-line mode: ^ and $ match begin/end line in addition to begin/end text (default false)���s              let . match \n (default false)���U              ungreedy: swap meaning of x\<em> and x\</em>?, x+ and x+?, etc (default false)���Empty strings:����^              at beginning of text or line (flag m=true)���$              at end of text (like \z not \Z) or line (flag m=true)���\A             at beginning of text���\b             at ASCII word boundary (\w on one side and \W, \A, or \z on the other)���\B             not at ASCII word boundary���\z             at end of text���Escape sequences:����\a             bell (== \007)���\f             form feed (== \014)���\t             horizontal tab (== \011)���\n             newline (== \012)���\r             carriage return (== \015)���\v             vertical tab character (== \013)���\\<em>             literal \</em>, for any punctuation character \<em>���\123           octal character code (up to three digits)���\x7F           hex character code (exactly two digits)���\x{10FFFF}     hex character code���\Q...\E        literal text ... even if ... has punctuation���Character class elements:����x              single character���A-Z            character range (inclusive)���\d             Perl character class���[:foo:]        ASCII character class foo���\p{Foo}        Unicode character class Foo���\pF            Unicode character class F (one-letter name)���Named character classes as character class elements:����[\d]           digits (== \d)���[^\d]          not digits (== \D)���[\D]           not digits (== \D)���[^\D]          not not digits (== \d)���[[:name:]]     named ASCII class inside character class (== [:name:])���[^[:name:]]    named ASCII class inside negated character class (== [:^name:])���[\p{Name}]     named Unicode property inside character class (== \p{Name})���[^\p{Name}]    named Unicode property inside negated character class (== \P{Name})���Perl character classes (all ASCII-only):����\d             digits (== [0-9])���\D             not digits (== [^0-9])���\s             whitespace (== [\t\n\f\r ])���\S             not whitespace (== [^\t\n\f\r ])���\w             word characters (== [0-9A-Za-z_])���\W             not word characters (== [^0-9A-Za-z_])���ASCII character classes:����[[:alnum:]]    alphanumeric (== [0-9A-Za-z])���[[:alpha:]]    alphabetic (== [A-Za-z])���[[:ascii:]]    ASCII (== [\x00-\x7F])���[[:blank:]]    blank (== [\t ])���[[:cntrl:]]    control (== [\x00-\x1F\x7F])���[[:digit:]]    digits (== [0-9])���[[:graph:]]    graphical (== [!-\~] == [A-Za-z0-9!"#$%&amp;'()\</em>+,\-./:;\&lt;=\>?@[]^_`{</th><th align="null">}\~])���[[:lower:]]    lower case (== [a-z])���[[:print:]]    printable (== [ -\~] == [ [:graph:]])���[[:punct:]]    punctuation (== [!-/:-@[-`{-\~])���[[:space:]]    whitespace (== [\t\n\v\f\r ])���[[:upper:]]    upper case (== [A-Z])���[[:word:]]     word characters (== [0-9A-Za-z_])���[[:xdigit:]]   hex digit (== [0-9A-Fa-f])���Unicode character classes are those in unicode.Categories and unicode.Scripts.��*</th><th align="null">/</th></thead><tbody></tbody></table><details><summary>hl tests failed</summary>
+<p>
+<pre><code>Error: Command failed with error 1
+=== RUN   TestParseSimple
+Exception: regexp.syntax.testParseSimple is not yet implemented
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
+Called from stdgo.regexp.syntax_test._Syntax.$Syntax_Fields_.main (stdgo/regexp/syntax_test/Syntax.hx line 44)</code></pre>
+<p></p>
+</details></p><details><summary>interp tests failed</summary>
+<p>
+<pre><code>=== RUN   TestParseSimple
+Exception: regexp.syntax.testParseSimple is not yet implemented
+Called from stdgo.regexp.syntax._Syntax.Syntax_Fields_.testParseSimple (stdgo/regexp/syntax/Syntax.hx line 1044 column 2)</code></pre>
+<p></p>
+</details></p><details><summary>jvm tests failed</summary>
+<p>
+<pre><code>IO.Overflow("write_ui16")</code></pre>
+<p></p>
+</details></p>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#constants">Constants</a></p></li><li>
+<p><a href="#function-_appendclass"><code>function _appendClass(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_appendfoldedclass"><code>function _appendFoldedClass(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_appendfoldedrange"><code>function _appendFoldedRange(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _lo:stdgo.GoRune, _hi:stdgo.GoRune):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_appendliteral"><code>function _appendLiteral(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.GoRune, _flags:stdgo.regexp.syntax.Flags):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_appendnegatedclass"><code>function _appendNegatedClass(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_appendnegatedtable"><code>function _appendNegatedTable(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_appendrange"><code>function _appendRange(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _lo:stdgo.GoRune, _hi:stdgo.GoRune):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_appendtable"><code>function _appendTable(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_bw"><code>function _bw(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _args:haxe.Rest&lt;stdgo.GoString&gt;):Void</code></a></p></li><li>
+<p><a href="#function-_checkutf8"><code>function _checkUTF8(_s:stdgo.GoString):stdgo.Error</code></a></p></li><li>
+<p><a href="#function-_cleanalt"><code>function _cleanAlt(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></a></p></li><li>
+<p><a href="#function-_cleanclass"><code>function _cleanClass(_rp:stdgo.Ref&lt;stdgo.Slice&lt;stdgo.GoRune&gt;&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_dump"><code>function _dump(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-_dumpinst"><code>function _dumpInst(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _i:stdgo.Ref&lt;stdgo.regexp.syntax.Inst&gt;):Void</code></a></p></li><li>
+<p><a href="#function-_dumpprog"><code>function _dumpProg(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _p:stdgo.Ref&lt;stdgo.regexp.syntax.Prog&gt;):Void</code></a></p></li><li>
+<p><a href="#function-_dumpregexp"><code>function _dumpRegexp(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></a></p></li><li>
+<p><a href="#function-_escape"><code>function _escape(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _r:stdgo.GoRune, _force:Bool):Void</code></a></p></li><li>
+<p><a href="#function-_ischarclass"><code>function _isCharClass(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Bool</code></a></p></li><li>
+<p><a href="#function-_isupperfold"><code>function _isUpperFold(_r:stdgo.GoRune):Bool</code></a></p></li><li>
+<p><a href="#function-_isvalidcapturename"><code>function _isValidCaptureName(_name:stdgo.GoString):Bool</code></a></p></li><li>
+<p><a href="#function-_isalnum"><code>function _isalnum(_c:stdgo.GoRune):Bool</code></a></p></li><li>
+<p><a href="#function-_literalregexp"><code>function _literalRegexp(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#function-_makepatchlist"><code>function _makePatchList(_n:stdgo.GoUInt32):stdgo.regexp.syntax._Syntax.T_patchList</code></a></p></li><li>
+<p><a href="#function-_matchrune"><code>function _matchRune(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _r:stdgo.GoRune):Bool</code></a></p></li><li>
+<p><a href="#function-_mergecharclass"><code>function _mergeCharClass(_dst:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _src:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></a></p></li><li>
+<p><a href="#function-_minfoldrune"><code>function _minFoldRune(_r:stdgo.GoRune):stdgo.GoRune</code></a></p></li><li>
+<p><a href="#function-_mkcharclass"><code>function _mkCharClass(_f:()):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-_negateclass"><code>function _negateClass(_r:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-_nextrune"><code>function _nextRune(_s:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}</code></a></p></li><li>
+<p><a href="#function-_parse"><code>function _parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{_1:stdgo.Error, _0:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;}</code></a></p></li><li>
+<p><a href="#function-_repeatisvalid"><code>function _repeatIsValid(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _n:stdgo.GoInt):Bool</code></a></p></li><li>
+<p><a href="#function-_simplify1"><code>function _simplify1(_op:stdgo.regexp.syntax.Op, _flags:stdgo.regexp.syntax.Flags, _sub:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#function-_testparsedump"><code>function _testParseDump(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _tests:stdgo.Slice&lt;stdgo.regexp.syntax._Syntax.T_parseTest&gt;, _flags:stdgo.regexp.syntax.Flags):Void</code></a></p></li><li>
+<p><a href="#function-_u32"><code>function _u32(_i:stdgo.GoUInt32):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-_unhex"><code>function _unhex(_c:stdgo.GoRune):stdgo.GoRune</code></a></p></li><li>
+<p><a href="#function-_unicodetable"><code>function _unicodeTable(_name:stdgo.GoString):{_1:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;, _0:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;}</code></a></p></li><li>
+<p><a href="#function-_writeregexp"><code>function _writeRegexp(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkemptyopcontext"><code>function benchmarkEmptyOpContext(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-compile"><code>function compile(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):{_1:stdgo.Error, _0:stdgo.Ref&lt;stdgo.regexp.syntax.Prog&gt;}</code></a></p></li><li>
+<p><a href="#function-emptyopcontext"><code>function emptyOpContext(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.regexp.syntax.EmptyOp</code></a></p></li><li>
+<p><a href="#function-iswordchar"><code>function isWordChar(_r:stdgo.GoRune):Bool</code></a></p></li><li>
+<p><a href="#function-parse"><code>function parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{_1:stdgo.Error, _0:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;}</code></a></p></li><li>
+<p><a href="#function-testappendrangecollapse"><code>function testAppendRangeCollapse(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testcompile"><code>function testCompile(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testfoldconstants"><code>function testFoldConstants(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testparsefoldcase"><code>function testParseFoldCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testparseinvalidregexps"><code>function testParseInvalidRegexps(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testparseliteral"><code>function testParseLiteral(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testparsematchnl"><code>function testParseMatchNL(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testparsenomatchnl"><code>function testParseNoMatchNL(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testparsesimple"><code>function testParseSimple(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testsimplify"><code>function testSimplify(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testtostringequivalentparse"><code>function testToStringEquivalentParse(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#class-errorcode_static_extension">class ErrorCode_static_extension</a></p></li><li>
+<p><a href="#errorcode_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-inst">class Inst</a></p></li><li>
+<p><a href="#inst-function-new"><code>function new(?op:Null&lt;stdgo.regexp.syntax.InstOp&gt;, ?out:stdgo.GoUInt32, ?arg:stdgo.GoUInt32, ?rune:stdgo.Slice&lt;stdgo.GoInt32&gt;):Void</code></a></p></li><li>
+<p><a href="#inst-function-_op"><code>function _op():stdgo.regexp.syntax.InstOp</code></a></p></li><li>
+<p><a href="#inst-function-matchemptywidth"><code>function matchEmptyWidth( _before:stdgo.GoRune, _after:stdgo.GoRune):Bool</code></a></p></li><li>
+<p><a href="#inst-function-matchrune"><code>function matchRune( _r:stdgo.GoRune):Bool</code></a></p></li><li>
+<p><a href="#inst-function-matchrunepos"><code>function matchRunePos( _r:stdgo.GoRune):stdgo.GoInt</code></a></p></li><li>
+<p><a href="#inst-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-instop_static_extension">class InstOp_static_extension</a></p></li><li>
+<p><a href="#instop_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-inst_static_extension">class Inst_static_extension</a></p></li><li>
+<p><a href="#inst_static_extension-function-_op"><code>function _op():stdgo.regexp.syntax.InstOp</code></a></p></li><li>
+<p><a href="#inst_static_extension-function-matchemptywidth"><code>function matchEmptyWidth( _before:stdgo.GoRune, _after:stdgo.GoRune):Bool</code></a></p></li><li>
+<p><a href="#inst_static_extension-function-matchrune"><code>function matchRune( _r:stdgo.GoRune):Bool</code></a></p></li><li>
+<p><a href="#inst_static_extension-function-matchrunepos"><code>function matchRunePos( _r:stdgo.GoRune):stdgo.GoInt</code></a></p></li><li>
+<p><a href="#inst_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-op_static_extension">class Op_static_extension</a></p></li><li>
+<p><a href="#op_static_extension-function-string"><code>function string(_i:stdgo.regexp.syntax.Op):stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-prog">class Prog</a></p></li><li>
+<p><a href="#prog-function-new"><code>function new(?inst:stdgo.Slice&lt;stdgo.regexp.syntax.Inst&gt;, ?start:Null&lt;stdgo.GoInt&gt;, ?numCap:Null&lt;stdgo.GoInt&gt;):Void</code></a></p></li><li>
+<p><a href="#prog-function-_skipnop"><code>function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref&lt;stdgo.regexp.syntax.Inst&gt;</code></a></p></li><li>
+<p><a href="#prog-function-prefix"><code>function prefix():{_1:Bool, _0:stdgo.GoString}</code></a></p></li><li>
+<p><a href="#prog-function-startcond"><code>function startCond():stdgo.regexp.syntax.EmptyOp</code></a></p></li><li>
+<p><a href="#prog-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-prog_static_extension">class Prog_static_extension</a></p></li><li>
+<p><a href="#prog_static_extension-function-_skipnop"><code>function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref&lt;stdgo.regexp.syntax.Inst&gt;</code></a></p></li><li>
+<p><a href="#prog_static_extension-function-prefix"><code>function prefix():{_1:Bool, _0:stdgo.GoString}</code></a></p></li><li>
+<p><a href="#prog_static_extension-function-startcond"><code>function startCond():stdgo.regexp.syntax.EmptyOp</code></a></p></li><li>
+<p><a href="#prog_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-regexp">class Regexp</a></p></li><li>
+<p><a href="#regexp-function-new"><code>function new(?op:Null&lt;stdgo.regexp.syntax.Op&gt;, ?flags:Null&lt;stdgo.regexp.syntax.Flags&gt;, ?sub:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;, ?sub0:stdgo.GoArray&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;, ?rune:stdgo.Slice&lt;stdgo.GoInt32&gt;, ?rune0:stdgo.GoArray&lt;stdgo.GoInt32&gt;, ?min:Null&lt;stdgo.GoInt&gt;, ?max:Null&lt;stdgo.GoInt&gt;, ?cap:Null&lt;stdgo.GoInt&gt;, ?name:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#regexp-function-_capnames"><code>function _capNames( _names:stdgo.Slice&lt;stdgo.GoString&gt;):Void</code></a></p></li><li>
+<p><a href="#regexp-function-capnames"><code>function capNames():stdgo.Slice&lt;stdgo.GoString&gt;</code></a></p></li><li>
+<p><a href="#regexp-function-equal"><code>function equal( _y:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Bool</code></a></p></li><li>
+<p><a href="#regexp-function-maxcap"><code>function maxCap():stdgo.GoInt</code></a></p></li><li>
+<p><a href="#regexp-function-simplify"><code>function simplify():stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#regexp-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-regexp_static_extension">class Regexp_static_extension</a></p></li><li>
+<p><a href="#regexp_static_extension-function-_capnames"><code>function _capNames( _names:stdgo.Slice&lt;stdgo.GoString&gt;):Void</code></a></p></li><li>
+<p><a href="#regexp_static_extension-function-capnames"><code>function capNames():stdgo.Slice&lt;stdgo.GoString&gt;</code></a></p></li><li>
+<p><a href="#regexp_static_extension-function-equal"><code>function equal( _y:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Bool</code></a></p></li><li>
+<p><a href="#regexp_static_extension-function-maxcap"><code>function maxCap():stdgo.GoInt</code></a></p></li><li>
+<p><a href="#regexp_static_extension-function-simplify"><code>function simplify():stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#regexp_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t__struct_0_static_extension">class T__struct_0_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_1_static_extension">class T__struct_1_static_extension</a></p></li><li>
+<p><a href="#class-t_compiler_static_extension">class T_compiler_static_extension</a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_alt"><code>function _alt(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _f2:stdgo.regexp.syntax._Syntax.T_frag):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_cap"><code>function _cap(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _arg:stdgo.GoUInt32):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_cat"><code>function _cat(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _f2:stdgo.regexp.syntax._Syntax.T_frag):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_compile"><code>function _compile(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_empty"><code>function _empty(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _op:stdgo.regexp.syntax.EmptyOp):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_fail"><code>function _fail(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_init"><code>function _init(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;):Void</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_inst"><code>function _inst(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _op:stdgo.regexp.syntax.InstOp):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_loop"><code>function _loop(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _nongreedy:Bool):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_nop"><code>function _nop(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_plus"><code>function _plus(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _nongreedy:Bool):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_quest"><code>function _quest(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _nongreedy:Bool):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_rune"><code>function _rune(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _r:stdgo.Slice&lt;stdgo.GoRune&gt;, _flags:stdgo.regexp.syntax.Flags):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#t_compiler_static_extension-function-_star"><code>function _star(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _nongreedy:Bool):stdgo.regexp.syntax._Syntax.T_frag</code></a></p></li><li>
+<p><a href="#class-t_error">class T_error</a></p></li><li>
+<p><a href="#t_error-function-new"><code>function new(?code:Null&lt;stdgo.regexp.syntax.ErrorCode&gt;, ?expr:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#t_error-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t_error_static_extension">class T_error_static_extension</a></p></li><li>
+<p><a href="#t_error_static_extension-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t_parser_static_extension">class T_parser_static_extension</a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_alternate"><code>function _alternate(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_appendgroup"><code>function _appendGroup(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _r:stdgo.Slice&lt;stdgo.GoRune&gt;, _g:stdgo.regexp.syntax._Syntax.T_charGroup):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_calcheight"><code>function _calcHeight(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _force:Bool):stdgo.GoInt</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_checkheight"><code>function _checkHeight(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_collapse"><code>function _collapse(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _subs:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;, _op:stdgo.regexp.syntax.Op):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_concat"><code>function _concat(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_factor"><code>function _factor(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _sub:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;):stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_leadingregexp"><code>function _leadingRegexp(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_leadingstring"><code>function _leadingString(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):{_1:stdgo.regexp.syntax.Flags, _0:stdgo.Slice&lt;stdgo.GoRune&gt;}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_literal"><code>function _literal(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _r:stdgo.GoRune):Void</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_maybeconcat"><code>function _maybeConcat(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _r:stdgo.GoRune, _flags:stdgo.regexp.syntax.Flags):Bool</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_newregexp"><code>function _newRegexp(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _op:stdgo.regexp.syntax.Op):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_op"><code>function _op(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _op:stdgo.regexp.syntax.Op):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parseclass"><code>function _parseClass(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parseclasschar"><code>function _parseClassChar(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString, _wholeClass:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parseescape"><code>function _parseEscape(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parseint"><code>function _parseInt(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_2:Bool, _1:stdgo.GoString, _0:stdgo.GoInt}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parsenamedclass"><code>function _parseNamedClass(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString, _r:stdgo.Slice&lt;stdgo.GoRune&gt;):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.Slice&lt;stdgo.GoRune&gt;}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parseperlclassescape"><code>function _parsePerlClassEscape(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString, _r:stdgo.Slice&lt;stdgo.GoRune&gt;):{_1:stdgo.GoString, _0:stdgo.Slice&lt;stdgo.GoRune&gt;}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parseperlflags"><code>function _parsePerlFlags(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parserepeat"><code>function _parseRepeat(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_3:Bool, _2:stdgo.GoString, _1:stdgo.GoInt, _0:stdgo.GoInt}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parserightparen"><code>function _parseRightParen(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):stdgo.Error</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parseunicodeclass"><code>function _parseUnicodeClass(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString, _r:stdgo.Slice&lt;stdgo.GoRune&gt;):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.Slice&lt;stdgo.GoRune&gt;}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_parseverticalbar"><code>function _parseVerticalBar(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):stdgo.Error</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_push"><code>function _push(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_removeleadingregexp"><code>function _removeLeadingRegexp(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _reuse:Bool):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_removeleadingstring"><code>function _removeLeadingString(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _n:stdgo.GoInt):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_repeat"><code>function _repeat(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _op:stdgo.regexp.syntax.Op, _min:stdgo.GoInt, _max:stdgo.GoInt, _before:stdgo.GoString, _after:stdgo.GoString, _lastRepeat:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_reuse"><code>function _reuse(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></a></p></li><li>
+<p><a href="#t_parser_static_extension-function-_swapverticalbar"><code>function _swapVerticalBar(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):Bool</code></a></p></li><li>
+<p><a href="#class-t_patchlist_static_extension">class T_patchList_static_extension</a></p></li><li>
+<p><a href="#t_patchlist_static_extension-function-_append"><code>function _append(_l1:stdgo.regexp.syntax._Syntax.T_patchList, _p:stdgo.Ref&lt;stdgo.regexp.syntax.Prog&gt;, _l2:stdgo.regexp.syntax._Syntax.T_patchList):stdgo.regexp.syntax._Syntax.T_patchList</code></a></p></li><li>
+<p><a href="#t_patchlist_static_extension-function-_patch"><code>function _patch(_l:stdgo.regexp.syntax._Syntax.T_patchList, _p:stdgo.Ref&lt;stdgo.regexp.syntax.Prog&gt;, _val:stdgo.GoUInt32):Void</code></a></p></li><li>
+<p><a href="#class-t_ranges_static_extension">class T_ranges_static_extension</a></p></li><li>
+<p><a href="#t_ranges_static_extension-function-len"><code>function len(_ra:stdgo.regexp.syntax._Syntax.T_ranges):stdgo.GoInt</code></a></p></li><li>
+<p><a href="#t_ranges_static_extension-function-less"><code>function less(_ra:stdgo.regexp.syntax._Syntax.T_ranges, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool</code></a></p></li><li>
+<p><a href="#t_ranges_static_extension-function-swap"><code>function swap(_ra:stdgo.regexp.syntax._Syntax.T_ranges, _i:stdgo.GoInt, _j:stdgo.GoInt):Void</code></a></p></li><li>
+<p><a href="#typedef-emptyop">typedef EmptyOp</a></p></li><li>
+<p><a href="#typedef-errorcode">typedef ErrorCode</a></p></li><li>
+<p><a href="#errorcode-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-flags">typedef Flags</a></p></li><li>
+<p><a href="#typedef-instop">typedef InstOp</a></p></li><li>
+<p><a href="#instop-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-op">typedef Op</a></p></li><li>
+<p><a href="#op-function-string"><code>function string():stdgo.GoString</code></a></p></li></ul>
+<h1><a name="constants">Constants</a></h1>
+<pre><code class="language-haxe">import stdgo.regexp.syntax.Syntax</code></pre>
+<pre><code class="language-haxe">final classNL:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>allow character classes like [^a-z] and [[:space:]] to match newline </p>
+<pre><code class="language-haxe">final dotNL:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>allow . to match newline </p>
+<pre><code class="language-haxe">final emptyBeginLine:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : EmptyOp))</code></pre>
+<pre><code class="language-haxe">final emptyBeginText:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : EmptyOp))</code></pre>
+<pre><code class="language-haxe">final emptyEndLine:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : EmptyOp))</code></pre>
+<pre><code class="language-haxe">final emptyEndText:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : EmptyOp))</code></pre>
+<pre><code class="language-haxe">final emptyNoWordBoundary:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : EmptyOp))</code></pre>
+<pre><code class="language-haxe">final emptyWordBoundary:stdgo.regexp.syntax.EmptyOp = ((((0 : GoUInt8)) : EmptyOp))</code></pre>
+<pre><code class="language-haxe">final errInternalError:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<p>Unexpected error </p>
+<pre><code class="language-haxe">final errInvalidCharClass:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<p>Parse errors </p>
+<pre><code class="language-haxe">final errInvalidCharRange:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errInvalidEscape:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errInvalidNamedCapture:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errInvalidPerlOp:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errInvalidRepeatOp:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errInvalidRepeatSize:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errInvalidUTF8:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errMissingBracket:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errMissingParen:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errMissingRepeatArgument:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errNestingDepth:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errTrailingBackslash:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final errUnexpectedParen:stdgo.regexp.syntax.ErrorCode = (((("" : GoString)) : ErrorCode))</code></pre>
+<pre><code class="language-haxe">final foldCase:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>case-insensitive match </p>
+<pre><code class="language-haxe">final instAlt:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instAltMatch:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instCapture:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instEmptyWidth:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instFail:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instMatch:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instNop:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instRune:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instRune1:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instRuneAny:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final instRuneAnyNotNL:stdgo.regexp.syntax.InstOp = ((((0 : GoUInt8)) : InstOp))</code></pre>
+<pre><code class="language-haxe">final literal:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>treat pattern as literal string </p>
+<pre><code class="language-haxe">final matchNL:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<pre><code class="language-haxe">final nonGreedy:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>make repetition operators default to non-greedy </p>
+<pre><code class="language-haxe">final oneLine:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>treat ^ and $ as only matching at beginning and end of text </p>
+<pre><code class="language-haxe">final opAlternate:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches alternation of Subs </p>
+<pre><code class="language-haxe">final opAnyChar:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches any character </p>
+<pre><code class="language-haxe">final opAnyCharNotNL:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches any character except newline </p>
+<pre><code class="language-haxe">final opBeginLine:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches empty string at beginning of line </p>
+<pre><code class="language-haxe">final opBeginText:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches empty string at beginning of text </p>
+<pre><code class="language-haxe">final opCapture:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>capturing subexpression with index Cap, optional name Name </p>
+<pre><code class="language-haxe">final opCharClass:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches Runes interpreted as range pair list </p>
+<pre><code class="language-haxe">final opConcat:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches concatenation of Subs </p>
+<pre><code class="language-haxe">final opEmptyMatch:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches empty string </p>
+<pre><code class="language-haxe">final opEndLine:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches empty string at end of line </p>
+<pre><code class="language-haxe">final opEndText:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches empty string at end of text </p>
+<pre><code class="language-haxe">final opLiteral:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches Runes sequence </p>
+<pre><code class="language-haxe">final opNoMatch:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches no strings </p>
+<pre><code class="language-haxe">final opNoWordBoundary:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches word non-boundary \<code>\\B\</code> </p>
+<pre><code class="language-haxe">final opPlus:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches Sub[0] one or more times </p>
+<pre><code class="language-haxe">final opQuest:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches Sub[0] zero or one times </p>
+<pre><code class="language-haxe">final opRepeat:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches Sub[0] at least Min times, at most Max (Max == -1 is no limit) </p>
+<pre><code class="language-haxe">final opStar:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches Sub[0] zero or more times </p>
+<pre><code class="language-haxe">final opWordBoundary:stdgo.regexp.syntax.Op = ((((0 : GoUInt8)) : Op))</code></pre>
+<p>matches word boundary \<code>\\b\</code> </p>
+<pre><code class="language-haxe">final perl:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>as close to Perl as possible </p>
+<pre><code class="language-haxe">final perlX:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>allow Perl extensions </p>
+<pre><code class="language-haxe">final posix:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>POSIX syntax </p>
+<pre><code class="language-haxe">final simple:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>regexp contains no counted repetition </p>
+<pre><code class="language-haxe">final unicodeGroups:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>allow \p{Han}, \P{Han} for Unicode group and negation </p>
+<pre><code class="language-haxe">final wasDollar:stdgo.regexp.syntax.Flags = ((((0 : GoUInt16)) : Flags))</code></pre>
+<p>regexp OpEndText was $, not \z </p>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.regexp.syntax.Syntax</code></pre>
+<h2><a name="function-_appendclass">function _appendClass</a></h2>
+<pre><code class="language-haxe">function _appendClass(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>appendClass returns the result of appending the class x to the class r.��// It assume x is clean. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L997"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_appendfoldedclass">function _appendFoldedClass</a></h2>
+<pre><code class="language-haxe">function _appendFoldedClass(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>appendFolded returns the result of appending the case folding of the class x to the class r. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1003"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_appendfoldedrange">function _appendFoldedRange</a></h2>
+<pre><code class="language-haxe">function _appendFoldedRange(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _lo:stdgo.GoRune, _hi:stdgo.GoRune):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>appendFoldedRange returns the result of appending the range lo-hi��// and its case folding-equivalent runes to the class r. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L990"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_appendliteral">function _appendLiteral</a></h2>
+<pre><code class="language-haxe">function _appendLiteral(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.GoRune, _flags:stdgo.regexp.syntax.Flags):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>appendLiteral returns the result of appending the literal x to the class r. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L977"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_appendnegatedclass">function _appendNegatedClass</a></h2>
+<pre><code class="language-haxe">function _appendNegatedClass(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>appendNegatedClass returns the result of appending the negation of the class x to the class r.��// It assumes x is clean. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1010"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_appendnegatedtable">function _appendNegatedTable</a></h2>
+<pre><code class="language-haxe">function _appendNegatedTable(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>appendNegatedTable returns the result of appending the negation of x to the class r. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1022"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_appendrange">function _appendRange</a></h2>
+<pre><code class="language-haxe">function _appendRange(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _lo:stdgo.GoRune, _hi:stdgo.GoRune):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>appendRange returns the result of appending the range lo-hi to the class r. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L983"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_appendtable">function _appendTable</a></h2>
+<pre><code class="language-haxe">function _appendTable(_r:stdgo.Slice&lt;stdgo.GoRune&gt;, _x:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>appendTable returns the result of appending x to the class r. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1016"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_bw">function _bw</a></h2>
+<pre><code class="language-haxe">function _bw(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _args:haxe.Rest&lt;stdgo.GoString&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1117"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_checkutf8">function _checkUTF8</a></h2>
+<pre><code class="language-haxe">function _checkUTF8(_s:stdgo.GoString):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1032"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_cleanalt">function _cleanAlt</a></h2>
+<pre><code class="language-haxe">function _cleanAlt(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></pre>
+<p>cleanAlt cleans re for eventual inclusion in an alternation. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L912"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_cleanclass">function _cleanClass</a></h2>
+<pre><code class="language-haxe">function _cleanClass(_rp:stdgo.Ref&lt;stdgo.Slice&lt;stdgo.GoRune&gt;&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>cleanClass sorts the ranges (pairs of elements of r),��// merges them, and eliminates duplicates. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L971"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_dump">function _dump</a></h2>
+<pre><code class="language-haxe">function _dump(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.GoString</code></pre>
+<p>dump prints a string representation of the regexp showing��// the structure explicitly. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1069"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_dumpinst">function _dumpInst</a></h2>
+<pre><code class="language-haxe">function _dumpInst(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _i:stdgo.Ref&lt;stdgo.regexp.syntax.Inst&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1126"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_dumpprog">function _dumpProg</a></h2>
+<pre><code class="language-haxe">function _dumpProg(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _p:stdgo.Ref&lt;stdgo.regexp.syntax.Prog&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1120"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_dumpregexp">function _dumpRegexp</a></h2>
+<pre><code class="language-haxe">function _dumpRegexp(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></pre>
+<p>dumpRegexp writes an encoding of the syntax tree for the regexp re to b.��// It is used during testing to distinguish between parses that might print��// the same using re's String method. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1077"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_escape">function _escape</a></h2>
+<pre><code class="language-haxe">function _escape(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _r:stdgo.GoRune, _force:Bool):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1141"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_ischarclass">function _isCharClass</a></h2>
+<pre><code class="language-haxe">function _isCharClass(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Bool</code></pre><table><thead><th align="null">can this be represented as a character class?��// single-rune literal string, char class, ., and .</th><th align="null">\n.</th></thead><tbody></tbody></table>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L943"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_isupperfold">function _isUpperFold</a></h2>
+<pre><code class="language-haxe">function _isUpperFold(_r:stdgo.GoRune):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1083"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_isvalidcapturename">function _isValidCaptureName</a></h2>
+<pre><code class="language-haxe">function _isValidCaptureName(_name:stdgo.GoString):Bool</code></pre>
+<p>isValidCaptureName reports whether name��// is a valid capture name: [A-Za-z0-9_]+.��// PCRE limits names to 32 bytes.��// Python rejects names starting with digits.��// We don't enforce either of those. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L936"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_isalnum">function _isalnum</a></h2>
+<pre><code class="language-haxe">function _isalnum(_c:stdgo.GoRune):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1038"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_literalregexp">function _literalRegexp</a></h2>
+<pre><code class="language-haxe">function _literalRegexp(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L915"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_makepatchlist">function _makePatchList</a></h2>
+<pre><code class="language-haxe">function _makePatchList(_n:stdgo.GoUInt32):stdgo.regexp.syntax._Syntax.T_patchList</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L879"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_matchrune">function _matchRune</a></h2>
+<pre><code class="language-haxe">function _matchRune(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _r:stdgo.GoRune):Bool</code></pre>
+<p>does re match r? </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L949"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_mergecharclass">function _mergeCharClass</a></h2>
+<pre><code class="language-haxe">function _mergeCharClass(_dst:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _src:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></pre><table><thead><th align="null">mergeCharClass makes dst = dst</th><th align="null">src.��// The caller must ensure that dst.Op \>= src.Op,��// to reduce the amount of copying.</th></thead><tbody></tbody></table>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L957"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_minfoldrune">function _minFoldRune</a></h2>
+<pre><code class="language-haxe">function _minFoldRune(_r:stdgo.GoRune):stdgo.GoRune</code></pre>
+<p>minFoldRune returns the minimum rune fold-equivalent to r. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L892"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_mkcharclass">function _mkCharClass</a></h2>
+<pre><code class="language-haxe">function _mkCharClass(_f:()):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1080"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_negateclass">function _negateClass</a></h2>
+<pre><code class="language-haxe">function _negateClass(_r:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>negateClass overwrites r and returns r's negation.��// It assumes the class r is already clean. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1029"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_nextrune">function _nextRune</a></h2>
+<pre><code class="language-haxe">function _nextRune(_s:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1035"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_parse">function _parse</a></h2>
+<pre><code class="language-haxe">function _parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{_1:stdgo.Error, _0:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L926"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_repeatisvalid">function _repeatIsValid</a></h2>
+<pre><code class="language-haxe">function _repeatIsValid(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _n:stdgo.GoInt):Bool</code></pre>
+<p>repeatIsValid reports whether the repetition re is valid.��// Valid means that the combination of the top-level repetition��// and any inner repetitions does not exceed n copies of the��// innermost thing.��// This function rewalks the regexp tree and is called for every repetition,��// so we have to worry about inducing quadratic behavior in the parser.��// We avoid this by only calling repeatIsValid when min or max \>= 2.��// In that case the depth of any \>= 2 nesting can only get to 9 without��// triggering a parse error, so each subtree can only be rewalked 9 times. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L906"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_simplify1">function _simplify1</a></h2>
+<pre><code class="language-haxe">function _simplify1(_op:stdgo.regexp.syntax.Op, _flags:stdgo.regexp.syntax.Flags, _sub:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>simplify1 implements Simplify for the unary OpStar,��// OpPlus, and OpQuest operators. It returns the simple regexp��// equivalent to��//��//�Regexp{Op: op, Flags: flags, Sub: {sub}}��//��// under the assumption that sub is already simple, and��// without first allocating that structure. If the regexp��// to be returned turns out to be equivalent to re, simplify1��// returns re instead.��//��// simplify1 is factored out of Simplify because the implementation��// for other operators generates these unary expressions.��// Letting them call simplify1 makes sure the expressions they��// generate are simple. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1161"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_testparsedump">function _testParseDump</a></h2>
+<pre><code class="language-haxe">function _testParseDump(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _tests:stdgo.Slice&lt;stdgo.regexp.syntax._Syntax.T_parseTest&gt;, _flags:stdgo.regexp.syntax.Flags):Void</code></pre>
+<p>Test Parse -\> Dump. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1062"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_u32">function _u32</a></h2>
+<pre><code class="language-haxe">function _u32(_i:stdgo.GoUInt32):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1123"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_unhex">function _unhex</a></h2>
+<pre><code class="language-haxe">function _unhex(_c:stdgo.GoRune):stdgo.GoRune</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1041"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_unicodetable">function _unicodeTable</a></h2>
+<pre><code class="language-haxe">function _unicodeTable(_name:stdgo.GoString):{_1:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;, _0:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;}</code></pre>
+<p>unicodeTable returns the unicode.RangeTable identified by name��// and the table of additional fold-equivalent code points. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L964"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_writeregexp">function _writeRegexp</a></h2>
+<pre><code class="language-haxe">function _writeRegexp(_b:stdgo.Ref&lt;stdgo.strings.Builder&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></pre>
+<p>writeRegexp writes the Perl syntax for the regular expression re to b. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1138"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkemptyopcontext">function benchmarkEmptyOpContext</a></h2>
+<pre><code class="language-haxe">function benchmarkEmptyOpContext(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1132"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-compile">function compile</a></h2>
+<pre><code class="language-haxe">function compile(_re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):{_1:stdgo.Error, _0:stdgo.Ref&lt;stdgo.regexp.syntax.Prog&gt;}</code></pre>
+<p>Compile compiles the regexp into a program to be executed.��// The regexp should have been simplified already (returned from re.Simplify). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L886"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-emptyopcontext">function emptyOpContext</a></h2>
+<pre><code class="language-haxe">function emptyOpContext(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.regexp.syntax.EmptyOp</code></pre>
+<p>EmptyOpContext returns the zero-width assertions��// satisfied at the position between the runes r1 and r2.��// Passing r1 == -1 indicates that the position is��// at the beginning of the text.��// Passing r2 == -1 indicates that the position is��// at the end of the text. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1106"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-iswordchar">function isWordChar</a></h2>
+<pre><code class="language-haxe">function isWordChar(_r:stdgo.GoRune):Bool</code></pre>
+<p>IsWordChar reports whether r is considered a “word character”��// during the evaluation of the \b and \B zero-width assertions.��// These assertions are ASCII-only: the word characters are [A-Za-z0-9_]. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1114"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-parse">function parse</a></h2>
+<pre><code class="language-haxe">function parse(_s:stdgo.GoString, _flags:stdgo.regexp.syntax.Flags):{_1:stdgo.Error, _0:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;}</code></pre>
+<p>Parse parses a regular expression string s, controlled by the specified��// Flags, and returns a regular expression parse tree. The syntax is��// described in the top-level comment. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L923"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testappendrangecollapse">function testAppendRangeCollapse</a></h2>
+<pre><code class="language-haxe">function testAppendRangeCollapse(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testcompile">function testCompile</a></h2>
+<pre><code class="language-haxe">function testCompile(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1129"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testfoldconstants">function testFoldConstants</a></h2>
+<pre><code class="language-haxe">function testFoldConstants(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1086"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testparsefoldcase">function testParseFoldCase</a></h2>
+<pre><code class="language-haxe">function testParseFoldCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1047"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testparseinvalidregexps">function testParseInvalidRegexps</a></h2>
+<pre><code class="language-haxe">function testParseInvalidRegexps(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1092"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testparseliteral">function testParseLiteral</a></h2>
+<pre><code class="language-haxe">function testParseLiteral(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1050"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testparsematchnl">function testParseMatchNL</a></h2>
+<pre><code class="language-haxe">function testParseMatchNL(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1053"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testparsenomatchnl">function testParseNoMatchNL</a></h2>
+<pre><code class="language-haxe">function testParseNoMatchNL(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1056"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testparsesimple">function testParseSimple</a></h2>
+<pre><code class="language-haxe">function testParseSimple(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1044"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testsimplify">function testSimplify</a></h2>
+<pre><code class="language-haxe">function testSimplify(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1164"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testtostringequivalentparse">function testToStringEquivalentParse</a></h2>
+<pre><code class="language-haxe">function testToStringEquivalentParse(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1095"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.regexp.syntax.*</code></pre>
+<h2>class ErrorCode_static_extension</h2>
+<h3>ErrorCode_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2215"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-inst">class Inst</a></h2>
+<p>An Inst is a single instruction in a regular expression program. </p>
+<pre><code class="language-haxe">var arg:stdgo.GoUInt32</code></pre>
+<p>InstAlt, InstAltMatch, InstCapture, InstEmptyWidth </p>
+<pre><code class="language-haxe">var op:stdgo.regexp.syntax.InstOp</code></pre>
+<pre><code class="language-haxe">var out:stdgo.GoUInt32</code></pre>
+<p>all but InstMatch, InstFail </p>
+<pre><code class="language-haxe">var rune:stdgo.Slice&lt;stdgo.GoInt32&gt;</code></pre>
+<h3><a name="inst-function-new">Inst function new</a></h3>
+<pre><code class="language-haxe">function new(?op:Null&lt;stdgo.regexp.syntax.InstOp&gt;, ?out:stdgo.GoUInt32, ?arg:stdgo.GoUInt32, ?rune:stdgo.Slice&lt;stdgo.GoInt32&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L710"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="inst-function-_op">Inst function _op</a></h3>
+<pre><code class="language-haxe">function _op():stdgo.regexp.syntax.InstOp</code></pre>
+<p>op returns i.Op but merges all the Rune special cases into InstRune </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="inst-function-matchemptywidth">Inst function matchEmptyWidth</a></h3>
+<pre><code class="language-haxe">function matchEmptyWidth( _before:stdgo.GoRune, _after:stdgo.GoRune):Bool</code></pre>
+<p>MatchEmptyWidth reports whether the instruction matches���// an empty string between the runes before and after.���// It should only be called when i.Op == InstEmptyWidth. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2063"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="inst-function-matchrune">Inst function matchRune</a></h3>
+<pre><code class="language-haxe">function matchRune( _r:stdgo.GoRune):Bool</code></pre>
+<p>MatchRune reports whether the instruction matches (and consumes) r.���// It should only be called when i.Op == InstRune. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2082"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="inst-function-matchrunepos">Inst function matchRunePos</a></h3>
+<pre><code class="language-haxe">function matchRunePos( _r:stdgo.GoRune):stdgo.GoInt</code></pre>
+<p>MatchRunePos checks whether the instruction matches (and consumes) r.���// If so, MatchRunePos returns the index of the matching rune pair���// (or, when len(i.Rune) == 1, rune singleton).���// If not, MatchRunePos returns -1.���// MatchRunePos should only be called when i.Op == InstRune. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2074"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="inst-function-string">Inst function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2054"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class InstOp_static_extension</h2>
+<h3>InstOp_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2240"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Inst_static_extension</h2>
+<h3>Inst_static_extension function _op</h3>
+<pre><code class="language-haxe">function _op():stdgo.regexp.syntax.InstOp</code></pre>
+<p>op returns i.Op but merges all the Rune special cases into InstRune </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Inst_static_extension function matchEmptyWidth</h3>
+<pre><code class="language-haxe">function matchEmptyWidth( _before:stdgo.GoRune, _after:stdgo.GoRune):Bool</code></pre>
+<p>MatchEmptyWidth reports whether the instruction matches���// an empty string between the runes before and after.���// It should only be called when i.Op == InstEmptyWidth. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2063"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Inst_static_extension function matchRune</h3>
+<pre><code class="language-haxe">function matchRune( _r:stdgo.GoRune):Bool</code></pre>
+<p>MatchRune reports whether the instruction matches (and consumes) r.���// It should only be called when i.Op == InstRune. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2082"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Inst_static_extension function matchRunePos</h3>
+<pre><code class="language-haxe">function matchRunePos( _r:stdgo.GoRune):stdgo.GoInt</code></pre>
+<p>MatchRunePos checks whether the instruction matches (and consumes) r.���// If so, MatchRunePos returns the index of the matching rune pair���// (or, when len(i.Rune) == 1, rune singleton).���// If not, MatchRunePos returns -1.���// MatchRunePos should only be called when i.Op == InstRune. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2074"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Inst_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2054"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Op_static_extension</h2>
+<h3>Op_static_extension function string</h3>
+<pre><code class="language-haxe">function string(_i:stdgo.regexp.syntax.Op):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2265"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-prog">class Prog</a></h2>
+<p>A Prog is a compiled regular expression program. </p>
+<pre><code class="language-haxe">var inst:stdgo.Slice&lt;stdgo.regexp.syntax.Inst&gt;</code></pre>
+<pre><code class="language-haxe">var numCap:stdgo.GoInt</code></pre>
+<p>number of InstCapture insts in re </p>
+<pre><code class="language-haxe">var start:stdgo.GoInt</code></pre>
+<p>index of start instruction </p>
+<h3><a name="prog-function-new">Prog function new</a></h3>
+<pre><code class="language-haxe">function new(?inst:stdgo.Slice&lt;stdgo.regexp.syntax.Inst&gt;, ?start:Null&lt;stdgo.GoInt&gt;, ?numCap:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L675"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="prog-function-_skipnop">Prog function _skipNop</a></h3>
+<pre><code class="language-haxe">function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref&lt;stdgo.regexp.syntax.Inst&gt;</code></pre>
+<p>skipNop follows any no-op or capturing instructions. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1990"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="prog-function-prefix">Prog function prefix</a></h3>
+<pre><code class="language-haxe">function prefix():{_1:Bool, _0:stdgo.GoString}</code></pre>
+<p>Prefix returns a literal string that all matches for the���// regexp must start with. Complete is true if the prefix���// is the entire match. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1983"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="prog-function-startcond">Prog function startCond</a></h3>
+<pre><code class="language-haxe">function startCond():stdgo.regexp.syntax.EmptyOp</code></pre>
+<p>StartCond returns the leading empty-width conditions that must���// be true in any match. It returns ^EmptyOp(0) if no matches are possible. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1974"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="prog-function-string">Prog function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1994"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Prog_static_extension</h2>
+<h3>Prog_static_extension function _skipNop</h3>
+<pre><code class="language-haxe">function _skipNop( _pc:stdgo.GoUInt32):stdgo.Ref&lt;stdgo.regexp.syntax.Inst&gt;</code></pre>
+<p>skipNop follows any no-op or capturing instructions. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1990"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Prog_static_extension function prefix</h3>
+<pre><code class="language-haxe">function prefix():{_1:Bool, _0:stdgo.GoString}</code></pre>
+<p>Prefix returns a literal string that all matches for the���// regexp must start with. Complete is true if the prefix���// is the entire match. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1983"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Prog_static_extension function startCond</h3>
+<pre><code class="language-haxe">function startCond():stdgo.regexp.syntax.EmptyOp</code></pre>
+<p>StartCond returns the leading empty-width conditions that must���// be true in any match. It returns ^EmptyOp(0) if no matches are possible. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1974"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Prog_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1994"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-regexp">class Regexp</a></h2>
+<p>A Regexp is a node in a regular expression syntax tree. </p>
+<pre><code class="language-haxe">var cap:stdgo.GoInt</code></pre>
+<p>capturing name, for OpCapture </p>
+<pre><code class="language-haxe">var flags:stdgo.regexp.syntax.Flags</code></pre>
+<pre><code class="language-haxe">var max:stdgo.GoInt</code></pre>
+<p>capturing index, for OpCapture </p>
+<pre><code class="language-haxe">var min:stdgo.GoInt</code></pre>
+<p>min, max for OpRepeat </p>
+<pre><code class="language-haxe">var name:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var op:stdgo.regexp.syntax.Op</code></pre>
+<p>operator </p>
+<pre><code class="language-haxe">var rune:stdgo.Slice&lt;stdgo.GoInt32&gt;</code></pre>
+<p>matched runes, for OpLiteral, OpCharClass </p>
+<pre><code class="language-haxe">var rune0:stdgo.GoArray&lt;stdgo.GoInt32&gt;</code></pre>
+<p>storage for short Rune </p>
+<pre><code class="language-haxe">var sub:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;</code></pre>
+<p>subexpressions, if any </p>
+<pre><code class="language-haxe">var sub0:stdgo.GoArray&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;</code></pre>
+<p>storage for short Sub </p>
+<h3><a name="regexp-function-new">Regexp function new</a></h3>
+<pre><code class="language-haxe">function new(?op:Null&lt;stdgo.regexp.syntax.Op&gt;, ?flags:Null&lt;stdgo.regexp.syntax.Flags&gt;, ?sub:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;, ?sub0:stdgo.GoArray&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;, ?rune:stdgo.Slice&lt;stdgo.GoInt32&gt;, ?rune0:stdgo.GoArray&lt;stdgo.GoInt32&gt;, ?min:Null&lt;stdgo.GoInt&gt;, ?max:Null&lt;stdgo.GoInt&gt;, ?cap:Null&lt;stdgo.GoInt&gt;, ?name:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L777"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="regexp-function-_capnames">Regexp function _capNames</a></h3>
+<pre><code class="language-haxe">function _capNames( _names:stdgo.Slice&lt;stdgo.GoString&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2165"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="regexp-function-capnames">Regexp function capNames</a></h3>
+<pre><code class="language-haxe">function capNames():stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
+<p>CapNames walks the regexp to find the names of capturing groups. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2172"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="regexp-function-equal">Regexp function equal</a></h3>
+<pre><code class="language-haxe">function equal( _y:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Bool</code></pre>
+<p>Equal reports whether x and y have identical structure. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2190"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="regexp-function-maxcap">Regexp function maxCap</a></h3>
+<pre><code class="language-haxe">function maxCap():stdgo.GoInt</code></pre>
+<p>MaxCap walks the regexp to find the maximum capture index. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2179"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="regexp-function-simplify">Regexp function simplify</a></h3>
+<pre><code class="language-haxe">function simplify():stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>Simplify returns a regexp equivalent to re but without counted repetitions���// and with various other simplifications, such as rewriting /(?:a+)+/ to /a+/.���// The resulting regexp will execute correctly but its string representation���// will not produce the same parse tree, because capturing parentheses���// may have been duplicated or removed. For example, the simplified form���// for /(x){1,2}/ is /(x)(x)?/ but both parentheses capture as $1.���// The returned regexp may share structure with or be the original. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2161"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="regexp-function-string">Regexp function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2183"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Regexp_static_extension</h2>
+<h3>Regexp_static_extension function _capNames</h3>
+<pre><code class="language-haxe">function _capNames( _names:stdgo.Slice&lt;stdgo.GoString&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2165"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Regexp_static_extension function capNames</h3>
+<pre><code class="language-haxe">function capNames():stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
+<p>CapNames walks the regexp to find the names of capturing groups. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2172"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Regexp_static_extension function equal</h3>
+<pre><code class="language-haxe">function equal( _y:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Bool</code></pre>
+<p>Equal reports whether x and y have identical structure. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2190"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Regexp_static_extension function maxCap</h3>
+<pre><code class="language-haxe">function maxCap():stdgo.GoInt</code></pre>
+<p>MaxCap walks the regexp to find the maximum capture index. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2179"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Regexp_static_extension function simplify</h3>
+<pre><code class="language-haxe">function simplify():stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>Simplify returns a regexp equivalent to re but without counted repetitions���// and with various other simplifications, such as rewriting /(?:a+)+/ to /a+/.���// The resulting regexp will execute correctly but its string representation���// will not produce the same parse tree, because capturing parentheses���// may have been duplicated or removed. For example, the simplified form���// for /(x){1,2}/ is /(x)(x)?/ but both parentheses capture as $1.���// The returned regexp may share structure with or be the original. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2161"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Regexp_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2183"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T__struct_0_static_extension</h2>
+<h2>class T__struct_1_static_extension</h2>
+<h2>class T_compiler_static_extension</h2>
+<h3>T_compiler_static_extension function _alt</h3>
+<pre><code class="language-haxe">function _alt(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _f2:stdgo.regexp.syntax._Syntax.T_frag):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1311"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _cap</h3>
+<pre><code class="language-haxe">function _cap(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _arg:stdgo.GoUInt32):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1319"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _cat</h3>
+<pre><code class="language-haxe">function _cat(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _f2:stdgo.regexp.syntax._Syntax.T_frag):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1315"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _compile</h3>
+<pre><code class="language-haxe">function _compile(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1335"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _empty</h3>
+<pre><code class="language-haxe">function _empty(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _op:stdgo.regexp.syntax.EmptyOp):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1284"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _fail</h3>
+<pre><code class="language-haxe">function _fail(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1323"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _init</h3>
+<pre><code class="language-haxe">function _init(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1339"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _inst</h3>
+<pre><code class="language-haxe">function _inst(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _op:stdgo.regexp.syntax.InstOp):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1331"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _loop</h3>
+<pre><code class="language-haxe">function _loop(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _nongreedy:Bool):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p>loop returns the fragment for the main loop of a plus or star.���// For plus, it can be used after changing the entry to f1.i.���// For star, it can be used directly when f1 can't match an empty string.���// (When f1 can match an empty string, f1* must be implemented as (f1+)?���// to get the priority match order correct.) </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1303"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _nop</h3>
+<pre><code class="language-haxe">function _nop(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1327"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _plus</h3>
+<pre><code class="language-haxe">function _plus(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _nongreedy:Bool):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1288"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _quest</h3>
+<pre><code class="language-haxe">function _quest(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _nongreedy:Bool):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1307"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _rune</h3>
+<pre><code class="language-haxe">function _rune(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _r:stdgo.Slice&lt;stdgo.GoRune&gt;, _flags:stdgo.regexp.syntax.Flags):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1280"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_compiler_static_extension function _star</h3>
+<pre><code class="language-haxe">function _star(_c:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_compiler&gt;, _f1:stdgo.regexp.syntax._Syntax.T_frag, _nongreedy:Bool):stdgo.regexp.syntax._Syntax.T_frag</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1292"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-t_error">class T_error</a></h2>
+<p>An Error describes a failure to parse a regular expression��// and gives the offending expression. </p>
+<pre><code class="language-haxe">var code:stdgo.regexp.syntax.ErrorCode</code></pre>
+<pre><code class="language-haxe">var expr:stdgo.GoString</code></pre>
+<h3>T_error function new</h3>
+<pre><code class="language-haxe">function new(?code:Null&lt;stdgo.regexp.syntax.ErrorCode&gt;, ?expr:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L521"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_error function error</h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1364"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_error_static_extension</h2>
+<h3>T_error_static_extension function error</h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1364"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_parser_static_extension</h2>
+<h3>T_parser_static_extension function _alternate</h3>
+<pre><code class="language-haxe">function _alternate(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>alternate replaces the top of the stack (above the topmost '(') with its alternation. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1809"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _appendGroup</h3>
+<pre><code class="language-haxe">function _appendGroup(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _r:stdgo.Slice&lt;stdgo.GoRune&gt;, _g:stdgo.regexp.syntax._Syntax.T_charGroup):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1651"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _calcHeight</h3>
+<pre><code class="language-haxe">function _calcHeight(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _force:Bool):stdgo.GoInt</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1868"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _checkHeight</h3>
+<pre><code class="language-haxe">function _checkHeight(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1872"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _collapse</h3>
+<pre><code class="language-haxe">function _collapse(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _subs:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;, _op:stdgo.regexp.syntax.Op):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>collapse returns the result of applying op to sub.���// If sub contains op nodes, they all get hoisted up���// so that there is never a concat of a concat or an���// alternate of an alternate. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1802"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _concat</h3>
+<pre><code class="language-haxe">function _concat(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre><table><thead><th align="null">concat replaces the top of the stack (above the topmost '</th><th align="null">' or '(') with its concatenation.</th></thead><tbody></tbody></table>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1816"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _factor</h3>
+<pre><code class="language-haxe">function _factor(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _sub:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;):stdgo.Slice&lt;stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;&gt;</code></pre><table><thead><th align="null">factor factors common prefixes from the alternation list sub.���// It returns a replacement list that reuses the same storage and���// frees (passes to p.reuse) any removed *Regexps.���//���// For example,���//���//�ABC</th><th align="null">ABD</th><th align="null">AEF</th><th align="null">BCX</th><th align="null">BCY���//���// simplifies by literal prefix extraction to���//���//�A(B(C</th><th align="null">D)</th><th align="null">EF)</th><th align="null">BC(X</th><th align="null">Y)���//���// which simplifies by character class introduction to���//���//�A(B[CD]</th><th align="null">EF)</th><th align="null">BC[XY]</th></thead><tbody></tbody></table>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1792"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _leadingRegexp</h3>
+<pre><code class="language-haxe">function _leadingRegexp(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>leadingRegexp returns the leading regexp that re begins with.���// The regexp refers to storage in re or its children. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1755"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _leadingString</h3>
+<pre><code class="language-haxe">function _leadingString(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):{_1:stdgo.regexp.syntax.Flags, _0:stdgo.Slice&lt;stdgo.GoRune&gt;}</code></pre>
+<p>leadingString returns the leading literal string that re begins with.���// The string refers to storage in re or its children. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1771"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _literal</h3>
+<pre><code class="language-haxe">function _literal(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _r:stdgo.GoRune):Void</code></pre>
+<p>literal pushes a literal regexp for the rune r on the stack. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1842"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _maybeConcat</h3>
+<pre><code class="language-haxe">function _maybeConcat(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _r:stdgo.GoRune, _flags:stdgo.regexp.syntax.Flags):Bool</code></pre>
+<p>maybeConcat implements incremental concatenation���// of literal runes into string nodes. The parser calls this���// before each push, so only the top fragment of the stack���// might need processing. Since this is called before a push,���// the topmost literal is no longer subject to operators like \<em>���// (Otherwise ab\</em> would turn into (ab)*.)���// If r \>= 0 and there's a node left over, maybeConcat uses it���// to push r with the given flags.���// maybeConcat reports whether r was pushed. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1857"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _newRegexp</h3>
+<pre><code class="language-haxe">function _newRegexp(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _op:stdgo.regexp.syntax.Op):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1880"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _op</h3>
+<pre><code class="language-haxe">function _op(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _op:stdgo.regexp.syntax.Op):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>op pushes a regexp with the given op onto the stack���// and returns that regexp. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1835"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseClass</h3>
+<pre><code class="language-haxe">function _parseClass(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}</code></pre>
+<p>parseClass parses a character class at the beginning of s���// and pushes it onto the parse stack. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1638"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseClassChar</h3>
+<pre><code class="language-haxe">function _parseClassChar(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString, _wholeClass:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}</code></pre>
+<p>parseClassChar parses a character class character at the beginning of s���// and returns it. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1677"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseEscape</h3>
+<pre><code class="language-haxe">function _parseEscape(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}</code></pre>
+<p>parseEscape parses an escape sequence at the beginning of s���// and returns the rune. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1685"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseInt</h3>
+<pre><code class="language-haxe">function _parseInt(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_2:Bool, _1:stdgo.GoString, _0:stdgo.GoInt}</code></pre>
+<p>parseInt parses a decimal integer. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1715"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseNamedClass</h3>
+<pre><code class="language-haxe">function _parseNamedClass(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString, _r:stdgo.Slice&lt;stdgo.GoRune&gt;):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.Slice&lt;stdgo.GoRune&gt;}</code></pre>
+<p>parseNamedClass parses a leading POSIX named character class like [:alnum:]���// from the beginning of s. If one is present, it appends the characters to r���// and returns the new slice r and the remainder of the string. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1660"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parsePerlClassEscape</h3>
+<pre><code class="language-haxe">function _parsePerlClassEscape(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString, _r:stdgo.Slice&lt;stdgo.GoRune&gt;):{_1:stdgo.GoString, _0:stdgo.Slice&lt;stdgo.GoRune&gt;}</code></pre>
+<p>parsePerlClassEscape parses a leading Perl character class escape like \d���// from the beginning of s. If one is present, it appends the characters to r���// and returns the new slice r and the remainder of the string. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1669"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parsePerlFlags</h3>
+<pre><code class="language-haxe">function _parsePerlFlags(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}</code></pre>
+<p>parsePerlFlags parses a Perl flag setting or non-capturing group or both,���// like (?i) or (?: or (?i:.  It removes the prefix from s and updates the parse state.���// The caller must have ensured that s begins with "(?". </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1724"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseRepeat</h3>
+<pre><code class="language-haxe">function _parseRepeat(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString):{_3:Bool, _2:stdgo.GoString, _1:stdgo.GoInt, _0:stdgo.GoInt}</code></pre>
+<p>parseRepeat parses {min} (max=min) or {min,} (max=-1) or {min,max}.���// If s is not of that form, it returns ok == false.���// If s has the right form but the values are too big, it returns min == -1, ok == true. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1738"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseRightParen</h3>
+<pre><code class="language-haxe">function _parseRightParen(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):stdgo.Error</code></pre>
+<p>parseRightParen handles a ) in the input. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1692"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseUnicodeClass</h3>
+<pre><code class="language-haxe">function _parseUnicodeClass(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _s:stdgo.GoString, _r:stdgo.Slice&lt;stdgo.GoRune&gt;):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.Slice&lt;stdgo.GoRune&gt;}</code></pre>
+<p>parseUnicodeClass parses a leading Unicode character class like \p{Han}���// from the beginning of s. If one is present, it appends the characters to r���// and returns the new slice r and the remainder of the string. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1647"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _parseVerticalBar</h3>
+<pre><code class="language-haxe">function _parseVerticalBar(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):stdgo.Error</code></pre><table><thead><th align="null">parseVerticalBar handles a</th><th align="null">in the input.</th></thead><tbody></tbody></table>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1708"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _push</h3>
+<pre><code class="language-haxe">function _push(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>push pushes the regexp re onto the parse stack and returns the regexp. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1864"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _removeLeadingRegexp</h3>
+<pre><code class="language-haxe">function _removeLeadingRegexp(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _reuse:Bool):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>removeLeadingRegexp removes the leading regexp in re.���// It returns the replacement for re.���// If reuse is true, it passes the removed regexp (if no longer needed) to p.reuse. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1747"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _removeLeadingString</h3>
+<pre><code class="language-haxe">function _removeLeadingString(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;, _n:stdgo.GoInt):stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;</code></pre>
+<p>removeLeadingString removes the first n leading runes���// from the beginning of re. It returns the replacement for re. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1763"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _repeat</h3>
+<pre><code class="language-haxe">function _repeat(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _op:stdgo.regexp.syntax.Op, _min:stdgo.GoInt, _max:stdgo.GoInt, _before:stdgo.GoString, _after:stdgo.GoString, _lastRepeat:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoString}</code></pre>
+<p>repeat replaces the top stack element with itself repeated according to op, min, max.���// before is the regexp suffix starting at the repetition operator.���// after is the regexp suffix following after the repetition operator.���// repeat returns an updated 'after' and an error, if any. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1827"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _reuse</h3>
+<pre><code class="language-haxe">function _reuse(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;, _re:stdgo.Ref&lt;stdgo.regexp.syntax.Regexp&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1876"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_parser_static_extension function _swapVerticalBar</h3>
+<pre><code class="language-haxe">function _swapVerticalBar(_p:stdgo.Ref&lt;stdgo.regexp.syntax._Syntax.T_parser&gt;):Bool</code></pre>
+<p>If the top of the stack is an element followed by an opVerticalBar���// swapVerticalBar swaps the two and returns true.���// Otherwise it returns false. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1701"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_patchList_static_extension</h2>
+<h3>T_patchList_static_extension function _append</h3>
+<pre><code class="language-haxe">function _append(_l1:stdgo.regexp.syntax._Syntax.T_patchList, _p:stdgo.Ref&lt;stdgo.regexp.syntax.Prog&gt;, _l2:stdgo.regexp.syntax._Syntax.T_patchList):stdgo.regexp.syntax._Syntax.T_patchList</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_patchList_static_extension function _patch</h3>
+<pre><code class="language-haxe">function _patch(_l:stdgo.regexp.syntax._Syntax.T_patchList, _p:stdgo.Ref&lt;stdgo.regexp.syntax.Prog&gt;, _val:stdgo.GoUInt32):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1196"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_ranges_static_extension</h2>
+<h3>T_ranges_static_extension function len</h3>
+<pre><code class="language-haxe">function len(_ra:stdgo.regexp.syntax._Syntax.T_ranges):stdgo.GoInt</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1917"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_ranges_static_extension function less</h3>
+<pre><code class="language-haxe">function less(_ra:stdgo.regexp.syntax._Syntax.T_ranges, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1921"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_ranges_static_extension function swap</h3>
+<pre><code class="language-haxe">function swap(_ra:stdgo.regexp.syntax._Syntax.T_ranges, _i:stdgo.GoInt, _j:stdgo.GoInt):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L1913"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="typedefs">Typedefs</a></h1>
+<pre><code class="language-haxe">import stdgo.regexp.syntax.*</code></pre>
+<h2><a name="typedef-emptyop">typedef EmptyOp</a></h2>
+<pre><code class="language-haxe">typedef EmptyOp = var x:{&lt;&gt;}</code></pre>
+<p>An EmptyOp specifies a kind or mixture of zero-width assertions. </p>
+<h2><a name="typedef-errorcode">typedef ErrorCode</a></h2>
+<pre><code class="language-haxe">typedef ErrorCode = var x:{&lt;&gt;}</code></pre>
+<p>An ErrorCode describes a failure to parse a regular expression. </p>
+<h3><a name="errorcode-function-string">ErrorCode function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2215"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-flags">typedef Flags</a></h2>
+<pre><code class="language-haxe">typedef Flags = var x:{&lt;&gt;}</code></pre>
+<p>Flags control the behavior of the parser and record information about regexp context. </p>
+<h2><a name="typedef-instop">typedef InstOp</a></h2>
+<pre><code class="language-haxe">typedef InstOp = var x:{&lt;&gt;}</code></pre>
+<p>An InstOp is an instruction opcode. </p>
+<h3><a name="instop-function-string">InstOp function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2240"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-op">typedef Op</a></h2>
+<pre><code class="language-haxe">typedef Op = var x:{&lt;&gt;}</code></pre>
+<p>An Op is a single regular expression operator. </p>
+<h3><a name="op-function-string">Op function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/regexp/syntax//Syntax.hx#L2240"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+    </article>
+</body>
+</html>

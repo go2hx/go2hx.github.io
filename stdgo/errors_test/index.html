@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.errors</code></h1>
+<p><a href="../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#variables">Variables</a></p></li><li>
+<p><a href="#function-_oops"><code>function _oops():stdgo.Error</code></a></p></li><li>
+<p><a href="#function-example"><code>function example():Void</code></a></p></li><li>
+<p><a href="#function-exampleas"><code>function exampleAs():Void</code></a></p></li><li>
+<p><a href="#function-exampleis"><code>function exampleIs():Void</code></a></p></li><li>
+<p><a href="#function-examplenew"><code>function exampleNew():Void</code></a></p></li><li>
+<p><a href="#function-examplenew_errorf"><code>function exampleNew_errorf():Void</code></a></p></li><li>
+<p><a href="#function-exampleunwrap"><code>function exampleUnwrap():Void</code></a></p></li><li>
+<p><a href="#function-testas"><code>function testAs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testasvalidation"><code>function testAsValidation(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testerrormethod"><code>function testErrorMethod(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testis"><code>function testIs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testnewequal"><code>function testNewEqual(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testunwrap"><code>function testUnwrap(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-main"><code>function main():Void</code></a></p></li><li>
+<p><a href="#class-myerror">class MyError</a></p></li><li>
+<p><a href="#myerror-function-new"><code>function new(?when:stdgo.time.Time, ?what:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#myerror-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-myerror_static_extension">class MyError_static_extension</a></p></li><li>
+<p><a href="#myerror_static_extension-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t__struct_0_static_extension">class T__struct_0_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_1_static_extension">class T__struct_1_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_2_static_extension">class T__struct_2_static_extension</a></p></li><li>
+<p><a href="#class-t_errort_static_extension">class T_errorT_static_extension</a></p></li><li>
+<p><a href="#t_errort_static_extension-function-error"><code>function error(_e:stdgo.errors_test._Errors_test.T_errorT):stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t_erroruncomparable_static_extension">class T_errorUncomparable_static_extension</a></p></li><li>
+<p><a href="#t_erroruncomparable_static_extension-function-error"><code>function error(_:stdgo.errors_test._Errors_test.T_errorUncomparable):stdgo.GoString</code></a></p></li><li>
+<p><a href="#t_erroruncomparable_staticextension-function-is"><code>function is_(_:stdgo.errors_test._Errors_test.T_errorUncomparable, _target:stdgo.Error):Bool</code></a></p></li><li>
+<p><a href="#class-t_poser_static_extension">class T_poser_static_extension</a></p></li><li>
+<p><a href="#t_poser_static_extension-function-as"><code>function as(_p:stdgo.Ref&lt;stdgo.errors_test._Errors_test.T_poser&gt;, _err:stdgo.AnyInterface):Bool</code></a></p></li><li>
+<p><a href="#t_poser_static_extension-function-error"><code>function error(_p:stdgo.Ref&lt;stdgo.errors_test._Errors_test.T_poser&gt;):stdgo.GoString</code></a></p></li><li>
+<p><a href="#t_poser_staticextension-function-is"><code>function is_(_p:stdgo.Ref&lt;stdgo.errors_test._Errors_test.T_poser&gt;, _err:stdgo.Error):Bool</code></a></p></li><li>
+<p><a href="#class-t_wrapped_static_extension">class T_wrapped_static_extension</a></p></li><li>
+<p><a href="#t_wrapped_static_extension-function-error"><code>function error(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.GoString</code></a></p></li><li>
+<p><a href="#t_wrapped_static_extension-function-unwrap"><code>function unwrap(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.Error</code></a></p></li></ul>
+<h1><a name="variables">Variables</a></h1>
+<pre><code class="language-haxe">import stdgo.errors_test.Errors</code></pre>
+<pre><code class="language-haxe">var _:Bool</code></pre>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.errors_test.Errors</code></pre>
+<h2><a name="function-_oops">function _oops</a></h2>
+<pre><code class="language-haxe">function _oops():stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L223"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-example">function example</a></h2>
+<pre><code class="language-haxe">function example():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L232"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-exampleas">function exampleAs</a></h2>
+<pre><code class="language-haxe">function exampleAs():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L475"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-exampleis">function exampleIs</a></h2>
+<pre><code class="language-haxe">function exampleIs():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L460"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplenew">function exampleNew</a></h2>
+<pre><code class="language-haxe">function exampleNew():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L204"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplenew_errorf">function exampleNew_errorf</a></h2>
+<pre><code class="language-haxe">function exampleNew_errorf():Void</code></pre>
+<p>The fmt package's Errorf function lets us use the package's formatting��// features to create descriptive error messages. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L215"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-exampleunwrap">function exampleUnwrap</a></h2>
+<pre><code class="language-haxe">function exampleUnwrap():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L491"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testas">function testAs</a></h2>
+<pre><code class="language-haxe">function testAs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L291"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testasvalidation">function testAsValidation</a></h2>
+<pre><code class="language-haxe">function testAsValidation(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L385"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testerrormethod">function testErrorMethod</a></h2>
+<pre><code class="language-haxe">function testErrorMethod(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L197"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testis">function testIs</a></h2>
+<pre><code class="language-haxe">function testIs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L241"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testnewequal">function testNewEqual</a></h2>
+<pre><code class="language-haxe">function testNewEqual(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L184"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testunwrap">function testUnwrap</a></h2>
+<pre><code class="language-haxe">function testUnwrap(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L440"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-main">function main</a></h2>
+<pre><code class="language-haxe">function main():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors.hx#L40"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.errors_test.*</code></pre>
+<h2><a name="class-myerror">class MyError</a></h2>
+<p>MyError is an error implementation that includes a time and message. </p>
+<pre><code class="language-haxe">var what:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var when:stdgo.time.Time</code></pre>
+<h3><a name="myerror-function-new">MyError function new</a></h3>
+<pre><code class="language-haxe">function new(?when:stdgo.time.Time, ?what:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L26"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="myerror-function-error">MyError function error</a></h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L519"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class MyError_static_extension</h2>
+<h3>MyError_static_extension function error</h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L519"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T__struct_0_static_extension</h2>
+<h2>class T__struct_1_static_extension</h2>
+<h2>class T__struct_2_static_extension</h2>
+<h2>class T_errorT_static_extension</h2>
+<h3>T_errorT_static_extension function error</h3>
+<pre><code class="language-haxe">function error(_e:stdgo.errors_test._Errors_test.T_errorT):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L611"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_errorUncomparable_static_extension</h2>
+<h3>T_errorUncomparable_static_extension function error</h3>
+<pre><code class="language-haxe">function error(_:stdgo.errors_test._Errors_test.T_errorUncomparable):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L686"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_errorUncomparable_static\<em>extension function is\</em></h3>
+<pre><code class="language-haxe">function is_(_:stdgo.errors_test._Errors_test.T_errorUncomparable, _target:stdgo.Error):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L676"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_poser_static_extension</h2>
+<h3>T_poser_static_extension function as</h3>
+<pre><code class="language-haxe">function as(_p:stdgo.Ref&lt;stdgo.errors_test._Errors_test.T_poser&gt;, _err:stdgo.AnyInterface):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L553"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_poser_static_extension function error</h3>
+<pre><code class="language-haxe">function error(_p:stdgo.Ref&lt;stdgo.errors_test._Errors_test.T_poser&gt;):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L585"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_poser_static\<em>extension function is\</em></h3>
+<pre><code class="language-haxe">function is_(_p:stdgo.Ref&lt;stdgo.errors_test._Errors_test.T_poser&gt;, _err:stdgo.Error):Bool</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L580"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_wrapped_static_extension</h2>
+<h3>T_wrapped_static_extension function error</h3>
+<pre><code class="language-haxe">function error(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L646"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_wrapped_static_extension function unwrap</h3>
+<pre><code class="language-haxe">function unwrap(_e:stdgo.errors_test._Errors_test.T_wrapped):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/errors_test//Errors_test.hx#L641"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+    </article>
+</body>
+</html>
