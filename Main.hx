@@ -10,6 +10,8 @@ var support:String = "";
 var go:String = "";
 
 function main() {
+    if (!FileSystem.exists("go2hx"))
+        Sys.command("git clone --depth 1 https://github.com/go2hx/go2hx");
     header = File.getContent("_content/header.html");
     var path = "go2hx/stdgo/README.md";
 
@@ -41,8 +43,6 @@ private function prettyprint(content:String) {
 }
 
 private function stdgo() {
-    if (!FileSystem.exists("go2hx"))
-        Sys.command("git clone --depth 1 https://github.com/go2hx/go2hx");
     stdgoRecursive("go2hx/stdgo",1);
 }
 
