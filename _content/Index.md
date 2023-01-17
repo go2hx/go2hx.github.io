@@ -1,5 +1,5 @@
 
-<img src="logo.svg" width="400" align="right" style="margin-bottom:-4000px;"/>
+<img src="logo.svg" width="420" align="right"/>
 
 
 <h1><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></h1>
@@ -10,8 +10,8 @@ Source-to-Source Go to Haxe compiler.
 
 Use Go libs with ease! [Get started!](https://github.com/go2hx/go2hx#getting-started)
 
-[![issues](powered-by-issues.svg)](https://github.com/go2hx/go2hx/issues)
 [![haxe](made-with-haxe.svg)](https://haxe.org)
+[![go](https://forthebadge.com/images/badges/made-with-go.svg)](https://go.dev/)
 
 
 
