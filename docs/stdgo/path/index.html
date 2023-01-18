@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.path</code></h1>
+<p><a href="../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<p>Package path implements utility routines for manipulating slash-separated��// paths.��//��// The path package should only be used for paths separated by forward��// slashes, such as the paths in URLs. This package does not deal with��// Windows paths with drive letters or backslashes; to manipulate��// operating system paths, use the path/filepath package. </p><details><summary>hl tests failed</summary>
+<p>
+<pre><code>Error: Command failed with error 1
+=== RUN   TestMatch
+Match(*c, abc) = false, null want true, null</code></pre>
+<p></p>
+</details></p><details><summary>interp tests failed</summary>
+<p>
+<pre><code>=== RUN   TestMatch
+Match(*c, abc) = false, null want true, null</code></pre>
+<p></p>
+</details></p><details><summary>jvm tests failed</summary>
+<p>
+<pre><code>IO.Overflow("write_ui16")</code></pre>
+<p></p>
+</details></p>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#variables">Variables</a></p></li><li>
+<p><a href="#function-_getesc"><code>function _getEsc(_chunk:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}</code></a></p></li><li>
+<p><a href="#function-_lastslash"><code>function _lastSlash(_s:stdgo.GoString):stdgo.GoInt</code></a></p></li><li>
+<p><a href="#function-_matchchunk"><code>function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{_2:stdgo.Error, _1:Bool, _0:stdgo.GoString}</code></a></p></li><li>
+<p><a href="#function-_scanchunk"><code>function _scanChunk(_pattern:stdgo.GoString):{_2:stdgo.GoString, _1:stdgo.GoString, _0:Bool}</code></a></p></li><li>
+<p><a href="#function-base"><code>function base(_path:stdgo.GoString):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-clean"><code>function clean(_path:stdgo.GoString):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-dir"><code>function dir(_path:stdgo.GoString):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-ext"><code>function ext(_path:stdgo.GoString):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-isabs"><code>function isAbs(_path:stdgo.GoString):Bool</code></a></p></li><li>
+<p><a href="#function-join"><code>function join(_elem:haxe.Rest&lt;stdgo.GoString&gt;):stdgo.GoString</code></a></p></li><li>
+<p><a href="#function-match"><code>function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{_1:stdgo.Error, _0:Bool}</code></a></p></li><li>
+<p><a href="#function-split"><code>function split(_path:stdgo.GoString):{_1:stdgo.GoString, _0:stdgo.GoString}</code></a></p></li><li>
+<p><a href="#class-t_lazybuf_static_extension">class T_lazybuf_static_extension</a></p></li><li>
+<p><a href="#t_lazybuf_static_extension-function-_append"><code>function _append(_b:stdgo.Ref&lt;stdgo.path._Path.T_lazybuf&gt;, _c:stdgo.GoByte):Void</code></a></p></li><li>
+<p><a href="#t_lazybuf_static_extension-function-_index"><code>function _index(_b:stdgo.Ref&lt;stdgo.path._Path.T_lazybuf&gt;, _i:stdgo.GoInt):stdgo.GoByte</code></a></p></li><li>
+<p><a href="#t_lazybuf_static_extension-function-_string"><code>function _string(_b:stdgo.Ref&lt;stdgo.path._Path.T_lazybuf&gt;):stdgo.GoString</code></a></p></li></ul>
+<h1><a name="examples">Examples</a></h1><ul><li>
+<p><a href="#examplebase"><code>exampleBase</code></a></p></li><li>
+<p><a href="#exampleclean"><code>exampleClean</code></a></p></li><li>
+<p><a href="#exampledir"><code>exampleDir</code></a></p></li><li>
+<p><a href="#exampleext"><code>exampleExt</code></a></p></li><li>
+<p><a href="#exampleisabs"><code>exampleIsAbs</code></a></p></li><li>
+<p><a href="#examplejoin"><code>exampleJoin</code></a></p></li><li>
+<p><a href="#examplematch"><code>exampleMatch</code></a></p></li><li>
+<p><a href="#examplesplit"><code>exampleSplit</code></a></p></li></ul>
+<h1><a name="variables">Variables</a></h1>
+<pre><code class="language-haxe">import stdgo.path.Path</code></pre>
+<pre><code class="language-haxe">var errBadPattern:stdgo.Error</code></pre>
+<p>ErrBadPattern indicates a pattern was malformed. </p>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.path.Path</code></pre>
+<h2><a name="function-_getesc">function _getEsc</a></h2>
+<pre><code class="language-haxe">function _getEsc(_chunk:stdgo.GoString):{_2:stdgo.Error, _1:stdgo.GoString, _0:stdgo.GoRune}</code></pre>
+<p>getEsc gets a possibly-escaped character from chunk, for a character class. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L322"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_lastslash">function _lastSlash</a></h2>
+<pre><code class="language-haxe">function _lastSlash(_s:stdgo.GoString):stdgo.GoInt</code></pre>
+<p>lastSlash(s) is strings.LastIndex(s, "/") but we can't import strings. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L431"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_matchchunk">function _matchChunk</a></h2>
+<pre><code class="language-haxe">function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{_2:stdgo.Error, _1:Bool, _0:stdgo.GoString}</code></pre>
+<p>matchChunk checks whether chunk matches the beginning of s.��// If so, it returns the remainder of s (after the match).��// Chunk is all single-character operators: literals, char classes, and ?. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L201"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-_scanchunk">function _scanChunk</a></h2>
+<pre><code class="language-haxe">function _scanChunk(_pattern:stdgo.GoString):{_2:stdgo.GoString, _1:stdgo.GoString, _0:Bool}</code></pre>
+<p>scanChunk gets the next segment of pattern, which is a non-star string��// possibly preceded by a star. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L153"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-base">function base</a></h2>
+<pre><code class="language-haxe">function base(_path:stdgo.GoString):stdgo.GoString</code></pre>
+<p>Base returns the last element of path.��// Trailing slashes are removed before extracting the last element.��// If the path is empty, Base returns ".".��// If the path consists entirely of slashes, Base returns "/". </p>
+<h3><a name="examplebase">exampleBase</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleBase():Void {
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str("/a/b"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.base(Go.str())));
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L504"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-clean">function clean</a></h2>
+<pre><code class="language-haxe">function clean(_path:stdgo.GoString):stdgo.GoString</code></pre>
+<p>Clean returns the shortest path name equivalent to path��// by purely lexical processing. It applies the following rules��// iteratively until no further processing can be done:��//��//  1. Replace multiple slashes with a single slash.��//  2. Eliminate each . path name element (the current directory).��//  3. Eliminate each inner .. path name element (the parent directory)��//     along with the non-.. element that precedes it.��//  4. Eliminate .. elements that begin a rooted path:��//     that is, replace "/.." by "/" at the beginning of a path.��//��// The returned path ends in a slash only if it is the root "/".��//��// If the result of this process is an empty string, Clean��// returns the string ".".��//��// See also Rob Pike, “Lexical File Names in Plan 9 or��// Getting Dot-Dot Right,”��// https://9p.io/sys/doc/lexnames.html </p>
+<h3><a name="exampleclean">exampleClean</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleClean():Void {
+	var _paths = (new Slice&lt;GoString&gt;(0, 0, Go.str("a/c"), Go.str("a//c"), Go.str("a/c/."), Go.str("a/c/b/.."), Go.str("/../a/c"),
+		Go.str("/../a/b/../././/c"), Go.str()) : Slice&lt;GoString&gt;);
+	for (_0 =&gt; _p in _paths) {
+		stdgo.fmt.Fmt.printf(Go.str("Clean(%q) = %q\n"), Go.toInterface(_p), Go.toInterface(stdgo.path.Path.clean(_p)));
+	};
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L371"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-dir">function dir</a></h2>
+<pre><code class="language-haxe">function dir(_path:stdgo.GoString):stdgo.GoString</code></pre>
+<p>Dir returns all but the last element of path, typically the path's directory.��// After dropping the final element using Split, the path is Cleaned and trailing��// slashes are removed.��// If the path is empty, Dir returns ".".��// If the path consists entirely of slashes followed by non-slash bytes, Dir��// returns a single slash. In any other case, the returned path does not end in a��// slash. </p>
+<h3><a name="exampledir">exampleDir</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleDir():Void {
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/a/b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("a/b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/a/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("a/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.dir(Go.str())));
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L539"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-ext">function ext</a></h2>
+<pre><code class="language-haxe">function ext(_path:stdgo.GoString):stdgo.GoString</code></pre>
+<p>Ext returns the file name extension used by path.��// The extension is the suffix beginning at the final dot��// in the final slash-separated element of path;��// it is empty if there is no dot. </p>
+<h3><a name="exampleext">exampleExt</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleExt():Void {
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str("/a/b/c/bar.css"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str("/"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.ext(Go.str())));
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L486"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-isabs">function isAbs</a></h2>
+<pre><code class="language-haxe">function isAbs(_path:stdgo.GoString):Bool</code></pre>
+<p>IsAbs reports whether the path is absolute. </p>
+<h3><a name="exampleisabs">exampleIsAbs</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleIsAbs():Void {
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.isAbs(Go.str("/dev/null"))));
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L526"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-join">function join</a></h2>
+<pre><code class="language-haxe">function join(_elem:haxe.Rest&lt;stdgo.GoString&gt;):stdgo.GoString</code></pre>
+<p>Join joins any number of path elements into a single path,��// separating them with slashes. Empty elements are ignored.��// The result is Cleaned. However, if the argument list is��// empty or all its elements are empty, Join returns��// an empty string. </p>
+<h3><a name="examplejoin">exampleJoin</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleJoin():Void {
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str("b"), Go.str("c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str("b/c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a/b"), Go.str("c"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a/b"), Go.str("../../../xyz"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str("a"), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.path.Path.join(Go.str(), Go.str("a"))));
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L459"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-match">function match</a></h2>
+<pre><code class="language-haxe">function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{_1:stdgo.Error, _0:Bool}</code></pre>
+<p>Match reports whether name matches the shell pattern.��// The pattern syntax is:��//��//�pattern:��//��{ term }��//�term:��//��'\<em>'         matches any sequence of non-/ characters��//��'?'         matches any single non-/ character��//��'[' [ '^' ] { character-range } ']'��//��            character class (must be non-empty)��//��c           matches character c (c != '\</em>', '?', '\', '[')��//��'\' c      matches character c��//��//�character-range:��//��c           matches character c (c != '\', '-', ']')��//��'\' c      matches character c��//��lo '-' hi   matches character c for lo \&lt;= c \&lt;= hi��//��// Match requires pattern to match all of name, not just a substring.��// The only possible returned error is ErrBadPattern, when pattern��// is malformed. </p>
+<h3><a name="examplematch">exampleMatch</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleMatch():Void {
+	{
+		var __tmp__ = stdgo.path.Path.match(Go.str("abc"), Go.str("abc"));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
+	};
+	{
+		var __tmp__ = stdgo.path.Path.match(Go.str("a*"), Go.str("abc"));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
+	};
+	{
+		var __tmp__ = stdgo.path.Path.match(Go.str("a*/b"), Go.str("a/c/b"));
+		stdgo.fmt.Fmt.println(Go.toInterface((__tmp__._0 : Bool)), Go.toInterface((__tmp__._1 : Error)));
+	};
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L80"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-split">function split</a></h2>
+<pre><code class="language-haxe">function split(_path:stdgo.GoString):{_1:stdgo.GoString, _0:stdgo.GoString}</code></pre>
+<p>Split splits path immediately following the final slash,��// separating it into a directory and file name component.��// If there is no slash in path, Split returns an empty dir and��// file set to path.��// The returned values have the property that path = dir+file. </p>
+<h3><a name="examplesplit">exampleSplit</a></h3><details><summary></summary>
+<p>
+<pre><code class="language-haxe">function exampleSplit():Void {
+	var _split:GoString-&gt;Void = function(_s:GoString):Void {
+		var __tmp__ = stdgo.path.Path.split(_s), _dir:GoString = __tmp__._0, _file:GoString = __tmp__._1;
+		stdgo.fmt.Fmt.printf(Go.str("path.Split(%q) = dir: %q, file: %q\n"), Go.toInterface(_s), Go.toInterface(_dir), Go.toInterface(_file));
+	};
+	_split(Go.str("static/myfile.css"));
+	_split(Go.str("myfile.css"));
+	_split(Go.str());
+}</code></pre>
+<p></p>
+</details></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L446"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.path.*</code></pre>
+<h2>class T_lazybuf_static_extension</h2>
+<h3>T_lazybuf_static_extension function _append</h3>
+<pre><code class="language-haxe">function _append(_b:stdgo.Ref&lt;stdgo.path._Path.T_lazybuf&gt;, _c:stdgo.GoByte):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L583"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_lazybuf_static_extension function _index</h3>
+<pre><code class="language-haxe">function _index(_b:stdgo.Ref&lt;stdgo.path._Path.T_lazybuf&gt;, _i:stdgo.GoInt):stdgo.GoByte</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L597"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>T_lazybuf_static_extension function _string</h3>
+<pre><code class="language-haxe">function _string(_b:stdgo.Ref&lt;stdgo.path._Path.T_lazybuf&gt;):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/path//Path.hx#L575"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+    </article>
+</body>
+</html>

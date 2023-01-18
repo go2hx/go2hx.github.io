@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.unicode.utf16</code></h1>
+<p><a href="../../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<p>Package utf16 implements encoding and decoding of UTF-16 sequences. </p><details><summary>hl tests passed</summary>
+<p>
+<pre><code>=== RUN   TestConstants
+--- PASS: TestConstants (8.0108642578125e-05)
+=== RUN   TestEncode
+--- PASS: TestEncode (0.000504970550537109)
+=== RUN   TestEncodeRune
+--- PASS: TestEncodeRune (2.59876251220703e-05)
+=== RUN   TestDecode
+--- PASS: TestDecode (0.000294923782348633)
+=== RUN   TestDecodeRune
+--- PASS: TestDecodeRune (1.59740447998047e-05)
+=== RUN   TestIsSurrogate
+--- PASS: TestIsSurrogate (1.59740447998047e-05)</code></pre>
+<p></p>
+</details></p><details><summary>interp tests passed</summary>
+<p>
+<pre><code>=== RUN   TestConstants
+--- PASS: TestConstants (4.1961669921875e-05)
+=== RUN   TestEncode
+--- PASS: TestEncode (0.00116682052612304688)
+=== RUN   TestEncodeRune
+--- PASS: TestEncodeRune (0.000660181045532226562)
+=== RUN   TestDecode
+--- PASS: TestDecode (0.00121808052062988281)
+=== RUN   TestDecodeRune
+--- PASS: TestDecodeRune (5.817413330078125e-05)
+=== RUN   TestIsSurrogate
+--- PASS: TestIsSurrogate (2.47955322265625e-05)</code></pre>
+<p></p>
+</details></p><details><summary>jvm tests failed</summary>
+<p>
+<pre><code>IO.Overflow("write_ui16")</code></pre>
+<p></p>
+</details></p>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#constants">Constants</a></p></li><li>
+<p><a href="#function-decode"><code>function decode(_s:stdgo.Slice&lt;stdgo.GoUInt16&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></a></p></li><li>
+<p><a href="#function-decoderune"><code>function decodeRune(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.GoRune</code></a></p></li><li>
+<p><a href="#function-encode"><code>function encode(_s:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoUInt16&gt;</code></a></p></li><li>
+<p><a href="#function-encoderune"><code>function encodeRune(_r:stdgo.GoRune):{_1:stdgo.GoRune, _0:stdgo.GoRune}</code></a></p></li><li>
+<p><a href="#function-issurrogate"><code>function isSurrogate(_r:stdgo.GoRune):Bool</code></a></p></li></ul>
+<h1><a name="constants">Constants</a></h1>
+<pre><code class="language-haxe">import stdgo.unicode.utf16.Utf16</code></pre>
+<pre><code class="language-haxe">final maxRune:stdgo.GoInt32 = ((1114111 : GoInt32))</code></pre>
+<p>Extra names for constants so we can validate them during testing. </p>
+<pre><code class="language-haxe">final replacementChar:stdgo.GoInt32 = ((65533 : GoInt32))</code></pre>
+<p>Extra names for constants so we can validate them during testing. </p>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.unicode.utf16.Utf16</code></pre>
+<h2><a name="function-decode">function decode</a></h2>
+<pre><code class="language-haxe">function decode(_s:stdgo.Slice&lt;stdgo.GoUInt16&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
+<p>Decode returns the Unicode code point sequence represented��// by the UTF-16 encoding s. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf16//Utf16.hx#L118"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-decoderune">function decodeRune</a></h2>
+<pre><code class="language-haxe">function decodeRune(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.GoRune</code></pre>
+<p>DecodeRune returns the UTF-16 decoding of a surrogate pair.��// If the pair is not a valid UTF-16 surrogate pair, DecodeRune returns��// the Unicode replacement code point U+FFFD. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf16//Utf16.hx#L62"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-encode">function encode</a></h2>
+<pre><code class="language-haxe">function encode(_s:stdgo.Slice&lt;stdgo.GoRune&gt;):stdgo.Slice&lt;stdgo.GoUInt16&gt;</code></pre>
+<p>Encode returns the UTF-16 encoding of the Unicode code point sequence s. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf16//Utf16.hx#L86"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-encoderune">function encodeRune</a></h2>
+<pre><code class="language-haxe">function encodeRune(_r:stdgo.GoRune):{_1:stdgo.GoRune, _0:stdgo.GoRune}</code></pre>
+<p>EncodeRune returns the UTF-16 surrogate pair r1, r2 for the given rune.��// If the rune is not a valid Unicode code point or does not need encoding,��// EncodeRune returns U+FFFD, U+FFFD. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf16//Utf16.hx#L74"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-issurrogate">function isSurrogate</a></h2>
+<pre><code class="language-haxe">function isSurrogate(_r:stdgo.GoRune):Bool</code></pre>
+<p>IsSurrogate reports whether the specified Unicode code point��// can appear in a surrogate pair. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf16//Utf16.hx#L53"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+    </article>
+</body>
+</html>
