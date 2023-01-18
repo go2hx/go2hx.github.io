@@ -37,26 +37,26 @@ jobs:
         run: npx lix download
       - name: Build
         run: npx haxe build.hxml
-      #- uses: stefanzweifel/git-auto-commit-action@v4
-      #  with:
-      #    commit_message: auto build
-      #    file_pattern: '*.html'
+      - uses: actions/upload-artifact@master
+        with:
+          name: page
+          path: .
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: page
+          path: .
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        with:
-          path: |
-            index.html
-            manual
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
