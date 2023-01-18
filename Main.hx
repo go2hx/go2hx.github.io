@@ -38,11 +38,13 @@ function main() {
         }
     }
     stdgo();
-    for (path in FileSystem.readDirectory(".")) {
-        switch Path.extension(path) {
-            case "js","css","svg","png":
-                File.copy(path,'$exportPath$path');
-            default:
+    if (exportPath != "") {
+        for (path in FileSystem.readDirectory(".")) {
+            switch Path.extension(path) {
+                case "js","css","svg","png":
+                    File.copy(path,'$exportPath$path');
+                default:
+            }
         }
     }
 }
