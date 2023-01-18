@@ -40,7 +40,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: page
-          path: 'bin'
+          path: ./bin
   deploy:
     environment:
       name: github-pages
@@ -51,7 +51,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: page
-          path: 'bin'
+          path: ./bin
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
@@ -60,7 +60,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: 'bin'
+          path: ./bin
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
