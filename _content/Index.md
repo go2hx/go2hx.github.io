@@ -20,27 +20,29 @@ Use Go libs with ease! [Get started!](https://github.com/go2hx/go2hx#getting-sta
 <details><summary>Standard Library compatibility/api docs</summary>::support::</details>
 <details><summary>FAQ</summary>
 
-* Q: Can library X be compiled using go2hx?
-* A: Maybe, to see if the library is supported at the moment ``go get library_here`` the library and then run:
+## Can library X be compiled?
+Maybe, to see if the library is supported at the moment ``go get library_here`` the library and then run:
 ```sh
 go list -f '{{ .Imports }}' library here
 ```
 Then check to see if the standard libraries used are all passing with the compatibility table above.
 
-* Q: Does the compiler support Go as a Haxe target?
-* A: No and it's not within the scope of the project.
 
-* Q: Why not use externs instead of compiling Go code into Haxe?
-* A: Because externs can target lock a code base and they require maintenance, abstraction code etc.
 
-* Q: Cgo support?
-* A: Not available but planned and happily accepting contributions for it!
+## Does the compiler support Go as a Haxe target?
+No and it's not within the scope of the project.
 
-* Q: How does this compare to Gopherjs or Go wasm?
-* A: go2hx's design is built with Haxe devs in mind, therefore the goals align with Haxe dev advantages of the compiler, with that said go2hx does have some advantages already, smaller code generation, access to Haxe's compiler tooling such as dce and optimizations, and Haxe as a language being very portable, high level and statically typed.
+## Why not use externs instead of compiling Go code into Haxe?
+Because externs can target lock a code base and they require maintenance, abstraction code etc.
 
-* Q: What internals does go2hx's stdlib use (stdgo)
-* A: go2hx's compiler, compiles the standard library packages for example ``os``. After compilation a Patcher system switches out functions/variables/structs for a Haxe equivalent, for example ``os.Open`` uses ``sys.io.File.read`` and ``sys.io.File.write``.
+## Cgo support?
+Not available but planned and happily accepting contributions for it!
+
+## How does this compare to Gopherjs or Go wasm?
+go2hx's design is built with Haxe devs in mind, therefore the goals align with Haxe dev advantages of the compiler, with that said go2hx does have some advantages already, smaller code generation, access to Haxe's compiler tooling such as dce and optimizations, and Haxe as a language being very portable, high level and statically typed.
+
+## What internals does stdlib use?
+go2hx's compiler, compiles the standard library packages for example ``os``. After compilation a Patcher system switches out functions/variables/structs for a Haxe equivalent, for example ``os.Open`` uses ``sys.io.File.read`` and ``sys.io.File.write``.
 
 </details>
 
