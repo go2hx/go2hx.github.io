@@ -10,6 +10,8 @@ var support:String = "";
 var go:String = "";
 
 function main() {
+    if (!FileSystem.exists("bin"))
+        FileSystem.createDirectory("bin");
     if (!FileSystem.exists("go2hx"))
         Sys.command("git clone --depth 1 https://github.com/go2hx/go2hx");
     header = File.getContent("_content/header.html");
@@ -25,8 +27,8 @@ function main() {
        final path2 = Path.join([dir,path]);
         if (!FileSystem.isDirectory(path2))
             continue;
-        if (!FileSystem.exists(path))
-            FileSystem.createDirectory(path);
+        if (!FileSystem.exists("bin/" + path))
+            FileSystem.createDirectory("bin/" + path);
         for (file in FileSystem.readDirectory(path2)) {
             if (Path.extension(file) != "md")
                 continue;
@@ -34,6 +36,13 @@ function main() {
         }
     }
     stdgo();
+    for (path in FileSystem.readDirectory(".")) {
+        switch Path.extension(path) {
+            case "js","css","svg","png":
+                File.copy(path,'bin/$path');
+            default:
+        }
+    }
 }
 
 private function prettyprint(content:String) {
@@ -59,7 +68,7 @@ private function stdgoRecursive(dir:String,depth:Int) {
     for (path in FileSystem.readDirectory(dir)) {
         path = Path.join([dir,path]);
         if (FileSystem.isDirectory(path)) {
-            FileSystem.createDirectory(path.substr("go2hx/".length));
+            FileSystem.createDirectory("bin/" + path.substr("go2hx/".length));
             stdgoRecursive(path,depth+1);
         }else{
             if (Path.extension(path) == "md") {
@@ -74,7 +83,7 @@ private function stdgoRecursive(dir:String,depth:Int) {
                 trace(path);
                 final temp = new Template(File.getContent("_content/stdgo.html"));
                 final depth = [for (i in 0...depth) ".."].join("/");
-                File.saveContent(Path.join([Path.withoutExtension(path.substr("go2hx/".length)),"index.html"]),temp.execute({content: content,depth: depth,fullpath: fullpath,header: header}));
+                File.saveContent("bin/" + Path.join([Path.withoutExtension(path.substr("go2hx/".length)),"index.html"]),temp.execute({content: content,depth: depth,fullpath: fullpath,header: header}));
             }
         }
     }
@@ -89,7 +98,7 @@ private function saveContent(dir,path,file) {
     if (FileSystem.exists(Path.join([dir,path,"index.html"]))) {
         temp = new Template(File.getContent(Path.join([dir,path,"index.html"])));
         trace(Path.join([dir,path,file]) + " -> " + Path.join([path,Path.withoutExtension(file) + ".html"]));
-        File.saveContent(Path.join([path,Path.withoutExtension(file) + ".html"]),temp.execute({content: content, header: header})); // index.html template
+        File.saveContent("bin/" + Path.join([path,Path.withoutExtension(file) + ".html"]),temp.execute({content: content, header: header})); // index.html template
     }else{
         throw  "not found index.html at: " + dir + " | " + path;
     }
