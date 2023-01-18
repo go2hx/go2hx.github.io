@@ -37,10 +37,10 @@ jobs:
         run: npx lix download
       - name: Build
         run: npx haxe build.hxml
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: auto build
-          file_pattern: '*.html'
+      #- uses: stefanzweifel/git-auto-commit-action@v4
+      #  with:
+      #    commit_message: auto build
+      #    file_pattern: '*.html'
   deploy:
     environment:
       name: github-pages
