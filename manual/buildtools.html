@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx manual</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx manual"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../prism.js"></script>
+    <article class="markdown-body">
+        <h1><a name="build-tools">Build tools</a></h1>
+<p>Run for help with flags:</p>
+<pre><code class="language-haxe">haxelib run go2hx -h</code></pre>
+<h1><a name="lib-go2hx">lib go2hx</a></h1>
+<p>go2hx is also a library that needs to be included with any go2hx compiled code.</p>
+<p>That's because go2hx as a lib holds the compiled <font color="#357b99">go</font> std lib in order to speed up compiles.</p>
+<h1><a name="go-test">Go test</a></h1>
+<p>Flag <code>-test</code> toggles go2hx testing mode and compiles code as if <code>go test</code> command was used.</p>
+<p>Test mode will use the test <code>main</code> <font color="#357b99">go</font> generates as the main entry point.</p>
+<p>go2hx by default in test mode will call <font color="#e2ac3f">Haxe</font> eval on the compiled code.</p>
+<h1><a name="targets">Targets</a></h1>
+<p>In the same way as Haxe, go2hx can take a target flag to compile the <font color="#e2ac3f">Haxe</font> code for example <code>-hl out.hl</code></p>
+<p>You can also set a target flag and then use <code>-norun</code> to not run the <font color="#e2ac3f">Haxe</font> compiler after go2hx compiles.</p>
+<p>Setting <code>-norun</code> is useful with <code>-hxml build.hxml</code> flag that will create an hxml that can be manually run and has all of the flags needed.</p>
+<h1><a name="extra-flags">Extra flags</a></h1><table><thead><th>Flag</th><th>Description</th><th align="null"></th></thead><tbody><tr><td>-nocomments</td><td>removes comments from the compiled code.</td></tr><tr><td>-printgocode</td><td>add <font color="#357b99">go</font> code as a comment to the generated <font color="#e2ac3f">Haxe</font> code.</td></tr><tr><td>-libwrap</td><td>all non main packages wrapped as a haxelib library.</td></tr><tr><td>-out</td><td>output path for the generated code to go, default golibs</td></tr><tr><td>-root</td><td>set the root package for all compiled files for example: -root stdgo -> <code>package root...</code></td></tr></tbody></table>
+    </article>
+
+    <script src="https://utteranc.es/client.js"
+        repo="go2hx/go2hx.github.io"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+    </script>
+</body>
+</html>
