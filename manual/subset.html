@@ -55,8 +55,8 @@
 </div></a>
     <script src="../prism.js"></script>
     <article class="markdown-body">
-        <h1><a name="supported-subset">Supported Subset</a></h1><ul><li>Passing stdlib pkgs such as: unicode,math,string.</li><li>All language features (go language without reference to the stdlib).</li></ul>
-<h1><a name="unsupported">Unsupported</a></h1><ul><li>Cgo.</li><li>Go assembly.</li><li>Unsafe operations.</li><li>Almost all of <code>runtime</code>.</li><li>syscall.</li><li>Pointer addresses.</li><li>Array unable to hold onto length value.</li><li>UIntptr.</li><li>Non passing stdblib pkgs.</li><li>Some parts of <code>reflection</code>.</li><li>Parts of <code>testing</code>.</li></ul>
+        <h1><a name="supported-subset">Supported Subset</a></h1><ul><li><a href="https://go2hx.github.io/stdgo/index.html">Passing stdlibs on supported targets</a> for example: unicode,math,string on hashlink and interp</li><li>The <font color="#357b99">go</font> language excluding the <a href="https://pkg.go.dev/std">stdlib</a>.</li></ul>
+<h1><a name="unsupported">Unsupported</a></h1><ul><li><a href="https://go.dev/blog/cgo">Cgo</a>.</li><li><a href="https://go.dev/doc/asm">Go assembly</a>.</li><li><a href="https://pkg.go.dev/unsafe">Unsafe operations</a>.</li><li>Almost all of stdlib <a href="https://pkg.go.dev/runtime">runtime</a>.</li><li>stdlib <a href="https://pkg.go.dev/syscall">syscall</a>.</li><li>Pointer addresses for example: 0xc000014088.</li><li>Array unable to always hold onto length value.</li><li>UIntptr.</li><li>Some parts of stdlib <a href="https://pkg.go.dev/reflect">reflection</a>.</li><li>Some parts of libs <a href="https://pkg.go.dev/testing">testing</a>.</li></ul>
     </article>
 
     <script src="https://utteranc.es/client.js"

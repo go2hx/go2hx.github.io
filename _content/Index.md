@@ -14,8 +14,9 @@ Use Go libs with ease! [Get started!](https://github.com/go2hx/go2hx#getting-sta
 [![go](https://forthebadge.com/images/badges/made-with-go.svg)](https://go.dev/)
 
 
+[What's supported?](./manual/subset.html)
 
-[Manual](./manual/index.html) (detailed info about the project)
+[Manual](./manual/index.html)
 
 <details><summary>Standard Library compatibility/api docs</summary>::support::</details>
 <details><summary>FAQ</summary>
