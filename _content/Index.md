@@ -8,7 +8,7 @@
 
 Source-to-Source Go to Haxe compiler.
 
-Use Go libs with ease! [Get started!](https://github.com/go2hx/go2hx#getting-started)
+Use Go libs with ease! [**Get started!**](./manual/getstarted.html)
 
 [![haxe](made-with-haxe.svg)](https://haxe.org)
 [![go](https://forthebadge.com/images/badges/made-with-go.svg)](https://go.dev/)

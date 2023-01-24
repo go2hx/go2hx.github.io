@@ -1,3 +1,4 @@
+* [Get started](./getstarted.html)
 * [Supported subset](./subset.html)
 * [Types](./types.html)
 * [Goroutines](./goroutines.html)
