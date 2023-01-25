@@ -55,7 +55,18 @@
 </div></a>
     <script src="../prism.js"></script>
     <article class="markdown-body">
-        <ul><li><a href="./getstarted.html">Get started</a></li><li><a href="./subset.html">Supported subset</a></li><li><a href="./types.html">Types</a></li><li><a href="./goroutines.html">Goroutines</a></li><li><a href="./buildtools.html">Build Tools</a></li><li><a href="./haxeextern.html">Create <font color="#e2ac3f">Haxe</font> externs for <font color="#357b99">Go</font> code</a></li><li><a href="./reflection.html">Reflection</a></li><li><a href="./debugging.html">Debugging</a></li><li><a href="./ast.html">Ast</a></li><li><a href="https://github.com/go2hx/go2hx/tree/master/stdgo#readme">Go macro</a></li><li><a href="./projectstructure.html">Project structure</a></li><li><a href="./nameconversions.html">Name conversions</a></li></ul>
+        <h2><a name="name-conversions">Name conversions</a></h2>
+<p>Go uses uppercase field/class/method names to mark a field as public access and non as private.
+The <font color="#e2ac3f">Haxe</font> compiler requires uppercase class names, but has no requirement for fields however the best practice is for field names to be lowercase camelCasing styled.</p>
+<p>The compiler go2hx converts <font color="#357b99">go</font> styled names to <font color="#e2ac3f">Haxe</font> styled names with a set of rules.</p><ul><li>Method/Field names: uppercase to lowercase, and lowercase to underline.</li><li>Class names: uppercase no conversion, and lowercase to "T_" prefix added.</li></ul>
+<h2><a name="reserved-names">Reserved names</a></h2>
+<p>go2hx holds a list of reserved names which if seen have "_" added as a suffix.</p>
+<pre><code class="language-haxe">final reserved = [
+	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
+	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
+	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
+	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof",
+];</code></pre>
     </article>
 
     <script src="https://utteranc.es/client.js"

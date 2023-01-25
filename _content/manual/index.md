@@ -9,3 +9,4 @@
 * [Ast](./ast.html)
 * [Go macro](https://github.com/go2hx/go2hx/tree/master/stdgo#readme)
 * [Project structure](./projectstructure.html)
+* [Name conversions](./nameconversions.html)

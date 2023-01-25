@@ -1,11 +1,11 @@
-# Supported Subset
+### Supported Subset
 
 
 * [Passing stdlibs on supported targets](https://go2hx.github.io/stdgo/index.html) for example: unicode,math,string on hashlink and interp
 * The go language excluding the [stdlib](https://pkg.go.dev/std).
 
 
-# Unsupported
+### Unsupported
 * [Cgo](https://go.dev/blog/cgo).
 * [Go assembly](https://go.dev/doc/asm).
 * [Unsafe operations](https://pkg.go.dev/unsafe).
