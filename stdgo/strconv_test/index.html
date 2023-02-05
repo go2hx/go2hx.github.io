@@ -60,20 +60,6 @@
 <h1><a name="overview">Overview</a></h1>
 <h1><a name="index">Index</a></h1><ul><li>
 <p><a href="#variables">Variables</a></p></li><li>
-<p><a href="#function-_baseerrstub"><code>function _baseErrStub(_name:stdgo.GoString, _base:stdgo.GoInt):stdgo.Error</code></a></p></li><li>
-<p><a href="#function-_benchmarkatoi"><code>function _benchmarkAtoi(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _neg:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_benchmarkparseint"><code>function _benchmarkParseInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _neg:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_bitsizeerrstub"><code>function _bitSizeErrStub(_name:stdgo.GoString, _bitSize:stdgo.GoInt):stdgo.Error</code></a></p></li><li>
-<p><a href="#function-_equalerror"><code>function _equalError(_a:stdgo.Error, _b:stdgo.Error):Bool</code></a></p></li><li>
-<p><a href="#function-_fdiv"><code>function _fdiv(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):stdgo.GoFloat64</code></a></p></li><li>
-<p><a href="#function-_initatof"><code>function _initAtof():Void</code></a></p></li><li>
-<p><a href="#function-_initatofonce"><code>function _initAtofOnce():Void</code></a></p></li><li>
-<p><a href="#function-_myatof32"><code>function _myatof32(_s:stdgo.GoString):{_1:Bool, _0:stdgo.GoFloat32}</code></a></p></li><li>
-<p><a href="#function-_myatof64"><code>function _myatof64(_s:stdgo.GoString):{_1:Bool, _0:stdgo.GoFloat64}</code></a></p></li><li>
-<p><a href="#function-_noerrstub"><code>function _noErrStub(_name:stdgo.GoString, _arg:stdgo.GoInt):stdgo.Error</code></a></p></li><li>
-<p><a href="#function-_pow2"><code>function _pow2(_i:stdgo.GoInt):stdgo.GoFloat64</code></a></p></li><li>
-<p><a href="#function-_testatof"><code>function _testAtof(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _opt:Bool):Void</code></a></p></li><li>
-<p><a href="#function-_testunquote"><code>function _testUnquote(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _in:stdgo.GoString, _want:stdgo.GoString, _wantErr:stdgo.Error):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkappendfloat"><code>function benchmarkAppendFloat(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkappendint"><code>function benchmarkAppendInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkappendintsmall"><code>function benchmarkAppendIntSmall(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
@@ -188,7 +174,6 @@
 <p><a href="#function-testuitoa"><code>function testUitoa(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testunquote"><code>function testUnquote(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testunquoteinvalidutf8"><code>function testUnquoteInvalidUTF8(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
-<p><a href="#function-main"><code>function main():Void</code></a></p></li><li>
 <p><a href="#class-t__struct_0_static_extension">class T__struct_0_static_extension</a></p></li><li>
 <p><a href="#class-t__struct_1_static_extension">class T__struct_1_static_extension</a></p></li><li>
 <p><a href="#class-t__struct_2_static_extension">class T__struct_2_static_extension</a></p></li><li>
@@ -204,401 +189,354 @@
 <pre><code class="language-haxe">var _:Bool</code></pre>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.strconv_test.Strconv</code></pre>
-<h2><a name="function-_baseerrstub">function _baseErrStub</a></h2>
-<pre><code class="language-haxe">function _baseErrStub(_name:stdgo.GoString, _base:stdgo.GoInt):stdgo.Error</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3292"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_benchmarkatoi">function _benchmarkAtoi</a></h2>
-<pre><code class="language-haxe">function _benchmarkAtoi(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _neg:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3424"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_benchmarkparseint">function _benchmarkParseInt</a></h2>
-<pre><code class="language-haxe">function _benchmarkParseInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _neg:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3391"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_bitsizeerrstub">function _bitSizeErrStub</a></h2>
-<pre><code class="language-haxe">function _bitSizeErrStub(_name:stdgo.GoString, _bitSize:stdgo.GoInt):stdgo.Error</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3288"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_equalerror">function _equalError</a></h2>
-<pre><code class="language-haxe">function _equalError(_a:stdgo.Error, _b:stdgo.Error):Bool</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3300"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_fdiv">function _fdiv</a></h2>
-<pre><code class="language-haxe">function _fdiv(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):stdgo.GoFloat64</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4188"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_initatof">function _initAtof</a></h2>
-<pre><code class="language-haxe">function _initAtof():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2758"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_initatofonce">function _initAtofOnce</a></h2>
-<pre><code class="language-haxe">function _initAtofOnce():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2762"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_myatof32">function _myatof32</a></h2>
-<pre><code class="language-haxe">function _myatof32(_s:stdgo.GoString):{_1:Bool, _0:stdgo.GoFloat32}</code></pre>
-<p>Wrapper around strconv.ParseFloat(x, 32).  Handles dddddp+ddd (binary exponent)��// itself, passes the rest on to strconv.ParseFloat. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4066"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_myatof64">function _myatof64</a></h2>
-<pre><code class="language-haxe">function _myatof64(_s:stdgo.GoString):{_1:Bool, _0:stdgo.GoFloat64}</code></pre>
-<p>Wrapper around strconv.ParseFloat(x, 64).  Handles dddddp+ddd (binary exponent)��// itself, passes the rest on to strconv.ParseFloat. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4010"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_noerrstub">function _noErrStub</a></h2>
-<pre><code class="language-haxe">function _noErrStub(_name:stdgo.GoString, _arg:stdgo.GoInt):stdgo.Error</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3296"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_pow2">function _pow2</a></h2>
-<pre><code class="language-haxe">function _pow2(_i:stdgo.GoInt):stdgo.GoFloat64</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3995"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_testatof">function _testAtof</a></h2>
-<pre><code class="language-haxe">function _testAtof(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _opt:Bool):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2825"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_testunquote">function _testUnquote</a></h2>
-<pre><code class="language-haxe">function _testUnquote(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _in:stdgo.GoString, _want:stdgo.GoString, _wantErr:stdgo.Error):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4755"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkappendfloat">function benchmarkAppendFloat</a></h2>
 <pre><code class="language-haxe">function benchmarkAppendFloat(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4346"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4434"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkappendint">function benchmarkAppendInt</a></h2>
 <pre><code class="language-haxe">function benchmarkAppendInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4455"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4543"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkappendintsmall">function benchmarkAppendIntSmall</a></h2>
 <pre><code class="language-haxe">function benchmarkAppendIntSmall(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4508"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4596"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkappendquote">function benchmarkAppendQuote</a></h2>
 <pre><code class="language-haxe">function benchmarkAppendQuote(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4645"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4733"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkappendquoterune">function benchmarkAppendQuoteRune</a></h2>
 <pre><code class="language-haxe">function benchmarkAppendQuoteRune(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4655"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4743"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkappenduint">function benchmarkAppendUint</a></h2>
 <pre><code class="language-haxe">function benchmarkAppendUint(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4480"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4568"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkappenduintvarlen">function benchmarkAppendUintVarlen</a></h2>
 <pre><code class="language-haxe">function benchmarkAppendUintVarlen(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4520"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4608"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof32decimal">function benchmarkAtof32Decimal</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof32Decimal(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3063"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3149"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof32float">function benchmarkAtof32Float</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof32Float(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3072"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3158"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof32floatexp">function benchmarkAtof32FloatExp</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof32FloatExp(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3081"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3167"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof32random">function benchmarkAtof32Random</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof32Random(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3090"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3176"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof32randomlong">function benchmarkAtof32RandomLong</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof32RandomLong(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3106"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof64big">function benchmarkAtof64Big</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof64Big(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3011"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3097"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof64decimal">function benchmarkAtof64Decimal</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof64Decimal(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2984"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3070"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof64float">function benchmarkAtof64Float</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof64Float(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2993"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3079"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof64floatexp">function benchmarkAtof64FloatExp</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof64FloatExp(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3002"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3088"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof64randombits">function benchmarkAtof64RandomBits</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof64RandomBits(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3020"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3106"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof64randomfloats">function benchmarkAtof64RandomFloats</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof64RandomFloats(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3031"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3117"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatof64randomlongfloats">function benchmarkAtof64RandomLongFloats</a></h2>
 <pre><code class="language-haxe">function benchmarkAtof64RandomLongFloats(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3042"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3128"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkatoi">function benchmarkAtoi</a></h2>
 <pre><code class="language-haxe">function benchmarkAtoi(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3415"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3501"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkformatfloat">function benchmarkFormatFloat</a></h2>
 <pre><code class="language-haxe">function benchmarkFormatFloat(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4333"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4421"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkformatint">function benchmarkFormatInt</a></h2>
 <pre><code class="language-haxe">function benchmarkFormatInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4443"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4531"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkformatintsmall">function benchmarkFormatIntSmall</a></h2>
 <pre><code class="language-haxe">function benchmarkFormatIntSmall(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4493"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4581"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkformatuint">function benchmarkFormatUint</a></h2>
 <pre><code class="language-haxe">function benchmarkFormatUint(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4468"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4556"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkparseint">function benchmarkParseInt</a></h2>
 <pre><code class="language-haxe">function benchmarkParseInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3382"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3468"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkquote">function benchmarkQuote</a></h2>
 <pre><code class="language-haxe">function benchmarkQuote(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4627"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4715"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkquoterune">function benchmarkQuoteRune</a></h2>
 <pre><code class="language-haxe">function benchmarkQuoteRune(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4636"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4724"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkunquoteeasy">function benchmarkUnquoteEasy</a></h2>
 <pre><code class="language-haxe">function benchmarkUnquoteEasy(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4789"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4877"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkunquotehard">function benchmarkUnquoteHard</a></h2>
 <pre><code class="language-haxe">function benchmarkUnquoteHard(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4798"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4886"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleappendbool">function exampleAppendBool</a></h2>
 <pre><code class="language-haxe">function exampleAppendBool():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3623"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3710"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleappendfloat">function exampleAppendFloat</a></h2>
 <pre><code class="language-haxe">function exampleAppendFloat():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3629"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3716"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleappendint">function exampleAppendInt</a></h2>
 <pre><code class="language-haxe">function exampleAppendInt():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3638"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3725"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleappendquote">function exampleAppendQuote</a></h2>
 <pre><code class="language-haxe">function exampleAppendQuote():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3647"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3734"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleappendquoterune">function exampleAppendQuoteRune</a></h2>
 <pre><code class="language-haxe">function exampleAppendQuoteRune():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3653"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3740"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleappendquoterunetoascii">function exampleAppendQuoteRuneToASCII</a></h2>
 <pre><code class="language-haxe">function exampleAppendQuoteRuneToASCII():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3659"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3746"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleappendquotetoascii">function exampleAppendQuoteToASCII</a></h2>
 <pre><code class="language-haxe">function exampleAppendQuoteToASCII():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3665"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3752"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleappenduint">function exampleAppendUint</a></h2>
 <pre><code class="language-haxe">function exampleAppendUint():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3671"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3758"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleatoi">function exampleAtoi</a></h2>
 <pre><code class="language-haxe">function exampleAtoi():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3680"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3767"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplecanbackquote">function exampleCanBackquote</a></h2>
 <pre><code class="language-haxe">function exampleCanBackquote():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3692"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3779"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleformatbool">function exampleFormatBool</a></h2>
 <pre><code class="language-haxe">function exampleFormatBool():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3697"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3784"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleformatfloat">function exampleFormatFloat</a></h2>
 <pre><code class="language-haxe">function exampleFormatFloat():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3703"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3790"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleformatint">function exampleFormatInt</a></h2>
 <pre><code class="language-haxe">function exampleFormatInt():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3711"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3798"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleformatuint">function exampleFormatUint</a></h2>
 <pre><code class="language-haxe">function exampleFormatUint():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3719"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3806"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleisgraphic">function exampleIsGraphic</a></h2>
 <pre><code class="language-haxe">function exampleIsGraphic():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3814"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleisprint">function exampleIsPrint</a></h2>
 <pre><code class="language-haxe">function exampleIsPrint():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3736"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3823"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleitoa">function exampleItoa</a></h2>
 <pre><code class="language-haxe">function exampleItoa():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3743"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3830"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplenumerror">function exampleNumError</a></h2>
 <pre><code class="language-haxe">function exampleNumError():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3979"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4066"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleparsebool">function exampleParseBool</a></h2>
 <pre><code class="language-haxe">function exampleParseBool():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3749"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3836"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleparsefloat">function exampleParseFloat</a></h2>
 <pre><code class="language-haxe">function exampleParseFloat():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3761"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3848"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleparseint">function exampleParseInt</a></h2>
 <pre><code class="language-haxe">function exampleParseInt():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3837"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3924"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleparseuint">function exampleParseUint</a></h2>
 <pre><code class="language-haxe">function exampleParseUint():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3874"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3961"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplequote">function exampleQuote</a></h2>
 <pre><code class="language-haxe">function exampleQuote():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3894"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3981"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplequoterune">function exampleQuoteRune</a></h2>
 <pre><code class="language-haxe">function exampleQuoteRune():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3899"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3986"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplequoterunetoascii">function exampleQuoteRuneToASCII</a></h2>
 <pre><code class="language-haxe">function exampleQuoteRuneToASCII():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3904"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3991"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplequoterunetographic">function exampleQuoteRuneToGraphic</a></h2>
 <pre><code class="language-haxe">function exampleQuoteRuneToGraphic():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3909"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3996"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplequotetoascii">function exampleQuoteToASCII</a></h2>
 <pre><code class="language-haxe">function exampleQuoteToASCII():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3920"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4007"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplequotetographic">function exampleQuoteToGraphic</a></h2>
 <pre><code class="language-haxe">function exampleQuoteToGraphic():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3925"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4012"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleunquote">function exampleUnquote</a></h2>
 <pre><code class="language-haxe">function exampleUnquote():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3934"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4021"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleunquotechar">function exampleUnquoteChar</a></h2>
 <pre><code class="language-haxe">function exampleUnquoteChar():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3965"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4052"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testappendbool">function testAppendBool</a></h2>
 <pre><code class="language-haxe">function testAppendBool(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2468"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2549"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testatof">function testAtof</a></h2>
 <pre><code class="language-haxe">function testAtof(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2877"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2963"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testatofrandom">function testAtofRandom</a></h2>
 <pre><code class="language-haxe">function testAtofRandom(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2885"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2971"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testatofslow">function testAtofSlow</a></h2>
 <pre><code class="language-haxe">function testAtofSlow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2881"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2967"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testatoi">function testAtoi</a></h2>
 <pre><code class="language-haxe">function testAtoi(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3252"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3338"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcanbackquote">function testCanBackquote</a></h2>
 <pre><code class="language-haxe">function testCanBackquote(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4718"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4806"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcountmallocs">function testCountMallocs</a></h2>
 <pre><code class="language-haxe">function testCountMallocs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4807"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4895"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdecimalround">function testDecimalRound</a></h2>
 <pre><code class="language-haxe">function testDecimalRound(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3577"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3664"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdecimalroundedinteger">function testDecimalRoundedInteger</a></h2>
 <pre><code class="language-haxe">function testDecimalRoundedInteger(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3607"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3694"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdecimalshift">function testDecimalShift</a></h2>
 <pre><code class="language-haxe">function testDecimalShift(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3561"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3648"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testerrorprefixes">function testErrorPrefixes</a></h2>
 <pre><code class="language-haxe">function testErrorPrefixes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4829"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4917"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testformatbool">function testFormatBool</a></h2>
 <pre><code class="language-haxe">function testFormatBool(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2457"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2538"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testformatcomplex">function testFormatComplex</a></h2>
 <pre><code class="language-haxe">function testFormatComplex(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3453"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3540"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testformatcomplexinvalidbitsize">function testFormatComplexInvalidBitSize</a></h2>
 <pre><code class="language-haxe">function testFormatComplexInvalidBitSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3518"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3605"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testformatfloatinvalidbitsize">function testFormatFloatInvalidBitSize</a></h2>
 <pre><code class="language-haxe">function testFormatFloatInvalidBitSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4290"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4378"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testformatuintvarlen">function testFormatUintVarlen</a></h2>
 <pre><code class="language-haxe">function testFormatUintVarlen(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4434"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4522"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testfp">function testFp</a></h2>
 <pre><code class="language-haxe">function testFp(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4101"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4188"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testftoa">function testFtoa</a></h2>
 <pre><code class="language-haxe">function testFtoa(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4279"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testftoapowersoftwo">function testFtoaPowersOfTwo</a></h2>
 <pre><code class="language-haxe">function testFtoaPowersOfTwo(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4226"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4314"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testftoarandom">function testFtoaRandom</a></h2>
 <pre><code class="language-haxe">function testFtoaRandom(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4260"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4348"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisgraphic">function testIsGraphic</a></h2>
 <pre><code class="language-haxe">function testIsGraphic(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>Verify that our IsGraphic agrees with unicode.IsGraphic. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4557"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4645"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisprint">function testIsPrint</a></h2>
 <pre><code class="language-haxe">function testIsPrint(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>Verify that our IsPrint agrees with unicode.IsPrint. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4538"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4626"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testitoa">function testItoa</a></h2>
 <pre><code class="language-haxe">function testItoa(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4386"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4474"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testmulbylog10log2">function testMulByLog10Log2</a></h2>
 <pre><code class="language-haxe">function testMulByLog10Log2(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4373"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4461"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testmulbylog2log10">function testMulByLog2Log10</a></h2>
 <pre><code class="language-haxe">function testMulByLog2Log10(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4360"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4448"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnumerror">function testNumError</a></h2>
 <pre><code class="language-haxe">function testNumError(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3362"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3448"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnumerrorunwrap">function testNumErrorUnwrap</a></h2>
 <pre><code class="language-haxe">function testNumErrorUnwrap(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3375"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3461"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparsebool">function testParseBool</a></h2>
 <pre><code class="language-haxe">function testParseBool(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2433"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2514"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparsecomplex">function testParseComplex</a></h2>
 <pre><code class="language-haxe">function testParseComplex(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2478"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2559"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparsecomplexincorrectbitsize">function testParseComplexIncorrectBitSize</a></h2>
 <pre><code class="language-haxe">function testParseComplexIncorrectBitSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>Issue 42297: allow ParseComplex(s, not_32_or_64) for legacy reasons </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2740"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2825"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparsefloatincorrectbitsize">function testParseFloatIncorrectBitSize</a></h2>
 <pre><code class="language-haxe">function testParseFloatIncorrectBitSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p>Issue 42297: a lot of code in the wild accidentally calls ParseFloat(s, 10)��// or ParseFloat(s, 0), so allow bitSize values other than 32 and 64. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2967"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Issue 42297: a lot of code in the wild accidentally calls ParseFloat(s, 10)  or ParseFloat(s, 0), so allow bitSize values other than 32 and 64. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3053"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparsefloatprefix">function testParseFloatPrefix</a></h2>
 <pre><code class="language-haxe">function testParseFloatPrefix(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2802"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2887"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseint">function testParseInt</a></h2>
 <pre><code class="language-haxe">function testParseInt(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3226"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3312"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseint32">function testParseInt32</a></h2>
 <pre><code class="language-haxe">function testParseInt32(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3161"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3247"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseint64">function testParseInt64</a></h2>
 <pre><code class="language-haxe">function testParseInt64(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3174"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3260"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseint64base">function testParseInt64Base</a></h2>
 <pre><code class="language-haxe">function testParseInt64Base(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3187"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3273"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseintbase">function testParseIntBase</a></h2>
 <pre><code class="language-haxe">function testParseIntBase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3336"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3422"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseintbitsize">function testParseIntBitSize</a></h2>
 <pre><code class="language-haxe">function testParseIntBitSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3310"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3396"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseuint">function testParseUint</a></h2>
 <pre><code class="language-haxe">function testParseUint(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3200"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3286"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseuint32">function testParseUint32</a></h2>
 <pre><code class="language-haxe">function testParseUint32(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3122"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3208"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseuint64">function testParseUint64</a></h2>
 <pre><code class="language-haxe">function testParseUint64(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3135"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3221"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseuint64base">function testParseUint64Base</a></h2>
 <pre><code class="language-haxe">function testParseUint64Base(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3148"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3234"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseuintbase">function testParseUintBase</a></h2>
 <pre><code class="language-haxe">function testParseUintBase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3349"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3435"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testparseuintbitsize">function testParseUintBitSize</a></h2>
 <pre><code class="language-haxe">function testParseUintBitSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3323"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3409"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testquote">function testQuote</a></h2>
 <pre><code class="language-haxe">function testQuote(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4573"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4661"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testquoterune">function testQuoteRune</a></h2>
 <pre><code class="language-haxe">function testQuoteRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4664"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4752"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testquoterunetoascii">function testQuoteRuneToASCII</a></h2>
 <pre><code class="language-haxe">function testQuoteRuneToASCII(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4682"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4770"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testquoterunetographic">function testQuoteRuneToGraphic</a></h2>
 <pre><code class="language-haxe">function testQuoteRuneToGraphic(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4700"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4788"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testquotetoascii">function testQuoteToASCII</a></h2>
 <pre><code class="language-haxe">function testQuoteToASCII(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4591"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4679"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testquotetographic">function testQuoteToGraphic</a></h2>
 <pre><code class="language-haxe">function testQuoteToGraphic(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4609"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4697"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testroundtrip">function testRoundTrip</a></h2>
 <pre><code class="language-haxe">function testRoundTrip(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2896"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2982"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testroundtrip32">function testRoundTrip32</a></h2>
 <pre><code class="language-haxe">function testRoundTrip32(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>TestRoundTrip32 tries a fraction of all finite positive float32 values. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L2931"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L3017"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testuitoa">function testUitoa</a></h2>
 <pre><code class="language-haxe">function testUitoa(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4419"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4507"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testunquote">function testUnquote</a></h2>
 <pre><code class="language-haxe">function testUnquote(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4729"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4817"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testunquoteinvalidutf8">function testUnquoteInvalidUTF8</a></h2>
 <pre><code class="language-haxe">function testUnquoteInvalidUTF8(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>Issue 23685: invalid UTF-8 should not go through the fast path. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4744"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-main">function main</a></h2>
-<pre><code class="language-haxe">function main():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L227"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strconv_test//Strconv.hx#L4832"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.strconv_test.*</code></pre>
 <h2>class T__struct_0_static_extension</h2>

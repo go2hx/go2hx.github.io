@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.testing.quick</code></h1>
+<p><a href="../../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<p>Package quick implements utility functions to help with black box testing.    The testing/quick package is frozen and is not accepting new features. </p><details><summary>hl tests failed</summary>
+<p>
+<pre><code>Error: Command failed with error 1
+stdgo/internal/Macro.macro.hx:35: define
+=== RUN  TestCheckEqual
+Exception: reflect.call is not yet implemented
+Called from stdgo.testing.quick._Quick.$Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 548)
+Called from stdgo.testing.quick._Quick.$Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 805)
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.testing.quick_test._Quick.$Quick_Fields_.main (stdgo/testing/quick_test/Quick.hx line 40)</code></pre>
+<p></p>
+</details></p><details><summary>interp tests failed</summary>
+<p>
+<pre><code>stdgo/internal/Macro.macro.hx:35: define
+=== RUN  TestCheckEqual
+Exception: reflect.call is not yet implemented
+Called from stdgo.testing.quick._Quick.Quick_Fields_.testCheckEqual (stdgo/testing/quick/Quick.hx line 805 column 38)
+Called from stdgo.testing.quick._Quick.Quick_Fields_.checkEqual (stdgo/testing/quick/Quick.hx line 548 column 30)
+Called from stdgo.reflect.Value_static_extension.call (stdgo/reflect/Reflect.hx line 2723 column 3)</code></pre>
+<p></p>
+</details></p><details><summary>jvm tests failed</summary>
+<p>
+<pre><code>IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define</code></pre>
+<p></p>
+</details></p>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#function-check"><code>function check(_f:stdgo.AnyInterface, _config:stdgo.Ref&lt;stdgo.testing.quick.Config&gt;):stdgo.Error</code></a></p></li><li>
+<p><a href="#function-checkequal"><code>function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.Ref&lt;stdgo.testing.quick.Config&gt;):stdgo.Error</code></a></p></li><li>
+<p><a href="#function-testcheckequal"><code>function testCheckEqual(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testcheckproperty"><code>function testCheckProperty(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testemptystruct"><code>function testEmptyStruct(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testfailure"><code>function testFailure(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testint64"><code>function testInt64(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testmutuallyrecursive"><code>function testMutuallyRecursive(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testnonzerosliceandmap"><code>function testNonZeroSliceAndMap(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testrecursive"><code>function testRecursive(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-value"><code>function value(_t:stdgo.reflect.Type, _rand:stdgo.Ref&lt;stdgo.math.rand.Rand&gt;):{_1:Bool, _0:stdgo.reflect.Value}</code></a></p></li><li>
+<p><a href="#class-a">class A</a></p></li><li>
+<p><a href="#a-function-new"><code>function new(?b:stdgo.Ref&lt;stdgo.testing.quick.B&gt;):Void</code></a></p></li><li>
+<p><a href="#class-b">class B</a></p></li><li>
+<p><a href="#b-function-new"><code>function new(?a:stdgo.Ref&lt;stdgo.testing.quick.A&gt;):Void</code></a></p></li><li>
+<p><a href="#class-checkequalerror">class CheckEqualError</a></p></li><li>
+<p><a href="#checkequalerror-function-new"><code>function new(?checkError:stdgo.testing.quick.CheckError, ?out1:stdgo.Slice&lt;stdgo.AnyInterface&gt;, ?out2:stdgo.Slice&lt;stdgo.AnyInterface&gt;):Void</code></a></p></li><li>
+<p><a href="#checkequalerror-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-checkequalerror_static_extension">class CheckEqualError_static_extension</a></p></li><li>
+<p><a href="#checkequalerror_static_extension-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-checkerror">class CheckError</a></p></li><li>
+<p><a href="#checkerror-function-new"><code>function new(?count:Null&lt;stdgo.GoInt&gt;, ?in_:stdgo.Slice&lt;stdgo.AnyInterface&gt;):Void</code></a></p></li><li>
+<p><a href="#checkerror-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-checkerror_static_extension">class CheckError_static_extension</a></p></li><li>
+<p><a href="#checkerror_static_extension-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-config">class Config</a></p></li><li>
+<p><a href="#config-function-new"><code>function new(?maxCount:Null&lt;stdgo.GoInt&gt;, ?maxCountScale:stdgo.GoFloat64, ?rand:stdgo.Ref&lt;stdgo.math.rand.Rand&gt;, ?values:(:stdgo.Slice&lt;stdgo.reflect.Value&gt;, :stdgo.Ref&lt;stdgo.math.rand.Rand&gt;):Void):Void</code></a></p></li><li>
+<p><a href="#config-function-values"><code>function values(:stdgo.Slice&lt;stdgo.reflect.Value&gt;, :stdgo.Ref&lt;stdgo.math.rand.Rand&gt;):Void</code></a></p></li><li>
+<p><a href="#config-function-_getmaxcount"><code>function _getMaxCount():stdgo.GoInt</code></a></p></li><li>
+<p><a href="#config-function-_getrand"><code>function _getRand():stdgo.Ref&lt;stdgo.math.rand.Rand&gt;</code></a></p></li><li>
+<p><a href="#class-config_static_extension">class Config_static_extension</a></p></li><li>
+<p><a href="#config_static_extension-function-_getmaxcount"><code>function _getMaxCount():stdgo.GoInt</code></a></p></li><li>
+<p><a href="#config_static_extension-function-_getrand"><code>function _getRand():stdgo.Ref&lt;stdgo.math.rand.Rand&gt;</code></a></p></li><li>
+<p><a href="#class-q_testnonzerosliceandmap_0">class Q_testNonZeroSliceAndMap_0</a></p></li><li>
+<p><a href="#q_testnonzerosliceandmap_0-function-new"><code>function new(?m:stdgo.GoMap&lt;stdgo.GoInt, stdgo.GoInt&gt;, ?s:stdgo.Slice&lt;stdgo.GoInt&gt;):Void</code></a></p></li><li>
+<p><a href="#class-r_testrecursive_0">class R_testRecursive_0</a></p></li><li>
+<p><a href="#r_testrecursive_0-function-new"><code>function new(?ptr:stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;, ?sliceP:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;, ?slice:stdgo.Slice&lt;stdgo.testing.quick.R_testRecursive_0&gt;, ?map:stdgo.GoMap&lt;stdgo.GoInt, stdgo.testing.quick.R_testRecursive_0&gt;, ?mapP:stdgo.GoMap&lt;stdgo.GoInt, stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;, ?mapR:stdgo.GoMap&lt;stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;, stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;, ?sliceMap:stdgo.Slice&lt;stdgo.GoMap&lt;stdgo.GoInt, stdgo.testing.quick.R_testRecursive_0&gt;&gt;):Void</code></a></p></li><li>
+<p><a href="#class-setuperror_static_extension">class SetupError_static_extension</a></p></li><li>
+<p><a href="#setuperror_static_extension-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t__struct_0_static_extension">class T__struct_0_static_extension</a></p></li><li>
+<p><a href="#class-t_mystruct_static_extension">class T_myStruct_static_extension</a></p></li><li>
+<p><a href="#t_mystruct_static_extension-function-generate"><code>function generate(_m:stdgo.testing.quick._Quick.T_myStruct, _r:stdgo.Ref&lt;stdgo.math.rand.Rand&gt;, _0:stdgo.GoInt):stdgo.reflect.Value</code></a></p></li><li>
+<p><a href="#class-teststruct">class TestStruct</a></p></li><li>
+<p><a href="#teststruct-function-new"><code>function new(?a:Null&lt;stdgo.GoInt&gt;, ?b:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#typedef-generator">typedef Generator</a></p></li><li>
+<p><a href="#typedef-setuperror">typedef SetupError</a></p></li><li>
+<p><a href="#setuperror-function-error"><code>function error():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-testarrayalias">typedef TestArrayAlias</a></p></li><li>
+<p><a href="#typedef-testboolalias">typedef TestBoolAlias</a></p></li><li>
+<p><a href="#typedef-testcomplex128alias">typedef TestComplex128Alias</a></p></li><li>
+<p><a href="#typedef-testcomplex64alias">typedef TestComplex64Alias</a></p></li><li>
+<p><a href="#typedef-testfloat32alias">typedef TestFloat32Alias</a></p></li><li>
+<p><a href="#typedef-testfloat64alias">typedef TestFloat64Alias</a></p></li><li>
+<p><a href="#typedef-testint16alias">typedef TestInt16Alias</a></p></li><li>
+<p><a href="#typedef-testint32alias">typedef TestInt32Alias</a></p></li><li>
+<p><a href="#typedef-testint64alias">typedef TestInt64Alias</a></p></li><li>
+<p><a href="#typedef-testint8alias">typedef TestInt8Alias</a></p></li><li>
+<p><a href="#typedef-testintalias">typedef TestIntAlias</a></p></li><li>
+<p><a href="#typedef-testmapalias">typedef TestMapAlias</a></p></li><li>
+<p><a href="#typedef-testptralias">typedef TestPtrAlias</a></p></li><li>
+<p><a href="#typedef-testslicealias">typedef TestSliceAlias</a></p></li><li>
+<p><a href="#typedef-teststringalias">typedef TestStringAlias</a></p></li><li>
+<p><a href="#typedef-teststructalias">typedef TestStructAlias</a></p></li><li>
+<p><a href="#typedef-testuint16alias">typedef TestUint16Alias</a></p></li><li>
+<p><a href="#typedef-testuint32alias">typedef TestUint32Alias</a></p></li><li>
+<p><a href="#typedef-testuint64alias">typedef TestUint64Alias</a></p></li><li>
+<p><a href="#typedef-testuint8alias">typedef TestUint8Alias</a></p></li><li>
+<p><a href="#typedef-testuintalias">typedef TestUintAlias</a></p></li><li>
+<p><a href="#typedef-testuintptralias">typedef TestUintptrAlias</a></p></li></ul>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.testing.quick.Quick</code></pre>
+<h2><a name="function-check">function check</a></h2>
+<pre><code class="language-haxe">function check(_f:stdgo.AnyInterface, _config:stdgo.Ref&lt;stdgo.testing.quick.Config&gt;):stdgo.Error</code></pre>
+<p>Check looks for an input to f, any function that returns bool,  such that f returns false. It calls f repeatedly, with arbitrary  values for each argument. If f returns false on a given input,  Check returns that input as a \<em>CheckError.  For example:     func TestOddMultipleOfThree(t \</em>testing.T) {    f := func(x int) bool {     y := OddMultipleOfThree(x)     return y%2 == 1 &amp;&amp; y%3 == 0    }    if err := quick.Check(f, nil); err != nil {     t.Error(err)    }   } </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L472"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-checkequal">function checkEqual</a></h2>
+<pre><code class="language-haxe">function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.Ref&lt;stdgo.testing.quick.Config&gt;):stdgo.Error</code></pre>
+<p>CheckEqual looks for an input on which f and g return different results.  It calls f and g repeatedly with arbitrary values for each argument.  If f and g return different answers, CheckEqual returns a *CheckEqualError  describing the input and the outputs. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L515"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testcheckequal">function testCheckEqual</a></h2>
+<pre><code class="language-haxe">function testCheckEqual(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L804"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testcheckproperty">function testCheckProperty</a></h2>
+<pre><code class="language-haxe">function testCheckProperty(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L857"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testemptystruct">function testEmptyStruct</a></h2>
+<pre><code class="language-haxe">function testEmptyStruct(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L975"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testfailure">function testFailure</a></h2>
+<pre><code class="language-haxe">function testFailure(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L861"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testint64">function testInt64</a></h2>
+<pre><code class="language-haxe">function testInt64(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1024"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testmutuallyrecursive">function testMutuallyRecursive</a></h2>
+<pre><code class="language-haxe">function testMutuallyRecursive(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L982"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testnonzerosliceandmap">function testNonZeroSliceAndMap</a></h2>
+<pre><code class="language-haxe">function testNonZeroSliceAndMap(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>Some serialization formats (e.g. encoding/pem) cannot distinguish  between a nil and an empty map or slice, so avoid generating the  zero value for these. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1013"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testrecursive">function testRecursive</a></h2>
+<pre><code class="language-haxe">function testRecursive(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>Recursive data structures didn't terminate.  Issues 8818 and 11148. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L967"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-value">function value</a></h2>
+<pre><code class="language-haxe">function value(_t:stdgo.reflect.Type, _rand:stdgo.Ref&lt;stdgo.math.rand.Rand&gt;):{_1:Bool, _0:stdgo.reflect.Value}</code></pre>
+<p>Value returns an arbitrary value of the given type.  If the type implements the Generator interface, that will be used.  Note: To create arbitrary values for structs, all the fields must be exported. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L294"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.testing.quick.*</code></pre>
+<h2><a name="class-a">class A</a></h2>
+<pre><code class="language-haxe">var b:stdgo.Ref&lt;stdgo.testing.quick.B&gt;</code></pre>
+<h3><a name="a-function-new">A function new</a></h3>
+<pre><code class="language-haxe">function new(?b:stdgo.Ref&lt;stdgo.testing.quick.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L184"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-b">class B</a></h2>
+<pre><code class="language-haxe">var a:stdgo.Ref&lt;stdgo.testing.quick.A&gt;</code></pre>
+<h3><a name="b-function-new">B function new</a></h3>
+<pre><code class="language-haxe">function new(?a:stdgo.Ref&lt;stdgo.testing.quick.A&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L200"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-checkequalerror">class CheckEqualError</a></h2>
+<p>A CheckEqualError is the result CheckEqual finding an error. </p>
+<pre><code class="language-haxe">var checkError:stdgo.testing.quick.CheckError</code></pre>
+<pre><code class="language-haxe">var out1:stdgo.Slice&lt;stdgo.AnyInterface&gt;</code></pre>
+<pre><code class="language-haxe">var out2:stdgo.Slice&lt;stdgo.AnyInterface&gt;</code></pre>
+<h3><a name="checkequalerror-function-new">CheckEqualError function new</a></h3>
+<pre><code class="language-haxe">function new(?checkError:stdgo.testing.quick.CheckError, ?out1:stdgo.Slice&lt;stdgo.AnyInterface&gt;, ?out2:stdgo.Slice&lt;stdgo.AnyInterface&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L125"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="checkequalerror-function-error">CheckEqualError function error</a></h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1154"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class CheckEqualError_static_extension</h2>
+<h3>CheckEqualError_static_extension function error</h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1154"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-checkerror">class CheckError</a></h2>
+<p>A CheckError is the result of Check finding an error. </p>
+<pre><code class="language-haxe">var count:stdgo.GoInt</code></pre>
+<pre><code class="language-haxe">var in_:stdgo.Slice&lt;stdgo.AnyInterface&gt;</code></pre>
+<h3><a name="checkerror-function-new">CheckError function new</a></h3>
+<pre><code class="language-haxe">function new(?count:Null&lt;stdgo.GoInt&gt;, ?in_:stdgo.Slice&lt;stdgo.AnyInterface&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L101"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="checkerror-function-error">CheckError function error</a></h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1128"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class CheckError_static_extension</h2>
+<h3>CheckError_static_extension function error</h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1128"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-config">class Config</a></h2>
+<p>A Config structure contains options for running a test. </p>
+<pre><code class="language-haxe">var maxCount:stdgo.GoInt</code></pre>
+<p>MaxCount sets the maximum number of iterations.   If zero, MaxCountScale is used. </p>
+<pre><code class="language-haxe">var maxCountScale:stdgo.GoFloat64</code></pre>
+<p>MaxCountScale is a non-negative scale factor applied to the   default maximum.   A count of zero implies the default, which is usually 100   but can be set by the -quickchecks flag. </p>
+<pre><code class="language-haxe">var rand:stdgo.Ref&lt;stdgo.math.rand.Rand&gt;</code></pre>
+<p>Rand specifies a source of random numbers.   If nil, a default pseudo-random source will be used. </p>
+<h3><a name="config-function-new">Config function new</a></h3>
+<pre><code class="language-haxe">function new(?maxCount:Null&lt;stdgo.GoInt&gt;, ?maxCountScale:stdgo.GoFloat64, ?rand:stdgo.Ref&lt;stdgo.math.rand.Rand&gt;, ?values:(:stdgo.Slice&lt;stdgo.reflect.Value&gt;, :stdgo.Ref&lt;stdgo.math.rand.Rand&gt;):Void):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L74"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="config-function-values">Config function values</a></h3>
+<pre><code class="language-haxe">function values(:stdgo.Slice&lt;stdgo.reflect.Value&gt;, :stdgo.Ref&lt;stdgo.math.rand.Rand&gt;):Void</code></pre>
+<p>Values specifies a function to generate a slice of   arbitrary reflect.Values that are congruent with the   arguments to the function being tested.   If nil, the top-level Value function is used to generate them. </p>
+<h3><a name="config-function-_getmaxcount">Config function _getMaxCount</a></h3>
+<pre><code class="language-haxe">function _getMaxCount():stdgo.GoInt</code></pre>
+<p>getMaxCount returns the maximum number of iterations to run for a given   Config. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1082"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="config-function-_getrand">Config function _getRand</a></h3>
+<pre><code class="language-haxe">function _getRand():stdgo.Ref&lt;stdgo.math.rand.Rand&gt;</code></pre>
+<p>getRand returns the *rand.Rand to use for a given Config. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1099"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Config_static_extension</h2>
+<h3>Config_static_extension function _getMaxCount</h3>
+<pre><code class="language-haxe">function _getMaxCount():stdgo.GoInt</code></pre>
+<p>getMaxCount returns the maximum number of iterations to run for a given   Config. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1082"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3>Config_static_extension function _getRand</h3>
+<pre><code class="language-haxe">function _getRand():stdgo.Ref&lt;stdgo.math.rand.Rand&gt;</code></pre>
+<p>getRand returns the *rand.Rand to use for a given Config. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1099"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Q_testNonZeroSliceAndMap_0</h2>
+<pre><code class="language-haxe">var m:stdgo.GoMap&lt;stdgo.GoInt, stdgo.GoInt&gt;</code></pre>
+<pre><code class="language-haxe">var s:stdgo.Slice&lt;stdgo.GoInt&gt;</code></pre>
+<h3>Q_testNonZeroSliceAndMap_0 function new</h3>
+<pre><code class="language-haxe">function new(?m:stdgo.GoMap&lt;stdgo.GoInt, stdgo.GoInt&gt;, ?s:stdgo.Slice&lt;stdgo.GoInt&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L993"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class R_testRecursive_0</h2>
+<pre><code class="language-haxe">var map:stdgo.GoMap&lt;stdgo.GoInt, stdgo.testing.quick.R_testRecursive_0&gt;</code></pre>
+<pre><code class="language-haxe">var mapP:stdgo.GoMap&lt;stdgo.GoInt, stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;</code></pre>
+<pre><code class="language-haxe">var mapR:stdgo.GoMap&lt;stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;, stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;</code></pre>
+<pre><code class="language-haxe">var ptr:stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;</code></pre>
+<pre><code class="language-haxe">var slice:stdgo.Slice&lt;stdgo.testing.quick.R_testRecursive_0&gt;</code></pre>
+<pre><code class="language-haxe">var sliceMap:stdgo.Slice&lt;stdgo.GoMap&lt;stdgo.GoInt, stdgo.testing.quick.R_testRecursive_0&gt;&gt;</code></pre>
+<pre><code class="language-haxe">var sliceP:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;</code></pre>
+<h3>R_testRecursive_0 function new</h3>
+<pre><code class="language-haxe">function new(?ptr:stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;, ?sliceP:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;, ?slice:stdgo.Slice&lt;stdgo.testing.quick.R_testRecursive_0&gt;, ?map:stdgo.GoMap&lt;stdgo.GoInt, stdgo.testing.quick.R_testRecursive_0&gt;, ?mapP:stdgo.GoMap&lt;stdgo.GoInt, stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;, ?mapR:stdgo.GoMap&lt;stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;, stdgo.Ref&lt;stdgo.testing.quick.R_testRecursive_0&gt;&gt;, ?sliceMap:stdgo.Slice&lt;stdgo.GoMap&lt;stdgo.GoInt, stdgo.testing.quick.R_testRecursive_0&gt;&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L936"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class SetupError_static_extension</h2>
+<h3>SetupError_static_extension function error</h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1209"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T__struct_0_static_extension</h2>
+<h2>class T_myStruct_static_extension</h2>
+<h3>T_myStruct_static_extension function generate</h3>
+<pre><code class="language-haxe">function generate(_m:stdgo.testing.quick._Quick.T_myStruct, _r:stdgo.Ref&lt;stdgo.math.rand.Rand&gt;, _0:stdgo.GoInt):stdgo.reflect.Value</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1181"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-teststruct">class TestStruct</a></h2>
+<pre><code class="language-haxe">var a:stdgo.GoInt</code></pre>
+<pre><code class="language-haxe">var b:stdgo.GoString</code></pre>
+<h3><a name="teststruct-function-new">TestStruct function new</a></h3>
+<pre><code class="language-haxe">function new(?a:Null&lt;stdgo.GoInt&gt;, ?b:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L146"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="typedefs">Typedefs</a></h1>
+<pre><code class="language-haxe">import stdgo.testing.quick.*</code></pre>
+<h2><a name="typedef-generator">typedef Generator</a></h2>
+<pre><code class="language-haxe">typedef Generator = var a:{&lt;__underlying__&gt; | (_rand:stdgo.Ref&lt;stdgo.math.rand.Rand&gt;, _size:stdgo.GoInt):stdgo.reflect.Value | {&lt;haxe_doc&gt;} | ():stdgo.AnyInterface}</code></pre>
+<p>A Generator can generate random values of its own type. </p>
+<h2><a name="typedef-setuperror">typedef SetupError</a></h2>
+<pre><code class="language-haxe">typedef SetupError = var x:{&lt;&gt;}</code></pre>
+<p>A SetupError is the result of an error in the way that check is being  used, independent of the functions being tested. </p>
+<h3><a name="setuperror-function-error">SetupError function error</a></h3>
+<pre><code class="language-haxe">function error():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/quick//Quick.hx#L1209"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-testarrayalias">typedef TestArrayAlias</a></h2>
+<pre><code class="language-haxe">typedef TestArrayAlias = var x:stdgo.GoUInt8</code></pre>
+<h2><a name="typedef-testboolalias">typedef TestBoolAlias</a></h2>
+<pre><code class="language-haxe">typedef TestBoolAlias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testcomplex128alias">typedef TestComplex128Alias</a></h2>
+<pre><code class="language-haxe">typedef TestComplex128Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testcomplex64alias">typedef TestComplex64Alias</a></h2>
+<pre><code class="language-haxe">typedef TestComplex64Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testfloat32alias">typedef TestFloat32Alias</a></h2>
+<pre><code class="language-haxe">typedef TestFloat32Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testfloat64alias">typedef TestFloat64Alias</a></h2>
+<pre><code class="language-haxe">typedef TestFloat64Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testint16alias">typedef TestInt16Alias</a></h2>
+<pre><code class="language-haxe">typedef TestInt16Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testint32alias">typedef TestInt32Alias</a></h2>
+<pre><code class="language-haxe">typedef TestInt32Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testint64alias">typedef TestInt64Alias</a></h2>
+<pre><code class="language-haxe">typedef TestInt64Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testint8alias">typedef TestInt8Alias</a></h2>
+<pre><code class="language-haxe">typedef TestInt8Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testintalias">typedef TestIntAlias</a></h2>
+<pre><code class="language-haxe">typedef TestIntAlias = var t:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testmapalias">typedef TestMapAlias</a></h2>
+<pre><code class="language-haxe">typedef TestMapAlias = var x:stdgo.GoInt</code></pre>
+<h2><a name="typedef-testptralias">typedef TestPtrAlias</a></h2>
+<pre><code class="language-haxe">typedef TestPtrAlias = var x:stdgo.GoInt</code></pre>
+<h2><a name="typedef-testslicealias">typedef TestSliceAlias</a></h2>
+<pre><code class="language-haxe">typedef TestSliceAlias = var x:stdgo.GoUInt8</code></pre>
+<h2><a name="typedef-teststringalias">typedef TestStringAlias</a></h2>
+<pre><code class="language-haxe">typedef TestStringAlias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-teststructalias">typedef TestStructAlias</a></h2>
+<pre><code class="language-haxe">typedef TestStructAlias = var c:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testuint16alias">typedef TestUint16Alias</a></h2>
+<pre><code class="language-haxe">typedef TestUint16Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testuint32alias">typedef TestUint32Alias</a></h2>
+<pre><code class="language-haxe">typedef TestUint32Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testuint64alias">typedef TestUint64Alias</a></h2>
+<pre><code class="language-haxe">typedef TestUint64Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testuint8alias">typedef TestUint8Alias</a></h2>
+<pre><code class="language-haxe">typedef TestUint8Alias = var x:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testuintalias">typedef TestUintAlias</a></h2>
+<pre><code class="language-haxe">typedef TestUintAlias = var t:{&lt;&gt;}</code></pre>
+<h2><a name="typedef-testuintptralias">typedef TestUintptrAlias</a></h2>
+<pre><code class="language-haxe">typedef TestUintptrAlias = var x:{&lt;&gt;}</code></pre>
+    </article>
+</body>
+</html>

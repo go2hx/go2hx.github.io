@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.internal.diff</code></h1>
+<p><a href="../../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<h1><a name="index">Index</a></h1><ul><li><a href="#function-diff"><code>function diff(_oldName:stdgo.GoString, _old:stdgo.Slice&lt;stdgo.GoByte&gt;, _newName:stdgo.GoString, _new:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></li></ul>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.internal.diff.Diff</code></pre>
+<h2><a name="function-diff">function diff</a></h2>
+<pre><code class="language-haxe">function diff(_oldName:stdgo.GoString, _old:stdgo.Slice&lt;stdgo.GoByte&gt;, _newName:stdgo.GoString, _new:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
+<p>Diff returns an anchored diff of the two texts old and new  in the “unified diff” format. If old and new are identical,  Diff returns a nil slice (no output).    Unix diff implementations typically look for a diff with  the smallest number of lines inserted and removed,  which can in the worst case take time quadratic in the  number of lines in the texts. As a result, many implementations  either can be made to run for a long time or cut off the search  after a predetermined amount of work.    In contrast, this implementation looks for a diff with the  smallest number of “unique” lines inserted and removed,  where unique means a line that appears just once in both old and new.  We call this an “anchored diff” because the unique lines anchor  the chosen matching regions. An anchored diff is usually clearer  than a standard diff, because the algorithm does not try to  reuse unrelated blank lines or closing braces.  The algorithm also guarantees to run in O(n log n) time  instead of the standard O(n²) time.    Some systems call this approach a “patience diff,” named for  the “patience sorting” algorithm, itself named for a solitaire card game.  We avoid that name for two reasons. First, the name has been used  for a few different variants of the algorithm, so it is imprecise.  Second, the name is frequently interpreted as meaning that you have  to wait longer (to be patient) for the diff, meaning that it is a slower algorithm,  when in fact the algorithm is faster than the standard one. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/internal/diff//Diff.hx#L66"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+    </article>
+</body>
+</html>

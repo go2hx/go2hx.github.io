@@ -58,136 +58,189 @@
         <h1>Module: <code>stdgo.unicode</code></h1>
 <p><a href="../index.html">(view library index)</a></p>
 <h1><a name="overview">Overview</a></h1>
-<p>Package unicode provides data and functions to test some properties of��// Unicode code points. </p><details><summary>hl tests passed</summary>
+<p>Package unicode provides data and functions to test some properties of  Unicode code points. </p><details><summary>hl tests passed</summary>
 <p>
-<pre><code>=== RUN   TestDigit
---- PASS: TestDigit (0.000140905380249023)
-=== RUN   TestDigitOptimization
---- PASS: TestDigitOptimization (5.50746917724609e-05)
-=== RUN   TestIsControlLatin1
---- PASS: TestIsControlLatin1 (0.000158071517944336)
-=== RUN   TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (0.000219106674194336)
-=== RUN   TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (0.000206947326660156)
-=== RUN   TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (0.000200986862182617)
-=== RUN   TestNumberLatin1
---- PASS: TestNumberLatin1 (0.000204086303710938)
-=== RUN   TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (0.00073695182800293)
-=== RUN   TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (0.000901937484741211)
-=== RUN   TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (0.000250101089477539)
-=== RUN   TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (0.000193119049072266)
-=== RUN   TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (0.000230073928833008)
-=== RUN   TestIsLetter
---- PASS: TestIsLetter (0.000123977661132812)
-=== RUN   TestIsUpper
---- PASS: TestIsUpper (6.91413879394531e-05)
-=== RUN   TestTo
---- PASS: TestTo (0.00094294548034668)
-=== RUN   TestToUpperCase
---- PASS: TestToUpperCase (0.00024104118347168)
-=== RUN   TestToLowerCase
---- PASS: TestToLowerCase (0.000322818756103516)
-=== RUN   TestToTitleCase
---- PASS: TestToTitleCase (0.000210046768188477)
-=== RUN   TestIsSpace
---- PASS: TestIsSpace (4.10079956054688e-05)
-=== RUN   TestLetterOptimizations
---- PASS: TestLetterOptimizations (0.0184059143066406)
-=== RUN   TestTurkishCase
---- PASS: TestTurkishCase (0.00111103057861328)
-=== RUN   TestSimpleFold
---- PASS: TestSimpleFold (0.000195026397705078)
-=== RUN   TestCalibrate
---- PASS: TestCalibrate (1.00135803222656e-05)
-=== RUN   TestLatinOffset
---- PASS: TestLatinOffset (0.0777368545532227)
-=== RUN   TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (7.70092010498047e-05)
-=== RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.00305604934692383)
-=== RUN   TestCategories
---- PASS: TestCategories (0.0154809951782227)
-=== RUN   TestProperties
---- PASS: TestProperties (0.020366907119751)</code></pre>
+<pre><code>=== RUN  TestDigit
+--- PASS: TestDigit (%!s(float64=0.00011205673217773438))
+
+=== RUN  TestDigitOptimization
+--- PASS: TestDigitOptimization (%!s(float64=3.504753112792969e-05))
+
+=== RUN  TestIsControlLatin1
+--- PASS: TestIsControlLatin1 (%!s(float64=0.0001480579376220703))
+
+=== RUN  TestIsLetterLatin1
+--- PASS: TestIsLetterLatin1 (%!s(float64=0.00018095970153808594))
+
+=== RUN  TestIsUpperLatin1
+--- PASS: TestIsUpperLatin1 (%!s(float64=0.00016999244689941406))
+
+=== RUN  TestIsLowerLatin1
+--- PASS: TestIsLowerLatin1 (%!s(float64=0.00016808509826660156))
+
+=== RUN  TestNumberLatin1
+--- PASS: TestNumberLatin1 (%!s(float64=0.00017499923706054688))
+
+=== RUN  TestIsPrintLatin1
+--- PASS: TestIsPrintLatin1 (%!s(float64=0.0006389617919921875))
+
+=== RUN  TestIsGraphicLatin1
+--- PASS: TestIsGraphicLatin1 (%!s(float64=0.0007910728454589844))
+
+=== RUN  TestIsPunctLatin1
+--- PASS: TestIsPunctLatin1 (%!s(float64=0.00019884109497070312))
+
+=== RUN  TestIsSpaceLatin1
+--- PASS: TestIsSpaceLatin1 (%!s(float64=0.00015497207641601562))
+
+=== RUN  TestIsSymbolLatin1
+--- PASS: TestIsSymbolLatin1 (%!s(float64=0.00019097328186035156))
+
+=== RUN  TestIsLetter
+--- PASS: TestIsLetter (%!s(float64=9.799003601074219e-05))
+
+=== RUN  TestIsUpper
+--- PASS: TestIsUpper (%!s(float64=5.316734313964844e-05))
+
+=== RUN  TestTo
+--- PASS: TestTo (%!s(float64=0.000720977783203125))
+
+=== RUN  TestToUpperCase
+--- PASS: TestToUpperCase (%!s(float64=0.00020194053649902344))
+
+=== RUN  TestToLowerCase
+--- PASS: TestToLowerCase (%!s(float64=0.00018596649169921875))
+
+=== RUN  TestToTitleCase
+--- PASS: TestToTitleCase (%!s(float64=0.00019216537475585938))
+
+=== RUN  TestIsSpace
+--- PASS: TestIsSpace (%!s(float64=3.314018249511719e-05))
+
+=== RUN  TestLetterOptimizations
+--- PASS: TestLetterOptimizations (%!s(float64=0.014649152755737305))
+
+=== RUN  TestTurkishCase
+--- PASS: TestTurkishCase (%!s(float64=0.0009779930114746094))
+
+=== RUN  TestSimpleFold
+--- PASS: TestSimpleFold (%!s(float64=0.00019097328186035156))
+
+=== RUN  TestCalibrate
+--- PASS: TestCalibrate (%!s(float64=4.0531158447265625e-06))
+
+=== RUN  TestLatinOffset
+--- PASS: TestLatinOffset (%!s(float64=0.06202888488769531))
+
+=== RUN  TestSpecialCaseNoMapping
+--- PASS: TestSpecialCaseNoMapping (%!s(float64=4.696846008300781e-05))
+
+=== RUN  TestNegativeRune
+--- PASS: TestNegativeRune (%!s(float64=0.002665996551513672))
+
+=== RUN  TestCategories
+--- PASS: TestCategories (%!s(float64=0.012111902236938477))
+
+=== RUN  TestProperties
+--- PASS: TestProperties (%!s(float64=0.011271953582763672))
+</code></pre>
 <p></p>
 </details></p><details><summary>interp tests passed</summary>
 <p>
-<pre><code>=== RUN   TestDigit
---- PASS: TestDigit (0.00129199028015136719)
-=== RUN   TestDigitOptimization
---- PASS: TestDigitOptimization (0.0011310577392578125)
-=== RUN   TestIsControlLatin1
---- PASS: TestIsControlLatin1 (0.00134015083312988281)
-=== RUN   TestIsLetterLatin1
---- PASS: TestIsLetterLatin1 (0.00239706039428710938)
-=== RUN   TestIsUpperLatin1
---- PASS: TestIsUpperLatin1 (0.00246906280517578125)
-=== RUN   TestIsLowerLatin1
---- PASS: TestIsLowerLatin1 (0.00192499160766601562)
-=== RUN   TestNumberLatin1
---- PASS: TestNumberLatin1 (0.0020580291748046875)
-=== RUN   TestIsPrintLatin1
---- PASS: TestIsPrintLatin1 (0.00646710395812988281)
-=== RUN   TestIsGraphicLatin1
---- PASS: TestIsGraphicLatin1 (0.00686001777648925781)
-=== RUN   TestIsPunctLatin1
---- PASS: TestIsPunctLatin1 (0.003398895263671875)
-=== RUN   TestIsSpaceLatin1
---- PASS: TestIsSpaceLatin1 (0.00192403793334960938)
-=== RUN   TestIsSymbolLatin1
---- PASS: TestIsSymbolLatin1 (0.00263810157775878906)
-=== RUN   TestIsLetter
---- PASS: TestIsLetter (0.00114583969116210938)
-=== RUN   TestIsUpper
---- PASS: TestIsUpper (0.00057506561279296875)
-=== RUN   TestTo
---- PASS: TestTo (0.00222992897033691406)
-=== RUN   TestToUpperCase
---- PASS: TestToUpperCase (0.000790119171142578125)
-=== RUN   TestToLowerCase
---- PASS: TestToLowerCase (0.000648021697998046875)
-=== RUN   TestToTitleCase
---- PASS: TestToTitleCase (0.000600099563598632812)
-=== RUN   TestIsSpace
---- PASS: TestIsSpace (0.000513792037963867188)
-=== RUN   TestLetterOptimizations
---- PASS: TestLetterOptimizations (0.0452818870544433594)
-=== RUN   TestTurkishCase
---- PASS: TestTurkishCase (0.00403308868408203125)
-=== RUN   TestSimpleFold
---- PASS: TestSimpleFold (0.00108003616333007812)
-=== RUN   TestCalibrate
---- PASS: TestCalibrate (1.21593475341796875e-05)
-=== RUN   TestLatinOffset
---- PASS: TestLatinOffset (0.105408906936645508)
-=== RUN   TestSpecialCaseNoMapping
---- PASS: TestSpecialCaseNoMapping (0.000277996063232421875)
-=== RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.0259830951690673828)
-=== RUN   TestCategories
---- PASS: TestCategories (0.0207419395446777344)
-=== RUN   TestProperties
---- PASS: TestProperties (0.0208671092987060547)</code></pre>
+<pre><code>=== RUN  TestDigit
+--- PASS: TestDigit (%!s(float64=0.0012319087982177734))
+
+=== RUN  TestDigitOptimization
+--- PASS: TestDigitOptimization (%!s(float64=0.0008909702301025391))
+
+=== RUN  TestIsControlLatin1
+--- PASS: TestIsControlLatin1 (%!s(float64=0.0010979175567626953))
+
+=== RUN  TestIsLetterLatin1
+--- PASS: TestIsLetterLatin1 (%!s(float64=0.0019981861114501953))
+
+=== RUN  TestIsUpperLatin1
+--- PASS: TestIsUpperLatin1 (%!s(float64=0.0018198490142822266))
+
+=== RUN  TestIsLowerLatin1
+--- PASS: TestIsLowerLatin1 (%!s(float64=0.001775979995727539))
+
+=== RUN  TestNumberLatin1
+--- PASS: TestNumberLatin1 (%!s(float64=0.0018699169158935547))
+
+=== RUN  TestIsPrintLatin1
+--- PASS: TestIsPrintLatin1 (%!s(float64=0.0051081180572509766))
+
+=== RUN  TestIsGraphicLatin1
+--- PASS: TestIsGraphicLatin1 (%!s(float64=0.005362033843994141))
+
+=== RUN  TestIsPunctLatin1
+--- PASS: TestIsPunctLatin1 (%!s(float64=0.0025980472564697266))
+
+=== RUN  TestIsSpaceLatin1
+--- PASS: TestIsSpaceLatin1 (%!s(float64=0.001806020736694336))
+
+=== RUN  TestIsSymbolLatin1
+--- PASS: TestIsSymbolLatin1 (%!s(float64=0.0023050308227539062))
+
+=== RUN  TestIsLetter
+--- PASS: TestIsLetter (%!s(float64=0.0009951591491699219))
+
+=== RUN  TestIsUpper
+--- PASS: TestIsUpper (%!s(float64=0.0005230903625488281))
+
+=== RUN  TestTo
+--- PASS: TestTo (%!s(float64=0.001950979232788086))
+
+=== RUN  TestToUpperCase
+--- PASS: TestToUpperCase (%!s(float64=0.0006201267242431641))
+
+=== RUN  TestToLowerCase
+--- PASS: TestToLowerCase (%!s(float64=0.0006029605865478516))
+
+=== RUN  TestToTitleCase
+--- PASS: TestToTitleCase (%!s(float64=0.0005660057067871094))
+
+=== RUN  TestIsSpace
+--- PASS: TestIsSpace (%!s(float64=0.0002620220184326172))
+
+=== RUN  TestLetterOptimizations
+--- PASS: TestLetterOptimizations (%!s(float64=0.034883975982666016))
+
+=== RUN  TestTurkishCase
+--- PASS: TestTurkishCase (%!s(float64=0.003676891326904297))
+
+=== RUN  TestSimpleFold
+--- PASS: TestSimpleFold (%!s(float64=0.0009770393371582031))
+
+=== RUN  TestCalibrate
+--- PASS: TestCalibrate (%!s(float64=9.059906005859375e-06))
+
+=== RUN  TestLatinOffset
+--- PASS: TestLatinOffset (%!s(float64=0.08573484420776367))
+
+=== RUN  TestSpecialCaseNoMapping
+--- PASS: TestSpecialCaseNoMapping (%!s(float64=0.0002200603485107422))
+
+=== RUN  TestNegativeRune
+--- PASS: TestNegativeRune (%!s(float64=0.02136993408203125))
+
+=== RUN  TestCategories
+--- PASS: TestCategories (%!s(float64=0.018151044845581055))
+
+=== RUN  TestProperties
+--- PASS: TestProperties (%!s(float64=0.01661086082458496))
+</code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")</code></pre>
+<pre><code>IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>
 <h1><a name="index">Index</a></h1><ul><li>
 <p><a href="#constants">Constants</a></p></li><li>
 <p><a href="#variables">Variables</a></p></li><li>
-<p><a href="#function-_is16"><code>function _is16(_ranges:stdgo.Slice&lt;stdgo.unicode.Range16&gt;, _r:stdgo.GoUInt16):Bool</code></a></p></li><li>
-<p><a href="#function-_is32"><code>function _is32(_ranges:stdgo.Slice&lt;stdgo.unicode.Range32&gt;, _r:stdgo.GoUInt32):Bool</code></a></p></li><li>
-<p><a href="#function-_isexcludinglatin"><code>function _isExcludingLatin(_rangeTab:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;, _r:stdgo.GoRune):Bool</code></a></p></li><li>
-<p><a href="#function-_to"><code>function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice&lt;stdgo.unicode.CaseRange&gt;):{_1:Bool, _0:stdgo.GoRune}</code></a></p></li><li>
 <p><a href="#function-in_"><code>function in_(_r:stdgo.GoRune, _ranges:haxe.Rest&lt;stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;&gt;):Bool</code></a></p></li><li>
 <p><a href="#function-iscontrol"><code>function isControl(_r:stdgo.GoRune):Bool</code></a></p></li><li>
 <p><a href="#function-isdigit"><code>function isDigit(_r:stdgo.GoRune):Bool</code></a></p></li><li>
@@ -258,8 +311,8 @@
 <pre><code class="language-haxe">final upperCase:stdgo.GoUInt64 = (("2" : GoUInt64))</code></pre>
 <p>Indices into the Delta arrays inside CaseRanges for case mapping. </p>
 <pre><code class="language-haxe">final upperLower:stdgo.GoInt32 = ((1114112 : GoInt32))</code></pre>
-<p>(Cannot be a valid delta.)// If the Delta field of a CaseRange is UpperLower, it means��// this CaseRange represents a sequence of the form (say)��// Upper Lower Upper Lower. </p>
-<pre><code class="language-haxe">final version:stdgo.GoString = Go.str("13.0.0")</code></pre>
+<p>(Cannot be a valid delta.)// If the Delta field of a CaseRange is UpperLower, it means  this CaseRange represents a sequence of the form (say)  Upper Lower Upper Lower. </p>
+<pre><code class="language-haxe">final version:stdgo.GoString = (("13.0.0" : GoString))</code></pre>
 <p>Version is the Unicode edition from which the tables are derived. </p>
 <h1><a name="variables">Variables</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode.Unicode</code></pre>
@@ -309,7 +362,7 @@
 <pre><code class="language-haxe">var carian:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;</code></pre>
 <p>Carian is the set of Unicode characters in script Carian.// These variables have type *RangeTable. </p>
 <pre><code class="language-haxe">var caseRanges:stdgo.Slice&lt;stdgo.unicode.CaseRange&gt;</code></pre>
-<p>CaseRanges is the table describing case mappings for all letters with��// non-self mappings. </p>
+<p>CaseRanges is the table describing case mappings for all letters with  non-self mappings. </p>
 <pre><code class="language-haxe">var categories:stdgo.GoMap&lt;stdgo.GoString, stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;&gt;</code></pre>
 <p>Categories is the set of Unicode category tables. </p>
 <pre><code class="language-haxe">var caucasian_Albanian:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;</code></pre>
@@ -369,9 +422,9 @@
 <pre><code class="language-haxe">var extender:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;</code></pre>
 <p>Extender is the set of Unicode characters with property Extender.// These variables have type *RangeTable. </p>
 <pre><code class="language-haxe">var foldCategory:stdgo.GoMap&lt;stdgo.GoString, stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;&gt;</code></pre>
-<p>FoldCategory maps a category name to a table of��// code points outside the category that are equivalent under��// simple case folding to code points inside the category.��// If there is no entry for a category name, there are no such points. </p>
+<p>FoldCategory maps a category name to a table of  code points outside the category that are equivalent under  simple case folding to code points inside the category.  If there is no entry for a category name, there are no such points. </p>
 <pre><code class="language-haxe">var foldScript:stdgo.GoMap&lt;stdgo.GoString, stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;&gt;</code></pre>
-<p>FoldScript maps a script name to a table of��// code points outside the script that are equivalent under��// simple case folding to code points inside the script.��// If there is no entry for a script name, there are no such points. </p>
+<p>FoldScript maps a script name to a table of  code points outside the script that are equivalent under  simple case folding to code points inside the script.  If there is no entry for a script name, there are no such points. </p>
 <pre><code class="language-haxe">var georgian:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;</code></pre>
 <p>Georgian is the set of Unicode characters in script Georgian.// These variables have type *RangeTable. </p>
 <pre><code class="language-haxe">var glagolitic:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;</code></pre>
@@ -627,7 +680,7 @@
 <pre><code class="language-haxe">var prepended_Concatenation_Mark:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;</code></pre>
 <p>Prepended_Concatenation_Mark is the set of Unicode characters with property Prepended_Concatenation_Mark.// These variables have type *RangeTable. </p>
 <pre><code class="language-haxe">var printRanges:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;&gt;</code></pre>
-<p>PrintRanges defines the set of printable characters according to Go.��// ASCII space, U+0020, is handled separately. </p>
+<p>PrintRanges defines the set of printable characters according to Go.  ASCII space, U+0020, is handled separately. </p>
 <pre><code class="language-haxe">var properties:stdgo.GoMap&lt;stdgo.GoString, stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;&gt;</code></pre>
 <p>Properties is the set of Unicode property tables. </p>
 <pre><code class="language-haxe">var ps:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;</code></pre>
@@ -759,159 +812,144 @@
 <p>Zs is the set of Unicode characters in category Zs (Separator, space).// These variables have type *RangeTable. </p>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode.Unicode</code></pre>
-<h2><a name="function-_is16">function _is16</a></h2>
-<pre><code class="language-haxe">function _is16(_ranges:stdgo.Slice&lt;stdgo.unicode.Range16&gt;, _r:stdgo.GoUInt16):Bool</code></pre>
-<p>is16 reports whether r is in the sorted slice of 16-bit ranges. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8876"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_is32">function _is32</a></h2>
-<pre><code class="language-haxe">function _is32(_ranges:stdgo.Slice&lt;stdgo.unicode.Range32&gt;, _r:stdgo.GoUInt32):Bool</code></pre>
-<p>is32 reports whether r is in the sorted slice of 32-bit ranges. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8909"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_isexcludinglatin">function _isExcludingLatin</a></h2>
-<pre><code class="language-haxe">function _isExcludingLatin(_rangeTab:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;, _r:stdgo.GoRune):Bool</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8954"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_to">function _to</a></h2>
-<pre><code class="language-haxe">function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice&lt;stdgo.unicode.CaseRange&gt;):{_1:Bool, _0:stdgo.GoRune}</code></pre>
-<p>to maps the rune using the specified case mapping.��// It additionally reports whether caseRange contained a mapping for r. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9003"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-in_">function in_</a></h2>
 <pre><code class="language-haxe">function in_(_r:stdgo.GoRune, _ranges:haxe.Rest&lt;stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;&gt;):Bool</code></pre>
 <p>In reports whether the rune is a member of one of the ranges. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8782"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8446"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-iscontrol">function isControl</a></h2>
 <pre><code class="language-haxe">function isControl(_r:stdgo.GoRune):Bool</code></pre>
-<p>IsControl reports whether the rune is a control character.��// The C (Other) Unicode category includes more code points��// such as surrogates; use Is(C, r) to test for them. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8797"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>IsControl reports whether the rune is a control character.  The C (Other) Unicode category includes more code points  such as surrogates; use Is(C, r) to test for them. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8461"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-isdigit">function isDigit</a></h2>
 <pre><code class="language-haxe">function isDigit(_r:stdgo.GoRune):Bool</code></pre>
 <p>IsDigit reports whether the rune is a decimal digit. </p>
 <h3><a name="exampleisdigit">exampleIsDigit</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIsDigit():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isDigit((2537 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isDigit((65 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8733"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8397"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-isgraphic">function isGraphic</a></h2>
 <pre><code class="language-haxe">function isGraphic(_r:stdgo.GoRune):Bool</code></pre>
-<p>IsGraphic reports whether the rune is defined as a Graphic by Unicode.��// Such characters include letters, marks, numbers, punctuation, symbols, and��// spaces, from categories L, M, N, P, S, Zs. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8745"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>IsGraphic reports whether the rune is defined as a Graphic by Unicode.  Such characters include letters, marks, numbers, punctuation, symbols, and  spaces, from categories L, M, N, P, S, Zs. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8409"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-isletter">function isLetter</a></h2>
 <pre><code class="language-haxe">function isLetter(_r:stdgo.GoRune):Bool</code></pre>
 <p>IsLetter reports whether the rune is a letter (category L). </p>
 <h3><a name="exampleisletter">exampleIsLetter</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIsLetter():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isLetter((65 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isLetter((55 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8807"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8471"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-islower">function isLower</a></h2>
 <pre><code class="language-haxe">function isLower(_r:stdgo.GoRune):Bool</code></pre>
 <p>IsLower reports whether the rune is a lower case letter. </p>
 <h3><a name="exampleislower">exampleIsLower</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIsLower():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isLower((97 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isLower((65 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isLower((97 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isLower((65 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8982"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8646"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-ismark">function isMark</a></h2>
 <pre><code class="language-haxe">function isMark(_r:stdgo.GoRune):Bool</code></pre>
 <p>IsMark reports whether the rune is a mark character (category M). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8817"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8481"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-isnumber">function isNumber</a></h2>
 <pre><code class="language-haxe">function isNumber(_r:stdgo.GoRune):Bool</code></pre>
 <p>IsNumber reports whether the rune is a number (category N). </p>
 <h3><a name="exampleisnumber">exampleIsNumber</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIsNumber():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isNumber((8551 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isNumber((65 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8824"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8488"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-isoneof">function isOneOf</a></h2>
 <pre><code class="language-haxe">function isOneOf(_ranges:stdgo.Slice&lt;stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;&gt;, _r:stdgo.GoRune):Bool</code></pre>
-<p>IsOneOf reports whether the rune is a member of one of the ranges.��// The function "In" provides a nicer signature and should be used in preference to IsOneOf. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8770"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>IsOneOf reports whether the rune is a member of one of the ranges.  The function "In" provides a nicer signature and should be used in preference to IsOneOf. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8434"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-isprint">function isPrint</a></h2>
 <pre><code class="language-haxe">function isPrint(_r:stdgo.GoRune):Bool</code></pre>
-<p>IsPrint reports whether the rune is defined as printable by Go. Such��// characters include letters, marks, numbers, punctuation, symbols, and the��// ASCII space character, from categories L, M, N, P, S and the ASCII space��// character. This categorization is the same as IsGraphic except that the��// only spacing character is ASCII space, U+0020. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8759"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>IsPrint reports whether the rune is defined as printable by Go. Such  characters include letters, marks, numbers, punctuation, symbols, and the  ASCII space character, from categories L, M, N, P, S and the ASCII space  character. This categorization is the same as IsGraphic except that the  only spacing character is ASCII space, U+0020. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8423"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-ispunct">function isPunct</a></h2>
 <pre><code class="language-haxe">function isPunct(_r:stdgo.GoRune):Bool</code></pre>
-<p>IsPunct reports whether the rune is a Unicode punctuation character��// (category P). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8835"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>IsPunct reports whether the rune is a Unicode punctuation character  (category P). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8499"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-isspace">function isSpace</a></h2>
 <pre><code class="language-haxe">function isSpace(_r:stdgo.GoRune):Bool</code></pre>
-<p>IsSpace reports whether the rune is a space character as defined��// by Unicode's White Space property; in the Latin-1 space��// this is��//��//�'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).��//��// Other definitions of spacing characters are set by category��// Z and property Pattern_White_Space. </p>
+<p>IsSpace reports whether the rune is a space character as defined  by Unicode's White Space property; in the Latin-1 space  this is     '\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).    Other definitions of spacing characters are set by category  Z and property Pattern_White_Space. </p>
 <h3><a name="exampleisspace">exampleIsSpace</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIsSpace():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((32 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((10 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((9 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isSpace((97 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8852"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8516"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-issymbol">function isSymbol</a></h2>
 <pre><code class="language-haxe">function isSymbol(_r:stdgo.GoRune):Bool</code></pre>
 <p>IsSymbol reports whether the rune is a symbolic character. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8866"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8530"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-istitle">function isTitle</a></h2>
 <pre><code class="language-haxe">function isTitle(_r:stdgo.GoRune):Bool</code></pre>
 <p>IsTitle reports whether the rune is a title case letter. </p>
 <h3><a name="exampleistitle">exampleIsTitle</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIsTitle():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isTitle((453 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isTitle((97 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8992"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8656"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-isupper">function isUpper</a></h2>
 <pre><code class="language-haxe">function isUpper(_r:stdgo.GoRune):Bool</code></pre>
 <p>IsUpper reports whether the rune is an upper case letter. </p>
 <h3><a name="exampleisupper">exampleIsUpper</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIsUpper():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%t\n"), Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isUpper((65 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%t\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.isUpper((97 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8972"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8636"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-is_">function is_</a></h2>
 <pre><code class="language-haxe">function is_(_rangeTab:stdgo.Ref&lt;stdgo.unicode.RangeTable&gt;, _r:stdgo.GoRune):Bool</code></pre>
 <p>Is reports whether the rune is in the specified table of ranges. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8942"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8606"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-simplefold">function simpleFold</a></h2>
 <pre><code class="language-haxe">function simpleFold(_r:stdgo.GoRune):stdgo.GoRune</code></pre>
-<p>SimpleFold iterates over Unicode code points equivalent under��// the Unicode-defined simple case folding. Among the code points��// equivalent to rune (including rune itself), SimpleFold returns the��// smallest rune \> r if one exists, or else the smallest rune \>= 0.��// If r is not a valid Unicode code point, SimpleFold(r) returns r.��//��// For example:��//��//�SimpleFold('A') = 'a'��//�SimpleFold('a') = 'A'��//��//�SimpleFold('K') = 'k'��//�SimpleFold('k') = '\u212A' (Kelvin symbol, K)��//�SimpleFold('\u212A') = 'K'��//��//�SimpleFold('1') = '1'��//��//�SimpleFold(-2) = -2 </p>
+<p>SimpleFold iterates over Unicode code points equivalent under  the Unicode-defined simple case folding. Among the code points  equivalent to rune (including rune itself), SimpleFold returns the  smallest rune \> r if one exists, or else the smallest rune \>= 0.  If r is not a valid Unicode code point, SimpleFold(r) returns r.    For example:     SimpleFold('A') = 'a'   SimpleFold('a') = 'A'     SimpleFold('K') = 'k'   SimpleFold('k') = '\u212A' (Kelvin symbol, K)   SimpleFold('\u212A') = 'K'     SimpleFold('1') = '1'     SimpleFold(-2) = -2 </p>
 <h3><a name="examplesimplefold">exampleSimpleFold</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSimpleFold():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((65 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((97 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((75 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((107 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((8490 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold((49 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9099"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8763"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-to">function to</a></h2>
 <pre><code class="language-haxe">function to(__case:stdgo.GoInt, _r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase. </p>
@@ -919,17 +957,17 @@
 <p>
 <pre><code class="language-haxe">function exampleTo():Void {
 	{};
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (103 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (103 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (103 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (103 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (103 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (103 : GoInt32))));
 	{};
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (71 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (71 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (71 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (71 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (71 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (71 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9032"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8696"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-tolower">function toLower</a></h2>
 <pre><code class="language-haxe">function toLower(_r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToLower maps the rune to lower case. </p>
@@ -937,11 +975,11 @@
 <p>
 <pre><code class="language-haxe">function exampleToLower():Void {
 	{};
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.toLower((71 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.toLower((71 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9056"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8720"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-totitle">function toTitle</a></h2>
 <pre><code class="language-haxe">function toTitle(_r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToTitle maps the rune to title case. </p>
@@ -949,11 +987,11 @@
 <p>
 <pre><code class="language-haxe">function exampleToTitle():Void {
 	{};
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9069"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8733"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-toupper">function toUpper</a></h2>
 <pre><code class="language-haxe">function toUpper(_r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToUpper maps the rune to upper case. </p>
@@ -961,91 +999,90 @@
 <p>
 <pre><code class="language-haxe">function exampleToUpper():Void {
 	{};
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9043"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8707"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode.*</code></pre>
 <h2><a name="class-caserange">class CaseRange</a></h2>
-<p>CaseRange represents a range of Unicode code points for simple (one��// code point to one code point) case conversion.��// The range runs from Lo to Hi inclusive, with a fixed stride of 1. Deltas��// are the number to add to the code point to reach the code point for a��// different case for that character. They may be negative. If zero, it��// means the character is in the corresponding case. There is a special��// case representing sequences of alternating corresponding Upper and Lower��// pairs. It appears with a fixed Delta of��//��//�{UpperLower, UpperLower, UpperLower}��//��// The constant UpperLower has an otherwise impossible delta value. </p>
+<p>CaseRange represents a range of Unicode code points for simple (one  code point to one code point) case conversion.  The range runs from Lo to Hi inclusive, with a fixed stride of 1. Deltas  are the number to add to the code point to reach the code point for a  different case for that character. They may be negative. If zero, it  means the character is in the corresponding case. There is a special  case representing sequences of alternating corresponding Upper and Lower  pairs. It appears with a fixed Delta of     {UpperLower, UpperLower, UpperLower}    The constant UpperLower has an otherwise impossible delta value. </p>
 <pre><code class="language-haxe">var delta:stdgo.unicode._Unicode.T_d</code></pre>
 <pre><code class="language-haxe">var hi:stdgo.GoUInt32</code></pre>
 <pre><code class="language-haxe">var lo:stdgo.GoUInt32</code></pre>
 <h3><a name="caserange-function-new">CaseRange function new</a></h3>
 <pre><code class="language-haxe">function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null&lt;stdgo.unicode._Unicode.T_d&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8680"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8344"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-range16">class Range16</a></h2>
-<p>Range16 represents of a range of 16-bit Unicode code points. The range runs from Lo to Hi��// inclusive and has the specified stride. </p>
+<p>Range16 represents of a range of 16-bit Unicode code points. The range runs from Lo to Hi  inclusive and has the specified stride. </p>
 <pre><code class="language-haxe">var hi:stdgo.GoUInt16</code></pre>
 <pre><code class="language-haxe">var lo:stdgo.GoUInt16</code></pre>
 <pre><code class="language-haxe">var stride:stdgo.GoUInt16</code></pre>
 <h3><a name="range16-function-new">Range16 function new</a></h3>
 <pre><code class="language-haxe">function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8617"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8281"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-range32">class Range32</a></h2>
-<p>Range32 represents of a range of Unicode code points and is used when one or��// more of the values will not fit in 16 bits. The range runs from Lo to Hi��// inclusive and has the specified stride. Lo and Hi must always be \>= 1\&lt;\&lt;16. </p>
+<p>Range32 represents of a range of Unicode code points and is used when one or  more of the values will not fit in 16 bits. The range runs from Lo to Hi  inclusive and has the specified stride. Lo and Hi must always be \>= 1\&lt;\&lt;16. </p>
 <pre><code class="language-haxe">var hi:stdgo.GoUInt32</code></pre>
 <pre><code class="language-haxe">var lo:stdgo.GoUInt32</code></pre>
 <pre><code class="language-haxe">var stride:stdgo.GoUInt32</code></pre>
 <h3><a name="range32-function-new">Range32 function new</a></h3>
 <pre><code class="language-haxe">function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8644"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8308"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-rangetable">class RangeTable</a></h2>
-<p>RangeTable defines a set of Unicode code points by listing the ranges of��// code points within the set. The ranges are listed in two slices��// to save space: a slice of 16-bit ranges and a slice of 32-bit ranges.��// The two slices must be in sorted order and non-overlapping.��// Also, R32 should contain only values \>= 0x10000 (1\&lt;\&lt;16). </p>
+<p>RangeTable defines a set of Unicode code points by listing the ranges of  code points within the set. The ranges are listed in two slices  to save space: a slice of 16-bit ranges and a slice of 32-bit ranges.  The two slices must be in sorted order and non-overlapping.  Also, R32 should contain only values \>= 0x10000 (1\&lt;\&lt;16). </p>
 <pre><code class="language-haxe">var latinOffset:stdgo.GoInt</code></pre>
-<p>number of entries in R16 with Hi \&lt;= MaxLatin1 </p>
 <pre><code class="language-haxe">var r16:stdgo.Slice&lt;stdgo.unicode.Range16&gt;</code></pre>
 <pre><code class="language-haxe">var r32:stdgo.Slice&lt;stdgo.unicode.Range32&gt;</code></pre>
 <h3><a name="rangetable-function-new">RangeTable function new</a></h3>
 <pre><code class="language-haxe">function new(?r16:stdgo.Slice&lt;stdgo.unicode.Range16&gt;, ?r32:stdgo.Slice&lt;stdgo.unicode.Range32&gt;, ?latinOffset:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8591"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8255"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class SpecialCase_static_extension</h2>
 <h3>SpecialCase_static_extension function toLower</h3>
 <pre><code class="language-haxe">function toLower( _r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToLower maps the rune to lower case giving priority to the special mapping. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9169"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8833"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>SpecialCase_static_extension function toTitle</h3>
 <pre><code class="language-haxe">function toTitle( _r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToTitle maps the rune to title case giving priority to the special mapping. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9183"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8847"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>SpecialCase_static_extension function toUpper</h3>
 <pre><code class="language-haxe">function toUpper( _r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToUpper maps the rune to upper case giving priority to the special mapping. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9197"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8861"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="typedefs">Typedefs</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode.*</code></pre>
 <h2><a name="typedef-specialcase">typedef SpecialCase</a></h2>
 <pre><code class="language-haxe">typedef SpecialCase = var x:stdgo.unicode.CaseRange</code></pre>
-<p>SpecialCase represents language-specific case mappings such as Turkish.��// Methods of SpecialCase customize (by overriding) the standard mappings. </p>
+<p>SpecialCase represents language-specific case mappings such as Turkish.  Methods of SpecialCase customize (by overriding) the standard mappings. </p>
 <h3><a name="examplespecialcase">exampleSpecialCase</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSpecialCase():Void {
 	var _t:SpecialCase = stdgo.unicode.Unicode.turkishCase;
 	{};
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toLower((105 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toTitle((105 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toUpper((105 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(_t.toLower((105 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(_t.toTitle((105 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(_t.toUpper((105 : GoInt32))));
 	{};
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toLower((304 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toTitle((304 : GoInt32))));
-	stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_t.toUpper((304 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(_t.toLower((304 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(_t.toTitle((304 : GoInt32))));
+	stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(_t.toUpper((304 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
 <h3><a name="specialcase-function-tolower">SpecialCase function toLower</a></h3>
 <pre><code class="language-haxe">function toLower( _r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToLower maps the rune to lower case giving priority to the special mapping. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9169"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8833"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="specialcase-function-totitle">SpecialCase function toTitle</a></h3>
 <pre><code class="language-haxe">function toTitle( _r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToTitle maps the rune to title case giving priority to the special mapping. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9183"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8847"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="specialcase-function-toupper">SpecialCase function toUpper</a></h3>
 <pre><code class="language-haxe">function toUpper( _r:stdgo.GoRune):stdgo.GoRune</code></pre>
 <p>ToUpper maps the rune to upper case giving priority to the special mapping. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L9197"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode//Unicode.hx#L8861"target="_blank" rel="noopener noreferrer">(view code)</a></p>
     </article>
 </body>
 </html>

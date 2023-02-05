@@ -60,160 +60,179 @@
 <h1><a name="overview">Overview</a></h1>
 <p>Package sort provides primitives for sorting slices and user-defined collections. </p><details><summary>hl tests passed</summary>
 <p>
-<pre><code>=== RUN   TestSearch
---- PASS: TestSearch (0.000384092330932617)
-=== RUN   TestFind
---- PASS: TestFind (5.00679016113281e-05)
-=== RUN   TestSearchEfficiency
---- PASS: TestSearchEfficiency (0.0233612060546875)
-=== RUN   TestSearchWrappers
---- PASS: TestSearchWrappers (1.09672546386719e-05)
-=== RUN   TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (1.09672546386719e-05)
-=== RUN   TestSearchExhaustive
---- PASS: TestSearchExhaustive (0.0513291358947754)
-=== RUN   TestFindExhaustive
---- PASS: TestFindExhaustive (0.102247953414917)
-=== RUN   TestSortIntSlice
---- PASS: TestSortIntSlice (7.60555267333984e-05)
-=== RUN   TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (6.103515625e-05)
-=== RUN   TestSortStringSlice
---- PASS: TestSortStringSlice (7.70092010498047e-05)
-=== RUN   TestInts
---- PASS: TestInts (4.69684600830078e-05)
-=== RUN   TestFloat64s
---- PASS: TestFloat64s (4.98294830322266e-05)
-=== RUN   TestStrings
---- PASS: TestStrings (7.48634338378906e-05)
-=== RUN   TestSlice
---- PASS: TestSlice (0.000195980072021484)
-=== RUN   TestSortLarge_Random
---- PASS: TestSortLarge_Random (0.0199689865112305)
-=== RUN   TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (7.70092010498047e-05)
-=== RUN   TestBreakPatterns
---- PASS: TestBreakPatterns (9.60826873779297e-05)
-=== RUN   TestReverseRange
---- PASS: TestReverseRange (3.29017639160156e-05)
-=== RUN   TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (7.43223786354065)
-=== RUN   TestSortBM
---- PASS: TestSortBM (0.278564929962158)
-=== RUN   TestHeapsortBM
---- PASS: TestHeapsortBM (0.496479034423828)
-=== RUN   TestStableBM
---- PASS: TestStableBM (0.754158973693848)
-=== RUN   TestAdversary
---- PASS: TestAdversary (0.0281670093536377)
-=== RUN   TestStableInts
---- PASS: TestStableInts (6.103515625e-05)
-=== RUN   TestStability
---- PASS: TestStability (0.0320370197296143)
-=== RUN   TestCountStableOps
---- PASS: TestCountStableOps (0.502626895904541)
-=== RUN   TestCountSortOps
---- PASS: TestCountSortOps (0.0493202209472656)</code></pre>
+<pre><code>=== RUN  TestSearch
+--- PASS: TestSearch (%!s(float64=0.0002880096435546875))
+
+=== RUN  TestFind
+--- PASS: TestFind (%!s(float64=2.9087066650390625e-05))
+
+=== RUN  TestSearchEfficiency
+--- PASS: TestSearchEfficiency (%!s(float64=0.018810033798217773))
+
+=== RUN  TestSearchWrappers
+--- PASS: TestSearchWrappers (%!s(float64=1.0967254638671875e-05))
+
+=== RUN  TestSearchWrappersDontAlloc
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=5.9604644775390625e-06))
+
+=== RUN  TestSearchExhaustive
+--- PASS: TestSearchExhaustive (%!s(float64=0.04069709777832031))
+
+=== RUN  TestFindExhaustive
+--- PASS: TestFindExhaustive (%!s(float64=0.08221197128295898))
+
+=== RUN  TestSortIntSlice
+--- PASS: TestSortIntSlice (%!s(float64=5.507469177246094e-05))
+
+=== RUN  TestSortFloat64Slice
+--- PASS: TestSortFloat64Slice (%!s(float64=4.00543212890625e-05))
+
+=== RUN  TestSortStringSlice
+--- PASS: TestSortStringSlice (%!s(float64=7.390975952148438e-05))
+
+=== RUN  TestInts
+--- PASS: TestInts (%!s(float64=3.504753112792969e-05))
+
+=== RUN  TestFloat64s
+--- PASS: TestFloat64s (%!s(float64=3.886222839355469e-05))
+
+=== RUN  TestStrings
+--- PASS: TestStrings (%!s(float64=6.413459777832031e-05))
+
+=== RUN  TestSlice
+--- PASS: TestSlice (%!s(float64=0.0001780986785888672))
+
+=== RUN  TestSortLarge_Random
+--- PASS: TestSortLarge_Random (%!s(float64=0.015144109725952148))
+
+=== RUN  TestReverseSortIntSlice
+--- PASS: TestReverseSortIntSlice (%!s(float64=7.295608520507812e-05))
+
+=== RUN  TestBreakPatterns
+--- PASS: TestBreakPatterns (%!s(float64=7.605552673339844e-05))
+
+=== RUN  TestReverseRange
+--- PASS: TestReverseRange (%!s(float64=2.3126602172851562e-05))
+
+=== RUN  TestNonDeterministicComparison
+--- PASS: TestNonDeterministicComparison (%!s(float64=5.579363107681274))
+
+=== RUN  TestSortBM
+--- PASS: TestSortBM (%!s(float64=0.6576910018920898))
+
+=== RUN  TestHeapsortBM
+--- PASS: TestHeapsortBM (%!s(float64=0.799583911895752))
+
+=== RUN  TestStableBM
+--- PASS: TestStableBM (%!s(float64=1.0415639877319336))
+
+=== RUN  TestAdversary
+--- PASS: TestAdversary (%!s(float64=0.0224459171295166))
+
+=== RUN  TestStableInts
+--- PASS: TestStableInts (%!s(float64=4.506111145019531e-05))
+
+=== RUN  TestStability
+--- PASS: TestStability (%!s(float64=0.027524948120117188))
+
+=== RUN  TestCountStableOps
+--- PASS: TestCountStableOps (%!s(float64=0.40042614936828613))
+
+=== RUN  TestCountSortOps
+--- PASS: TestCountSortOps (%!s(float64=0.035386085510253906))
+</code></pre>
 <p></p>
 </details></p><details><summary>interp tests passed</summary>
 <p>
-<pre><code>=== RUN   TestSearch
---- PASS: TestSearch (0.00243782997131347656)
-=== RUN   TestFind
---- PASS: TestFind (0.00010395050048828125)
-=== RUN   TestSearchEfficiency
---- PASS: TestSearchEfficiency (0.107685089111328125)
-=== RUN   TestSearchWrappers
---- PASS: TestSearchWrappers (2.59876251220703125e-05)
-=== RUN   TestSearchWrappersDontAlloc
---- PASS: TestSearchWrappersDontAlloc (2.288818359375e-05)
-=== RUN   TestSearchExhaustive
---- PASS: TestSearchExhaustive (0.22161412239074707)
-=== RUN   TestFindExhaustive
---- PASS: TestFindExhaustive (0.472613096237182617)
-=== RUN   TestSortIntSlice
---- PASS: TestSortIntSlice (0.000315189361572265625)
-=== RUN   TestSortFloat64Slice
---- PASS: TestSortFloat64Slice (0.000291109085083007812)
-=== RUN   TestSortStringSlice
---- PASS: TestSortStringSlice (0.000182867050170898438)
-=== RUN   TestInts
---- PASS: TestInts (0.000214099884033203125)
-=== RUN   TestFloat64s
---- PASS: TestFloat64s (0.0003528594970703125)
-=== RUN   TestStrings
---- PASS: TestStrings (0.000146150588989257812)
-=== RUN   TestSlice
---- PASS: TestSlice (0.000890016555786132812)
-=== RUN   TestSortLarge_Random
---- PASS: TestSortLarge_Random (0.207212924957275391)
-=== RUN   TestReverseSortIntSlice
---- PASS: TestReverseSortIntSlice (0.000488042831420898438)
-=== RUN   TestBreakPatterns
---- PASS: TestBreakPatterns (0.000648021697998046875)
-=== RUN   TestReverseRange
---- PASS: TestReverseRange (9.08374786376953125e-05)
-=== RUN   TestNonDeterministicComparison
---- PASS: TestNonDeterministicComparison (40.7422471046447754)
-=== RUN   TestSortBM
---- PASS: TestSortBM (2.20257997512817383)
-=== RUN   TestHeapsortBM
---- PASS: TestHeapsortBM (4.89172482490539551)
-=== RUN   TestStableBM
---- PASS: TestStableBM (5.01779484748840332)
-=== RUN   TestAdversary
---- PASS: TestAdversary (0.303910970687866211)
-=== RUN   TestStableInts
---- PASS: TestStableInts (0.00024509429931640625)
-=== RUN   TestStability
---- PASS: TestStability (0.226384878158569336)
-=== RUN   TestCountStableOps
---- PASS: TestCountStableOps (3.06311511993408203)
-=== RUN   TestCountSortOps
---- PASS: TestCountSortOps (0.455703973770141602)</code></pre>
+<pre><code>=== RUN  TestSearch
+--- PASS: TestSearch (%!s(float64=0.0014929771423339844))
+
+=== RUN  TestFind
+--- PASS: TestFind (%!s(float64=8.392333984375e-05))
+
+=== RUN  TestSearchEfficiency
+--- PASS: TestSearchEfficiency (%!s(float64=0.08394193649291992))
+
+=== RUN  TestSearchWrappers
+--- PASS: TestSearchWrappers (%!s(float64=3.504753112792969e-05))
+
+=== RUN  TestSearchWrappersDontAlloc
+--- PASS: TestSearchWrappersDontAlloc (%!s(float64=1.6927719116210938e-05))
+
+=== RUN  TestSearchExhaustive
+--- PASS: TestSearchExhaustive (%!s(float64=0.17931914329528809))
+
+=== RUN  TestFindExhaustive
+--- PASS: TestFindExhaustive (%!s(float64=0.3873281478881836))
+
+=== RUN  TestSortIntSlice
+--- PASS: TestSortIntSlice (%!s(float64=0.0002810955047607422))
+
+=== RUN  TestSortFloat64Slice
+--- PASS: TestSortFloat64Slice (%!s(float64=0.0003120899200439453))
+
+=== RUN  TestSortStringSlice
+--- PASS: TestSortStringSlice (%!s(float64=0.00017499923706054688))
+
+=== RUN  TestInts
+--- PASS: TestInts (%!s(float64=0.000225067138671875))
+
+=== RUN  TestFloat64s
+--- PASS: TestFloat64s (%!s(float64=0.00027298927307128906))
+
+=== RUN  TestStrings
+--- PASS: TestStrings (%!s(float64=0.00014090538024902344))
+
+=== RUN  TestSlice
+--- PASS: TestSlice (%!s(float64=0.0005478858947753906))
+
+=== RUN  TestSortLarge_Random
+--- PASS: TestSortLarge_Random (%!s(float64=0.17407488822937012))
+
+=== RUN  TestReverseSortIntSlice
+--- PASS: TestReverseSortIntSlice (%!s(float64=0.0004630088806152344))
+
+=== RUN  TestBreakPatterns
+--- PASS: TestBreakPatterns (%!s(float64=0.0005991458892822266))
+
+=== RUN  TestReverseRange
+--- PASS: TestReverseRange (%!s(float64=8.702278137207031e-05))
+
+=== RUN  TestNonDeterministicComparison
+--- PASS: TestNonDeterministicComparison (%!s(float64=32.77565598487854))
+
+=== RUN  TestSortBM
+--- PASS: TestSortBM (%!s(float64=2.4945528507232666))
+
+=== RUN  TestHeapsortBM
+--- PASS: TestHeapsortBM (%!s(float64=4.921475887298584))
+
+=== RUN  TestStableBM
+--- PASS: TestStableBM (%!s(float64=5.126147985458374))
+
+=== RUN  TestAdversary
+--- PASS: TestAdversary (%!s(float64=0.2645909786224365))
+
+=== RUN  TestStableInts
+--- PASS: TestStableInts (%!s(float64=0.00022792816162109375))
+
+=== RUN  TestStability
+--- PASS: TestStability (%!s(float64=0.1934349536895752))
+
+=== RUN  TestCountStableOps
+--- PASS: TestCountStableOps (%!s(float64=2.652635097503662))
+
+=== RUN  TestCountSortOps
+--- PASS: TestCountSortOps (%!s(float64=0.3994319438934326))
+</code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")</code></pre>
+<pre><code>IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>
 <h1><a name="index">Index</a></h1><ul><li>
-<p><a href="#function-_breakpatterns"><code>function _breakPatterns(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_breakpatterns_func"><code>function _breakPatterns_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_choosepivot"><code>function _choosePivot(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):{_1:stdgo.sort._Sort.T_sortedHint, _0:stdgo.GoInt}</code></a></p></li><li>
-<p><a href="#function-_choosepivot_func"><code>function _choosePivot_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):{_1:stdgo.sort._Sort.T_sortedHint, _0:stdgo.GoInt}</code></a></p></li><li>
-<p><a href="#function-_heapsort"><code>function _heapSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_heapsort_func"><code>function _heapSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_insertionsort"><code>function _insertionSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_insertionsort_func"><code>function _insertionSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_isnan"><code>function _isNaN(_f:stdgo.GoFloat64):Bool</code></a></p></li><li>
-<p><a href="#function-_median"><code>function _median(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_medianadjacent"><code>function _medianAdjacent(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_medianadjacent_func"><code>function _medianAdjacent_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_median_func"><code>function _median_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_nextpoweroftwo"><code>function _nextPowerOfTwo(_length:stdgo.GoInt):stdgo.GoUInt</code></a></p></li><li>
-<p><a href="#function-_order2"><code>function _order2(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):{_1:stdgo.GoInt, _0:stdgo.GoInt}</code></a></p></li><li>
-<p><a href="#function-_order2_func"><code>function _order2_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):{_1:stdgo.GoInt, _0:stdgo.GoInt}</code></a></p></li><li>
-<p><a href="#function-_partialinsertionsort"><code>function _partialInsertionSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool</code></a></p></li><li>
-<p><a href="#function-_partialinsertionsort_func"><code>function _partialInsertionSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool</code></a></p></li><li>
-<p><a href="#function-_partition"><code>function _partition(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}</code></a></p></li><li>
-<p><a href="#function-_partitionequal"><code>function _partitionEqual(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_partitionequal_func"><code>function _partitionEqual_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_partition_func"><code>function _partition_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}</code></a></p></li><li>
-<p><a href="#function-_pdqsort"><code>function _pdqsort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_pdqsort_func"><code>function _pdqsort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_reverserange"><code>function _reverseRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_reverserange_func"><code>function _reverseRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_rotate"><code>function _rotate(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_rotate_func"><code>function _rotate_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_siftdown"><code>function _siftDown(_data:stdgo.sort.Interface, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_siftdown_func"><code>function _siftDown_func(_data:stdgo.sort._Sort.T_lessSwap, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_stable"><code>function _stable(_data:stdgo.sort.Interface, _n:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_stable_func"><code>function _stable_func(_data:stdgo.sort._Sort.T_lessSwap, _n:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_swaprange"><code>function _swapRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_swaprange_func"><code>function _swapRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_symmerge"><code>function _symMerge(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_symmerge_func"><code>function _symMerge_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void</code></a></p></li><li>
 <p><a href="#function-find"><code>function find(_n:stdgo.GoInt, _cmp:()):{_1:Bool, _0:stdgo.GoInt}</code></a></p></li><li>
 <p><a href="#function-float64s"><code>function float64s(_x:stdgo.Slice&lt;stdgo.GoFloat64&gt;):Void</code></a></p></li><li>
 <p><a href="#function-float64saresorted"><code>function float64sAreSorted(_x:stdgo.Slice&lt;stdgo.GoFloat64&gt;):Bool</code></a></p></li><li>
@@ -292,148 +311,13 @@
 <p><a href="#examplestrings"><code>exampleStrings</code></a></p></li></ul>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.sort.Sort</code></pre>
-<h2><a name="function-_breakpatterns">function _breakPatterns</a></h2>
-<pre><code class="language-haxe">function _breakPatterns(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p>breakPatterns scatters some elements around in an attempt to break some patterns��// that might cause imbalanced partitions in quicksort. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1195"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _breakPatterns_func</h2>
-<pre><code class="language-haxe">function _breakPatterns_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p>breakPatterns_func scatters some elements around in an attempt to break some patterns��// that might cause imbalanced partitions in quicksort. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L685"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_choosepivot">function _choosePivot</a></h2>
-<pre><code class="language-haxe">function _choosePivot(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):{_1:stdgo.sort._Sort.T_sortedHint, _0:stdgo.GoInt}</code></pre>
-<p>choosePivot chooses a pivot in data[a:b].��//��// [0,8): chooses a static pivot.��// [8,shortestNinther): uses the simple median-of-three method.��// [shortestNinther,∞): uses the Tukey ninther method. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1220"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _choosePivot_func</h2>
-<pre><code class="language-haxe">function _choosePivot_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):{_1:stdgo.sort._Sort.T_sortedHint, _0:stdgo.GoInt}</code></pre>
-<p>choosePivot_func chooses a pivot in data[a:b].��//��// [0,8): chooses a static pivot.��// [8,shortestNinther): uses the simple median-of-three method.��// [shortestNinther,∞): uses the Tukey ninther method. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L710"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_heapsort">function _heapSort</a></h2>
-<pre><code class="language-haxe">function _heapSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L987"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _heapSort_func</h2>
-<pre><code class="language-haxe">function _heapSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L477"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_insertionsort">function _insertionSort</a></h2>
-<pre><code class="language-haxe">function _insertionSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p>insertionSort sorts data[a:b] using insertion sort. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L951"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _insertionSort_func</h2>
-<pre><code class="language-haxe">function _insertionSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p>insertionSort_func sorts data[a:b] using insertion sort. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L441"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_isnan">function _isNaN</a></h2>
-<pre><code class="language-haxe">function _isNaN(_f:stdgo.GoFloat64):Bool</code></pre>
-<p>isNaN is a copy of math.IsNaN to avoid a dependency on the math package. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L379"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_median">function _median</a></h2>
-<pre><code class="language-haxe">function _median(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):stdgo.GoInt</code></pre>
-<p>median returns x where data[x] is the median of data[a],data[b],data[c], where x is a, b, or c. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1264"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_medianadjacent">function _medianAdjacent</a></h2>
-<pre><code class="language-haxe">function _medianAdjacent(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):stdgo.GoInt</code></pre>
-<p>medianAdjacent finds the median of data[a - 1], data[a], data[a + 1] and stores the index into a. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1286"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _medianAdjacent_func</h2>
-<pre><code class="language-haxe">function _medianAdjacent_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):stdgo.GoInt</code></pre>
-<p>medianAdjacent_func finds the median of data[a - 1], data[a], data[a + 1] and stores the index into a. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L776"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _median_func</h2>
-<pre><code class="language-haxe">function _median_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):stdgo.GoInt</code></pre>
-<p>median_func returns x where data[x] is the median of data[a],data[b],data[c], where x is a, b, or c. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L754"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_nextpoweroftwo">function _nextPowerOfTwo</a></h2>
-<pre><code class="language-haxe">function _nextPowerOfTwo(_length:stdgo.GoInt):stdgo.GoUInt</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L348"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_order2">function _order2</a></h2>
-<pre><code class="language-haxe">function _order2(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):{_1:stdgo.GoInt, _0:stdgo.GoInt}</code></pre>
-<p>order2 returns x,y where data[x] \&lt;= data[y], where x,y=a,b or x,y=b,a. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1253"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _order2_func</h2>
-<pre><code class="language-haxe">function _order2_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer&lt;stdgo.GoInt&gt;):{_1:stdgo.GoInt, _0:stdgo.GoInt}</code></pre>
-<p>order2_func returns x,y where data[x] \&lt;= data[y], where x,y=a,b or x,y=b,a. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L743"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_partialinsertionsort">function _partialInsertionSort</a></h2>
-<pre><code class="language-haxe">function _partialInsertionSort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool</code></pre>
-<p>partialInsertionSort partially sorts a slice, returns true if the slice is sorted at the end. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1148"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _partialInsertionSort_func</h2>
-<pre><code class="language-haxe">function _partialInsertionSort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Bool</code></pre>
-<p>partialInsertionSort_func partially sorts a slice, returns true if the slice is sorted at the end. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L638"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_partition">function _partition</a></h2>
-<pre><code class="language-haxe">function _partition(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}</code></pre>
-<p>partition does one quicksort partition.��// Let p = data[pivot]��// Moves elements in data[a:b] around, so that data[i]\<p and data[j]\>=p for i\<newpivot and j\>newpivot.��// On return, data[newpivot] = p </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1079"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_partitionequal">function _partitionEqual</a></h2>
-<pre><code class="language-haxe">function _partitionEqual(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt</code></pre>
-<p>partitionEqual partitions data[a:b] into elements equal to data[pivot] followed by elements greater than data[pivot].��// It assumed that data[a:b] does not contain elements smaller than the data[pivot]. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1121"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _partitionEqual_func</h2>
-<pre><code class="language-haxe">function _partitionEqual_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt</code></pre>
-<p>partitionEqual_func partitions data[a:b] into elements equal to data[pivot] followed by elements greater than data[pivot].��// It assumed that data[a:b] does not contain elements smaller than the data[pivot]. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L611"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _partition_func</h2>
-<pre><code class="language-haxe">function _partition_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}</code></pre>
-<p>partition_func does one quicksort partition.��// Let p = data[pivot]��// Moves elements in data[a:b] around, so that data[i]\<p and data[j]\>=p for i\<newpivot and j\>newpivot.��// On return, data[newpivot] = p </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L569"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_pdqsort">function _pdqsort</a></h2>
-<pre><code class="language-haxe">function _pdqsort(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void</code></pre>
-<p>pdqsort sorts data[a:b].��// The algorithm based on pattern-defeating quicksort(pdqsort), but without the optimizations from BlockQuicksort.��// pdqsort paper: https://arxiv.org/pdf/2106.05123.pdf��// C++ implementation: https://github.com/orlp/pdqsort��// Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/��// limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1014"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _pdqsort_func</h2>
-<pre><code class="language-haxe">function _pdqsort_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void</code></pre>
-<p>pdqsort_func sorts data[a:b].��// The algorithm based on pattern-defeating quicksort(pdqsort), but without the optimizations from BlockQuicksort.��// pdqsort paper: https://arxiv.org/pdf/2106.05123.pdf��// C++ implementation: https://github.com/orlp/pdqsort��// Rust implementation: https://docs.rs/pdqsort/latest/pdqsort/��// limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L504"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_reverserange">function _reverseRange</a></h2>
-<pre><code class="language-haxe">function _reverseRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1290"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _reverseRange_func</h2>
-<pre><code class="language-haxe">function _reverseRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L780"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_rotate">function _rotate</a></h2>
-<pre><code class="language-haxe">function _rotate(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p>rotate rotates two consecutive blocks u = data[a:m] and v = data[m:b] in data:��// Data of the form 'x u v y' is changed to 'x v u y'.��// rotate performs at most b-a many calls to data.Swap,��// and it assumes non-degenerate arguments: a \&lt; m &amp;&amp; m \&lt; b. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1443"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _rotate_func</h2>
-<pre><code class="language-haxe">function _rotate_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p>rotate_func rotates two consecutive blocks u = data[a:m] and v = data[m:b] in data:��// Data of the form 'x u v y' is changed to 'x v u y'.��// rotate performs at most b-a many calls to data.Swap,��// and it assumes non-degenerate arguments: a \&lt; m &amp;&amp; m \&lt; b. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L933"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_siftdown">function _siftDown</a></h2>
-<pre><code class="language-haxe">function _siftDown(_data:stdgo.sort.Interface, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void</code></pre>
-<p>siftDown implements the heap property on data[lo:hi].��// first is an offset into the array where the root of the heap lies. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L969"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _siftDown_func</h2>
-<pre><code class="language-haxe">function _siftDown_func(_data:stdgo.sort._Sort.T_lessSwap, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void</code></pre>
-<p>siftDown_func implements the heap property on data[lo:hi].��// first is an offset into the array where the root of the heap lies. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L459"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_stable">function _stable</a></h2>
-<pre><code class="language-haxe">function _stable(_data:stdgo.sort.Interface, _n:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1309"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _stable_func</h2>
-<pre><code class="language-haxe">function _stable_func(_data:stdgo.sort._Sort.T_lessSwap, _n:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L799"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_swaprange">function _swapRange</a></h2>
-<pre><code class="language-haxe">function _swapRange(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1300"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _swapRange_func</h2>
-<pre><code class="language-haxe">function _swapRange_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _n:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L790"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_symmerge">function _symMerge</a></h2>
-<pre><code class="language-haxe">function _symMerge(_data:stdgo.sort.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p>symMerge merges the two sorted subsequences data[a:m] and data[m:b] using��// the SymMerge algorithm from Pok-Son Kim and Arne Kutzner, "Stable Minimum��// Storage Merging by Symmetric Comparisons", in Susanne Albers and Tomasz��// Radzik, editors, Algorithms - ESA 2004, volume 3221 of Lecture Notes in��// Computer Science, pages 714-723. Springer, 2004.��//��// Let M = m-a and N = b-n. Wolog M \&lt; N.��// The recursion depth is bound by ceil(log(N+M)).��// The algorithm needs O(M\<em>log(N/M + 1)) calls to data.Less.��// The algorithm needs O((M+N)\</em>log(M)) calls to data.Swap.��//��// The paper gives O((M+N)*log(M)) as the number of assignments assuming a��// rotation algorithm which uses O(M+N+gcd(M+N)) assignments. The argumentation��// in the paper carries through for Swap operations, especially as the block��// swapping rotate uses only O(M+N) Swaps.��//��// symMerge assumes non-degenerate arguments: a \&lt; m &amp;&amp; m \&lt; b.��// Having the caller check this condition eliminates many leaf recursion calls,��// which improves performance. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1364"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2>function _symMerge_func</h2>
-<pre><code class="language-haxe">function _symMerge_func(_data:stdgo.sort._Sort.T_lessSwap, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void</code></pre>
-<p>symMerge_func merges the two sorted subsequences data[a:m] and data[m:b] using��// the SymMerge algorithm from Pok-Son Kim and Arne Kutzner, "Stable Minimum��// Storage Merging by Symmetric Comparisons", in Susanne Albers and Tomasz��// Radzik, editors, Algorithms - ESA 2004, volume 3221 of Lecture Notes in��// Computer Science, pages 714-723. Springer, 2004.��//��// Let M = m-a and N = b-n. Wolog M \&lt; N.��// The recursion depth is bound by ceil(log(N+M)).��// The algorithm needs O(M\<em>log(N/M + 1)) calls to data.Less.��// The algorithm needs O((M+N)\</em>log(M)) calls to data.Swap.��//��// The paper gives O((M+N)*log(M)) as the number of assignments assuming a��// rotation algorithm which uses O(M+N+gcd(M+N)) assignments. The argumentation��// in the paper carries through for Swap operations, especially as the block��// swapping rotate uses only O(M+N) Swaps.��//��// symMerge assumes non-degenerate arguments: a \&lt; m &amp;&amp; m \&lt; b.��// Having the caller check this condition eliminates many leaf recursion calls,��// which improves performance. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L854"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-find">function find</a></h2>
 <pre><code class="language-haxe">function find(_n:stdgo.GoInt, _cmp:()):{_1:Bool, _0:stdgo.GoInt}</code></pre>
-<p>Find uses binary search to find and return the smallest index i in [0, n)��// at which cmp(i) \&lt;= 0. If there is no such index i, Find returns i = n.��// The found result is true if i \&lt; n and cmp(i) == 0.��// Find calls cmp(i) only for i in the range [0, n).��//��// To permit binary search, Find requires that cmp(i) \> 0 for a leading��// prefix of the range, cmp(i) == 0 in the middle, and cmp(i) \&lt; 0 for��// the final suffix of the range. (Each subrange could be empty.)��// The usual way to establish this condition is to interpret cmp(i)��// as a comparison of a desired target value t against entry i in an��// underlying indexed data structure x, returning \<0, 0, and \>0��// when t \&lt; x[i], t == x[i], and t \> x[i], respectively.��//��// For example, to look for a particular string in a sorted, random-access��// list of strings:��//��//�i, found := sort.Find(x.Len(), func(i int) int {��//�    return strings.Compare(target, x.At(i))��//�})��//�if found {��//�    fmt.Printf("found %s at entry %d\n", target, i)��//�} else {��//�    fmt.Printf("%s not found, would insert at %d", target, i)��//�} </p>
+<p>Find uses binary search to find and return the smallest index i in [0, n)  at which cmp(i) \&lt;= 0. If there is no such index i, Find returns i = n.  The found result is true if i \&lt; n and cmp(i) == 0.  Find calls cmp(i) only for i in the range [0, n).    To permit binary search, Find requires that cmp(i) \> 0 for a leading  prefix of the range, cmp(i) == 0 in the middle, and cmp(i) \&lt; 0 for  the final suffix of the range. (Each subrange could be empty.)  The usual way to establish this condition is to interpret cmp(i)  as a comparison of a desired target value t against entry i in an  underlying indexed data structure x, returning \<0, 0, and \>0  when t \&lt; x[i], t == x[i], and t \> x[i], respectively.    For example, to look for a particular string in a sorted, random-access  list of strings:     i, found := sort.Find(x.Len(), func(i int) int {   return strings.Compare(target, x.At(i))   })   if found {   fmt.Printf("found %s at entry %d\n", target, i)   } else {   fmt.Printf("%s not found, would insert at %d", target, i)   } </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L233"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-float64s">function float64s</a></h2>
 <pre><code class="language-haxe">function float64s(_x:stdgo.Slice&lt;stdgo.GoFloat64&gt;):Void</code></pre>
-<p>Float64s sorts a slice of float64s in increasing order.��// Not-a-number (NaN) values are ordered before other values. </p>
+<p>Float64s sorts a slice of float64s in increasing order.  Not-a-number (NaN) values are ordered before other values. </p>
 <h3><a name="examplefloat64s">exampleFloat64s</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleFloat64s():Void {
@@ -450,7 +334,7 @@
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L394"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-float64saresorted">function float64sAreSorted</a></h2>
 <pre><code class="language-haxe">function float64sAreSorted(_x:stdgo.Slice&lt;stdgo.GoFloat64&gt;):Bool</code></pre>
-<p>Float64sAreSorted reports whether the slice x is sorted in increasing order,��// with not-a-number (NaN) values before any other values. </p>
+<p>Float64sAreSorted reports whether the slice x is sorted in increasing order,  with not-a-number (NaN) values before any other values. </p>
 <h3><a name="examplefloat64saresorted">exampleFloat64sAreSorted</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleFloat64sAreSorted():Void {
@@ -518,7 +402,7 @@
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L139"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-search">function search</a></h2>
 <pre><code class="language-haxe">function search(_n:stdgo.GoInt, _f:()):stdgo.GoInt</code></pre>
-<p>Search uses binary search to find and return the smallest index i��// in [0, n) at which f(i) is true, assuming that on the range [0, n),��// f(i) == true implies f(i+1) == true. That is, Search requires that��// f is false for some (possibly empty) prefix of the input range [0, n)��// and then true for the (possibly empty) remainder; Search returns��// the first true index. If there is no such index, Search returns n.��// (Note that the "not found" return value is not -1 as in, for instance,��// strings.Index.)��// Search calls f(i) only for i in the range [0, n).��//��// A common use of Search is to find the index i for a value x in��// a sorted, indexable data structure such as an array or slice.��// In this case, the argument f, typically a closure, captures the value��// to be searched for, and how the data structure is indexed and��// ordered.��//��// For instance, given a slice data sorted in ascending order,��// the call Search(len(data), func(i int) bool { return data[i] \>= 23 })��// returns the smallest index i such that data[i] \>= 23. If the caller��// wants to find whether 23 is in the slice, it must test data[i] == 23��// separately.��//��// Searching data sorted in descending order would use the \&lt;=��// operator instead of the \>= operator.��//��// To complete the example above, the following code tries to find the value��// x in an integer slice data sorted in ascending order:��//��//�x := 23��//�i := sort.Search(len(data), func(i int) bool { return data[i] \>= x })��//�if i \&lt; len(data) &amp;&amp; data[i] == x {��//��// x is present at data[i]��//�} else {��//��// x is not present in data,��//��// but i is the index where it would be inserted.��//�}��//��// As a more whimsical example, this program guesses your number:��//��//�func GuessingGame() {��//��var s string��//��fmt.Printf("Pick an integer from 0 to 100.\n")��//��answer := sort.Search(100, func(i int) bool {��//���fmt.Printf("Is your number \&lt;= %d? ", i)��//���fmt.Scanf("%s", &amp;s)��//���return s != "" &amp;&amp; s[0] == 'y'��//��})��//��fmt.Printf("Your number is %d.\n", answer)��//�} </p>
+<p>Search uses binary search to find and return the smallest index i  in [0, n) at which f(i) is true, assuming that on the range [0, n),  f(i) == true implies f(i+1) == true. That is, Search requires that  f is false for some (possibly empty) prefix of the input range [0, n)  and then true for the (possibly empty) remainder; Search returns  the first true index. If there is no such index, Search returns n.  (Note that the "not found" return value is not -1 as in, for instance,  strings.Index.)  Search calls f(i) only for i in the range [0, n).    A common use of Search is to find the index i for a value x in  a sorted, indexable data structure such as an array or slice.  In this case, the argument f, typically a closure, captures the value  to be searched for, and how the data structure is indexed and  ordered.    For instance, given a slice data sorted in ascending order,  the call Search(len(data), func(i int) bool { return data[i] \>= 23 })  returns the smallest index i such that data[i] \>= 23. If the caller  wants to find whether 23 is in the slice, it must test data[i] == 23  separately.    Searching data sorted in descending order would use the \&lt;=  operator instead of the \>= operator.    To complete the example above, the following code tries to find the value  x in an integer slice data sorted in ascending order:     x := 23   i := sort.Search(len(data), func(i int) bool { return data[i] \>= x })   if i \&lt; len(data) &amp;&amp; data[i] == x {    x is present at data[i]   } else {    x is not present in data,    but i is the index where it would be inserted.   }    As a more whimsical example, this program guesses your number:     func GuessingGame() {    var s string    fmt.Printf("Pick an integer from 0 to 100.\n")    answer := sort.Search(100, func(i int) bool {     fmt.Printf("Is your number \&lt;= %d? ", i)     fmt.Scanf("%s", &amp;s)     return s != "" &amp;&amp; s[0] == 'y'    })    fmt.Printf("Your number is %d.\n", answer)   } </p>
 <h3><a name="examplesearch">exampleSearch</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSearch():Void {
@@ -529,9 +413,9 @@
 		return _a[(_i : GoInt)] &gt;= _x;
 	});
 	if ((_i &lt; _a.length) &amp;&amp; (_a[(_i : GoInt)] == _x)) {
-		stdgo.fmt.Fmt.printf(Go.str("found %d at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+		stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 	} else {
-		stdgo.fmt.Fmt.printf(Go.str("%d not found in %v\n"), Go.toInterface(_x), Go.toInterface(_a));
+		stdgo.fmt.Fmt.printf(("%d not found in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_a));
 	};
 }</code></pre>
 <p></p>
@@ -546,9 +430,9 @@
 		return _a[(_i : GoInt)] &lt;= _x;
 	});
 	if ((_i &lt; _a.length) &amp;&amp; (_a[(_i : GoInt)] == _x)) {
-		stdgo.fmt.Fmt.printf(Go.str("found %d at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+		stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 	} else {
-		stdgo.fmt.Fmt.printf(Go.str("%d not found in %v\n"), Go.toInterface(_x), Go.toInterface(_a));
+		stdgo.fmt.Fmt.printf(("%d not found in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_a));
 	};
 }</code></pre>
 <p></p>
@@ -556,7 +440,7 @@
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L194"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-searchfloat64s">function searchFloat64s</a></h2>
 <pre><code class="language-haxe">function searchFloat64s(_a:stdgo.Slice&lt;stdgo.GoFloat64&gt;, _x:stdgo.GoFloat64):stdgo.GoInt</code></pre>
-<p>SearchFloat64s searches for x in a sorted slice of float64s and returns the index��// as specified by Search. The return value is the index to insert x if x is not��// present (it could be len(a)).��// The slice must be sorted in ascending order. </p>
+<p>SearchFloat64s searches for x in a sorted slice of float64s and returns the index  as specified by Search. The return value is the index to insert x if x is not  present (it could be len(a)).  The slice must be sorted in ascending order. </p>
 <h3><a name="examplesearchfloat64s">exampleSearchFloat64s</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSearchFloat64s():Void {
@@ -564,88 +448,90 @@
 		(8 : GoFloat64)) : Slice&lt;GoFloat64&gt;);
 	var _x:GoFloat64 = (2 : GoFloat64);
 	var _i:GoInt = stdgo.sort.Sort.searchFloat64s(_a, _x);
-	stdgo.fmt.Fmt.printf(Go.str("found %g at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+	stdgo.fmt.Fmt.printf(("found %g at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 	_x = (0.5 : GoFloat64);
 	_i = stdgo.sort.Sort.searchFloat64s(_a, _x);
-	stdgo.fmt.Fmt.printf(Go.str("%g not found, can be inserted at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+	stdgo.fmt.Fmt.printf(("%g not found, can be inserted at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 }</code></pre>
 <p></p>
 </details></p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L265"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-searchints">function searchInts</a></h2>
 <pre><code class="language-haxe">function searchInts(_a:stdgo.Slice&lt;stdgo.GoInt&gt;, _x:stdgo.GoInt):stdgo.GoInt</code></pre>
-<p>SearchInts searches for x in a sorted slice of ints and returns the index��// as specified by Search. The return value is the index to insert x if x is��// not present (it could be len(a)).��// The slice must be sorted in ascending order. </p>
+<p>SearchInts searches for x in a sorted slice of ints and returns the index  as specified by Search. The return value is the index to insert x if x is  not present (it could be len(a)).  The slice must be sorted in ascending order. </p>
 <h3><a name="examplesearchints">exampleSearchInts</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSearchInts():Void {
 	var _a = (new Slice&lt;GoInt&gt;(0, 0, (1 : GoInt), (2 : GoInt), (3 : GoInt), (4 : GoInt), (6 : GoInt), (7 : GoInt), (8 : GoInt)) : Slice&lt;GoInt&gt;);
 	var _x:GoInt = (2 : GoInt);
 	var _i:GoInt = stdgo.sort.Sort.searchInts(_a, _x);
-	stdgo.fmt.Fmt.printf(Go.str("found %d at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+	stdgo.fmt.Fmt.printf(("found %d at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 	_x = (5 : GoInt);
 	_i = stdgo.sort.Sort.searchInts(_a, _x);
-	stdgo.fmt.Fmt.printf(Go.str("%d not found, can be inserted at index %d in %v\n"), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
+	stdgo.fmt.Fmt.printf(("%d not found, can be inserted at index %d in %v\n" : GoString), Go.toInterface(_x), Go.toInterface(_i), Go.toInterface(_a));
 }</code></pre>
 <p></p>
 </details></p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L253"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-searchstrings">function searchStrings</a></h2>
 <pre><code class="language-haxe">function searchStrings(_a:stdgo.Slice&lt;stdgo.GoString&gt;, _x:stdgo.GoString):stdgo.GoInt</code></pre>
-<p>SearchStrings searches for x in a sorted slice of strings and returns the index��// as specified by Search. The return value is the index to insert x if x is not��// present (it could be len(a)).��// The slice must be sorted in ascending order. </p>
+<p>SearchStrings searches for x in a sorted slice of strings and returns the index  as specified by Search. The return value is the index to insert x if x is not  present (it could be len(a)).  The slice must be sorted in ascending order. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L277"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-slice">function slice</a></h2>
 <pre><code class="language-haxe">function slice(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void</code></pre>
-<p>Slice sorts the slice x given the provided less function.��// It panics if x is not a slice.��//��// The sort is not guaranteed to be stable: equal elements��// may be reversed from their original order.��// For a stable sort, use SliceStable.��//��// The less function must satisfy the same requirements as��// the Interface type's Less method. </p>
+<p>Slice sorts the slice x given the provided less function.  It panics if x is not a slice.    The sort is not guaranteed to be stable: equal elements  may be reversed from their original order.  For a stable sort, use SliceStable.    The less function must satisfy the same requirements as  the Interface type's Less method. </p>
 <h3><a name="exampleslice">exampleSlice</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSlice():Void {
-	var _people = (new Slice&lt;Person&gt;(0, 0, (new Person(Go.str("Gopher"), (7 : GoInt)) : Person), (new Person(Go.str("Alice"), (55 : GoInt)) : Person),
-		(new Person(Go.str("Vera"), (24 : GoInt)) : Person), (new Person(Go.str("Bob"), (75 : GoInt)) : Person)) : Slice&lt;Person&gt;);
+	var _people = (new Slice&lt;Person&gt;(0, 0, (new Person(("Gopher" : GoString), (7 : GoInt)) : Person),
+		(new Person(("Alice" : GoString), (55 : GoInt)) : Person), (new Person(("Vera" : GoString), (24 : GoInt)) : Person),
+		(new Person(("Bob" : GoString), (75 : GoInt)) : Person)) : Slice&lt;Person&gt;);
 	stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
 		return _people[(_i : GoInt)].name &lt; _people[(_j : GoInt)].name;
 	});
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("By name:")), Go.toInterface(_people));
+	stdgo.fmt.Fmt.println(Go.toInterface(("By name:" : GoString)), Go.toInterface(_people));
 	stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
 		return _people[(_i : GoInt)].age &lt; _people[(_j : GoInt)].age;
 	});
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("By age:")), Go.toInterface(_people));
+	stdgo.fmt.Fmt.println(Go.toInterface(("By age:" : GoString)), Go.toInterface(_people));
 }</code></pre>
 <p></p>
 </details></p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L294"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-sliceissorted">function sliceIsSorted</a></h2>
 <pre><code class="language-haxe">function sliceIsSorted(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Bool</code></pre>
-<p>SliceIsSorted reports whether the slice x is sorted according to the provided less function.��// It panics if x is not a slice. </p>
+<p>SliceIsSorted reports whether the slice x is sorted according to the provided less function.  It panics if x is not a slice. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L320"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-slicestable">function sliceStable</a></h2>
 <pre><code class="language-haxe">function sliceStable(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void</code></pre>
-<p>SliceStable sorts the slice x using the provided less��// function, keeping equal elements in their original order.��// It panics if x is not a slice.��//��// The less function must satisfy the same requirements as��// the Interface type's Less method. </p>
+<p>SliceStable sorts the slice x using the provided less  function, keeping equal elements in their original order.  It panics if x is not a slice.    The less function must satisfy the same requirements as  the Interface type's Less method. </p>
 <h3><a name="exampleslicestable">exampleSliceStable</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSliceStable():Void {
-	var _people = (new Slice&lt;Person&gt;(0, 0, (new Person(Go.str("Alice"), (25 : GoInt)) : Person), (new Person(Go.str("Elizabeth"), (75 : GoInt)) : Person),
-		(new Person(Go.str("Alice"), (75 : GoInt)) : Person), (new Person(Go.str("Bob"), (75 : GoInt)) : Person),
-		(new Person(Go.str("Alice"), (75 : GoInt)) : Person), (new Person(Go.str("Bob"), (25 : GoInt)) : Person),
-		(new Person(Go.str("Colin"), (25 : GoInt)) : Person), (new Person(Go.str("Elizabeth"), (25 : GoInt)) : Person)) : Slice&lt;Person&gt;);
+	var _people = (new Slice&lt;Person&gt;(0, 0, (new Person(("Alice" : GoString), (25 : GoInt)) : Person),
+		(new Person(("Elizabeth" : GoString), (75 : GoInt)) : Person), (new Person(("Alice" : GoString), (75 : GoInt)) : Person),
+		(new Person(("Bob" : GoString), (75 : GoInt)) : Person), (new Person(("Alice" : GoString), (75 : GoInt)) : Person),
+		(new Person(("Bob" : GoString), (25 : GoInt)) : Person), (new Person(("Colin" : GoString), (25 : GoInt)) : Person),
+		(new Person(("Elizabeth" : GoString), (25 : GoInt)) : Person)) : Slice&lt;Person&gt;);
 	stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
 		return _people[(_i : GoInt)].name &lt; _people[(_j : GoInt)].name;
 	});
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("By name:")), Go.toInterface(_people));
+	stdgo.fmt.Fmt.println(Go.toInterface(("By name:" : GoString)), Go.toInterface(_people));
 	stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
 		return _people[(_i : GoInt)].age &lt; _people[(_j : GoInt)].age;
 	});
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("By age,name:")), Go.toInterface(_people));
+	stdgo.fmt.Fmt.println(Go.toInterface(("By age,name:" : GoString)), Go.toInterface(_people));
 }</code></pre>
 <p></p>
 </details></p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L310"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-sort">function sort</a></h2>
 <pre><code class="language-haxe">function sort(_data:stdgo.sort.Interface):Void</code></pre>
-<p>Sort sorts data in ascending order as determined by the Less method.��// It makes one call to data.Len to determine n and O(n*log(n)) calls to��// data.Less and data.Swap. The sort is not guaranteed to be stable. </p>
+<p>Sort sorts data in ascending order as determined by the Less method.  It makes one call to data.Len to determine n and O(n*log(n)) calls to  data.Less and data.Swap. The sort is not guaranteed to be stable. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L339"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-stable">function stable</a></h2>
 <pre><code class="language-haxe">function stable(_data:stdgo.sort.Interface):Void</code></pre>
-<p>Stable sorts data in ascending order as determined by the Less method,��// while keeping the original order of equal elements.��//��// It makes one call to data.Len to determine n, O(n\<em>log(n)) calls to��// data.Less and O(n\</em>log(n)*log(n)) calls to data.Swap. </p>
+<p>Stable sorts data in ascending order as determined by the Less method,  while keeping the original order of equal elements.    It makes one call to data.Len to determine n, O(n\<em>log(n)) calls to  data.Less and O(n\</em>log(n)*log(n)) calls to data.Swap. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L434"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-strings">function strings</a></h2>
 <pre><code class="language-haxe">function strings(_x:stdgo.Slice&lt;stdgo.GoString&gt;):Void</code></pre>
@@ -653,7 +539,8 @@
 <h3><a name="examplestrings">exampleStrings</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleStrings():Void {
-	var _s = (new Slice&lt;GoString&gt;(0, 0, Go.str("Go"), Go.str("Bravo"), Go.str("Gopher"), Go.str("Alpha"), Go.str("Grin"), Go.str("Delta")) : Slice&lt;GoString&gt;);
+	var _s = (new Slice&lt;GoString&gt;(0, 0, ("Go" : GoString), ("Bravo" : GoString), ("Gopher" : GoString), ("Alpha" : GoString), ("Grin" : GoString),
+		("Delta" : GoString)) : Slice&lt;GoString&gt;);
 	stdgo.sort.Sort.strings(_s);
 	stdgo.fmt.Fmt.println(Go.toInterface(_s));
 }</code></pre>
@@ -671,7 +558,7 @@
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1698"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Float64Slice_static_extension function less</h3>
-<pre><code class="language-haxe">function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool</code></pre><table><thead><th align="null">Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.���// Note that floating-point comparison by itself is not a transitive relation: it does not���// report a consistent ordering for not-a-number (NaN) values.���// This implementation of Less places NaN values before any others, by using:���//���//�x[i] \&lt; x[j]</th><th align="null">(math.IsNaN(x[i]) &amp;&amp; !math.IsNaN(x[j]))</th></thead><tbody></tbody></table>
+<pre><code class="language-haxe">function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool</code></pre><table><thead><th align="null">Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.   Note that floating-point comparison by itself is not a transitive relation: it does not   report a consistent ordering for not-a-number (NaN) values.   This implementation of Less places NaN values before any others, by using:       x[i] \&lt; x[j]</th><th align="null">(math.IsNaN(x[i]) &amp;&amp; !math.IsNaN(x[j]))</th></thead><tbody></tbody></table>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1693"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Float64Slice_static_extension function search</h3>
 <pre><code class="language-haxe">function search( _x:stdgo.GoFloat64):stdgo.GoInt</code></pre>
@@ -739,12 +626,12 @@
 <pre><code class="language-haxe">import stdgo.sort.*</code></pre>
 <h2><a name="typedef-float64slice">typedef Float64Slice</a></h2>
 <pre><code class="language-haxe">typedef Float64Slice = var x:stdgo.GoFloat64</code></pre>
-<p>Float64Slice implements Interface for a []float64, sorting in increasing order,��// with not-a-number (NaN) values ordered before other values. </p>
+<p>Float64Slice implements Interface for a []float64, sorting in increasing order,  with not-a-number (NaN) values ordered before other values. </p>
 <h3><a name="float64slice-function-len">Float64Slice function len</a></h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1698"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="float64slice-function-less">Float64Slice function less</a></h3>
-<pre><code class="language-haxe">function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool</code></pre><table><thead><th align="null">Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.���// Note that floating-point comparison by itself is not a transitive relation: it does not���// report a consistent ordering for not-a-number (NaN) values.���// This implementation of Less places NaN values before any others, by using:���//���//�x[i] \&lt; x[j]</th><th align="null">(math.IsNaN(x[i]) &amp;&amp; !math.IsNaN(x[j]))</th></thead><tbody></tbody></table>
+<pre><code class="language-haxe">function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool</code></pre><table><thead><th align="null">Less reports whether x[i] should be ordered before x[j], as required by the sort Interface.   Note that floating-point comparison by itself is not a transitive relation: it does not   report a consistent ordering for not-a-number (NaN) values.   This implementation of Less places NaN values before any others, by using:       x[i] \&lt; x[j]</th><th align="null">(math.IsNaN(x[i]) &amp;&amp; !math.IsNaN(x[j]))</th></thead><tbody></tbody></table>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1693"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="float64slice-function-search">Float64Slice function search</a></h3>
 <pre><code class="language-haxe">function search( _x:stdgo.GoFloat64):stdgo.GoInt</code></pre>
@@ -779,7 +666,7 @@
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/sort//Sort.hx#L1588"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="typedef-interface">typedef Interface</a></h2>
 <pre><code class="language-haxe">typedef Interface = var a:{&lt;__underlying__&gt; | (_i:stdgo.GoInt, _j:stdgo.GoInt):Void | {&lt;haxe_doc&gt;} | (_i:stdgo.GoInt, _j:stdgo.GoInt):Bool | {&lt;haxe_doc&gt;} | ():stdgo.GoInt | {&lt;haxe_doc&gt;} | ():stdgo.AnyInterface}</code></pre>
-<p>An implementation of Interface can be sorted by the routines in this package.��// The methods refer to elements of the underlying collection by integer index. </p>
+<p>An implementation of Interface can be sorted by the routines in this package.  The methods refer to elements of the underlying collection by integer index. </p>
 <h2><a name="typedef-stringslice">typedef StringSlice</a></h2>
 <pre><code class="language-haxe">typedef StringSlice = var x:stdgo.GoString</code></pre>
 <p>StringSlice attaches the methods of Interface to []string, sorting in increasing order. </p>

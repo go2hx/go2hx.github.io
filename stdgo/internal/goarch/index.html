@@ -103,18 +103,18 @@
 <pre><code class="language-haxe">final isWasm:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
 <pre><code class="language-haxe">final loong64:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFamilyType))</code></pre>
 <pre><code class="language-haxe">final minFrameSize:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
-<p>MinFrameSize is the size of the system-reserved words at the bottom��// of a frame (just above the architectural stack pointer).��// It is zero on x86 and PtrSize on most non-x86 (LR-based) systems.��// On PowerPC it is larger, to cover three more reserved words:��// the compiler word, the link editor word, and the TOC save word. </p>
+<p>MinFrameSize is the size of the system-reserved words at the bottom  of a frame (just above the architectural stack pointer).  It is zero on x86 and PtrSize on most non-x86 (LR-based) systems.  On PowerPC it is larger, to cover three more reserved words:  the compiler word, the link editor word, and the TOC save word. </p>
 <pre><code class="language-haxe">final mips:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFamilyType))</code></pre>
 <pre><code class="language-haxe">final mips64:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFamilyType))</code></pre>
 <pre><code class="language-haxe">final pcquantum:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
-<p>PCQuantum is the minimal unit for a program counter (1 on x86, 4 on most other systems).��// The various PC tables record PC deltas pre-divided by PCQuantum. </p>
+<p>PCQuantum is the minimal unit for a program counter (1 on x86, 4 on most other systems).  The various PC tables record PC deltas pre-divided by PCQuantum. </p>
 <pre><code class="language-haxe">final ppc64:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFamilyType))</code></pre>
 <pre><code class="language-haxe">final ptrSize:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
-<p>PtrSize is the size of a pointer in bytes - unsafe.Sizeof(uintptr(0)) but as an ideal constant.��// It is also the size of the machine's native word size (that is, 4 on 32-bit systems, 8 on 64-bit). </p>
+<p>PtrSize is the size of a pointer in bytes - unsafe.Sizeof(uintptr(0)) but as an ideal constant.  It is also the size of the machine's native word size (that is, 4 on 32-bit systems, 8 on 64-bit). </p>
 <pre><code class="language-haxe">final riscv64:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFamilyType))</code></pre>
 <pre><code class="language-haxe">final s390x:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFamilyType))</code></pre>
 <pre><code class="language-haxe">final stackAlign:stdgo.GoUInt64 = ((0 : GoUInt64))</code></pre>
-<p>StackAlign is the required alignment of the SP register.��// The stack must be at least word aligned, but some architectures require more. </p>
+<p>StackAlign is the required alignment of the SP register.  The stack must be at least word aligned, but some architectures require more. </p>
 <pre><code class="language-haxe">final wasm:stdgo.internal.goarch.ArchFamilyType = ((((0 : GoInt)) : ArchFamilyType))</code></pre>
 <h1><a name="typedefs">Typedefs</a></h1>
 <pre><code class="language-haxe">import stdgo.internal.goarch.*</code></pre>

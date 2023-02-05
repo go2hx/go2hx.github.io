@@ -58,362 +58,509 @@
         <h1>Module: <code>stdgo.bytes</code></h1>
 <p><a href="../index.html">(view library index)</a></p>
 <h1><a name="overview">Overview</a></h1>
-<p>Package bytes implements functions for the manipulation of byte slices.��// It is analogous to the facilities of the strings package. </p><details><summary>hl tests passed</summary>
+<p>Package bytes implements functions for the manipulation of byte slices.  It is analogous to the facilities of the strings package. </p><details><summary>hl tests passed</summary>
 <p>
-<pre><code>=== RUN   TestNewBuffer
---- PASS: TestNewBuffer (0.000895023345947266)
-=== RUN   TestNewBufferString
---- PASS: TestNewBufferString (0.00180697441101074)
-=== RUN   TestBasicOperations
---- PASS: TestBasicOperations (0.000549077987670898)
-=== RUN   TestLargeStringWrites
---- PASS: TestLargeStringWrites (0.231087923049927)
-=== RUN   TestLargeByteWrites
---- PASS: TestLargeByteWrites (0.241580009460449)
-=== RUN   TestLargeStringReads
---- PASS: TestLargeStringReads (0.0622470378875732)
-=== RUN   TestLargeByteReads
---- PASS: TestLargeByteReads (0.0926151275634766)
-=== RUN   TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (0.251032829284668)
-=== RUN   TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (1.9073486328125e-05)
-=== RUN   TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (1.50203704833984e-05)
-=== RUN   TestNil
---- PASS: TestNil (1.19209289550781e-05)
-=== RUN   TestReadFrom
---- PASS: TestReadFrom (0.152822017669678)
-=== RUN   TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (0.000336885452270508)
-=== RUN   TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (0.000265836715698242)
-=== RUN   TestWriteTo
---- PASS: TestWriteTo (0.137532949447632)
-=== RUN   TestRuneIO
---- PASS: TestRuneIO (0.0225620269775391)
-=== RUN   TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (6.91413879394531e-05)
-=== RUN   TestNext
---- PASS: TestNext (0.000442981719970703)
-=== RUN   TestReadBytes
---- PASS: TestReadBytes (0.000116825103759766)
-=== RUN   TestReadString
---- PASS: TestReadString (0.000819921493530273)
-=== RUN   TestGrow
-bytes_test/Bytes_test.hx:2157: testGrow skip function
---- PASS: TestGrow (3.60012054443359e-05)
-=== RUN   TestGrowOverflow
---- PASS: TestGrowOverflow (5.69820404052734e-05)
-=== RUN   TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (1.59740447998047e-05)
-=== RUN   TestUnreadByte
---- PASS: TestUnreadByte (2.88486480712891e-05)
-=== RUN   TestBufferGrowth
---- PASS: TestBufferGrowth (2.00707101821899)
-=== RUN   TestEqual
---- PASS: TestEqual (1.28746032714844e-05)
-=== RUN   TestEqualExhaustive
---- PASS: TestEqualExhaustive (0.123466968536377)
-=== RUN   TestNotEqual
---- PASS: TestNotEqual (0.50581693649292)
-=== RUN   TestIndex
---- PASS: TestIndex (0.00169205665588379)
-=== RUN   TestLastIndex
---- PASS: TestLastIndex (8.89301300048828e-05)
-=== RUN   TestIndexAny
---- PASS: TestIndexAny (0.000179052352905273)
-=== RUN   TestLastIndexAny
---- PASS: TestLastIndexAny (0.000200033187866211)
-=== RUN   TestIndexByte
---- PASS: TestIndexByte (4.1961669921875e-05)
-=== RUN   TestLastIndexByte
---- PASS: TestLastIndexByte (3.09944152832031e-05)
-=== RUN   TestIndexByteBig
---- PASS: TestIndexByteBig (0.0840530395507812)
-=== RUN   TestIndexByteSmall
---- PASS: TestIndexByteSmall (0.161346912384033)
-=== RUN   TestIndexRune
---- PASS: TestIndexRune (0.000206947326660156)
-=== RUN   TestCountByte
---- PASS: TestCountByte (2.93441987037659)
-=== RUN   TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (1.02580404281616)
-=== RUN   TestSplit
---- PASS: TestSplit (0.00174903869628906)
-=== RUN   TestSplitAfter
---- PASS: TestSplitAfter (0.00190019607543945)
-=== RUN   TestFields
---- PASS: TestFields (0.000198841094970703)
-=== RUN   TestFieldsFunc
---- PASS: TestFieldsFunc (0.000206947326660156)
-=== RUN   TestMap
---- PASS: TestMap (0.000293970108032227)
-=== RUN   TestToUpper
---- PASS: TestToUpper (0.000459194183349609)
-=== RUN   TestToLower
---- PASS: TestToLower (0.000854015350341797)
-=== RUN   TestToValidUTF8
---- PASS: TestToValidUTF8 (0.00026702880859375)
-=== RUN   TestTrimSpace
---- PASS: TestTrimSpace (0.000324010848999023)
-=== RUN   TestRepeat
---- PASS: TestRepeat (3.60012054443359e-05)
-=== RUN   TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (0.000274181365966797)
-=== RUN   TestRunes
---- PASS: TestRunes (0.0001220703125)
-=== RUN   TestTrim
---- PASS: TestTrim (0.000385046005249023)
-=== RUN   TestTrimFunc
---- PASS: TestTrimFunc (0.000583171844482422)
-=== RUN   TestIndexFunc
---- PASS: TestIndexFunc (0.000175952911376953)
-=== RUN   TestReplace
---- PASS: TestReplace (0.000613927841186523)
-=== RUN   TestTitle
---- PASS: TestTitle (0.000286102294921875)
-=== RUN   TestToTitle
---- PASS: TestToTitle (0.000128030776977539)
-=== RUN   TestEqualFold
---- PASS: TestEqualFold (0.000270843505859375)
-=== RUN   TestCut
---- PASS: TestCut (2.90870666503906e-05)
-=== RUN   TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (2.40802764892578e-05)
-=== RUN   TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (2.00271606445312e-05)
-=== RUN   TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (2.71797180175781e-05)
-=== RUN   TestContains
---- PASS: TestContains (1.38282775878906e-05)
-=== RUN   TestContainsAny
---- PASS: TestContainsAny (9.29832458496094e-05)
-=== RUN   TestContainsRune
---- PASS: TestContainsRune (2.59876251220703e-05)
-=== RUN   TestCompare
---- PASS: TestCompare (0.000896930694580078)
-=== RUN   TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (1.71661376953125e-05)
-=== RUN   TestCompareBytes
-bytes_test/Bytes_test.hx:4397: testCompareBytes skip function
---- PASS: TestCompareBytes (2.19345092773438e-05)
-=== RUN   TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (0.130563020706177)
-=== RUN   TestReader
---- PASS: TestReader (0.000174999237060547)
-=== RUN   TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (3.19480895996094e-05)
-=== RUN   TestReaderAt
---- PASS: TestReaderAt (0.000169038772583008)
-=== RUN   TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (0.00092005729675293)
-=== RUN   TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (0.000730991363525391)
-=== RUN   TestReaderWriteTo
---- PASS: TestReaderWriteTo (0.00473618507385254)
-=== RUN   TestReaderLen
---- PASS: TestReaderLen (2.40802764892578e-05)
-=== RUN   TestUnreadRuneError
---- PASS: TestUnreadRuneError (7.00950622558594e-05)
-=== RUN   TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (1.81198120117188e-05)
-=== RUN   TestReaderCopyNothing
---- PASS: TestReaderCopyNothing (0.00462484359741211)
-=== RUN   TestReaderLenSize
-bytes_test/Bytes_test.hx:5525: testReaderLenSize skip function
---- PASS: TestReaderLenSize (2.21729278564453e-05)
-=== RUN   TestReaderReset
---- PASS: TestReaderReset (6.60419464111328e-05)
-=== RUN   TestReaderZero
---- PASS: TestReaderZero (7.10487365722656e-05)</code></pre>
+<pre><code>=== RUN  TestNewBuffer
+--- PASS: TestNewBuffer (%!s(float64=0.0007789134979248047))
+
+=== RUN  TestNewBufferString
+--- PASS: TestNewBufferString (%!s(float64=0.0016078948974609375))
+
+=== RUN  TestBasicOperations
+--- PASS: TestBasicOperations (%!s(float64=0.0003170967102050781))
+
+=== RUN  TestLargeStringWrites
+--- PASS: TestLargeStringWrites (%!s(float64=0.18330883979797363))
+
+=== RUN  TestLargeByteWrites
+--- PASS: TestLargeByteWrites (%!s(float64=0.2009110450744629))
+
+=== RUN  TestLargeStringReads
+--- PASS: TestLargeStringReads (%!s(float64=0.05423092842102051))
+
+=== RUN  TestLargeByteReads
+--- PASS: TestLargeByteReads (%!s(float64=0.07512712478637695))
+
+=== RUN  TestMixedReadsAndWrites
+--- PASS: TestMixedReadsAndWrites (%!s(float64=0.3307309150695801))
+
+=== RUN  TestCapWithPreallocatedSlice
+--- PASS: TestCapWithPreallocatedSlice (%!s(float64=2.09808349609375e-05))
+
+=== RUN  TestCapWithSliceAndWrittenData
+--- PASS: TestCapWithSliceAndWrittenData (%!s(float64=7.867813110351562e-06))
+
+=== RUN  TestNil
+--- PASS: TestNil (%!s(float64=5.9604644775390625e-06))
+
+=== RUN  TestReadFrom
+--- PASS: TestReadFrom (%!s(float64=0.12446904182434082))
+
+=== RUN  TestReadFromPanicReader
+--- PASS: TestReadFromPanicReader (%!s(float64=0.0004780292510986328))
+
+=== RUN  TestReadFromNegativeReader
+--- PASS: TestReadFromNegativeReader (%!s(float64=0.00016498565673828125))
+
+=== RUN  TestWriteTo
+--- PASS: TestWriteTo (%!s(float64=0.0740809440612793))
+
+=== RUN  TestRuneIO
+--- PASS: TestRuneIO (%!s(float64=0.05062508583068848))
+
+=== RUN  TestWriteInvalidRune
+--- PASS: TestWriteInvalidRune (%!s(float64=0.0003018379211425781))
+
+=== RUN  TestNext
+--- PASS: TestNext (%!s(float64=0.0002200603485107422))
+
+=== RUN  TestReadBytes
+--- PASS: TestReadBytes (%!s(float64=7.700920104980469e-05))
+
+=== RUN  TestReadString
+--- PASS: TestReadString (%!s(float64=4.982948303222656e-05))
+
+=== RUN  TestGrow
+bytes_test/Bytes_test.hx:2199: testGrow skip function
+--- PASS: TestGrow (%!s(float64=6.508827209472656e-05))
+
+=== RUN  TestGrowOverflow
+--- PASS: TestGrowOverflow (%!s(float64=3.600120544433594e-05))
+
+=== RUN  TestReadEmptyAtEOF
+--- PASS: TestReadEmptyAtEOF (%!s(float64=5.9604644775390625e-06))
+
+=== RUN  TestUnreadByte
+--- PASS: TestUnreadByte (%!s(float64=2.002716064453125e-05))
+
+=== RUN  TestBufferGrowth
+--- PASS: TestBufferGrowth (%!s(float64=1.6609599590301514))
+
+=== RUN  TestEqual
+--- PASS: TestEqual (%!s(float64=1.2874603271484375e-05))
+
+=== RUN  TestEqualExhaustive
+--- PASS: TestEqualExhaustive (%!s(float64=0.12252998352050781))
+
+=== RUN  TestNotEqual
+--- PASS: TestNotEqual (%!s(float64=0.4408900737762451))
+
+=== RUN  TestIndex
+--- PASS: TestIndex (%!s(float64=0.0013489723205566406))
+
+=== RUN  TestLastIndex
+--- PASS: TestLastIndex (%!s(float64=7.295608520507812e-05))
+
+=== RUN  TestIndexAny
+--- PASS: TestIndexAny (%!s(float64=0.00015592575073242188))
+
+=== RUN  TestLastIndexAny
+--- PASS: TestLastIndexAny (%!s(float64=0.00019884109497070312))
+
+=== RUN  TestIndexByte
+--- PASS: TestIndexByte (%!s(float64=3.504753112792969e-05))
+
+=== RUN  TestLastIndexByte
+--- PASS: TestLastIndexByte (%!s(float64=2.193450927734375e-05))
+
+=== RUN  TestIndexByteBig
+--- PASS: TestIndexByteBig (%!s(float64=0.07132601737976074))
+
+=== RUN  TestIndexByteSmall
+--- PASS: TestIndexByteSmall (%!s(float64=0.14954304695129395))
+
+=== RUN  TestIndexRune
+--- PASS: TestIndexRune (%!s(float64=0.0002949237823486328))
+
+=== RUN  TestCountByte
+--- PASS: TestCountByte (%!s(float64=2.3321499824523926))
+
+=== RUN  TestCountByteNoMatch
+--- PASS: TestCountByteNoMatch (%!s(float64=0.8214550018310547))
+
+=== RUN  TestSplit
+--- PASS: TestSplit (%!s(float64=0.0013878345489501953))
+
+=== RUN  TestSplitAfter
+--- PASS: TestSplitAfter (%!s(float64=0.0014951229095458984))
+
+=== RUN  TestFields
+--- PASS: TestFields (%!s(float64=0.00018095970153808594))
+
+=== RUN  TestFieldsFunc
+--- PASS: TestFieldsFunc (%!s(float64=0.00018906593322753906))
+
+=== RUN  TestMap
+--- PASS: TestMap (%!s(float64=0.0002830028533935547))
+
+=== RUN  TestToUpper
+--- PASS: TestToUpper (%!s(float64=0.00030922889709472656))
+
+=== RUN  TestToLower
+--- PASS: TestToLower (%!s(float64=0.0002448558807373047))
+
+=== RUN  TestToValidUTF8
+--- PASS: TestToValidUTF8 (%!s(float64=0.00024080276489257812))
+
+=== RUN  TestTrimSpace
+--- PASS: TestTrimSpace (%!s(float64=0.00019502639770507812))
+
+=== RUN  TestRepeat
+--- PASS: TestRepeat (%!s(float64=2.8133392333984375e-05))
+
+=== RUN  TestRepeatCatchesOverflow
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0007770061492919922))
+
+=== RUN  TestRunes
+--- PASS: TestRunes (%!s(float64=0.0001068115234375))
+
+=== RUN  TestTrim
+--- PASS: TestTrim (%!s(float64=0.0003159046173095703))
+
+=== RUN  TestTrimFunc
+--- PASS: TestTrimFunc (%!s(float64=0.00044608116149902344))
+
+=== RUN  TestIndexFunc
+--- PASS: TestIndexFunc (%!s(float64=0.0001499652862548828))
+
+=== RUN  TestReplace
+--- PASS: TestReplace (%!s(float64=0.00046896934509277344))
+
+=== RUN  TestTitle
+--- PASS: TestTitle (%!s(float64=0.00016689300537109375))
+
+=== RUN  TestToTitle
+--- PASS: TestToTitle (%!s(float64=0.00010991096496582031))
+
+=== RUN  TestEqualFold
+--- PASS: TestEqualFold (%!s(float64=0.00023818016052246094))
+
+=== RUN  TestCut
+--- PASS: TestCut (%!s(float64=2.4080276489257812e-05))
+
+=== RUN  TestBufferGrowNegative
+--- PASS: TestBufferGrowNegative (%!s(float64=2.4080276489257812e-05))
+
+=== RUN  TestBufferTruncateNegative
+--- PASS: TestBufferTruncateNegative (%!s(float64=1.9073486328125e-05))
+
+=== RUN  TestBufferTruncateOutOfRange
+--- PASS: TestBufferTruncateOutOfRange (%!s(float64=2.288818359375e-05))
+
+=== RUN  TestContains
+--- PASS: TestContains (%!s(float64=1.1920928955078125e-05))
+
+=== RUN  TestContainsAny
+--- PASS: TestContainsAny (%!s(float64=7.200241088867188e-05))
+
+=== RUN  TestContainsRune
+--- PASS: TestContainsRune (%!s(float64=2.002716064453125e-05))
+
+=== RUN  TestCompare
+--- PASS: TestCompare (%!s(float64=0.0006849765777587891))
+
+=== RUN  TestCompareIdenticalSlice
+--- PASS: TestCompareIdenticalSlice (%!s(float64=1.0013580322265625e-05))
+
+=== RUN  TestCompareBytes
+bytes_test/Bytes_test.hx:4449: testCompareBytes skip function
+--- PASS: TestCompareBytes (%!s(float64=6.318092346191406e-05))
+
+=== RUN  TestEndianBaseCompare
+--- PASS: TestEndianBaseCompare (%!s(float64=0.10628199577331543))
+
+=== RUN  TestReader
+--- PASS: TestReader (%!s(float64=0.00011301040649414062))
+
+=== RUN  TestReadAfterBigSeek
+--- PASS: TestReadAfterBigSeek (%!s(float64=2.2172927856445312e-05))
+
+=== RUN  TestReaderAt
+--- PASS: TestReaderAt (%!s(float64=0.0017709732055664062))
+
+=== RUN  TestReaderAtConcurrent
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0003070831298828125))
+
+=== RUN  TestEmptyReaderConcurrent
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0009720325469970703))
+
+=== RUN  TestReaderWriteTo
+--- PASS: TestReaderWriteTo (%!s(float64=0.004312992095947266))
+
+=== RUN  TestReaderLen
+--- PASS: TestReaderLen (%!s(float64=1.811981201171875e-05))
+
+=== RUN  TestUnreadRuneError
+--- PASS: TestUnreadRuneError (%!s(float64=5.793571472167969e-05))
+
+=== RUN  TestReaderDoubleUnreadRune
+--- PASS: TestReaderDoubleUnreadRune (%!s(float64=7.867813110351562e-06))
+
+=== RUN  TestReaderCopyNothing
+--- PASS: TestReaderCopyNothing (%!s(float64=0.004258871078491211))
+
+=== RUN  TestReaderLenSize
+bytes_test/Bytes_test.hx:5588: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (%!s(float64=5.888938903808594e-05))
+
+=== RUN  TestReaderReset
+--- PASS: TestReaderReset (%!s(float64=0.00021600723266601562))
+
+=== RUN  TestReaderZero
+--- PASS: TestReaderZero (%!s(float64=6.604194641113281e-05))
+</code></pre>
 <p></p>
 </details></p><details><summary>interp tests failed</summary>
 <p>
 <pre><code>Invalid_argument("index out of bounds")
-=== RUN   TestNewBuffer
---- PASS: TestNewBuffer (0.0127031803131103516)
-=== RUN   TestNewBufferString
---- PASS: TestNewBufferString (0.0215561389923095703)
-=== RUN   TestBasicOperations
---- PASS: TestBasicOperations (0.00256299972534179688)
-=== RUN   TestLargeStringWrites
---- PASS: TestLargeStringWrites (2.28404498100280762)
-=== RUN   TestLargeByteWrites
---- PASS: TestLargeByteWrites (2.36368989944458)
-=== RUN   TestLargeStringReads
---- PASS: TestLargeStringReads (0.396908044815063477)
-=== RUN   TestLargeByteReads
---- PASS: TestLargeByteReads (0.391157150268554688)
-=== RUN   TestMixedReadsAndWrites
---- PASS: TestMixedReadsAndWrites (2.06837701797485352)
-=== RUN   TestCapWithPreallocatedSlice
---- PASS: TestCapWithPreallocatedSlice (2.09808349609375e-05)
-=== RUN   TestCapWithSliceAndWrittenData
---- PASS: TestCapWithSliceAndWrittenData (3.50475311279296875e-05)
-=== RUN   TestNil
---- PASS: TestNil (1.2874603271484375e-05)
-=== RUN   TestReadFrom
---- PASS: TestReadFrom (0.548959016799926758)
-=== RUN   TestReadFromPanicReader
---- PASS: TestReadFromPanicReader (0.00120711326599121094)
-=== RUN   TestReadFromNegativeReader
---- PASS: TestReadFromNegativeReader (0.000547885894775390625)
-=== RUN   TestWriteTo
---- PASS: TestWriteTo (0.464344024658203125)
-=== RUN   TestRuneIO
---- PASS: TestRuneIO (0.130028963088989258)
-=== RUN   TestWriteInvalidRune
---- PASS: TestWriteInvalidRune (0.000238180160522460938)
-=== RUN   TestNext
---- PASS: TestNext (0.00156497955322265625)
-=== RUN   TestReadBytes
---- PASS: TestReadBytes (0.000386953353881835938)
-=== RUN   TestReadString
---- PASS: TestReadString (0.000281810760498046875)
-=== RUN   TestGrow
-bytes_test/Bytes_test.hx:2157: testGrow skip function
---- PASS: TestGrow (2.09808349609375e-05)
-=== RUN   TestGrowOverflow
---- PASS: TestGrowOverflow (6.79492950439453125e-05)
-=== RUN   TestReadEmptyAtEOF
---- PASS: TestReadEmptyAtEOF (1.40666961669921875e-05)
-=== RUN   TestUnreadByte
---- PASS: TestUnreadByte (7.2002410888671875e-05)
-=== RUN   TestBufferGrowth
---- PASS: TestBufferGrowth (8.1266930103302)
-=== RUN   TestEqual
---- PASS: TestEqual (1.621246337890625e-05)
-=== RUN   TestEqualExhaustive
---- PASS: TestEqualExhaustive (0.808979034423828125)
-=== RUN   TestNotEqual
---- PASS: TestNotEqual (3.7763829231262207)
-=== RUN   TestIndex
---- PASS: TestIndex (0.0105240345001220703)
-=== RUN   TestLastIndex
---- PASS: TestLastIndex (0.000497102737426757812)
-=== RUN   TestIndexAny
---- PASS: TestIndexAny (0.00118613243103027344)
-=== RUN   TestLastIndexAny
---- PASS: TestLastIndexAny (0.00128388404846191406)
-=== RUN   TestIndexByte
---- PASS: TestIndexByte (0.000252962112426757812)
-=== RUN   TestLastIndexByte
---- PASS: TestLastIndexByte (9.1075897216796875e-05)
-=== RUN   TestIndexByteBig
---- PASS: TestIndexByteBig (1.35315489768981934)
-=== RUN   TestIndexByteSmall
---- PASS: TestIndexByteSmall (1.22256898880004883)
-=== RUN   TestIndexRune
---- PASS: TestIndexRune (0.002223968505859375)
-=== RUN   TestCountByte
---- PASS: TestCountByte (32.1097748279571533)
-=== RUN   TestCountByteNoMatch
---- PASS: TestCountByteNoMatch (5.23801898956298828)
-=== RUN   TestSplit
---- PASS: TestSplit (0.00548481941223144531)
-=== RUN   TestSplitAfter
---- PASS: TestSplitAfter (0.00497198104858398438)
-=== RUN   TestFields
---- PASS: TestFields (0.00151920318603515625)
-=== RUN   TestFieldsFunc
---- PASS: TestFieldsFunc (0.00136709213256835938)
-=== RUN   TestMap
---- PASS: TestMap (0.00195097923278808594)
-=== RUN   TestToUpper
---- PASS: TestToUpper (0.00191497802734375)
-=== RUN   TestToLower
---- PASS: TestToLower (0.00163602828979492188)
-=== RUN   TestToValidUTF8
---- PASS: TestToValidUTF8 (0.00163292884826660156)
-=== RUN   TestTrimSpace
---- PASS: TestTrimSpace (0.00159597396850585938)
-=== RUN   TestRepeat
---- PASS: TestRepeat (0.00014781951904296875)
-=== RUN   TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (0.00076389312744140625)
-=== RUN   TestRunes
---- PASS: TestRunes (0.000833988189697265625)
-=== RUN   TestTrim
---- PASS: TestTrim (0.00232410430908203125)
-=== RUN   TestTrimFunc
---- PASS: TestTrimFunc (0.00415492057800293)
-=== RUN   TestIndexFunc
---- PASS: TestIndexFunc (0.00125217437744140625)
-=== RUN   TestReplace
---- PASS: TestReplace (0.00321793556213378906)
-=== RUN   TestTitle
---- PASS: TestTitle (0.00126814842224121094)
-=== RUN   TestToTitle
---- PASS: TestToTitle (0.000722169876098632812)
-=== RUN   TestEqualFold
---- PASS: TestEqualFold (0.00174283981323242188)
-=== RUN   TestCut
---- PASS: TestCut (0.000113010406494140625)
-=== RUN   TestBufferGrowNegative
---- PASS: TestBufferGrowNegative (3.40938568115234375e-05)
-=== RUN   TestBufferTruncateNegative
---- PASS: TestBufferTruncateNegative (2.78949737548828125e-05)
-=== RUN   TestBufferTruncateOutOfRange
---- PASS: TestBufferTruncateOutOfRange (5.31673431396484375e-05)
-=== RUN   TestContains
---- PASS: TestContains (5.1021575927734375e-05)
-=== RUN   TestContainsAny
---- PASS: TestContainsAny (0.000522851943969726562)
-=== RUN   TestContainsRune
---- PASS: TestContainsRune (0.000154972076416015625)
-=== RUN   TestCompare
---- PASS: TestCompare (0.0035037994384765625)
-=== RUN   TestCompareIdenticalSlice
---- PASS: TestCompareIdenticalSlice (3.40938568115234375e-05)
-=== RUN   TestCompareBytes
-bytes_test/Bytes_test.hx:4397: testCompareBytes skip function
---- PASS: TestCompareBytes (1.811981201171875e-05)
-=== RUN   TestEndianBaseCompare
---- PASS: TestEndianBaseCompare (0.383970975875854492)
-=== RUN   TestReader
---- PASS: TestReader (0.000603914260864257812)
-=== RUN   TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (8.60691070556640625e-05)
-=== RUN   TestReaderAt
---- PASS: TestReaderAt (0.00061798095703125)
-=== RUN   TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (0.0012359619140625)
-=== RUN   TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (0.00119900703430175781)
-=== RUN   TestReaderWriteTo
---- PASS: TestReaderWriteTo (0.0269768238067626953)
-=== RUN   TestReaderLen
---- PASS: TestReaderLen (0.000427007675170898438)
-=== RUN   TestUnreadRuneError
---- PASS: TestUnreadRuneError (0.000299930572509765625)
-=== RUN   TestReaderDoubleUnreadRune
---- PASS: TestReaderDoubleUnreadRune (3.910064697265625e-05)
-=== RUN   TestReaderCopyNothing</code></pre>
+stdgo/internal/Macro.macro.hx:35: define
+=== RUN  TestNewBuffer
+--- PASS: TestNewBuffer (%!s(float64=0.010846853256225586))
+
+=== RUN  TestNewBufferString
+--- PASS: TestNewBufferString (%!s(float64=0.017593860626220703))
+
+=== RUN  TestBasicOperations
+--- PASS: TestBasicOperations (%!s(float64=0.0018401145935058594))
+
+=== RUN  TestLargeStringWrites
+--- PASS: TestLargeStringWrites (%!s(float64=1.8306200504302979))
+
+=== RUN  TestLargeByteWrites
+--- PASS: TestLargeByteWrites (%!s(float64=1.8236370086669922))
+
+=== RUN  TestLargeStringReads
+--- PASS: TestLargeStringReads (%!s(float64=0.35056018829345703))
+
+=== RUN  TestLargeByteReads
+--- PASS: TestLargeByteReads (%!s(float64=0.35469794273376465))
+
+=== RUN  TestMixedReadsAndWrites
+--- PASS: TestMixedReadsAndWrites (%!s(float64=3.5226809978485107))
+
+=== RUN  TestCapWithPreallocatedSlice
+--- PASS: TestCapWithPreallocatedSlice (%!s(float64=1.811981201171875e-05))
+
+=== RUN  TestCapWithSliceAndWrittenData
+--- PASS: TestCapWithSliceAndWrittenData (%!s(float64=2.7894973754882812e-05))
+
+=== RUN  TestNil
+--- PASS: TestNil (%!s(float64=1.2159347534179688e-05))
+
+=== RUN  TestReadFrom
+--- PASS: TestReadFrom (%!s(float64=0.45102810859680176))
+
+=== RUN  TestReadFromPanicReader
+--- PASS: TestReadFromPanicReader (%!s(float64=0.001110076904296875))
+
+=== RUN  TestReadFromNegativeReader
+--- PASS: TestReadFromNegativeReader (%!s(float64=0.0004951953887939453))
+
+=== RUN  TestWriteTo
+--- PASS: TestWriteTo (%!s(float64=0.38337016105651855))
+
+=== RUN  TestRuneIO
+--- PASS: TestRuneIO (%!s(float64=0.11090898513793945))
+
+=== RUN  TestWriteInvalidRune
+--- PASS: TestWriteInvalidRune (%!s(float64=0.0011909008026123047))
+
+=== RUN  TestNext
+--- PASS: TestNext (%!s(float64=0.0014061927795410156))
+
+=== RUN  TestReadBytes
+--- PASS: TestReadBytes (%!s(float64=0.00032401084899902344))
+
+=== RUN  TestReadString
+--- PASS: TestReadString (%!s(float64=0.00025582313537597656))
+
+=== RUN  TestGrow
+bytes_test/Bytes_test.hx:2199: testGrow skip function
+--- PASS: TestGrow (%!s(float64=1.811981201171875e-05))
+
+=== RUN  TestGrowOverflow
+--- PASS: TestGrowOverflow (%!s(float64=7.891654968261719e-05))
+
+=== RUN  TestReadEmptyAtEOF
+--- PASS: TestReadEmptyAtEOF (%!s(float64=1.2874603271484375e-05))
+
+=== RUN  TestUnreadByte
+--- PASS: TestUnreadByte (%!s(float64=7.486343383789062e-05))
+
+=== RUN  TestBufferGrowth
+--- PASS: TestBufferGrowth (%!s(float64=6.561712026596069))
+
+=== RUN  TestEqual
+--- PASS: TestEqual (%!s(float64=1.2874603271484375e-05))
+
+=== RUN  TestEqualExhaustive
+--- PASS: TestEqualExhaustive (%!s(float64=0.6199088096618652))
+
+=== RUN  TestNotEqual
+--- PASS: TestNotEqual (%!s(float64=3.0033318996429443))
+
+=== RUN  TestIndex
+--- PASS: TestIndex (%!s(float64=0.009150028228759766))
+
+=== RUN  TestLastIndex
+--- PASS: TestLastIndex (%!s(float64=0.0003681182861328125))
+
+=== RUN  TestIndexAny
+--- PASS: TestIndexAny (%!s(float64=0.001010894775390625))
+
+=== RUN  TestLastIndexAny
+--- PASS: TestLastIndexAny (%!s(float64=0.0011620521545410156))
+
+=== RUN  TestIndexByte
+--- PASS: TestIndexByte (%!s(float64=0.00024008750915527344))
+
+=== RUN  TestLastIndexByte
+--- PASS: TestLastIndexByte (%!s(float64=8.296966552734375e-05))
+
+=== RUN  TestIndexByteBig
+--- PASS: TestIndexByteBig (%!s(float64=1.0506799221038818))
+
+=== RUN  TestIndexByteSmall
+--- PASS: TestIndexByteSmall (%!s(float64=0.9496688842773438))
+
+=== RUN  TestIndexRune
+--- PASS: TestIndexRune (%!s(float64=0.0008790493011474609))
+
+=== RUN  TestCountByte
+--- PASS: TestCountByte (%!s(float64=25.27183198928833))
+
+=== RUN  TestCountByteNoMatch
+--- PASS: TestCountByteNoMatch (%!s(float64=4.111743927001953))
+
+=== RUN  TestSplit
+--- PASS: TestSplit (%!s(float64=0.0045430660247802734))
+
+=== RUN  TestSplitAfter
+--- PASS: TestSplitAfter (%!s(float64=0.004649162292480469))
+
+=== RUN  TestFields
+--- PASS: TestFields (%!s(float64=0.0012841224670410156))
+
+=== RUN  TestFieldsFunc
+--- PASS: TestFieldsFunc (%!s(float64=0.0011928081512451172))
+
+=== RUN  TestMap
+--- PASS: TestMap (%!s(float64=0.0017108917236328125))
+
+=== RUN  TestToUpper
+--- PASS: TestToUpper (%!s(float64=0.0017859935760498047))
+
+=== RUN  TestToLower
+--- PASS: TestToLower (%!s(float64=0.0014810562133789062))
+
+=== RUN  TestToValidUTF8
+--- PASS: TestToValidUTF8 (%!s(float64=0.0014231204986572266))
+
+=== RUN  TestTrimSpace
+--- PASS: TestTrimSpace (%!s(float64=0.0014410018920898438))
+
+=== RUN  TestRepeat
+--- PASS: TestRepeat (%!s(float64=0.00014209747314453125))
+
+=== RUN  TestRepeatCatchesOverflow
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0019609928131103516))
+
+=== RUN  TestRunes
+--- PASS: TestRunes (%!s(float64=0.0007398128509521484))
+
+=== RUN  TestTrim
+--- PASS: TestTrim (%!s(float64=0.0021359920501708984))
+
+=== RUN  TestTrimFunc
+--- PASS: TestTrimFunc (%!s(float64=0.0036330223083496094))
+
+=== RUN  TestIndexFunc
+--- PASS: TestIndexFunc (%!s(float64=0.0011038780212402344))
+
+=== RUN  TestReplace
+--- PASS: TestReplace (%!s(float64=0.002716064453125))
+
+=== RUN  TestTitle
+--- PASS: TestTitle (%!s(float64=0.0011780261993408203))
+
+=== RUN  TestToTitle
+--- PASS: TestToTitle (%!s(float64=0.0006668567657470703))
+
+=== RUN  TestEqualFold
+--- PASS: TestEqualFold (%!s(float64=0.0015461444854736328))
+
+=== RUN  TestCut
+--- PASS: TestCut (%!s(float64=0.00010609626770019531))
+
+=== RUN  TestBufferGrowNegative
+--- PASS: TestBufferGrowNegative (%!s(float64=4.00543212890625e-05))
+
+=== RUN  TestBufferTruncateNegative
+--- PASS: TestBufferTruncateNegative (%!s(float64=3.600120544433594e-05))
+
+=== RUN  TestBufferTruncateOutOfRange
+--- PASS: TestBufferTruncateOutOfRange (%!s(float64=5.888938903808594e-05))
+
+=== RUN  TestContains
+--- PASS: TestContains (%!s(float64=5.1975250244140625e-05))
+
+=== RUN  TestContainsAny
+--- PASS: TestContainsAny (%!s(float64=0.0005130767822265625))
+
+=== RUN  TestContainsRune
+--- PASS: TestContainsRune (%!s(float64=0.00015211105346679688))
+
+=== RUN  TestCompare
+--- PASS: TestCompare (%!s(float64=0.0030450820922851562))
+
+=== RUN  TestCompareIdenticalSlice
+--- PASS: TestCompareIdenticalSlice (%!s(float64=3.2901763916015625e-05))
+
+=== RUN  TestCompareBytes
+bytes_test/Bytes_test.hx:4449: testCompareBytes skip function
+--- PASS: TestCompareBytes (%!s(float64=1.9073486328125e-05))
+
+=== RUN  TestEndianBaseCompare
+--- PASS: TestEndianBaseCompare (%!s(float64=0.31208300590515137))
+
+=== RUN  TestReader
+--- PASS: TestReader (%!s(float64=0.0005178451538085938))
+
+=== RUN  TestReadAfterBigSeek
+--- PASS: TestReadAfterBigSeek (%!s(float64=9.012222290039062e-05))
+
+=== RUN  TestReaderAt
+--- PASS: TestReaderAt (%!s(float64=0.0040471553802490234))
+
+=== RUN  TestReaderAtConcurrent
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0008571147918701172))
+
+=== RUN  TestEmptyReaderConcurrent
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0018649101257324219))
+
+=== RUN  TestReaderWriteTo
+--- PASS: TestReaderWriteTo (%!s(float64=0.02269887924194336))
+
+=== RUN  TestReaderLen
+--- PASS: TestReaderLen (%!s(float64=7.009506225585938e-05))
+
+=== RUN  TestUnreadRuneError
+--- PASS: TestUnreadRuneError (%!s(float64=0.00019598007202148438))
+
+=== RUN  TestReaderDoubleUnreadRune
+--- PASS: TestReaderDoubleUnreadRune (%!s(float64=3.0040740966796875e-05))
+
+=== RUN  TestReaderCopyNothing</code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")</code></pre>
+<pre><code>IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>
 <h1><a name="index">Index</a></h1><ul><li>
 <p><a href="#constants">Constants</a></p></li><li>
 <p><a href="#variables">Variables</a></p></li><li>
-<p><a href="#function-_containsrune"><code>function _containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool</code></a></p></li><li>
-<p><a href="#function-_explode"><code>function _explode(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></a></p></li><li>
-<p><a href="#function-_gensplit"><code>function _genSplit(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></a></p></li><li>
-<p><a href="#function-_growslice"><code>function _growSlice(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
-<p><a href="#function-_indexbyteportable"><code>function _indexBytePortable(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _c:stdgo.GoByte):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_indexfunc"><code>function _indexFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_isseparator"><code>function _isSeparator(_r:stdgo.GoRune):Bool</code></a></p></li><li>
-<p><a href="#function-_lastindexfunc"><code>function _lastIndexFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_makeasciiset"><code>function _makeASCIISet(_chars:stdgo.GoString):{_1:Bool, _0:stdgo.bytes._Bytes.T_asciiSet}</code></a></p></li><li>
-<p><a href="#function-_trimleftascii"><code>function _trimLeftASCII(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _as:stdgo.Ref&lt;stdgo.bytes._Bytes.T_asciiSet&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
-<p><a href="#function-_trimleftbyte"><code>function _trimLeftByte(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _c:stdgo.GoByte):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
-<p><a href="#function-_trimleftunicode"><code>function _trimLeftUnicode(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _cutset:stdgo.GoString):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
-<p><a href="#function-_trimrightascii"><code>function _trimRightASCII(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _as:stdgo.Ref&lt;stdgo.bytes._Bytes.T_asciiSet&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
-<p><a href="#function-_trimrightbyte"><code>function _trimRightByte(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _c:stdgo.GoByte):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
-<p><a href="#function-_trimrightunicode"><code>function _trimRightUnicode(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _cutset:stdgo.GoString):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
 <p><a href="#function-compare"><code>function compare(_a:stdgo.Slice&lt;stdgo.GoByte&gt;, _b:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoInt</code></a></p></li><li>
 <p><a href="#function-contains"><code>function contains(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _subslice:stdgo.Slice&lt;stdgo.GoByte&gt;):Bool</code></a></p></li><li>
 <p><a href="#function-containsany"><code>function containsAny(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _chars:stdgo.GoString):Bool</code></a></p></li><li>
@@ -597,69 +744,16 @@ bytes_test/Bytes_test.hx:4397: testCompareBytes skip function
 <h1><a name="constants">Constants</a></h1>
 <pre><code class="language-haxe">import stdgo.bytes.Bytes</code></pre>
 <pre><code class="language-haxe">final minRead:stdgo.GoUInt64 = (("512" : GoUInt64))</code></pre>
-<p>MinRead is the minimum slice size passed to a Read call by��// Buffer.ReadFrom. As long as the Buffer has at least MinRead bytes beyond��// what is required to hold the contents of r, ReadFrom will not grow the��// underlying buffer. </p>
+<p>MinRead is the minimum slice size passed to a Read call by  Buffer.ReadFrom. As long as the Buffer has at least MinRead bytes beyond  what is required to hold the contents of r, ReadFrom will not grow the  underlying buffer. </p>
 <h1><a name="variables">Variables</a></h1>
 <pre><code class="language-haxe">import stdgo.bytes.Bytes</code></pre>
 <pre><code class="language-haxe">var errTooLarge:stdgo.Error</code></pre>
 <p>ErrTooLarge is passed to panic if memory cannot be allocated to store data in a buffer. </p>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.bytes.Bytes</code></pre>
-<h2><a name="function-_containsrune">function _containsRune</a></h2>
-<pre><code class="language-haxe">function _containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool</code></pre>
-<p>containsRune is a simplified version of strings.ContainsRune��// to avoid importing the strings package.��// We avoid bytes.ContainsRune to avoid allocating a temporary copy of s. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1315"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_explode">function _explode</a></h2>
-<pre><code class="language-haxe">function _explode(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></pre>
-<p>explode splits s into a slice of UTF-8 sequences, one per Unicode code point (still slices of bytes),��// up to a maximum of n byte slices. Invalid UTF-8 sequences are chopped into individual bytes. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L293"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_gensplit">function _genSplit</a></h2>
-<pre><code class="language-haxe">function _genSplit(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></pre>
-<p>Generic split: splits after each instance of sep,��// including sepSave bytes of sep in the subslices. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L664"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_growslice">function _growSlice</a></h2>
-<pre><code class="language-haxe">function _growSlice(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>growSlice grows b by n, preserving the original content of b.��// If the allocation fails, it panics with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_indexbyteportable">function _indexBytePortable</a></h2>
-<pre><code class="language-haxe">function _indexBytePortable(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _c:stdgo.GoByte):stdgo.GoInt</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L367"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_indexfunc">function _indexFunc</a></h2>
-<pre><code class="language-haxe">function _indexFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt</code></pre>
-<p>indexFunc is the same as IndexFunc except that if��// truth==false, the sense of the predicate function is��// inverted. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1241"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_isseparator">function _isSeparator</a></h2>
-<pre><code class="language-haxe">function _isSeparator(_r:stdgo.GoRune):Bool</code></pre>
-<p>isSeparator reports whether the rune could mark a word boundary.��// TODO: update when package unicode captures more of the properties. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1121"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_lastindexfunc">function _lastIndexFunc</a></h2>
-<pre><code class="language-haxe">function _lastIndexFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool, _truth:Bool):stdgo.GoInt</code></pre>
-<p>lastIndexFunc is the same as LastIndexFunc except that if��// truth==false, the sense of the predicate function is��// inverted. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1266"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_makeasciiset">function _makeASCIISet</a></h2>
-<pre><code class="language-haxe">function _makeASCIISet(_chars:stdgo.GoString):{_1:Bool, _0:stdgo.bytes._Bytes.T_asciiSet}</code></pre>
-<p>makeASCIISet creates a set of ASCII characters and reports whether all��// characters in chars are ASCII. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1294"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimleftascii">function _trimLeftASCII</a></h2>
-<pre><code class="language-haxe">function _trimLeftASCII(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _as:stdgo.Ref&lt;stdgo.bytes._Bytes.T_asciiSet&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1384"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimleftbyte">function _trimLeftByte</a></h2>
-<pre><code class="language-haxe">function _trimLeftByte(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _c:stdgo.GoByte):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1374"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimleftunicode">function _trimLeftUnicode</a></h2>
-<pre><code class="language-haxe">function _trimLeftUnicode(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _cutset:stdgo.GoString):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1397"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimrightascii">function _trimRightASCII</a></h2>
-<pre><code class="language-haxe">function _trimRightASCII(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _as:stdgo.Ref&lt;stdgo.bytes._Bytes.T_asciiSet&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1450"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimrightbyte">function _trimRightByte</a></h2>
-<pre><code class="language-haxe">function _trimRightByte(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _c:stdgo.GoByte):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1443"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimrightunicode">function _trimRightUnicode</a></h2>
-<pre><code class="language-haxe">function _trimRightUnicode(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _cutset:stdgo.GoString):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1460"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-compare">function compare</a></h2>
 <pre><code class="language-haxe">function compare(_a:stdgo.Slice&lt;stdgo.GoByte&gt;, _b:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoInt</code></pre>
-<p>Compare returns an integer comparing two byte slices lexicographically.��// The result will be 0 if a == b, -1 if a \&lt; b, and +1 if a \> b.��// A nil argument is equivalent to an empty slice. </p>
+<p>Compare returns an integer comparing two byte slices lexicographically.  The result will be 0 if a == b, -1 if a \&lt; b, and +1 if a \> b.  A nil argument is equivalent to an empty slice. </p>
 <h3><a name="examplecompare">exampleCompare</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleCompare():Void {
@@ -688,936 +782,942 @@ bytes_test/Bytes_test.hx:4397: testCompareBytes skip function
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L285"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L266"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-contains">function contains</a></h2>
 <pre><code class="language-haxe">function contains(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _subslice:stdgo.Slice&lt;stdgo.GoByte&gt;):Bool</code></pre>
 <p>Contains reports whether subslice is within b. </p>
 <h3><a name="examplecontains">exampleContains</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleContains():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((Go.str("seafood") : Slice&lt;GoByte&gt;), (Go.str("foo") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((Go.str("seafood") : Slice&lt;GoByte&gt;), (Go.str("bar") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((Go.str("seafood") : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : GoString) : Slice&lt;GoByte&gt;), (("foo" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : GoString) : Slice&lt;GoByte&gt;), (("bar" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((("seafood" : GoString) : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.contains((Go.str() : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L342"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L323"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-containsany">function containsAny</a></h2>
 <pre><code class="language-haxe">function containsAny(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _chars:stdgo.GoString):Bool</code></pre>
 <p>ContainsAny reports whether any of the UTF-8-encoded code points in chars are within b. </p>
 <h3><a name="examplecontainsany">exampleContainsAny</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleContainsAny():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((Go.str("I like seafood.") : Slice&lt;GoByte&gt;), Go.str("fÄo!"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((Go.str("I like seafood.") : Slice&lt;GoByte&gt;), Go.str("去是伟大的."))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((Go.str("I like seafood.") : Slice&lt;GoByte&gt;), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : GoString) : Slice&lt;GoByte&gt;), ("fÄo!" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : GoString) : Slice&lt;GoByte&gt;), ("去是伟大的." : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((("I like seafood." : GoString) : Slice&lt;GoByte&gt;), Go.str())));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsAny((Go.str() : Slice&lt;GoByte&gt;), Go.str())));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L349"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L330"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-containsrune">function containsRune</a></h2>
 <pre><code class="language-haxe">function containsRune(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _r:stdgo.GoRune):Bool</code></pre>
 <p>ContainsRune reports whether the rune is contained in the UTF-8-encoded byte slice b. </p>
 <h3><a name="examplecontainsrune">exampleContainsRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleContainsRune():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((Go.str("I like seafood.") : Slice&lt;GoByte&gt;), (102 : GoInt32))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((Go.str("I like seafood.") : Slice&lt;GoByte&gt;), (246 : GoInt32))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((Go.str("去是伟大的!") : Slice&lt;GoByte&gt;), (22823 : GoInt32))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((Go.str("去是伟大的!") : Slice&lt;GoByte&gt;), (33 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((("I like seafood." : GoString) : Slice&lt;GoByte&gt;), (102 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((("I like seafood." : GoString) : Slice&lt;GoByte&gt;), (246 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((("去是伟大的!" : GoString) : Slice&lt;GoByte&gt;), (22823 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((("去是伟大的!" : GoString) : Slice&lt;GoByte&gt;), (33 : GoInt32))));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.containsRune((Go.str() : Slice&lt;GoByte&gt;), (64 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L356"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L337"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-count">function count</a></h2>
 <pre><code class="language-haxe">function count(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoInt</code></pre>
-<p>Count counts the number of non-overlapping instances of sep in s.��// If sep is an empty slice, Count returns 1 + the number of UTF-8-encoded code points in s. </p>
+<p>Count counts the number of non-overlapping instances of sep in s.  If sep is an empty slice, Count returns 1 + the number of UTF-8-encoded code points in s. </p>
 <h3><a name="examplecount">exampleCount</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleCount():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.count((Go.str("cheese") : Slice&lt;GoByte&gt;), (Go.str("e") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.count((Go.str("five") : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.count((("cheese" : GoString) : Slice&lt;GoByte&gt;), (("e" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.count((("five" : GoString) : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L321"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L302"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-cut">function cut</a></h2>
 <pre><code class="language-haxe">function cut(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):{_2:Bool, _1:stdgo.Slice&lt;stdgo.GoByte&gt;, _0:stdgo.Slice&lt;stdgo.GoByte&gt;}</code></pre>
-<p>Cut slices s around the first instance of sep,��// returning the text before and after sep.��// The found result reports whether sep appears in s.��// If sep does not appear in s, cut returns s, nil, false.��//��// Cut returns slices of the original slice s, not copies. </p>
+<p>Cut slices s around the first instance of sep,  returning the text before and after sep.  The found result reports whether sep appears in s.  If sep does not appear in s, cut returns s, nil, false.    Cut returns slices of the original slice s, not copies. </p>
 <h3><a name="examplecut">exampleCut</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleCut():Void {
 	var _show:(GoString, GoString) -&gt; Void = function(_s:GoString, _sep:GoString):Void {
 		var __tmp__ = stdgo.bytes.Bytes.cut((_s : Slice&lt;GoByte&gt;),
 			(_sep : Slice&lt;GoByte&gt;)), _before:Slice&lt;GoUInt8&gt; = __tmp__._0, _after:Slice&lt;GoUInt8&gt; = __tmp__._1, _found:Bool = __tmp__._2;
-		stdgo.fmt.Fmt.printf(Go.str("Cut(%q, %q) = %q, %q, %v\n"), Go.toInterface(_s), Go.toInterface(_sep), Go.toInterface(_before), Go.toInterface(_after),
-			Go.toInterface(_found));
+		stdgo.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_sep), Go.toInterface(_before),
+			Go.toInterface(_after), Go.toInterface(_found));
 	};
-	_show(Go.str("Gopher"), Go.str("Go"));
-	_show(Go.str("Gopher"), Go.str("ph"));
-	_show(Go.str("Gopher"), Go.str("er"));
-	_show(Go.str("Gopher"), Go.str("Badger"));
+	_show(("Gopher" : GoString), ("Go" : GoString));
+	_show(("Gopher" : GoString), ("ph" : GoString));
+	_show(("Gopher" : GoString), ("er" : GoString));
+	_show(("Gopher" : GoString), ("Badger" : GoString));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1751"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1732"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-equal">function equal</a></h2>
 <pre><code class="language-haxe">function equal(_a:stdgo.Slice&lt;stdgo.GoByte&gt;, _b:stdgo.Slice&lt;stdgo.GoByte&gt;):Bool</code></pre>
-<p>Equal reports whether a and b��// are the same length and contain the same bytes.��// A nil argument is equivalent to an empty slice. </p>
+<p>Equal reports whether a and b  are the same length and contain the same bytes.  A nil argument is equivalent to an empty slice. </p>
 <h3><a name="exampleequal">exampleEqual</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleEqual():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal((Go.str("Go") : Slice&lt;GoByte&gt;), (Go.str("Go") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal((Go.str("Go") : Slice&lt;GoByte&gt;), (Go.str("C++") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal((("Go" : GoString) : Slice&lt;GoByte&gt;), (("Go" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equal((("Go" : GoString) : Slice&lt;GoByte&gt;), (("C++" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L276"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L257"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-equalfold">function equalFold</a></h2>
 <pre><code class="language-haxe">function equalFold(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _t:stdgo.Slice&lt;stdgo.GoByte&gt;):Bool</code></pre>
-<p>EqualFold reports whether s and t, interpreted as UTF-8 strings,��// are equal under simple Unicode case-folding, which is a more general��// form of case-insensitivity. </p>
+<p>EqualFold reports whether s and t, interpreted as UTF-8 strings,  are equal under simple Unicode case-folding, which is a more general  form of case-insensitivity. </p>
 <h3><a name="exampleequalfold">exampleEqualFold</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleEqualFold():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equalFold((Go.str("Go") : Slice&lt;GoByte&gt;), (Go.str("go") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.equalFold((("Go" : GoString) : Slice&lt;GoByte&gt;), (("go" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1595"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1576"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-fields">function fields</a></h2>
 <pre><code class="language-haxe">function fields(_s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></pre>
-<p>Fields interprets s as a sequence of UTF-8-encoded code points.��// It splits the slice s around each instance of one or more consecutive white space��// characters, as defined by unicode.IsSpace, returning a slice of subslices of s or an��// empty slice if s contains only white space. </p>
+<p>Fields interprets s as a sequence of UTF-8-encoded code points.  It splits the slice s around each instance of one or more consecutive white space  characters, as defined by unicode.IsSpace, returning a slice of subslices of s or an  empty slice if s contains only white space. </p>
 <h3><a name="examplefields">exampleFields</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleFields():Void {
-	stdgo.fmt.Fmt.printf(Go.str("Fields are: %q"), Go.toInterface(stdgo.bytes.Bytes.fields((Go.str("  foo bar  baz   ") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("Fields are: %q" : GoString), Go.toInterface(stdgo.bytes.Bytes.fields((("  foo bar  baz   " : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L751"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L732"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-fieldsfunc">function fieldsFunc</a></h2>
 <pre><code class="language-haxe">function fieldsFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:()):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></pre>
-<p>FieldsFunc interprets s as a sequence of UTF-8-encoded code points.��// It splits the slice s at each run of code points c satisfying f(c) and��// returns a slice of subslices of s. If all code points in s satisfy f(c), or��// len(s) == 0, an empty slice is returned.��//��// FieldsFunc makes no guarantees about the order in which it calls f(c)��// and assumes that f always returns the same value for a given c. </p>
+<p>FieldsFunc interprets s as a sequence of UTF-8-encoded code points.  It splits the slice s at each run of code points c satisfying f(c) and  returns a slice of subslices of s. If all code points in s satisfy f(c), or  len(s) == 0, an empty slice is returned.    FieldsFunc makes no guarantees about the order in which it calls f(c)  and assumes that f always returns the same value for a given c. </p>
 <h3><a name="examplefieldsfunc">exampleFieldsFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleFieldsFunc():Void {
 	var _f:GoInt32-&gt;Bool = function(_c:GoRune):Bool {
 		return !stdgo.unicode.Unicode.isLetter(_c) &amp;&amp; !stdgo.unicode.Unicode.isNumber(_c);
 	};
-	stdgo.fmt.Fmt.printf(Go.str("Fields are: %q"), Go.toInterface(stdgo.bytes.Bytes.fieldsFunc((Go.str("  foo1;bar2,baz3...") : Slice&lt;GoByte&gt;), _f)));
+	stdgo.fmt.Fmt.printf(("Fields are: %q" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.fieldsFunc((("  foo1;bar2,baz3..." : GoString) : Slice&lt;GoByte&gt;), _f)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L827"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L808"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-hasprefix">function hasPrefix</a></h2>
 <pre><code class="language-haxe">function hasPrefix(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _prefix:stdgo.Slice&lt;stdgo.GoByte&gt;):Bool</code></pre>
 <p>HasPrefix tests whether the byte slice s begins with prefix. </p>
 <h3><a name="examplehasprefix">exampleHasPrefix</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleHasPrefix():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((Go.str("Gopher") : Slice&lt;GoByte&gt;), (Go.str("Go") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((Go.str("Gopher") : Slice&lt;GoByte&gt;), (Go.str("C") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((Go.str("Gopher") : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : GoString) : Slice&lt;GoByte&gt;), (("Go" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : GoString) : Slice&lt;GoByte&gt;), (("C" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasPrefix((("Gopher" : GoString) : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L893"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L874"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-hassuffix">function hasSuffix</a></h2>
 <pre><code class="language-haxe">function hasSuffix(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _suffix:stdgo.Slice&lt;stdgo.GoByte&gt;):Bool</code></pre>
 <p>HasSuffix tests whether the byte slice s ends with suffix. </p>
 <h3><a name="examplehassuffix">exampleHasSuffix</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleHasSuffix():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((Go.str("Amigo") : Slice&lt;GoByte&gt;), (Go.str("go") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((Go.str("Amigo") : Slice&lt;GoByte&gt;), (Go.str("O") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((Go.str("Amigo") : Slice&lt;GoByte&gt;), (Go.str("Ami") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((Go.str("Amigo") : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : GoString) : Slice&lt;GoByte&gt;), (("go" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : GoString) : Slice&lt;GoByte&gt;), (("O" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : GoString) : Slice&lt;GoByte&gt;), (("Ami" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.hasSuffix((("Amigo" : GoString) : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L900"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L881"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-index">function index</a></h2>
 <pre><code class="language-haxe">function index(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoInt</code></pre>
 <p>Index returns the index of the first instance of sep in s, or -1 if sep is not present in s. </p>
 <h3><a name="exampleindex">exampleIndex</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndex():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((Go.str("chicken") : Slice&lt;GoByte&gt;), (Go.str("ken") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((Go.str("chicken") : Slice&lt;GoByte&gt;), (Go.str("dmr") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((("chicken" : GoString) : Slice&lt;GoByte&gt;), (("ken" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((("chicken" : GoString) : Slice&lt;GoByte&gt;), (("dmr" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1669"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1650"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexany">function indexAny</a></h2>
 <pre><code class="language-haxe">function indexAny(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _chars:stdgo.GoString):stdgo.GoInt</code></pre>
-<p>IndexAny interprets s as a sequence of UTF-8-encoded Unicode code points.��// It returns the byte index of the first occurrence in s of any of the Unicode��// code points in chars. It returns -1 if chars is empty or if there is no code��// point in common. </p>
+<p>IndexAny interprets s as a sequence of UTF-8-encoded Unicode code points.  It returns the byte index of the first occurrence in s of any of the Unicode  code points in chars. It returns -1 if chars is empty or if there is no code  point in common. </p>
 <h3><a name="exampleindexany">exampleIndexAny</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndexAny():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexAny((Go.str("chicken") : Slice&lt;GoByte&gt;), Go.str("aeiouy"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexAny((Go.str("crwth") : Slice&lt;GoByte&gt;), Go.str("aeiouy"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexAny((("chicken" : GoString) : Slice&lt;GoByte&gt;), ("aeiouy" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexAny((("crwth" : GoString) : Slice&lt;GoByte&gt;), ("aeiouy" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L475"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L456"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexbyte">function indexByte</a></h2>
 <pre><code class="language-haxe">function indexByte(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _c:stdgo.GoByte):stdgo.GoInt</code></pre>
 <p>IndexByte returns the index of the first instance of c in b, or -1 if c is not present in b. </p>
 <h3><a name="exampleindexbyte">exampleIndexByte</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndexByte():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexByte((Go.str("chicken") : Slice&lt;GoByte&gt;), ((107 : GoUInt8) : GoByte))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexByte((Go.str("chicken") : Slice&lt;GoByte&gt;), ((103 : GoUInt8) : GoByte))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexByte((("chicken" : GoString) : Slice&lt;GoByte&gt;), ((107 : GoUInt8) : GoByte))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexByte((("chicken" : GoString) : Slice&lt;GoByte&gt;), ((103 : GoUInt8) : GoByte))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L363"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L344"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexbyteportable">function indexBytePortable</a></h2>
 <pre><code class="language-haxe">function indexBytePortable(:stdgo.Slice&lt;stdgo.GoUInt8&gt;, :stdgo.GoUInt8):stdgo.GoInt</code></pre>
 <p>Export func for testing </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L41"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexfunc">function indexFunc</a></h2>
 <pre><code class="language-haxe">function indexFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool):stdgo.GoInt</code></pre>
-<p>IndexFunc interprets s as a sequence of UTF-8-encoded code points.��// It returns the byte index in s of the first Unicode��// code point satisfying f(c), or -1 if none do. </p>
+<p>IndexFunc interprets s as a sequence of UTF-8-encoded code points.  It returns the byte index in s of the first Unicode  code point satisfying f(c), or -1 if none do. </p>
 <h3><a name="exampleindexfunc">exampleIndexFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndexFunc():Void {
 	var _f:GoInt32-&gt;Bool = function(_c:GoRune):Bool {
 		return stdgo.unicode.Unicode.is_(stdgo.unicode.Unicode.han, _c);
 	};
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexFunc((Go.str("Hello, 世界") : Slice&lt;GoByte&gt;), _f)));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexFunc((Go.str("Hello, world") : Slice&lt;GoByte&gt;), _f)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexFunc((("Hello, 世界" : GoString) : Slice&lt;GoByte&gt;), _f)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexFunc((("Hello, world" : GoString) : Slice&lt;GoByte&gt;), _f)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1223"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1204"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexrune">function indexRune</a></h2>
 <pre><code class="language-haxe">function indexRune(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _r:stdgo.GoRune):stdgo.GoInt</code></pre>
-<p>IndexRune interprets s as a sequence of UTF-8-encoded code points.��// It returns the byte index of the first occurrence in s of the given rune.��// It returns -1 if rune is not present in s.��// If r is utf8.RuneError, it returns the first instance of any��// invalid UTF-8 byte sequence. </p>
+<p>IndexRune interprets s as a sequence of UTF-8-encoded code points.  It returns the byte index of the first occurrence in s of the given rune.  It returns -1 if rune is not present in s.  If r is utf8.RuneError, it returns the first instance of any  invalid UTF-8 byte sequence. </p>
 <h3><a name="exampleindexrune">exampleIndexRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndexRune():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexRune((Go.str("chicken") : Slice&lt;GoByte&gt;), (107 : GoInt32))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexRune((Go.str("chicken") : Slice&lt;GoByte&gt;), (100 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexRune((("chicken" : GoString) : Slice&lt;GoByte&gt;), (107 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.indexRune((("chicken" : GoString) : Slice&lt;GoByte&gt;), (100 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L443"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L424"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-join">function join</a></h2>
 <pre><code class="language-haxe">function join(_s:stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Join concatenates the elements of s to create a new byte slice. The separator��// sep is placed between elements in the resulting slice. </p>
+<p>Join concatenates the elements of s to create a new byte slice. The separator  sep is placed between elements in the resulting slice. </p>
 <h3><a name="examplejoin">exampleJoin</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleJoin():Void {
-	var _s = (new Slice&lt;Slice&lt;GoUInt8&gt;&gt;(0, 0, (Go.str("foo") : Slice&lt;GoByte&gt;), (Go.str("bar") : Slice&lt;GoByte&gt;),
-		(Go.str("baz") : Slice&lt;GoByte&gt;)) : Slice&lt;Slice&lt;GoUInt8&gt;&gt;);
-	stdgo.fmt.Fmt.printf(Go.str("%s"), Go.toInterface(stdgo.bytes.Bytes.join(_s, (Go.str(", ") : Slice&lt;GoByte&gt;))));
+	var _s = (new Slice&lt;Slice&lt;GoUInt8&gt;&gt;(0, 0, (("foo" : GoString) : Slice&lt;GoByte&gt;), (("bar" : GoString) : Slice&lt;GoByte&gt;),
+		(("baz" : GoString) : Slice&lt;GoByte&gt;)) : Slice&lt;Slice&lt;GoUInt8&gt;&gt;);
+	stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.join(_s, ((", " : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L870"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L851"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-lastindex">function lastIndex</a></h2>
 <pre><code class="language-haxe">function lastIndex(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoInt</code></pre>
 <p>LastIndex returns the index of the last instance of sep in s, or -1 if sep is not present in s. </p>
 <h3><a name="examplelastindex">exampleLastIndex</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleLastIndex():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((Go.str("go gopher") : Slice&lt;GoByte&gt;), (Go.str("go") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndex((Go.str("go gopher") : Slice&lt;GoByte&gt;), (Go.str("go") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndex((Go.str("go gopher") : Slice&lt;GoByte&gt;), (Go.str("rodent") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.index((("go gopher" : GoString) : Slice&lt;GoByte&gt;), (("go" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndex((("go gopher" : GoString) : Slice&lt;GoByte&gt;), (("go" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndex((("go gopher" : GoString) : Slice&lt;GoByte&gt;), (("rodent" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L379"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L360"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-lastindexany">function lastIndexAny</a></h2>
 <pre><code class="language-haxe">function lastIndexAny(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _chars:stdgo.GoString):stdgo.GoInt</code></pre>
-<p>LastIndexAny interprets s as a sequence of UTF-8-encoded Unicode code��// points. It returns the byte index of the last occurrence in s of any of��// the Unicode code points in chars. It returns -1 if chars is empty or if��// there is no code point in common. </p>
+<p>LastIndexAny interprets s as a sequence of UTF-8-encoded Unicode code  points. It returns the byte index of the last occurrence in s of any of  the Unicode code points in chars. It returns -1 if chars is empty or if  there is no code point in common. </p>
 <h3><a name="examplelastindexany">exampleLastIndexAny</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleLastIndexAny():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((Go.str("go gopher") : Slice&lt;GoByte&gt;), Go.str("MüQp"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((Go.str("go 地鼠") : Slice&lt;GoByte&gt;), Go.str("地大"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((Go.str("go gopher") : Slice&lt;GoByte&gt;), Go.str("z,!."))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go gopher" : GoString) : Slice&lt;GoByte&gt;), ("MüQp" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go 地鼠" : GoString) : Slice&lt;GoByte&gt;), ("地大" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexAny((("go gopher" : GoString) : Slice&lt;GoByte&gt;), ("z,!." : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L564"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L545"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-lastindexbyte">function lastIndexByte</a></h2>
 <pre><code class="language-haxe">function lastIndexByte(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _c:stdgo.GoByte):stdgo.GoInt</code></pre>
 <p>LastIndexByte returns the index of the last instance of c in s, or -1 if c is not present in s. </p>
 <h3><a name="examplelastindexbyte">exampleLastIndexByte</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleLastIndexByte():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((Go.str("go gopher") : Slice&lt;GoByte&gt;), ((103 : GoUInt8) : GoByte))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((Go.str("go gopher") : Slice&lt;GoByte&gt;), ((114 : GoUInt8) : GoByte))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((Go.str("go gopher") : Slice&lt;GoByte&gt;), ((122 : GoUInt8) : GoByte))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : GoString) : Slice&lt;GoByte&gt;), ((103 : GoUInt8) : GoByte))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : GoString) : Slice&lt;GoByte&gt;), ((114 : GoUInt8) : GoByte))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexByte((("go gopher" : GoString) : Slice&lt;GoByte&gt;), ((122 : GoUInt8) : GoByte))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L424"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L405"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-lastindexfunc">function lastIndexFunc</a></h2>
 <pre><code class="language-haxe">function lastIndexFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool):stdgo.GoInt</code></pre>
-<p>LastIndexFunc interprets s as a sequence of UTF-8-encoded code points.��// It returns the byte index in s of the last Unicode��// code point satisfying f(c), or -1 if none do. </p>
+<p>LastIndexFunc interprets s as a sequence of UTF-8-encoded code points.  It returns the byte index in s of the last Unicode  code point satisfying f(c), or -1 if none do. </p>
 <h3><a name="examplelastindexfunc">exampleLastIndexFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleLastIndexFunc():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((Go.str("go gopher!") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isLetter)));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((Go.str("go gopher!") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isPunct)));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((Go.str("go gopher!") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isNumber)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : GoString) : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isLetter)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : GoString) : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isPunct)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.bytes.Bytes.lastIndexFunc((("go gopher!" : GoString) : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isNumber)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1232"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1213"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-map">function map</a></h2>
 <pre><code class="language-haxe">function map(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Map returns a copy of the byte slice s with all its characters modified��// according to the mapping function. If mapping returns a negative value, the character is��// dropped from the byte slice with no replacement. The characters in s and the��// output are interpreted as UTF-8-encoded code points. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L910"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Map returns a copy of the byte slice s with all its characters modified  according to the mapping function. If mapping returns a negative value, the character is  dropped from the byte slice with no replacement. The characters in s and the  output are interpreted as UTF-8-encoded code points. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L891"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-newbuffer">function newBuffer</a></h2>
 <pre><code class="language-haxe">function newBuffer(_buf:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Ref&lt;stdgo.bytes.Buffer&gt;</code></pre>
-<p>NewBuffer creates and initializes a new Buffer using buf as its��// initial contents. The new Buffer takes ownership of buf, and the��// caller should not use buf after this call. NewBuffer is intended to��// prepare a Buffer to read existing data. It can also be used to set��// the initial size of the internal buffer for writing. To do that,��// buf should have the desired capacity but a length of zero.��//��// In most cases, new(Buffer) (or just declaring a Buffer variable) is��// sufficient to initialize a Buffer. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L255"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>NewBuffer creates and initializes a new Buffer using buf as its  initial contents. The new Buffer takes ownership of buf, and the  caller should not use buf after this call. NewBuffer is intended to  prepare a Buffer to read existing data. It can also be used to set  the initial size of the internal buffer for writing. To do that,  buf should have the desired capacity but a length of zero.    In most cases, new(Buffer) (or just declaring a Buffer variable) is  sufficient to initialize a Buffer. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L236"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-newbufferstring">function newBufferString</a></h2>
 <pre><code class="language-haxe">function newBufferString(_s:stdgo.GoString):stdgo.Ref&lt;stdgo.bytes.Buffer&gt;</code></pre>
-<p>NewBufferString creates and initializes a new Buffer using string s as its��// initial contents. It is intended to prepare a buffer to read an existing��// string.��//��// In most cases, new(Buffer) (or just declaring a Buffer variable) is��// sufficient to initialize a Buffer. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L267"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>NewBufferString creates and initializes a new Buffer using string s as its  initial contents. It is intended to prepare a buffer to read an existing  string.    In most cases, new(Buffer) (or just declaring a Buffer variable) is  sufficient to initialize a Buffer. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L248"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-newreader">function newReader</a></h2>
 <pre><code class="language-haxe">function newReader(_b:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Ref&lt;stdgo.bytes.Reader&gt;</code></pre>
 <p>NewReader returns a new Reader reading from b. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1767"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1748"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-repeat">function repeat</a></h2>
 <pre><code class="language-haxe">function repeat(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _count:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Repeat returns a new byte slice consisting of count copies of b.��//��// It panics if count is negative or if��// the result of (len(b) * count) overflows. </p>
+<p>Repeat returns a new byte slice consisting of count copies of b.    It panics if count is negative or if  the result of (len(b) * count) overflows. </p>
 <h3><a name="examplerepeat">exampleRepeat</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleRepeat():Void {
-	stdgo.fmt.Fmt.printf(Go.str("ba%s"), Go.toInterface(stdgo.bytes.Bytes.repeat((Go.str("na") : Slice&lt;GoByte&gt;), (2 : GoInt))));
+	stdgo.fmt.Fmt.printf(("ba%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.repeat((("na" : GoString) : Slice&lt;GoByte&gt;), (2 : GoInt))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L952"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L933"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-replace">function replace</a></h2>
 <pre><code class="language-haxe">function replace(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _old:stdgo.Slice&lt;stdgo.GoByte&gt;, _new:stdgo.Slice&lt;stdgo.GoByte&gt;, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Replace returns a copy of the slice s with the first n��// non-overlapping instances of old replaced by new.��// If old is empty, it matches at the beginning of the slice��// and after each UTF-8 sequence, yielding up to k+1 replacements��// for a k-rune slice.��// If n \&lt; 0, there is no limit on the number of replacements. </p>
+<p>Replace returns a copy of the slice s with the first n  non-overlapping instances of old replaced by new.  If old is empty, it matches at the beginning of the slice  and after each UTF-8 sequence, yielding up to k+1 replacements  for a k-rune slice.  If n \&lt; 0, there is no limit on the number of replacements. </p>
 <h3><a name="examplereplace">exampleReplace</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleReplace():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"),
-		Go.toInterface(stdgo.bytes.Bytes.replace((Go.str("oink oink oink") : Slice&lt;GoByte&gt;), (Go.str("k") : Slice&lt;GoByte&gt;), (Go.str("ky") : Slice&lt;GoByte&gt;),
-			(2 : GoInt))));
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"),
-		Go.toInterface(stdgo.bytes.Bytes.replace((Go.str("oink oink oink") : Slice&lt;GoByte&gt;), (Go.str("oink") : Slice&lt;GoByte&gt;),
-			(Go.str("moo") : Slice&lt;GoByte&gt;), (-1 : GoInt))));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.replace((("oink oink oink" : GoString) : Slice&lt;GoByte&gt;), (("k" : GoString) : Slice&lt;GoByte&gt;),
+			(("ky" : GoString) : Slice&lt;GoByte&gt;), (2 : GoInt))));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.replace((("oink oink oink" : GoString) : Slice&lt;GoByte&gt;), (("oink" : GoString) : Slice&lt;GoByte&gt;),
+			(("moo" : GoString) : Slice&lt;GoByte&gt;), (-1 : GoInt))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1540"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1521"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-replaceall">function replaceAll</a></h2>
 <pre><code class="language-haxe">function replaceAll(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _old:stdgo.Slice&lt;stdgo.GoByte&gt;, _new:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>ReplaceAll returns a copy of the slice s with all��// non-overlapping instances of old replaced by new.��// If old is empty, it matches at the beginning of the slice��// and after each UTF-8 sequence, yielding up to k+1 replacements��// for a k-rune slice. </p>
+<p>ReplaceAll returns a copy of the slice s with all  non-overlapping instances of old replaced by new.  If old is empty, it matches at the beginning of the slice  and after each UTF-8 sequence, yielding up to k+1 replacements  for a k-rune slice. </p>
 <h3><a name="examplereplaceall">exampleReplaceAll</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleReplaceAll():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"),
-		Go.toInterface(stdgo.bytes.Bytes.replaceAll((Go.str("oink oink oink") : Slice&lt;GoByte&gt;), (Go.str("oink") : Slice&lt;GoByte&gt;),
-			(Go.str("moo") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.replaceAll((("oink oink oink" : GoString) : Slice&lt;GoByte&gt;), (("oink" : GoString) : Slice&lt;GoByte&gt;),
+			(("moo" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1586"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1567"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-runes">function runes</a></h2>
 <pre><code class="language-haxe">function runes(_s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoRune&gt;</code></pre>
-<p>Runes interprets s as a sequence of UTF-8-encoded code points.��// It returns a slice of runes (Unicode code points) equivalent to s. </p>
+<p>Runes interprets s as a sequence of UTF-8-encoded code points.  It returns a slice of runes (Unicode code points) equivalent to s. </p>
 <h3><a name="examplerunes">exampleRunes</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleRunes():Void {
-	var _rs = stdgo.bytes.Bytes.runes((Go.str("go gopher") : Slice&lt;GoByte&gt;));
+	var _rs = stdgo.bytes.Bytes.runes((("go gopher" : GoString) : Slice&lt;GoByte&gt;));
 	for (_0 =&gt; _r in _rs) {
-		stdgo.fmt.Fmt.printf(Go.str("%#U\n"), Go.toInterface(_r));
+		stdgo.fmt.Fmt.printf(("%#U\n" : GoString), Go.toInterface(_r));
 	};
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1516"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1497"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-split">function split</a></h2>
 <pre><code class="language-haxe">function split(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></pre>
-<p>Split slices s into all subslices separated by sep and returns a slice of��// the subslices between those separators.��// If sep is empty, Split splits after each UTF-8 sequence.��// It is equivalent to SplitN with a count of -1.��//��// To split around the first instance of a separator, see Cut. </p>
+<p>Split slices s into all subslices separated by sep and returns a slice of  the subslices between those separators.  If sep is empty, Split splits after each UTF-8 sequence.  It is equivalent to SplitN with a count of -1.    To split around the first instance of a separator, see Cut. </p>
 <h3><a name="examplesplit">exampleSplit</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSplit():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.bytes.Bytes.split((Go.str("a,b,c") : Slice&lt;GoByte&gt;), (Go.str(",") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"),
-		Go.toInterface(stdgo.bytes.Bytes.split((Go.str("a man a plan a canal panama") : Slice&lt;GoByte&gt;), (Go.str("a ") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.bytes.Bytes.split((Go.str(" xyz ") : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.bytes.Bytes.split((Go.str() : Slice&lt;GoByte&gt;), (Go.str("Bernardo O\'Higgins") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.split((("a,b,c" : GoString) : Slice&lt;GoByte&gt;), (("," : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.split((("a man a plan a canal panama" : GoString) : Slice&lt;GoByte&gt;), (("a " : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.split(((" xyz " : GoString) : Slice&lt;GoByte&gt;), (Go.str() : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.split((Go.str() : Slice&lt;GoByte&gt;), (("Bernardo O\'Higgins" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L731"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L712"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-splitafter">function splitAfter</a></h2>
 <pre><code class="language-haxe">function splitAfter(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></pre>
-<p>SplitAfter slices s into all subslices after each instance of sep and��// returns a slice of those subslices.��// If sep is empty, SplitAfter splits after each UTF-8 sequence.��// It is equivalent to SplitAfterN with a count of -1. </p>
+<p>SplitAfter slices s into all subslices after each instance of sep and  returns a slice of those subslices.  If sep is empty, SplitAfter splits after each UTF-8 sequence.  It is equivalent to SplitAfterN with a count of -1. </p>
 <h3><a name="examplesplitafter">exampleSplitAfter</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSplitAfter():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.bytes.Bytes.splitAfter((Go.str("a,b,c") : Slice&lt;GoByte&gt;), (Go.str(",") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.splitAfter((("a,b,c" : GoString) : Slice&lt;GoByte&gt;), (("," : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L741"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L722"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-splitaftern">function splitAfterN</a></h2>
 <pre><code class="language-haxe">function splitAfterN(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></pre>
-<p>SplitAfterN slices s into subslices after each instance of sep and��// returns a slice of those subslices.��// If sep is empty, SplitAfterN splits after each UTF-8 sequence.��// The count determines the number of subslices to return:��//��//�n \> 0: at most n subslices; the last subslice will be the unsplit remainder.��//�n == 0: the result is nil (zero subslices)��//�n \&lt; 0: all subslices </p>
+<p>SplitAfterN slices s into subslices after each instance of sep and  returns a slice of those subslices.  If sep is empty, SplitAfterN splits after each UTF-8 sequence.  The count determines the number of subslices to return:     n \> 0: at most n subslices; the last subslice will be the unsplit remainder.   n == 0: the result is nil (zero subslices)   n \&lt; 0: all subslices </p>
 <h3><a name="examplesplitaftern">exampleSplitAfterN</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSplitAfterN():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"),
-		Go.toInterface(stdgo.bytes.Bytes.splitAfterN((Go.str("a,b,c") : Slice&lt;GoByte&gt;), (Go.str(",") : Slice&lt;GoByte&gt;), (2 : GoInt))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.splitAfterN((("a,b,c" : GoString) : Slice&lt;GoByte&gt;), (("," : GoString) : Slice&lt;GoByte&gt;), (2 : GoInt))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L719"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L700"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-splitn">function splitN</a></h2>
 <pre><code class="language-haxe">function splitN(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;</code></pre>
-<p>SplitN slices s into subslices separated by sep and returns a slice of��// the subslices between those separators.��// If sep is empty, SplitN splits after each UTF-8 sequence.��// The count determines the number of subslices to return:��//��//�n \> 0: at most n subslices; the last subslice will be the unsplit remainder.��//�n == 0: the result is nil (zero subslices)��//�n \&lt; 0: all subslices��//��// To split around the first instance of a separator, see Cut. </p>
+<p>SplitN slices s into subslices separated by sep and returns a slice of  the subslices between those separators.  If sep is empty, SplitN splits after each UTF-8 sequence.  The count determines the number of subslices to return:     n \> 0: at most n subslices; the last subslice will be the unsplit remainder.   n == 0: the result is nil (zero subslices)   n \&lt; 0: all subslices    To split around the first instance of a separator, see Cut. </p>
 <h3><a name="examplesplitn">exampleSplitN</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSplitN():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"),
-		Go.toInterface(stdgo.bytes.Bytes.splitN((Go.str("a,b,c") : Slice&lt;GoByte&gt;), (Go.str(",") : Slice&lt;GoByte&gt;), (2 : GoInt))));
-	var _z = stdgo.bytes.Bytes.splitN((Go.str("a,b,c") : Slice&lt;GoByte&gt;), (Go.str(",") : Slice&lt;GoByte&gt;), (0 : GoInt));
-	stdgo.fmt.Fmt.printf(Go.str("%q (nil = %v)\n"), Go.toInterface(_z), Go.toInterface(_z == null));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.splitN((("a,b,c" : GoString) : Slice&lt;GoByte&gt;), (("," : GoString) : Slice&lt;GoByte&gt;), (2 : GoInt))));
+	var _z = stdgo.bytes.Bytes.splitN((("a,b,c" : GoString) : Slice&lt;GoByte&gt;), (("," : GoString) : Slice&lt;GoByte&gt;), (0 : GoInt));
+	stdgo.fmt.Fmt.printf(("%q (nil = %v)\n" : GoString), Go.toInterface(_z), Go.toInterface(_z == null));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L705"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L686"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-title">function title</a></h2>
 <pre><code class="language-haxe">function title(_s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Title treats s as UTF-8-encoded bytes and returns a copy with all Unicode letters that begin��// words mapped to their title case.��//��// Deprecated: The rule Title uses for word boundaries does not handle Unicode��// punctuation properly. Use golang.org/x/text/cases instead. </p>
+<p>Title treats s as UTF-8-encoded bytes and returns a copy with all Unicode letters that begin  words mapped to their title case.    Deprecated: The rule Title uses for word boundaries does not handle Unicode  punctuation properly. Use golang.org/x/text/cases instead. </p>
 <h3><a name="exampletitle">exampleTitle</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTitle():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%s"), Go.toInterface(stdgo.bytes.Bytes.title((Go.str("her royal highness") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.title((("her royal highness" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1147"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1128"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-tolower">function toLower</a></h2>
 <pre><code class="language-haxe">function toLower(_s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>ToLower returns a copy of the byte slice s with all Unicode letters mapped to��// their lower case. </p>
+<p>ToLower returns a copy of the byte slice s with all Unicode letters mapped to  their lower case. </p>
 <h3><a name="exampletolower">exampleToLower</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToLower():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%s"), Go.toInterface(stdgo.bytes.Bytes.toLower((Go.str("Gopher") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.toLower((("Gopher" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1014"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L995"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-tolowerspecial">function toLowerSpecial</a></h2>
 <pre><code class="language-haxe">function toLowerSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their��// lower case, giving priority to the special casing rules. </p>
+<p>ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their  lower case, giving priority to the special casing rules. </p>
 <h3><a name="exampletolowerspecial">exampleToLowerSpecial</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToLowerSpecial():Void {
-	var _str = (Go.str("AHOJ VÝVOJÁRİ GOLANG") : Slice&lt;GoByte&gt;);
+	var _str = (("AHOJ VÝVOJÁRİ GOLANG" : GoString) : Slice&lt;GoByte&gt;);
 	var _totitle = stdgo.bytes.Bytes.toLowerSpecial(stdgo.unicode.Unicode.azeriCase, _str);
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Original : ") + (_str : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("ToLower : ") + (_totitle : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface(("Original : " : GoString) + (_str : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface(("ToLower : " : GoString) + (_totitle : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1069"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1050"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-totitle">function toTitle</a></h2>
 <pre><code class="language-haxe">function toTitle(_s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
 <p>ToTitle treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their title case. </p>
 <h3><a name="exampletotitle">exampleToTitle</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToTitle():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"), Go.toInterface(stdgo.bytes.Bytes.toTitle((Go.str("loud noises") : Slice&lt;GoByte&gt;))));
-	stdgo.fmt.Fmt.printf(Go.str("%s\n"), Go.toInterface(stdgo.bytes.Bytes.toTitle((Go.str("хлеб") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.toTitle((("loud noises" : GoString) : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%s\n" : GoString), Go.toInterface(stdgo.bytes.Bytes.toTitle((("хлеб" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1053"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1034"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-totitlespecial">function toTitleSpecial</a></h2>
 <pre><code class="language-haxe">function toTitleSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their��// title case, giving priority to the special casing rules. </p>
+<p>ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their  title case, giving priority to the special casing rules. </p>
 <h3><a name="exampletotitlespecial">exampleToTitleSpecial</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToTitleSpecial():Void {
-	var _str = (Go.str("ahoj vývojári golang") : Slice&lt;GoByte&gt;);
+	var _str = (("ahoj vývojári golang" : GoString) : Slice&lt;GoByte&gt;);
 	var _totitle = stdgo.bytes.Bytes.toTitleSpecial(stdgo.unicode.Unicode.azeriCase, _str);
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Original : ") + (_str : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("ToTitle : ") + (_totitle : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface(("Original : " : GoString) + (_str : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface(("ToTitle : " : GoString) + (_totitle : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1077"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1058"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-toupper">function toUpper</a></h2>
 <pre><code class="language-haxe">function toUpper(_s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>ToUpper returns a copy of the byte slice s with all Unicode letters mapped to��// their upper case. </p>
+<p>ToUpper returns a copy of the byte slice s with all Unicode letters mapped to  their upper case. </p>
 <h3><a name="exampletoupper">exampleToUpper</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToUpper():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%s"), Go.toInterface(stdgo.bytes.Bytes.toUpper((Go.str("Gopher") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.toUpper((("Gopher" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L974"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L955"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-toupperspecial">function toUpperSpecial</a></h2>
 <pre><code class="language-haxe">function toUpperSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their��// upper case, giving priority to the special casing rules. </p>
+<p>ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their  upper case, giving priority to the special casing rules. </p>
 <h3><a name="exampletoupperspecial">exampleToUpperSpecial</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToUpperSpecial():Void {
-	var _str = (Go.str("ahoj vývojári golang") : Slice&lt;GoByte&gt;);
+	var _str = (("ahoj vývojári golang" : GoString) : Slice&lt;GoByte&gt;);
 	var _totitle = stdgo.bytes.Bytes.toUpperSpecial(stdgo.unicode.Unicode.azeriCase, _str);
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("Original : ") + (_str : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("ToUpper : ") + (_totitle : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface(("Original : " : GoString) + (_str : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface(("ToUpper : " : GoString) + (_totitle : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1061"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1042"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-tovalidutf8">function toValidUTF8</a></h2>
 <pre><code class="language-haxe">function toValidUTF8(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _replacement:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>ToValidUTF8 treats s as UTF-8-encoded bytes and returns a copy with each run of bytes��// representing invalid UTF-8 replaced with the bytes in replacement, which may be empty. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1085"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ToValidUTF8 treats s as UTF-8-encoded bytes and returns a copy with each run of bytes  representing invalid UTF-8 replaced with the bytes in replacement, which may be empty. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1066"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trim">function trim</a></h2>
 <pre><code class="language-haxe">function trim(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _cutset:stdgo.GoString):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Trim returns a subslice of s by slicing off all leading and��// trailing UTF-8-encoded code points contained in cutset. </p>
+<p>Trim returns a subslice of s by slicing off all leading and  trailing UTF-8-encoded code points contained in cutset. </p>
 <h3><a name="exampletrim">exampleTrim</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrim():Void {
-	stdgo.fmt.Fmt.printf(Go.str("[%q]"), Go.toInterface(stdgo.bytes.Bytes.trim((Go.str(" !!! Achtung! Achtung! !!! ") : Slice&lt;GoByte&gt;), Go.str("! "))));
+	stdgo.fmt.Fmt.printf(("[%q]" : GoString),
+		Go.toInterface(stdgo.bytes.Bytes.trim(((" !!! Achtung! Achtung! !!! " : GoString) : Slice&lt;GoByte&gt;), ("! " : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1328"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1309"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimfunc">function trimFunc</a></h2>
 <pre><code class="language-haxe">function trimFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>TrimFunc returns a subslice of s by slicing off all leading and trailing��// UTF-8-encoded code points c that satisfy f(c). </p>
+<p>TrimFunc returns a subslice of s by slicing off all leading and trailing  UTF-8-encoded code points c that satisfy f(c). </p>
 <h3><a name="exampletrimfunc">exampleTrimFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimFunc():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((Go.str("go-gopher!") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isLetter) : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((Go.str("\"go-gopher!\"") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isLetter) : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((Go.str("go-gopher!") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isPunct) : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((Go.str("1234go-gopher!567") : Slice&lt;GoByte&gt;),
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((("go-gopher!" : GoString) : Slice&lt;GoByte&gt;),
+		stdgo.unicode.Unicode.isLetter) : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((("\"go-gopher!\"" : GoString) : Slice&lt;GoByte&gt;),
+		stdgo.unicode.Unicode.isLetter) : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((("go-gopher!" : GoString) : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isPunct) : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimFunc((("1234go-gopher!567" : GoString) : Slice&lt;GoByte&gt;),
 		stdgo.unicode.Unicode.isNumber) : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1173"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimleft">function trimLeft</a></h2>
 <pre><code class="language-haxe">function trimLeft(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _cutset:stdgo.GoString):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>TrimLeft returns a subslice of s by slicing off all leading��// UTF-8-encoded code points contained in cutset. </p>
+<p>TrimLeft returns a subslice of s by slicing off all leading  UTF-8-encoded code points contained in cutset. </p>
 <h3><a name="exampletrimleft">exampleTrimLeft</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimLeft():Void {
-	stdgo.fmt.Fmt.print(Go.toInterface((stdgo.bytes.Bytes.trimLeft((Go.str("453gopher8257") : Slice&lt;GoByte&gt;), Go.str("0123456789")) : GoString)));
+	stdgo.fmt.Fmt.print(Go.toInterface((stdgo.bytes.Bytes.trimLeft((("453gopher8257" : GoString) : Slice&lt;GoByte&gt;), ("0123456789" : GoString)) : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1353"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1334"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimleftfunc">function trimLeftFunc</a></h2>
 <pre><code class="language-haxe">function trimLeftFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>TrimLeftFunc treats s as UTF-8-encoded bytes and returns a subslice of s by slicing off��// all leading UTF-8-encoded code points c that satisfy f(c). </p>
+<p>TrimLeftFunc treats s as UTF-8-encoded bytes and returns a subslice of s by slicing off  all leading UTF-8-encoded code points c that satisfy f(c). </p>
 <h3><a name="exampletrimleftfunc">exampleTrimLeftFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimLeftFunc():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((Go.str("go-gopher") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isLetter) : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((Go.str("go-gopher!") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isPunct) : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((Go.str("1234go-gopher!567") : Slice&lt;GoByte&gt;),
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("go-gopher" : GoString) : Slice&lt;GoByte&gt;),
+		stdgo.unicode.Unicode.isLetter) : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("go-gopher!" : GoString) : Slice&lt;GoByte&gt;),
+		stdgo.unicode.Unicode.isPunct) : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimLeftFunc((("1234go-gopher!567" : GoString) : Slice&lt;GoByte&gt;),
 		stdgo.unicode.Unicode.isNumber) : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1163"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1144"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimprefix">function trimPrefix</a></h2>
 <pre><code class="language-haxe">function trimPrefix(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _prefix:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>TrimPrefix returns s without the provided leading prefix string.��// If s doesn't start with prefix, s is returned unchanged. </p>
+<p>TrimPrefix returns s without the provided leading prefix string.  If s doesn't start with prefix, s is returned unchanged. </p>
 <h3><a name="exampletrimprefix">exampleTrimPrefix</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimPrefix():Void {
-	var _b:Slice&lt;GoUInt8&gt; = (Go.str("Goodbye,, world!") : Slice&lt;GoByte&gt;);
-	_b = stdgo.bytes.Bytes.trimPrefix(_b, (Go.str("Goodbye,") : Slice&lt;GoByte&gt;));
-	_b = stdgo.bytes.Bytes.trimPrefix(_b, (Go.str("See ya,") : Slice&lt;GoByte&gt;));
-	stdgo.fmt.Fmt.printf(Go.str("Hello%s"), Go.toInterface(_b));
+	var _b:Slice&lt;GoUInt8&gt; = (("Goodbye,, world!" : GoString) : Slice&lt;GoByte&gt;);
+	_b = stdgo.bytes.Bytes.trimPrefix(_b, (("Goodbye," : GoString) : Slice&lt;GoByte&gt;));
+	_b = stdgo.bytes.Bytes.trimPrefix(_b, (("See ya," : GoString) : Slice&lt;GoByte&gt;));
+	stdgo.fmt.Fmt.printf(("Hello%s" : GoString), Go.toInterface(_b));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1200"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1181"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimright">function trimRight</a></h2>
 <pre><code class="language-haxe">function trimRight(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _cutset:stdgo.GoString):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>TrimRight returns a subslice of s by slicing off all trailing��// UTF-8-encoded code points that are contained in cutset. </p>
+<p>TrimRight returns a subslice of s by slicing off all trailing  UTF-8-encoded code points that are contained in cutset. </p>
 <h3><a name="exampletrimright">exampleTrimRight</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimRight():Void {
-	stdgo.fmt.Fmt.print(Go.toInterface((stdgo.bytes.Bytes.trimRight((Go.str("453gopher8257") : Slice&lt;GoByte&gt;), Go.str("0123456789")) : GoString)));
+	stdgo.fmt.Fmt.print(Go.toInterface((stdgo.bytes.Bytes.trimRight((("453gopher8257" : GoString) : Slice&lt;GoByte&gt;), ("0123456789" : GoString)) : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1425"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1406"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimrightfunc">function trimRightFunc</a></h2>
 <pre><code class="language-haxe">function trimRightFunc(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _f:(_r:stdgo.GoRune):Bool):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>TrimRightFunc returns a subslice of s by slicing off all trailing��// UTF-8-encoded code points c that satisfy f(c). </p>
+<p>TrimRightFunc returns a subslice of s by slicing off all trailing  UTF-8-encoded code points c that satisfy f(c). </p>
 <h3><a name="exampletrimrightfunc">exampleTrimRightFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimRightFunc():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((Go.str("go-gopher") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isLetter) : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((Go.str("go-gopher!") : Slice&lt;GoByte&gt;), stdgo.unicode.Unicode.isPunct) : GoString)));
-	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((Go.str("1234go-gopher!567") : Slice&lt;GoByte&gt;),
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("go-gopher" : GoString) : Slice&lt;GoByte&gt;),
+		stdgo.unicode.Unicode.isLetter) : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("go-gopher!" : GoString) : Slice&lt;GoByte&gt;),
+		stdgo.unicode.Unicode.isPunct) : GoString)));
+	stdgo.fmt.Fmt.println(Go.toInterface((stdgo.bytes.Bytes.trimRightFunc((("1234go-gopher!567" : GoString) : Slice&lt;GoByte&gt;),
 		stdgo.unicode.Unicode.isNumber) : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1175"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1156"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimspace">function trimSpace</a></h2>
 <pre><code class="language-haxe">function trimSpace(_s:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>TrimSpace returns a subslice of s by slicing off all leading and��// trailing white space, as defined by Unicode. </p>
+<p>TrimSpace returns a subslice of s by slicing off all leading and  trailing white space, as defined by Unicode. </p>
 <h3><a name="exampletrimspace">exampleTrimSpace</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimSpace():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%s"), Go.toInterface(stdgo.bytes.Bytes.trimSpace((Go.str(" \t\n a lone gopher \n\t\r\n") : Slice&lt;GoByte&gt;))));
+	stdgo.fmt.Fmt.printf(("%s" : GoString), Go.toInterface(stdgo.bytes.Bytes.trimSpace(((" \t\n a lone gopher \n\t\r\n" : GoString) : Slice&lt;GoByte&gt;))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1485"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1466"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimsuffix">function trimSuffix</a></h2>
 <pre><code class="language-haxe">function trimSuffix(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _suffix:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>TrimSuffix returns s without the provided trailing suffix string.��// If s doesn't end with suffix, s is returned unchanged. </p>
+<p>TrimSuffix returns s without the provided trailing suffix string.  If s doesn't end with suffix, s is returned unchanged. </p>
 <h3><a name="exampletrimsuffix">exampleTrimSuffix</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimSuffix():Void {
-	var _b:Slice&lt;GoUInt8&gt; = (Go.str("Hello, goodbye, etc!") : Slice&lt;GoByte&gt;);
-	_b = stdgo.bytes.Bytes.trimSuffix(_b, (Go.str("goodbye, etc!") : Slice&lt;GoByte&gt;));
-	_b = stdgo.bytes.Bytes.trimSuffix(_b, (Go.str("gopher") : Slice&lt;GoByte&gt;));
-	_b = _b.__appendref__(...stdgo.bytes.Bytes.trimSuffix((Go.str("world!") : Slice&lt;GoByte&gt;), (Go.str("x!") : Slice&lt;GoByte&gt;)).__toArray__());
+	var _b:Slice&lt;GoUInt8&gt; = (("Hello, goodbye, etc!" : GoString) : Slice&lt;GoByte&gt;);
+	_b = stdgo.bytes.Bytes.trimSuffix(_b, (("goodbye, etc!" : GoString) : Slice&lt;GoByte&gt;));
+	_b = stdgo.bytes.Bytes.trimSuffix(_b, (("gopher" : GoString) : Slice&lt;GoByte&gt;));
+	_b = _b.__appendref__(...stdgo.bytes.Bytes.trimSuffix((("world!" : GoString) : Slice&lt;GoByte&gt;), (("x!" : GoString) : Slice&lt;GoByte&gt;)).__toArray__());
 	stdgo.os.Os.stdout.write(_b);
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1211"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L1192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.bytes.*</code></pre>
 <h2><a name="class-buffer">class Buffer</a></h2>
-<p>A Buffer is a variable-sized buffer of bytes with Read and Write methods.��// The zero value for Buffer is an empty buffer ready to use. </p>
+<p>A Buffer is a variable-sized buffer of bytes with Read and Write methods.  The zero value for Buffer is an empty buffer ready to use. </p>
 <pre><code class="language-haxe">var _buf:stdgo.Slice&lt;stdgo.GoUInt8&gt;</code></pre>
-<p>contents are the bytes buf[off : len(buf)] </p>
 <pre><code class="language-haxe">var _lastRead:stdgo.bytes._Bytes.T_readOp</code></pre>
-<p>last read operation, so that Unread* can work correctly. </p>
 <pre><code class="language-haxe">var _off:stdgo.GoInt</code></pre>
-<p>read at &amp;buf[off], write at &amp;buf[len(buf)] </p>
 <h3><a name="buffer-function-new">Buffer function new</a></h3>
 <pre><code class="language-haxe">function new(?_buf:stdgo.Slice&lt;stdgo.GoUInt8&gt;, ?_off:Null&lt;stdgo.GoInt&gt;, ?_lastRead:Null&lt;stdgo.bytes._Bytes.T_readOp&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L114"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L103"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-_empty">Buffer function _empty</a></h3>
 <pre><code class="language-haxe">function _empty():Bool</code></pre>
 <p>empty reports whether the unread portion of the buffer is empty. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2475"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2456"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-_grow">Buffer function _grow</a></h3>
 <pre><code class="language-haxe">function _grow( _n:stdgo.GoInt):stdgo.GoInt</code></pre>
-<p>grow grows the buffer to guarantee space for n more bytes.���// It returns the index where bytes should be written.���// If the buffer can't grow it will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2376"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>grow grows the buffer to guarantee space for n more bytes.   It returns the index where bytes should be written.   If the buffer can't grow it will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2357"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-_readslice">Buffer function _readSlice</a></h3>
 <pre><code class="language-haxe">function _readSlice( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.Slice&lt;stdgo.GoByte&gt;}</code></pre>
 <p>readSlice is like ReadBytes but returns a reference to internal buffer data. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2048"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2029"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-_trygrowbyreslice">Buffer function _tryGrowByReslice</a></h3>
 <pre><code class="language-haxe">function _tryGrowByReslice( _n:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}</code></pre>
-<p>tryGrowByReslice is a inlineable version of grow for the fast-case where the���// internal buffer only needs to be resliced.���// It returns the index where bytes should be written and whether it succeeded. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2412"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>tryGrowByReslice is a inlineable version of grow for the fast-case where the   internal buffer only needs to be resliced.   It returns the index where bytes should be written and whether it succeeded. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2393"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-bytes">Buffer function bytes</a></h3>
 <pre><code class="language-haxe">function bytes():stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Bytes returns a slice of length b.Len() holding the unread portion of the buffer.���// The slice is valid for use only until the next buffer modification (that is,���// only until the next call to a method like Read, Write, Reset, or Truncate).���// The slice aliases the buffer content at least until the next buffer modification,���// so immediate changes to the slice will affect the result of future reads. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2501"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Bytes returns a slice of length b.Len() holding the unread portion of the buffer.   The slice is valid for use only until the next buffer modification (that is,   only until the next call to a method like Read, Write, Reset, or Truncate).   The slice aliases the buffer content at least until the next buffer modification,   so immediate changes to the slice will affect the result of future reads. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2482"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-cap">Buffer function cap</a></h3>
 <pre><code class="language-haxe">function cap():stdgo.GoInt</code></pre>
-<p>Cap returns the capacity of the buffer's underlying byte slice, that is, the���// total space allocated for the buffer's data. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2458"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Cap returns the capacity of the buffer's underlying byte slice, that is, the   total space allocated for the buffer's data. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2439"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-grow">Buffer function grow</a></h3>
 <pre><code class="language-haxe">function grow( _n:stdgo.GoInt):Void</code></pre>
-<p>Grow grows the buffer's capacity, if necessary, to guarantee space for���// another n bytes. After Grow(n), at least n bytes can be written to the���// buffer without another allocation.���// If n is negative, Grow will panic.���// If the buffer can't grow it will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2362"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Grow grows the buffer's capacity, if necessary, to guarantee space for   another n bytes. After Grow(n), at least n bytes can be written to the   buffer without another allocation.   If n is negative, Grow will panic.   If the buffer can't grow it will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2343"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-len">Buffer function len</a></h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
-<p>Len returns the number of bytes of the unread portion of the buffer;���// b.Len() == len(b.Bytes()). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2467"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Len returns the number of bytes of the unread portion of the buffer;   b.Len() == len(b.Bytes()). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2448"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-next">Buffer function next</a></h3>
 <pre><code class="language-haxe">function next( _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Next returns a slice containing the next n bytes from the buffer,���// advancing the buffer as if the bytes had been returned by Read.���// If there are fewer than n bytes in the buffer, Next returns the entire buffer.���// The slice is only valid until the next call to a read or write method. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2172"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Next returns a slice containing the next n bytes from the buffer,   advancing the buffer as if the bytes had been returned by Read.   If there are fewer than n bytes in the buffer, Next returns the entire buffer.   The slice is only valid until the next call to a read or write method. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2153"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-read">Buffer function read</a></h3>
 <pre><code class="language-haxe">function read( _p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>Read reads the next len(p) bytes from the buffer or until the buffer���// is drained. The return value n is the number of bytes read. If the���// buffer has no data to return, err is io.EOF (unless len(p) is zero);���// otherwise it is nil. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2193"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Read reads the next len(p) bytes from the buffer or until the buffer   is drained. The return value n is the number of bytes read. If the   buffer has no data to return, err is io.EOF (unless len(p) is zero);   otherwise it is nil. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2174"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-readbyte">Buffer function readByte</a></h3>
 <pre><code class="language-haxe">function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}</code></pre>
-<p>ReadByte reads and returns the next byte from the buffer.���// If no byte is available, it returns error io.EOF. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2154"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadByte reads and returns the next byte from the buffer.   If no byte is available, it returns error io.EOF. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2135"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-readbytes">Buffer function readBytes</a></h3>
 <pre><code class="language-haxe">function readBytes( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.Slice&lt;stdgo.GoByte&gt;}</code></pre>
-<p>ReadBytes reads until the first occurrence of delim in the input,���// returning a slice containing the data up to and including the delimiter.���// If ReadBytes encounters an error before finding a delimiter,���// it returns the data read before the error and the error itself (often io.EOF).���// ReadBytes returns err != nil if and only if the returned data does not end in���// delim. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2072"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadBytes reads until the first occurrence of delim in the input,   returning a slice containing the data up to and including the delimiter.   If ReadBytes encounters an error before finding a delimiter,   it returns the data read before the error and the error itself (often io.EOF).   ReadBytes returns err != nil if and only if the returned data does not end in   delim. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2053"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-readfrom">Buffer function readFrom</a></h3>
 <pre><code class="language-haxe">function readFrom( _r:stdgo.io.Reader):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
-<p>ReadFrom reads data from r until EOF and appends it to the buffer, growing���// the buffer as needed. The return value n is the number of bytes read. Any���// error except io.EOF encountered during the read is also returned. If the���// buffer becomes too large, ReadFrom will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2295"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadFrom reads data from r until EOF and appends it to the buffer, growing   the buffer as needed. The return value n is the number of bytes read. Any   error except io.EOF encountered during the read is also returned. If the   buffer becomes too large, ReadFrom will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2276"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-readrune">Buffer function readRune</a></h3>
 <pre><code class="language-haxe">function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
-<p>ReadRune reads and returns the next UTF-8-encoded���// Unicode code point from the buffer.���// If no bytes are available, the error returned is io.EOF.���// If the bytes are an erroneous UTF-8 encoding, it���// consumes one byte and returns U+FFFD, 1. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2127"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadRune reads and returns the next UTF-8-encoded   Unicode code point from the buffer.   If no bytes are available, the error returned is io.EOF.   If the bytes are an erroneous UTF-8 encoding, it   consumes one byte and returns U+FFFD, 1. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2108"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-readstring">Buffer function readString</a></h3>
 <pre><code class="language-haxe">function readString( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.GoString}</code></pre>
-<p>ReadString reads until the first occurrence of delim in the input,���// returning a string containing the data up to and including the delimiter.���// If ReadString encounters an error before finding a delimiter,���// it returns the data read before the error and the error itself (often io.EOF).���// ReadString returns err != nil if and only if the returned data does not end���// in delim. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2036"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadString reads until the first occurrence of delim in the input,   returning a string containing the data up to and including the delimiter.   If ReadString encounters an error before finding a delimiter,   it returns the data read before the error and the error itself (often io.EOF).   ReadString returns err != nil if and only if the returned data does not end   in delim. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2017"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-reset">Buffer function reset</a></h3>
 <pre><code class="language-haxe">function reset():Void</code></pre>
-<p>Reset resets the buffer to be empty,���// but it retains the underlying storage for use by future writes.���// Reset is the same as Truncate(0). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2429"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Reset resets the buffer to be empty,   but it retains the underlying storage for use by future writes.   Reset is the same as Truncate(0). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2410"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-string">Buffer function string</a></h3>
 <pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
-<p>String returns the contents of the unread portion of the buffer���// as a string. If the Buffer is a nil pointer, it returns "\<nil\>".���//���// To build strings more efficiently, see the strings.Builder type. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2486"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>String returns the contents of the unread portion of the buffer   as a string. If the Buffer is a nil pointer, it returns "\<nil\>".      To build strings more efficiently, see the strings.Builder type. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2467"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-truncate">Buffer function truncate</a></h3>
 <pre><code class="language-haxe">function truncate( _n:stdgo.GoInt):Void</code></pre>
-<p>Truncate discards all but the first n unread bytes from the buffer���// but continues to use the same allocated storage.���// It panics if n is negative or greater than the length of the buffer. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2441"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Truncate discards all but the first n unread bytes from the buffer   but continues to use the same allocated storage.   It panics if n is negative or greater than the length of the buffer. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2422"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-unreadbyte">Buffer function unreadByte</a></h3>
 <pre><code class="language-haxe">function unreadByte():stdgo.Error</code></pre>
-<p>UnreadByte unreads the last byte returned by the most recent successful���// read operation that read at least one byte. If a write has happened since���// the last read, if the last read returned an error, or if the read read zero���// bytes, UnreadByte returns an error. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>UnreadByte unreads the last byte returned by the most recent successful   read operation that read at least one byte. If a write has happened since   the last read, if the last read returned an error, or if the read read zero   bytes, UnreadByte returns an error. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2070"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-unreadrune">Buffer function unreadRune</a></h3>
 <pre><code class="language-haxe">function unreadRune():stdgo.Error</code></pre>
-<p>UnreadRune unreads the last rune returned by ReadRune.���// If the most recent read or write operation on the buffer was���// not a successful ReadRune, UnreadRune returns an error.  (In this regard���// it is stricter than UnreadByte, which will unread the last byte���// from any read operation.) </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2108"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>UnreadRune unreads the last rune returned by ReadRune.   If the most recent read or write operation on the buffer was   not a successful ReadRune, UnreadRune returns an error.  (In this regard   it is stricter than UnreadByte, which will unread the last byte   from any read operation.) </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-write">Buffer function write</a></h3>
 <pre><code class="language-haxe">function write( _p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>Write appends the contents of p to the buffer, growing the buffer as���// needed. The return value n is the length of p; err is always nil. If the���// buffer becomes too large, Write will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2342"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Write appends the contents of p to the buffer, growing the buffer as   needed. The return value n is the length of p; err is always nil. If the   buffer becomes too large, Write will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2323"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-writebyte">Buffer function writeByte</a></h3>
 <pre><code class="language-haxe">function writeByte( _c:stdgo.GoByte):stdgo.Error</code></pre>
-<p>WriteByte appends the byte c to the buffer, growing the buffer as needed.���// The returned error is always nil, but is included to match bufio.Writer's���// WriteByte. If the buffer becomes too large, WriteByte will panic with���// ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2243"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteByte appends the byte c to the buffer, growing the buffer as needed.   The returned error is always nil, but is included to match bufio.Writer's   WriteByte. If the buffer becomes too large, WriteByte will panic with   ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2224"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-writerune">Buffer function writeRune</a></h3>
 <pre><code class="language-haxe">function writeRune( _r:stdgo.GoRune):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>WriteRune appends the UTF-8 encoding of Unicode code point r to the���// buffer, returning its length and an error, which is always nil but is���// included to match bufio.Writer's WriteRune. The buffer is grown as needed;���// if it becomes too large, WriteRune will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2218"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteRune appends the UTF-8 encoding of Unicode code point r to the   buffer, returning its length and an error, which is always nil but is   included to match bufio.Writer's WriteRune. The buffer is grown as needed;   if it becomes too large, WriteRune will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2199"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-writestring">Buffer function writeString</a></h3>
 <pre><code class="language-haxe">function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>WriteString appends the contents of s to the buffer, growing the buffer as���// needed. The return value n is the length of s; err is always nil. If the���// buffer becomes too large, WriteString will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2324"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteString appends the contents of s to the buffer, growing the buffer as   needed. The return value n is the length of s; err is always nil. If the   buffer becomes too large, WriteString will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2305"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="buffer-function-writeto">Buffer function writeTo</a></h3>
 <pre><code class="language-haxe">function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
-<p>WriteTo writes data to w until the buffer is drained or an error occurs.���// The return value n is the number of bytes written; it always fits into an���// int, but it is int64 to match the io.WriterTo interface. Any error���// encountered during the write is also returned. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2262"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteTo writes data to w until the buffer is drained or an error occurs.   The return value n is the number of bytes written; it always fits into an   int, but it is int64 to match the io.WriterTo interface. Any error   encountered during the write is also returned. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2243"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class Buffer_static_extension</h2>
 <h3>Buffer_static_extension function _empty</h3>
 <pre><code class="language-haxe">function _empty():Bool</code></pre>
 <p>empty reports whether the unread portion of the buffer is empty. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2475"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2456"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function _grow</h3>
 <pre><code class="language-haxe">function _grow( _n:stdgo.GoInt):stdgo.GoInt</code></pre>
-<p>grow grows the buffer to guarantee space for n more bytes.���// It returns the index where bytes should be written.���// If the buffer can't grow it will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2376"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>grow grows the buffer to guarantee space for n more bytes.   It returns the index where bytes should be written.   If the buffer can't grow it will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2357"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function _readSlice</h3>
 <pre><code class="language-haxe">function _readSlice( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.Slice&lt;stdgo.GoByte&gt;}</code></pre>
 <p>readSlice is like ReadBytes but returns a reference to internal buffer data. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2048"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2029"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function _tryGrowByReslice</h3>
 <pre><code class="language-haxe">function _tryGrowByReslice( _n:stdgo.GoInt):{_1:Bool, _0:stdgo.GoInt}</code></pre>
-<p>tryGrowByReslice is a inlineable version of grow for the fast-case where the���// internal buffer only needs to be resliced.���// It returns the index where bytes should be written and whether it succeeded. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2412"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>tryGrowByReslice is a inlineable version of grow for the fast-case where the   internal buffer only needs to be resliced.   It returns the index where bytes should be written and whether it succeeded. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2393"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function bytes</h3>
 <pre><code class="language-haxe">function bytes():stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Bytes returns a slice of length b.Len() holding the unread portion of the buffer.���// The slice is valid for use only until the next buffer modification (that is,���// only until the next call to a method like Read, Write, Reset, or Truncate).���// The slice aliases the buffer content at least until the next buffer modification,���// so immediate changes to the slice will affect the result of future reads. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2501"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Bytes returns a slice of length b.Len() holding the unread portion of the buffer.   The slice is valid for use only until the next buffer modification (that is,   only until the next call to a method like Read, Write, Reset, or Truncate).   The slice aliases the buffer content at least until the next buffer modification,   so immediate changes to the slice will affect the result of future reads. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2482"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function cap</h3>
 <pre><code class="language-haxe">function cap():stdgo.GoInt</code></pre>
-<p>Cap returns the capacity of the buffer's underlying byte slice, that is, the���// total space allocated for the buffer's data. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2458"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Cap returns the capacity of the buffer's underlying byte slice, that is, the   total space allocated for the buffer's data. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2439"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function grow</h3>
 <pre><code class="language-haxe">function grow( _n:stdgo.GoInt):Void</code></pre>
-<p>Grow grows the buffer's capacity, if necessary, to guarantee space for���// another n bytes. After Grow(n), at least n bytes can be written to the���// buffer without another allocation.���// If n is negative, Grow will panic.���// If the buffer can't grow it will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2362"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Grow grows the buffer's capacity, if necessary, to guarantee space for   another n bytes. After Grow(n), at least n bytes can be written to the   buffer without another allocation.   If n is negative, Grow will panic.   If the buffer can't grow it will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2343"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function len</h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
-<p>Len returns the number of bytes of the unread portion of the buffer;���// b.Len() == len(b.Bytes()). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2467"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Len returns the number of bytes of the unread portion of the buffer;   b.Len() == len(b.Bytes()). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2448"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function next</h3>
 <pre><code class="language-haxe">function next( _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>Next returns a slice containing the next n bytes from the buffer,���// advancing the buffer as if the bytes had been returned by Read.���// If there are fewer than n bytes in the buffer, Next returns the entire buffer.���// The slice is only valid until the next call to a read or write method. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2172"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Next returns a slice containing the next n bytes from the buffer,   advancing the buffer as if the bytes had been returned by Read.   If there are fewer than n bytes in the buffer, Next returns the entire buffer.   The slice is only valid until the next call to a read or write method. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2153"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function read</h3>
 <pre><code class="language-haxe">function read( _p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>Read reads the next len(p) bytes from the buffer or until the buffer���// is drained. The return value n is the number of bytes read. If the���// buffer has no data to return, err is io.EOF (unless len(p) is zero);���// otherwise it is nil. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2193"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Read reads the next len(p) bytes from the buffer or until the buffer   is drained. The return value n is the number of bytes read. If the   buffer has no data to return, err is io.EOF (unless len(p) is zero);   otherwise it is nil. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2174"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function readByte</h3>
 <pre><code class="language-haxe">function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}</code></pre>
-<p>ReadByte reads and returns the next byte from the buffer.���// If no byte is available, it returns error io.EOF. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2154"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadByte reads and returns the next byte from the buffer.   If no byte is available, it returns error io.EOF. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2135"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function readBytes</h3>
 <pre><code class="language-haxe">function readBytes( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.Slice&lt;stdgo.GoByte&gt;}</code></pre>
-<p>ReadBytes reads until the first occurrence of delim in the input,���// returning a slice containing the data up to and including the delimiter.���// If ReadBytes encounters an error before finding a delimiter,���// it returns the data read before the error and the error itself (often io.EOF).���// ReadBytes returns err != nil if and only if the returned data does not end in���// delim. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2072"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadBytes reads until the first occurrence of delim in the input,   returning a slice containing the data up to and including the delimiter.   If ReadBytes encounters an error before finding a delimiter,   it returns the data read before the error and the error itself (often io.EOF).   ReadBytes returns err != nil if and only if the returned data does not end in   delim. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2053"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function readFrom</h3>
 <pre><code class="language-haxe">function readFrom( _r:stdgo.io.Reader):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
-<p>ReadFrom reads data from r until EOF and appends it to the buffer, growing���// the buffer as needed. The return value n is the number of bytes read. Any���// error except io.EOF encountered during the read is also returned. If the���// buffer becomes too large, ReadFrom will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2295"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadFrom reads data from r until EOF and appends it to the buffer, growing   the buffer as needed. The return value n is the number of bytes read. Any   error except io.EOF encountered during the read is also returned. If the   buffer becomes too large, ReadFrom will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2276"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function readRune</h3>
 <pre><code class="language-haxe">function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
-<p>ReadRune reads and returns the next UTF-8-encoded���// Unicode code point from the buffer.���// If no bytes are available, the error returned is io.EOF.���// If the bytes are an erroneous UTF-8 encoding, it���// consumes one byte and returns U+FFFD, 1. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2127"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadRune reads and returns the next UTF-8-encoded   Unicode code point from the buffer.   If no bytes are available, the error returned is io.EOF.   If the bytes are an erroneous UTF-8 encoding, it   consumes one byte and returns U+FFFD, 1. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2108"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function readString</h3>
 <pre><code class="language-haxe">function readString( _delim:stdgo.GoByte):{_1:stdgo.Error, _0:stdgo.GoString}</code></pre>
-<p>ReadString reads until the first occurrence of delim in the input,���// returning a string containing the data up to and including the delimiter.���// If ReadString encounters an error before finding a delimiter,���// it returns the data read before the error and the error itself (often io.EOF).���// ReadString returns err != nil if and only if the returned data does not end���// in delim. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2036"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ReadString reads until the first occurrence of delim in the input,   returning a string containing the data up to and including the delimiter.   If ReadString encounters an error before finding a delimiter,   it returns the data read before the error and the error itself (often io.EOF).   ReadString returns err != nil if and only if the returned data does not end   in delim. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2017"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function reset</h3>
 <pre><code class="language-haxe">function reset():Void</code></pre>
-<p>Reset resets the buffer to be empty,���// but it retains the underlying storage for use by future writes.���// Reset is the same as Truncate(0). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2429"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Reset resets the buffer to be empty,   but it retains the underlying storage for use by future writes.   Reset is the same as Truncate(0). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2410"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function string</h3>
 <pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
-<p>String returns the contents of the unread portion of the buffer���// as a string. If the Buffer is a nil pointer, it returns "\<nil\>".���//���// To build strings more efficiently, see the strings.Builder type. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2486"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>String returns the contents of the unread portion of the buffer   as a string. If the Buffer is a nil pointer, it returns "\<nil\>".      To build strings more efficiently, see the strings.Builder type. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2467"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function truncate</h3>
 <pre><code class="language-haxe">function truncate( _n:stdgo.GoInt):Void</code></pre>
-<p>Truncate discards all but the first n unread bytes from the buffer���// but continues to use the same allocated storage.���// It panics if n is negative or greater than the length of the buffer. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2441"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Truncate discards all but the first n unread bytes from the buffer   but continues to use the same allocated storage.   It panics if n is negative or greater than the length of the buffer. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2422"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function unreadByte</h3>
 <pre><code class="language-haxe">function unreadByte():stdgo.Error</code></pre>
-<p>UnreadByte unreads the last byte returned by the most recent successful���// read operation that read at least one byte. If a write has happened since���// the last read, if the last read returned an error, or if the read read zero���// bytes, UnreadByte returns an error. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>UnreadByte unreads the last byte returned by the most recent successful   read operation that read at least one byte. If a write has happened since   the last read, if the last read returned an error, or if the read read zero   bytes, UnreadByte returns an error. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2070"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function unreadRune</h3>
 <pre><code class="language-haxe">function unreadRune():stdgo.Error</code></pre>
-<p>UnreadRune unreads the last rune returned by ReadRune.���// If the most recent read or write operation on the buffer was���// not a successful ReadRune, UnreadRune returns an error.  (In this regard���// it is stricter than UnreadByte, which will unread the last byte���// from any read operation.) </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2108"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>UnreadRune unreads the last rune returned by ReadRune.   If the most recent read or write operation on the buffer was   not a successful ReadRune, UnreadRune returns an error.  (In this regard   it is stricter than UnreadByte, which will unread the last byte   from any read operation.) </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function write</h3>
 <pre><code class="language-haxe">function write( _p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>Write appends the contents of p to the buffer, growing the buffer as���// needed. The return value n is the length of p; err is always nil. If the���// buffer becomes too large, Write will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2342"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Write appends the contents of p to the buffer, growing the buffer as   needed. The return value n is the length of p; err is always nil. If the   buffer becomes too large, Write will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2323"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function writeByte</h3>
 <pre><code class="language-haxe">function writeByte( _c:stdgo.GoByte):stdgo.Error</code></pre>
-<p>WriteByte appends the byte c to the buffer, growing the buffer as needed.���// The returned error is always nil, but is included to match bufio.Writer's���// WriteByte. If the buffer becomes too large, WriteByte will panic with���// ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2243"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteByte appends the byte c to the buffer, growing the buffer as needed.   The returned error is always nil, but is included to match bufio.Writer's   WriteByte. If the buffer becomes too large, WriteByte will panic with   ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2224"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function writeRune</h3>
 <pre><code class="language-haxe">function writeRune( _r:stdgo.GoRune):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>WriteRune appends the UTF-8 encoding of Unicode code point r to the���// buffer, returning its length and an error, which is always nil but is���// included to match bufio.Writer's WriteRune. The buffer is grown as needed;���// if it becomes too large, WriteRune will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2218"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteRune appends the UTF-8 encoding of Unicode code point r to the   buffer, returning its length and an error, which is always nil but is   included to match bufio.Writer's WriteRune. The buffer is grown as needed;   if it becomes too large, WriteRune will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2199"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>WriteString appends the contents of s to the buffer, growing the buffer as���// needed. The return value n is the length of s; err is always nil. If the���// buffer becomes too large, WriteString will panic with ErrTooLarge. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2324"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteString appends the contents of s to the buffer, growing the buffer as   needed. The return value n is the length of s; err is always nil. If the   buffer becomes too large, WriteString will panic with ErrTooLarge. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2305"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Buffer_static_extension function writeTo</h3>
 <pre><code class="language-haxe">function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
-<p>WriteTo writes data to w until the buffer is drained or an error occurs.���// The return value n is the number of bytes written; it always fits into an���// int, but it is int64 to match the io.WriterTo interface. Any error���// encountered during the write is also returned. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2262"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteTo writes data to w until the buffer is drained or an error occurs.   The return value n is the number of bytes written; it always fits into an   int, but it is int64 to match the io.WriterTo interface. Any error   encountered during the write is also returned. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2243"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-reader">class Reader</a></h2>
-<p>A Reader implements the io.Reader, io.ReaderAt, io.WriterTo, io.Seeker,��// io.ByteScanner, and io.RuneScanner interfaces by reading from��// a byte slice.��// Unlike a Buffer, a Reader is read-only and supports seeking.��// The zero value for Reader operates like a Reader of an empty slice. </p>
+<p>A Reader implements the io.Reader, io.ReaderAt, io.WriterTo, io.Seeker,  io.ByteScanner, and io.RuneScanner interfaces by reading from  a byte slice.  Unlike a Buffer, a Reader is read-only and supports seeking.  The zero value for Reader operates like a Reader of an empty slice. </p>
 <pre><code class="language-haxe">var _i:stdgo.GoInt64</code></pre>
-<p>current reading index </p>
 <pre><code class="language-haxe">var _prevRune:stdgo.GoInt</code></pre>
-<p>index of previous rune; or \&lt; 0 </p>
 <pre><code class="language-haxe">var _s:stdgo.Slice&lt;stdgo.GoUInt8&gt;</code></pre>
 <h3><a name="reader-function-new">Reader function new</a></h3>
 <pre><code class="language-haxe">function new(?_s:stdgo.Slice&lt;stdgo.GoUInt8&gt;, ?_i:stdgo.GoInt64, ?_prevRune:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L151"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L132"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-len">Reader function len</a></h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
-<p>Len returns the number of bytes of the unread portion of the���// slice. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2784"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Len returns the number of bytes of the unread portion of the   slice. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2765"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-read">Reader function read</a></h3>
 <pre><code class="language-haxe">function read( _b:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>Read implements the io.Reader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2758"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2739"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-readat">Reader function readAt</a></h3>
 <pre><code class="language-haxe">function readAt( _b:stdgo.Slice&lt;stdgo.GoByte&gt;, _off:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>ReadAt implements the io.ReaderAt interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2739"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2720"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-readbyte">Reader function readByte</a></h3>
 <pre><code class="language-haxe">function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}</code></pre>
 <p>ReadByte implements the io.ByteReader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2725"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2706"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-readrune">Reader function readRune</a></h3>
 <pre><code class="language-haxe">function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
 <p>ReadRune implements the io.RuneReader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2683"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2664"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-reset">Reader function reset</a></h3>
 <pre><code class="language-haxe">function reset( _b:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></pre>
 <p>Reset resets the Reader to be reading from b. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2606"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2587"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-seek">Reader function seek</a></h3>
 <pre><code class="language-haxe">function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
 <p>Seek implements the io.Seeker interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2644"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2625"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-size">Reader function size</a></h3>
 <pre><code class="language-haxe">function size():stdgo.GoInt64</code></pre>
-<p>Size returns the original length of the underlying byte slice.���// Size is the number of bytes available for reading via ReadAt.���// The result is unaffected by any method calls except Reset. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2775"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Size returns the original length of the underlying byte slice.   Size is the number of bytes available for reading via ReadAt.   The result is unaffected by any method calls except Reset. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2756"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-unreadbyte">Reader function unreadByte</a></h3>
 <pre><code class="language-haxe">function unreadByte():stdgo.Error</code></pre>
 <p>UnreadByte complements ReadByte in implementing the io.ByteScanner interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2712"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2693"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-unreadrune">Reader function unreadRune</a></h3>
 <pre><code class="language-haxe">function unreadRune():stdgo.Error</code></pre>
 <p>UnreadRune complements ReadRune in implementing the io.RuneScanner interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2667"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2648"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-writeto">Reader function writeTo</a></h3>
 <pre><code class="language-haxe">function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
 <p>WriteTo implements the io.WriterTo interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2619"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2600"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class Reader_static_extension</h2>
 <h3>Reader_static_extension function len</h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
-<p>Len returns the number of bytes of the unread portion of the���// slice. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2784"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Len returns the number of bytes of the unread portion of the   slice. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2765"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function read</h3>
 <pre><code class="language-haxe">function read( _b:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>Read implements the io.Reader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2758"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2739"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function readAt</h3>
 <pre><code class="language-haxe">function readAt( _b:stdgo.Slice&lt;stdgo.GoByte&gt;, _off:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>ReadAt implements the io.ReaderAt interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2739"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2720"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function readByte</h3>
 <pre><code class="language-haxe">function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}</code></pre>
 <p>ReadByte implements the io.ByteReader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2725"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2706"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function readRune</h3>
 <pre><code class="language-haxe">function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
 <p>ReadRune implements the io.RuneReader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2683"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2664"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function reset</h3>
 <pre><code class="language-haxe">function reset( _b:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></pre>
 <p>Reset resets the Reader to be reading from b. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2606"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2587"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function seek</h3>
 <pre><code class="language-haxe">function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
 <p>Seek implements the io.Seeker interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2644"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2625"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function size</h3>
 <pre><code class="language-haxe">function size():stdgo.GoInt64</code></pre>
-<p>Size returns the original length of the underlying byte slice.���// Size is the number of bytes available for reading via ReadAt.���// The result is unaffected by any method calls except Reset. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2775"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Size returns the original length of the underlying byte slice.   Size is the number of bytes available for reading via ReadAt.   The result is unaffected by any method calls except Reset. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2756"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function unreadByte</h3>
 <pre><code class="language-haxe">function unreadByte():stdgo.Error</code></pre>
 <p>UnreadByte complements ReadByte in implementing the io.ByteScanner interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2712"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2693"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function unreadRune</h3>
 <pre><code class="language-haxe">function unreadRune():stdgo.Error</code></pre>
 <p>UnreadRune complements ReadRune in implementing the io.RuneScanner interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2667"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2648"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function writeTo</h3>
 <pre><code class="language-haxe">function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
 <p>WriteTo implements the io.WriterTo interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2619"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2600"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_asciiSet_static_extension</h2>
 <h3>T_asciiSet_static_extension function _contains</h3>
 <pre><code class="language-haxe">function _contains(_as:stdgo.Ref&lt;stdgo.bytes._Bytes.T_asciiSet&gt;, _c:stdgo.GoByte):Bool</code></pre>
 <p>contains reports whether c is inside the set. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2819"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes//Bytes.hx#L2800"target="_blank" rel="noopener noreferrer">(view code)</a></p>
     </article>
 </body>
 </html>

@@ -58,76 +58,104 @@
         <h1>Module: <code>stdgo.unicode.utf8</code></h1>
 <p><a href="../../index.html">(view library index)</a></p>
 <h1><a name="overview">Overview</a></h1>
-<p>Package utf8 implements functions and constants to support text encoded in��// UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.��// See https://en.wikipedia.org/wiki/UTF-8 </p><details><summary>hl tests passed</summary>
+<p>Package utf8 implements functions and constants to support text encoded in  UTF-8. It includes functions to translate between runes and UTF-8 byte sequences.  See https://en.wikipedia.org/wiki/UTF-8 </p><details><summary>hl tests passed</summary>
 <p>
-<pre><code>=== RUN   TestConstants
---- PASS: TestConstants (7.20024108886719e-05)
-=== RUN   TestFullRune
---- PASS: TestFullRune (0.000231027603149414)
-=== RUN   TestEncodeRune
---- PASS: TestEncodeRune (0.000304222106933594)
-=== RUN   TestAppendRune
---- PASS: TestAppendRune (0.000461816787719727)
-=== RUN   TestDecodeRune
---- PASS: TestDecodeRune (0.00110387802124023)
-=== RUN   TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (3.60012054443359e-05)
-=== RUN   TestSequencing
---- PASS: TestSequencing (0.388898134231567)
-=== RUN   TestRuntimeConversion
---- PASS: TestRuntimeConversion (0.00254106521606445)
-=== RUN   TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (0.000987052917480469)
-=== RUN   TestNegativeRune
---- PASS: TestNegativeRune (2.88486480712891e-05)
-=== RUN   TestRuneCount
---- PASS: TestRuneCount (3.50475311279297e-05)
-=== RUN   TestRuneLen
---- PASS: TestRuneLen (1.00135803222656e-05)
-=== RUN   TestValid
---- PASS: TestValid (0.000173091888427734)
-=== RUN   TestValidRune
---- PASS: TestValidRune (1.00135803222656e-05)</code></pre>
+<pre><code>=== RUN  TestConstants
+--- PASS: TestConstants (%!s(float64=0.0001270771026611328))
+
+=== RUN  TestFullRune
+--- PASS: TestFullRune (%!s(float64=0.00018405914306640625))
+
+=== RUN  TestEncodeRune
+--- PASS: TestEncodeRune (%!s(float64=0.00026798248291015625))
+
+=== RUN  TestAppendRune
+--- PASS: TestAppendRune (%!s(float64=0.0003840923309326172))
+
+=== RUN  TestDecodeRune
+--- PASS: TestDecodeRune (%!s(float64=0.0009520053863525391))
+
+=== RUN  TestDecodeSurrogateRune
+--- PASS: TestDecodeSurrogateRune (%!s(float64=2.4080276489257812e-05))
+
+=== RUN  TestSequencing
+--- PASS: TestSequencing (%!s(float64=0.3311011791229248))
+
+=== RUN  TestRuntimeConversion
+--- PASS: TestRuntimeConversion (%!s(float64=0.0014879703521728516))
+
+=== RUN  TestDecodeInvalidSequence
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.00033402442932128906))
+
+=== RUN  TestNegativeRune
+--- PASS: TestNegativeRune (%!s(float64=1.9073486328125e-05))
+
+=== RUN  TestRuneCount
+--- PASS: TestRuneCount (%!s(float64=3.0994415283203125e-05))
+
+=== RUN  TestRuneLen
+--- PASS: TestRuneLen (%!s(float64=5.9604644775390625e-06))
+
+=== RUN  TestValid
+--- PASS: TestValid (%!s(float64=0.0001399517059326172))
+
+=== RUN  TestValidRune
+--- PASS: TestValidRune (%!s(float64=5.0067901611328125e-06))
+</code></pre>
 <p></p>
 </details></p><details><summary>interp tests passed</summary>
 <p>
-<pre><code>=== RUN   TestConstants
---- PASS: TestConstants (4.9114227294921875e-05)
-=== RUN   TestFullRune
---- PASS: TestFullRune (0.00143313407897949219)
-=== RUN   TestEncodeRune
---- PASS: TestEncodeRune (0.00160384178161621094)
-=== RUN   TestAppendRune
---- PASS: TestAppendRune (0.00250601768493652344)
-=== RUN   TestDecodeRune
---- PASS: TestDecodeRune (0.00689411163330078125)
-=== RUN   TestDecodeSurrogateRune
---- PASS: TestDecodeSurrogateRune (9.3936920166015625e-05)
-=== RUN   TestSequencing
---- PASS: TestSequencing (2.13518905639648438)
-=== RUN   TestRuntimeConversion
---- PASS: TestRuntimeConversion (0.0104489326477050781)
-=== RUN   TestDecodeInvalidSequence
---- PASS: TestDecodeInvalidSequence (0.00242400169372558594)
-=== RUN   TestNegativeRune
---- PASS: TestNegativeRune (0.00012493133544921875)
-=== RUN   TestRuneCount
---- PASS: TestRuneCount (0.000191926956176757812)
-=== RUN   TestRuneLen
---- PASS: TestRuneLen (3.0994415283203125e-05)
-=== RUN   TestValid
---- PASS: TestValid (0.0010890960693359375)
-=== RUN   TestValidRune
---- PASS: TestValidRune (7.89165496826171875e-05)</code></pre>
+<pre><code>=== RUN  TestConstants
+--- PASS: TestConstants (%!s(float64=3.3855438232421875e-05))
+
+=== RUN  TestFullRune
+--- PASS: TestFullRune (%!s(float64=0.0012700557708740234))
+
+=== RUN  TestEncodeRune
+--- PASS: TestEncodeRune (%!s(float64=0.0012650489807128906))
+
+=== RUN  TestAppendRune
+--- PASS: TestAppendRune (%!s(float64=0.002132892608642578))
+
+=== RUN  TestDecodeRune
+--- PASS: TestDecodeRune (%!s(float64=0.0055620670318603516))
+
+=== RUN  TestDecodeSurrogateRune
+--- PASS: TestDecodeSurrogateRune (%!s(float64=0.0001010894775390625))
+
+=== RUN  TestSequencing
+--- PASS: TestSequencing (%!s(float64=1.6598601341247559))
+
+=== RUN  TestRuntimeConversion
+--- PASS: TestRuntimeConversion (%!s(float64=0.009514093399047852))
+
+=== RUN  TestDecodeInvalidSequence
+--- PASS: TestDecodeInvalidSequence (%!s(float64=0.002207040786743164))
+
+=== RUN  TestNegativeRune
+--- PASS: TestNegativeRune (%!s(float64=0.00010895729064941406))
+
+=== RUN  TestRuneCount
+--- PASS: TestRuneCount (%!s(float64=0.00024318695068359375))
+
+=== RUN  TestRuneLen
+--- PASS: TestRuneLen (%!s(float64=3.0040740966796875e-05))
+
+=== RUN  TestValid
+--- PASS: TestValid (%!s(float64=0.0010609626770019531))
+
+=== RUN  TestValidRune
+--- PASS: TestValidRune (%!s(float64=2.9087066650390625e-05))
+</code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")</code></pre>
+<pre><code>IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>
 <h1><a name="index">Index</a></h1><ul><li>
 <p><a href="#constants">Constants</a></p></li><li>
-<p><a href="#function-_appendrunenonascii"><code>function _appendRuneNonASCII(_p:stdgo.Slice&lt;stdgo.GoByte&gt;, _r:stdgo.GoRune):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
 <p><a href="#function-appendrune"><code>function appendRune(_p:stdgo.Slice&lt;stdgo.GoByte&gt;, _r:stdgo.GoRune):stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
 <p><a href="#function-decodelastrune"><code>function decodeLastRune(_p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.GoInt, _0:stdgo.GoRune}</code></a></p></li><li>
 <p><a href="#function-decodelastruneinstring"><code>function decodeLastRuneInString(_s:stdgo.GoString):{_1:stdgo.GoInt, _0:stdgo.GoRune}</code></a></p></li><li>
@@ -172,98 +200,95 @@
 <p>maximum number of bytes of a UTF-8 encoded Unicode character.// Numbers fundamental to the encoding. </p>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode.utf8.Utf8</code></pre>
-<h2><a name="function-_appendrunenonascii">function _appendRuneNonASCII</a></h2>
-<pre><code class="language-haxe">function _appendRuneNonASCII(_p:stdgo.Slice&lt;stdgo.GoByte&gt;, _r:stdgo.GoRune):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L527"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-appendrune">function appendRune</a></h2>
 <pre><code class="language-haxe">function appendRune(_p:stdgo.Slice&lt;stdgo.GoByte&gt;, _r:stdgo.GoRune):stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p>AppendRune appends the UTF-8 encoding of r to the end of p and��// returns the extended buffer. If the rune is out of range,��// it appends the encoding of RuneError. </p>
+<p>AppendRune appends the UTF-8 encoding of r to the end of p and  returns the extended buffer. If the rune is out of range,  it appends the encoding of RuneError. </p>
 <h3><a name="exampleappendrune">exampleAppendRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleAppendRune():Void {
 	var _buf1 = stdgo.unicode.utf8.Utf8.appendRune((null : Slice&lt;GoUInt8&gt;), (65536 : GoInt32));
-	var _buf2 = stdgo.unicode.utf8.Utf8.appendRune((Go.str("init") : Slice&lt;GoByte&gt;), (65536 : GoInt32));
+	var _buf2 = stdgo.unicode.utf8.Utf8.appendRune((("init" : GoString) : Slice&lt;GoByte&gt;), (65536 : GoInt32));
 	stdgo.fmt.Fmt.println(Go.toInterface((_buf1 : GoString)));
 	stdgo.fmt.Fmt.println(Go.toInterface((_buf2 : GoString)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L520"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L513"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-decodelastrune">function decodeLastRune</a></h2>
 <pre><code class="language-haxe">function decodeLastRune(_p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
-<p>DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and��// its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if��// the encoding is invalid, it returns (RuneError, 1). Both are impossible��// results for correct, non-empty UTF-8.��//��// An encoding is invalid if it is incorrect UTF-8, encodes a rune that is��// out of range, or is not the shortest possible UTF-8 encoding for the��// value. No other validation is performed. </p>
+<p>DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and  its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if  the encoding is invalid, it returns (RuneError, 1). Both are impossible  results for correct, non-empty UTF-8.    An encoding is invalid if it is incorrect UTF-8, encodes a rune that is  out of range, or is not the shortest possible UTF-8 encoding for the  value. No other validation is performed. </p>
 <h3><a name="exampledecodelastrune">exampleDecodeLastRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleDecodeLastRune():Void {
-	var _b = (Go.str("Hello, 世界") : Slice&lt;GoByte&gt;);
+	var _b = (("Hello, 世界" : GoString) : Slice&lt;GoByte&gt;);
 	while ((_b.length) &gt; (0 : GoInt)) {
 		var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRune(_b),
 			_r:GoInt32 = __tmp__._0,
 			_size:GoInt = __tmp__._1;
-		stdgo.fmt.Fmt.printf(Go.str("%c %v\n"), Go.toInterface(_r), Go.toInterface(_size));
+		stdgo.fmt.Fmt.printf(("%c %v\n" : GoString), Go.toInterface(_r), Go.toInterface(_size));
 		_b = (_b.__slice__(0, (_b.length) - _size) : Slice&lt;GoUInt8&gt;);
 	};
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L352"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L345"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-decodelastruneinstring">function decodeLastRuneInString</a></h2>
 <pre><code class="language-haxe">function decodeLastRuneInString(_s:stdgo.GoString):{_1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
-<p>DecodeLastRuneInString is like DecodeLastRune but its input is a string. If��// s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid,��// it returns (RuneError, 1). Both are impossible results for correct,��// non-empty UTF-8.��//��// An encoding is invalid if it is incorrect UTF-8, encodes a rune that is��// out of range, or is not the shortest possible UTF-8 encoding for the��// value. No other validation is performed. </p>
+<p>DecodeLastRuneInString is like DecodeLastRune but its input is a string. If  s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid,  it returns (RuneError, 1). Both are impossible results for correct,  non-empty UTF-8.    An encoding is invalid if it is incorrect UTF-8, encodes a rune that is  out of range, or is not the shortest possible UTF-8 encoding for the  value. No other validation is performed. </p>
 <h3><a name="exampledecodelastruneinstring">exampleDecodeLastRuneInString</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleDecodeLastRuneInString():Void {
-	var _str:GoString = Go.str("Hello, 世界");
+	var _str:GoString = ("Hello, 世界" : GoString);
 	while ((_str.length) &gt; (0 : GoInt)) {
 		var __tmp__ = stdgo.unicode.utf8.Utf8.decodeLastRuneInString(_str),
 			_r:GoInt32 = __tmp__._0,
 			_size:GoInt = __tmp__._1;
-		stdgo.fmt.Fmt.printf(Go.str("%c %v\n"), Go.toInterface(_r), Go.toInterface(_size));
+		stdgo.fmt.Fmt.printf(("%c %v\n" : GoString), Go.toInterface(_r), Go.toInterface(_size));
 		_str = (_str.__slice__(0, (_str.length) - _size) : GoString);
 	};
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L399"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L392"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-decoderune">function decodeRune</a></h2>
 <pre><code class="language-haxe">function decodeRune(_p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
-<p>DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and��// its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if��// the encoding is invalid, it returns (RuneError, 1). Both are impossible��// results for correct, non-empty UTF-8.��//��// An encoding is invalid if it is incorrect UTF-8, encodes a rune that is��// out of range, or is not the shortest possible UTF-8 encoding for the��// value. No other validation is performed. </p>
+<p>DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and  its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if  the encoding is invalid, it returns (RuneError, 1). Both are impossible  results for correct, non-empty UTF-8.    An encoding is invalid if it is incorrect UTF-8, encodes a rune that is  out of range, or is not the shortest possible UTF-8 encoding for the  value. No other validation is performed. </p>
 <h3><a name="exampledecoderune">exampleDecodeRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleDecodeRune():Void {
-	var _b = (Go.str("Hello, 世界") : Slice&lt;GoByte&gt;);
+	var _b = (("Hello, 世界" : GoString) : Slice&lt;GoByte&gt;);
 	while ((_b.length) &gt; (0 : GoInt)) {
 		var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRune(_b),
 			_r:GoInt32 = __tmp__._0,
 			_size:GoInt = __tmp__._1;
-		stdgo.fmt.Fmt.printf(Go.str("%c %v\n"), Go.toInterface(_r), Go.toInterface(_size));
+		stdgo.fmt.Fmt.printf(("%c %v\n" : GoString), Go.toInterface(_r), Go.toInterface(_size));
 		_b = (_b.__slice__(_size) : Slice&lt;GoUInt8&gt;);
 	};
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L248"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L241"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-decoderuneinstring">function decodeRuneInString</a></h2>
 <pre><code class="language-haxe">function decodeRuneInString(_s:stdgo.GoString):{_1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
-<p>DecodeRuneInString is like DecodeRune but its input is a string. If s is��// empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it��// returns (RuneError, 1). Both are impossible results for correct, non-empty��// UTF-8.��//��// An encoding is invalid if it is incorrect UTF-8, encodes a rune that is��// out of range, or is not the shortest possible UTF-8 encoding for the��// value. No other validation is performed. </p>
+<p>DecodeRuneInString is like DecodeRune but its input is a string. If s is  empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it  returns (RuneError, 1). Both are impossible results for correct, non-empty  UTF-8.    An encoding is invalid if it is incorrect UTF-8, encodes a rune that is  out of range, or is not the shortest possible UTF-8 encoding for the  value. No other validation is performed. </p>
 <h3><a name="exampledecoderuneinstring">exampleDecodeRuneInString</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleDecodeRuneInString():Void {
-	var _str:GoString = Go.str("Hello, 世界");
+	var _str:GoString = ("Hello, 世界" : GoString);
 	while ((_str.length) &gt; (0 : GoInt)) {
 		var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_str),
 			_r:GoInt32 = __tmp__._0,
 			_size:GoInt = __tmp__._1;
-		stdgo.fmt.Fmt.printf(Go.str("%c %v\n"), Go.toInterface(_r), Go.toInterface(_size));
+		stdgo.fmt.Fmt.printf(("%c %v\n" : GoString), Go.toInterface(_r), Go.toInterface(_size));
 		_str = (_str.__slice__(_size) : GoString);
 	};
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L300"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L293"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-encoderune">function encodeRune</a></h2>
 <pre><code class="language-haxe">function encodeRune(_p:stdgo.Slice&lt;stdgo.GoByte&gt;, _r:stdgo.GoRune):stdgo.GoInt</code></pre>
-<p>EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune.��// If the rune is out of range, it writes the encoding of RuneError.��// It returns the number of bytes written. </p>
+<p>EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune.  If the rune is out of range, it writes the encoding of RuneError.  It returns the number of bytes written. </p>
 <h3><a name="exampleencoderune">exampleEncodeRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleEncodeRune():Void {
@@ -282,15 +307,15 @@
 	for (_i =&gt; _c in _runes) {
 		var _buf = new Slice&lt;GoUInt8&gt;((3 : GoInt).toBasic(), 0, ...[for (i in 0...(3 : GoInt).toBasic()) (0 : GoUInt8)]);
 		var _size:GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _c);
-		stdgo.fmt.Fmt.printf(Go.str("%d: %d %[2]s %d\n"), Go.toInterface(_i), Go.toInterface(_buf), Go.toInterface(_size));
+		stdgo.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : GoString), Go.toInterface(_i), Go.toInterface(_buf), Go.toInterface(_size));
 	};
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L462"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L455"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-fullrune">function fullRune</a></h2>
 <pre><code class="language-haxe">function fullRune(_p:stdgo.Slice&lt;stdgo.GoByte&gt;):Bool</code></pre>
-<p>FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a rune.��// An invalid encoding is considered a full Rune since it will convert as a width-1 error rune. </p>
+<p>FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a rune.  An invalid encoding is considered a full Rune since it will convert as a width-1 error rune. </p>
 <h3><a name="examplefullrune">exampleFullRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleFullRune():Void {
@@ -300,49 +325,49 @@
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L199"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L192"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-fullruneinstring">function fullRuneInString</a></h2>
 <pre><code class="language-haxe">function fullRuneInString(_s:stdgo.GoString):Bool</code></pre>
 <p>FullRuneInString is like FullRune but its input is a string. </p>
 <h3><a name="examplefullruneinstring">exampleFullRuneInString</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleFullRuneInString():Void {
-	var _str:GoString = Go.str("世");
+	var _str:GoString = ("世" : GoString);
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString(_str)));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.fullRuneInString((_str.__slice__(0, (2 : GoInt)) : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L220"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L213"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-runecount">function runeCount</a></h2>
 <pre><code class="language-haxe">function runeCount(_p:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoInt</code></pre>
-<p>RuneCount returns the number of runes in p. Erroneous and short��// encodings are treated as single runes of width 1 byte. </p>
+<p>RuneCount returns the number of runes in p. Erroneous and short  encodings are treated as single runes of width 1 byte. </p>
 <h3><a name="examplerunecount">exampleRuneCount</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleRuneCount():Void {
-	var _buf = (Go.str("Hello, 世界") : Slice&lt;GoByte&gt;);
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("bytes =")), Go.toInterface((_buf.length)));
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("runes =")), Go.toInterface(stdgo.unicode.utf8.Utf8.runeCount(_buf)));
+	var _buf = (("Hello, 世界" : GoString) : Slice&lt;GoByte&gt;);
+	stdgo.fmt.Fmt.println(Go.toInterface(("bytes =" : GoString)), Go.toInterface((_buf.length)));
+	stdgo.fmt.Fmt.println(Go.toInterface(("runes =" : GoString)), Go.toInterface(stdgo.unicode.utf8.Utf8.runeCount(_buf)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L570"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L563"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-runecountinstring">function runeCountInString</a></h2>
 <pre><code class="language-haxe">function runeCountInString(_s:stdgo.GoString):stdgo.GoInt</code></pre>
 <p>RuneCountInString is like RuneCount but its input is a string. </p>
 <h3><a name="examplerunecountinstring">exampleRuneCountInString</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleRuneCountInString():Void {
-	var _str:GoString = Go.str("Hello, 世界");
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("bytes =")), Go.toInterface((_str.length)));
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("runes =")), Go.toInterface(stdgo.unicode.utf8.Utf8.runeCountInString(_str)));
+	var _str:GoString = ("Hello, 世界" : GoString);
+	stdgo.fmt.Fmt.println(Go.toInterface(("bytes =" : GoString)), Go.toInterface((_str.length)));
+	stdgo.fmt.Fmt.println(Go.toInterface(("runes =" : GoString)), Go.toInterface(stdgo.unicode.utf8.Utf8.runeCountInString(_str)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L618"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L611"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-runelen">function runeLen</a></h2>
 <pre><code class="language-haxe">function runeLen(_r:stdgo.GoRune):stdgo.GoInt</code></pre>
-<p>RuneLen returns the number of bytes required to encode the rune.��// It returns -1 if the rune is not a valid value to encode in UTF-8. </p>
+<p>RuneLen returns the number of bytes required to encode the rune.  It returns -1 if the rune is not a valid value to encode in UTF-8. </p>
 <h3><a name="examplerunelen">exampleRuneLen</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleRuneLen():Void {
@@ -351,38 +376,38 @@
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L440"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L433"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-runestart">function runeStart</a></h2>
 <pre><code class="language-haxe">function runeStart(_b:stdgo.GoByte):Bool</code></pre>
-<p>RuneStart reports whether the byte could be the first byte of an encoded,��// possibly invalid rune. Second and subsequent bytes always have the top two��// bits set to 10. </p>
+<p>RuneStart reports whether the byte could be the first byte of an encoded,  possibly invalid rune. Second and subsequent bytes always have the top two  bits set to 10. </p>
 <h3><a name="examplerunestart">exampleRuneStart</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleRuneStart():Void {
-	var _buf = (Go.str("a界") : Slice&lt;GoByte&gt;);
+	var _buf = (("a界" : GoString) : Slice&lt;GoByte&gt;);
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(0 : GoInt)])));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(1 : GoInt)])));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.runeStart(_buf[(2 : GoInt)])));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L667"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L660"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-valid">function valid</a></h2>
 <pre><code class="language-haxe">function valid(_p:stdgo.Slice&lt;stdgo.GoByte&gt;):Bool</code></pre>
 <p>Valid reports whether p consists entirely of valid UTF-8-encoded runes. </p>
 <h3><a name="examplevalid">exampleValid</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleValid():Void {
-	var _valid = (Go.str("Hello, 世界") : Slice&lt;GoByte&gt;);
+	var _valid = (("Hello, 世界" : GoString) : Slice&lt;GoByte&gt;);
 	var _invalid = (new Slice&lt;GoUInt8&gt;(0, 0, (255 : GoUInt8), (254 : GoUInt8), (253 : GoUInt8)) : Slice&lt;GoUInt8&gt;);
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.valid(_valid)));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.valid(_invalid)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L674"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L667"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-validrune">function validRune</a></h2>
 <pre><code class="language-haxe">function validRune(_r:stdgo.GoRune):Bool</code></pre>
-<p>ValidRune reports whether r can be legally encoded as UTF-8.��// Code points that are out of range or a surrogate half are illegal. </p>
+<p>ValidRune reports whether r can be legally encoded as UTF-8.  Code points that are out of range or a surrogate half are illegal. </p>
 <h3><a name="examplevalidrune">exampleValidRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleValidRune():Void {
@@ -393,21 +418,21 @@
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L780"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L773"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-validstring">function validString</a></h2>
 <pre><code class="language-haxe">function validString(_s:stdgo.GoString):Bool</code></pre>
 <p>ValidString reports whether s consists entirely of valid UTF-8-encoded runes. </p>
 <h3><a name="examplevalidstring">exampleValidString</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleValidString():Void {
-	var _valid:GoString = Go.str("Hello, 世界");
+	var _valid:GoString = ("Hello, 世界" : GoString);
 	var _invalid:GoString = ((new Slice&lt;GoUInt8&gt;(0, 0, (255 : GoUInt8), (254 : GoUInt8), (253 : GoUInt8)) : Slice&lt;GoUInt8&gt;) : GoString);
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_valid)));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.unicode.utf8.Utf8.validString(_invalid)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8//Utf8.hx#L720"target="_blank" rel="noopener noreferrer">(view code)</a></p>
     </article>
 </body>
 </html>

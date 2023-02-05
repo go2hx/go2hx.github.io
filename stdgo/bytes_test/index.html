@@ -61,30 +61,6 @@
 <h1><a name="index">Index</a></h1><ul><li>
 <p><a href="#constants">Constants</a></p></li><li>
 <p><a href="#variables">Variables</a></p></li><li>
-<p><a href="#function-_benchbytes"><code>function _benchBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _sizes:stdgo.Slice&lt;stdgo.GoInt&gt;, _f:(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void):Void</code></a></p></li><li>
-<p><a href="#function-_benchmarkcounthard"><code>function _benchmarkCountHard(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></a></p></li><li>
-<p><a href="#function-_benchmarkindexhard"><code>function _benchmarkIndexHard(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></a></p></li><li>
-<p><a href="#function-_benchmarklastindexhard"><code>function _benchmarkLastIndexHard(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></a></p></li><li>
-<p><a href="#function-_bmequal"><code>function _bmEqual(_equal:(:stdgo.Slice&lt;stdgo.GoByte&gt;, :stdgo.Slice&lt;stdgo.GoByte&gt;):Bool):(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_bmindexbyte"><code>function _bmIndexByte(_index:(:stdgo.Slice&lt;stdgo.GoByte&gt;, :stdgo.GoByte):stdgo.GoInt):(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_bmindexrune"><code>function _bmIndexRune(_index:(:stdgo.Slice&lt;stdgo.GoByte&gt;, :stdgo.GoRune):stdgo.GoInt):(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_bmindexruneascii"><code>function _bmIndexRuneASCII(_index:(:stdgo.Slice&lt;stdgo.GoByte&gt;, :stdgo.GoRune):stdgo.GoInt):(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_check"><code>function _check(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _testname:stdgo.GoString, _buf:stdgo.Ref&lt;stdgo.bytes.Buffer&gt;, _s:stdgo.GoString):Void</code></a></p></li><li>
-<p><a href="#function-_empty"><code>function _empty(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _testname:stdgo.GoString, _buf:stdgo.Ref&lt;stdgo.bytes.Buffer&gt;, _s:stdgo.GoString, _fub:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></a></p></li><li>
-<p><a href="#function-_eq"><code>function _eq(_a:stdgo.Slice&lt;stdgo.GoString&gt;, _b:stdgo.Slice&lt;stdgo.GoString&gt;):Bool</code></a></p></li><li>
-<p><a href="#function-_fillbytes"><code>function _fillBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _testname:stdgo.GoString, _buf:stdgo.Ref&lt;stdgo.bytes.Buffer&gt;, _s:stdgo.GoString, _n:stdgo.GoInt, _fub:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_fillstring"><code>function _fillString(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _testname:stdgo.GoString, _buf:stdgo.Ref&lt;stdgo.bytes.Buffer&gt;, _s:stdgo.GoString, _n:stdgo.GoInt, _fus:stdgo.GoString):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_makebenchinputhard"><code>function _makeBenchInputHard():stdgo.Slice&lt;stdgo.GoByte&gt;</code></a></p></li><li>
-<p><a href="#function-_not"><code>function _not(_p:stdgo.bytes_test._Bytes_test.T_predicate):stdgo.bytes_test._Bytes_test.T_predicate</code></a></p></li><li>
-<p><a href="#function-_repeat"><code>function _repeat(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _count:stdgo.GoInt):stdgo.Error</code></a></p></li><li>
-<p><a href="#function-_rot13"><code>function _rot13(_r:stdgo.GoRune):stdgo.GoRune</code></a></p></li><li>
-<p><a href="#function-_runindexanytests"><code>function _runIndexAnyTests(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _f:(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _chars:stdgo.GoString):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice&lt;stdgo.bytes_test.BinOpTest&gt;):Void</code></a></p></li><li>
-<p><a href="#function-_runindextests"><code>function _runIndexTests(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _f:(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice&lt;stdgo.bytes_test.BinOpTest&gt;):Void</code></a></p></li><li>
-<p><a href="#function-_runstringtests"><code>function _runStringTests(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _f:(), _funcName:stdgo.GoString, _testCases:stdgo.Slice&lt;stdgo.bytes_test.StringTest&gt;):Void</code></a></p></li><li>
-<p><a href="#function-_runesequal"><code>function _runesEqual(_a:stdgo.Slice&lt;stdgo.GoRune&gt;, _b:stdgo.Slice&lt;stdgo.GoRune&gt;):Bool</code></a></p></li><li>
-<p><a href="#function-_sliceofstring"><code>function _sliceOfString(_s:stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;):stdgo.Slice&lt;stdgo.GoString&gt;</code></a></p></li><li>
-<p><a href="#function-_tenrunes"><code>function _tenRunes(_r:stdgo.GoRune):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_valname"><code>function _valName(_x:stdgo.GoInt):stdgo.GoString</code></a></p></li><li>
 <p><a href="#function-benchmarkbufferfullsmallreads"><code>function benchmarkBufferFullSmallReads(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkbuffernotemptywriteread"><code>function benchmarkBufferNotEmptyWriteRead(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkbufferwriteblock"><code>function benchmarkBufferWriteBlock(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
@@ -279,7 +255,6 @@
 <p><a href="#function-testunreadruneerror"><code>function testUnreadRuneError(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testwriteinvalidrune"><code>function testWriteInvalidRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testwriteto"><code>function testWriteTo(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
-<p><a href="#function-main"><code>function main():Void</code></a></p></li><li>
 <p><a href="#class-binoptest">class BinOpTest</a></p></li><li>
 <p><a href="#binoptest-function-new"><code>function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_i:Null&lt;stdgo.GoInt&gt;):Void</code></a></p></li><li>
 <p><a href="#class-fieldstest">class FieldsTest</a></p></li><li>
@@ -347,683 +322,601 @@
 <pre><code class="language-haxe">var _:Bool</code></pre>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.bytes_test.Bytes</code></pre>
-<h2><a name="function-_benchbytes">function _benchBytes</a></h2>
-<pre><code class="language-haxe">function _benchBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _sizes:stdgo.Slice&lt;stdgo.GoInt&gt;, _f:(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2941"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_benchmarkcounthard">function _benchmarkCountHard</a></h2>
-<pre><code class="language-haxe">function _benchmarkCountHard(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4082"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_benchmarkindexhard">function _benchmarkIndexHard</a></h2>
-<pre><code class="language-haxe">function _benchmarkIndexHard(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4064"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_benchmarklastindexhard">function _benchmarkLastIndexHard</a></h2>
-<pre><code class="language-haxe">function _benchmarkLastIndexHard(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4073"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_bmequal">function _bmEqual</a></h2>
-<pre><code class="language-haxe">function _bmEqual(_equal:(:stdgo.Slice&lt;stdgo.GoByte&gt;, :stdgo.Slice&lt;stdgo.GoByte&gt;):Bool):(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3045"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_bmindexbyte">function _bmIndexByte</a></h2>
-<pre><code class="language-haxe">function _bmIndexByte(_index:(:stdgo.Slice&lt;stdgo.GoByte&gt;, :stdgo.GoByte):stdgo.GoInt):(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2964"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_bmindexrune">function _bmIndexRune</a></h2>
-<pre><code class="language-haxe">function _bmIndexRune(_index:(:stdgo.Slice&lt;stdgo.GoByte&gt;, :stdgo.GoRune):stdgo.GoInt):(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3006"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_bmindexruneascii">function _bmIndexRuneASCII</a></h2>
-<pre><code class="language-haxe">function _bmIndexRuneASCII(_index:(:stdgo.Slice&lt;stdgo.GoByte&gt;, :stdgo.GoRune):stdgo.GoInt):(_b:stdgo.Ref&lt;stdgo.testing.B&gt;, _n:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2989"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_check">function _check</a></h2>
-<pre><code class="language-haxe">function _check(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _testname:stdgo.GoString, _buf:stdgo.Ref&lt;stdgo.bytes.Buffer&gt;, _s:stdgo.GoString):Void</code></pre>
-<p>Verify that contents of buf match the string s. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1532"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_empty">function _empty</a></h2>
-<pre><code class="language-haxe">function _empty(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _testname:stdgo.GoString, _buf:stdgo.Ref&lt;stdgo.bytes.Buffer&gt;, _s:stdgo.GoString, _fub:stdgo.Slice&lt;stdgo.GoByte&gt;):Void</code></pre>
-<p>Empty buf through repeated reads into fub.��// The initial contents of buf corresponds to the string s. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1611"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_eq">function _eq</a></h2>
-<pre><code class="language-haxe">function _eq(_a:stdgo.Slice&lt;stdgo.GoString&gt;, _b:stdgo.Slice&lt;stdgo.GoString&gt;):Bool</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2435"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_fillbytes">function _fillBytes</a></h2>
-<pre><code class="language-haxe">function _fillBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _testname:stdgo.GoString, _buf:stdgo.Ref&lt;stdgo.bytes.Buffer&gt;, _s:stdgo.GoString, _n:stdgo.GoInt, _fub:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoString</code></pre>
-<p>Fill buf through n writes of byte slice fub.��// The initial contents of buf corresponds to the string s;��// the result is the final contents of buf returned as a string. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1579"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_fillstring">function _fillString</a></h2>
-<pre><code class="language-haxe">function _fillString(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _testname:stdgo.GoString, _buf:stdgo.Ref&lt;stdgo.bytes.Buffer&gt;, _s:stdgo.GoString, _n:stdgo.GoInt, _fus:stdgo.GoString):stdgo.GoString</code></pre>
-<p>Fill buf through n writes of string fus.��// The initial contents of buf corresponds to the string s;��// the result is the final contents of buf returned as a string. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1556"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_makebenchinputhard">function _makeBenchInputHard</a></h2>
-<pre><code class="language-haxe">function _makeBenchInputHard():stdgo.Slice&lt;stdgo.GoByte&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4050"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_not">function _not</a></h2>
-<pre><code class="language-haxe">function _not(_p:stdgo.bytes_test._Bytes_test.T_predicate):stdgo.bytes_test._Bytes_test.T_predicate</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3675"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_repeat">function _repeat</a></h2>
-<pre><code class="language-haxe">function _repeat(_b:stdgo.Slice&lt;stdgo.GoByte&gt;, _count:stdgo.GoInt):stdgo.Error</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3478"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_rot13">function _rot13</a></h2>
-<pre><code class="language-haxe">function _rot13(_r:stdgo.GoRune):stdgo.GoRune</code></pre>
-<p>User-defined self-inverse mapping function </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3350"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_runindexanytests">function _runIndexAnyTests</a></h2>
-<pre><code class="language-haxe">function _runIndexAnyTests(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _f:(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _chars:stdgo.GoString):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice&lt;stdgo.bytes_test.BinOpTest&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2593"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_runindextests">function _runIndexTests</a></h2>
-<pre><code class="language-haxe">function _runIndexTests(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _f:(_s:stdgo.Slice&lt;stdgo.GoByte&gt;, _sep:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.GoInt, _funcName:stdgo.GoString, _testCases:stdgo.Slice&lt;stdgo.bytes_test.BinOpTest&gt;):Void</code></pre>
-<p>Execute f on each test case.  funcName should be the name of f; it's used��// in failure reports. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2555"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_runstringtests">function _runStringTests</a></h2>
-<pre><code class="language-haxe">function _runStringTests(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _f:(), _funcName:stdgo.GoString, _testCases:stdgo.Slice&lt;stdgo.bytes_test.StringTest&gt;):Void</code></pre>
-<p>Execute f on each test case.  funcName should be the name of f; it's used��// in failure reports. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3324"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_runesequal">function _runesEqual</a></h2>
-<pre><code class="language-haxe">function _runesEqual(_a:stdgo.Slice&lt;stdgo.GoRune&gt;, _b:stdgo.Slice&lt;stdgo.GoRune&gt;):Bool</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3573"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_sliceofstring">function _sliceOfString</a></h2>
-<pre><code class="language-haxe">function _sliceOfString(_s:stdgo.Slice&lt;stdgo.Slice&lt;stdgo.GoByte&gt;&gt;):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2450"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_tenrunes">function _tenRunes</a></h2>
-<pre><code class="language-haxe">function _tenRunes(_r:stdgo.GoRune):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3339"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_valname">function _valName</a></h2>
-<pre><code class="language-haxe">function _valName(_x:stdgo.GoInt):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2925"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkbufferfullsmallreads">function benchmarkBufferFullSmallReads</a></h2>
 <pre><code class="language-haxe">function benchmarkBufferFullSmallReads(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
 <p>Check that we don't compact too often. From Issue 5154. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2396"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2438"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkbuffernotemptywriteread">function benchmarkBufferNotEmptyWriteRead</a></h2>
 <pre><code class="language-haxe">function benchmarkBufferNotEmptyWriteRead(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
 <p>From Issue 5154. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2375"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2417"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkbufferwriteblock">function benchmarkBufferWriteBlock</a></h2>
 <pre><code class="language-haxe">function benchmarkBufferWriteBlock(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2417"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2459"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkbytescompare">function benchmarkBytesCompare</a></h2>
 <pre><code class="language-haxe">function benchmarkBytesCompare(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4189"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4236"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytesbig">function benchmarkCompareBytesBig</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesBig(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4595"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4647"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytesbigidentical">function benchmarkCompareBytesBigIdentical</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesBigIdentical(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4614"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4666"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytesbigunaligned">function benchmarkCompareBytesBigUnaligned</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesBigUnaligned(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4576"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4628"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytesdifferentlength">function benchmarkCompareBytesDifferentLength</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesDifferentLength(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4563"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4615"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytesempty">function benchmarkCompareBytesEmpty</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesEmpty(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4524"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4576"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytesequal">function benchmarkCompareBytesEqual</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesEqual(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4498"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4550"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytesidentical">function benchmarkCompareBytesIdentical</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesIdentical(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4537"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4589"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytessamelength">function benchmarkCompareBytesSameLength</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesSameLength(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4550"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4602"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcomparebytestonil">function benchmarkCompareBytesToNil</a></h2>
 <pre><code class="language-haxe">function benchmarkCompareBytesToNil(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4511"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4563"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcount">function benchmarkCount</a></h2>
 <pre><code class="language-haxe">function benchmarkCount(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3104"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3147"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcounteasy">function benchmarkCountEasy</a></h2>
 <pre><code class="language-haxe">function benchmarkCountEasy(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3121"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3164"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcounthard1">function benchmarkCountHard1</a></h2>
 <pre><code class="language-haxe">function benchmarkCountHard1(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4119"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4166"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcounthard2">function benchmarkCountHard2</a></h2>
 <pre><code class="language-haxe">function benchmarkCountHard2(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4123"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4170"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcounthard3">function benchmarkCountHard3</a></h2>
 <pre><code class="language-haxe">function benchmarkCountHard3(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4127"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4174"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkcountsingle">function benchmarkCountSingle</a></h2>
 <pre><code class="language-haxe">function benchmarkCountSingle(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3140"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3183"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkequal">function benchmarkEqual</a></h2>
 <pre><code class="language-haxe">function benchmarkEqual(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3025"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3068"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkfields">function benchmarkFields</a></h2>
 <pre><code class="language-haxe">function benchmarkFields(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3969"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4015"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkfieldsfunc">function benchmarkFieldsFunc</a></h2>
 <pre><code class="language-haxe">function benchmarkFieldsFunc(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3992"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4038"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindex">function benchmarkIndex</a></h2>
 <pre><code class="language-haxe">function benchmarkIndex(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3068"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3111"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexanyascii">function benchmarkIndexAnyASCII</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexAnyASCII(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4220"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4267"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexanyutf8">function benchmarkIndexAnyUTF8</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexAnyUTF8(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4243"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4291"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexbyte">function benchmarkIndexByte</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexByte(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2956"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2999"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexbyteportable">function benchmarkIndexBytePortable</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexBytePortable(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2960"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3003"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexeasy">function benchmarkIndexEasy</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexEasy(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3085"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3128"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexhard1">function benchmarkIndexHard1</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexHard1(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4091"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4138"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexhard2">function benchmarkIndexHard2</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexHard2(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4095"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4142"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexhard3">function benchmarkIndexHard3</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexHard3(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4099"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4146"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexhard4">function benchmarkIndexHard4</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexHard4(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4103"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4150"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexperiodic">function benchmarkIndexPeriodic</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexPeriodic(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4345"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4397"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexrune">function benchmarkIndexRune</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexRune(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2981"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3024"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkindexruneascii">function benchmarkIndexRuneASCII</a></h2>
 <pre><code class="language-haxe">function benchmarkIndexRuneASCII(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2985"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3028"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarklastindexanyascii">function benchmarkLastIndexAnyASCII</a></h2>
 <pre><code class="language-haxe">function benchmarkLastIndexAnyASCII(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4266"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4315"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarklastindexanyutf8">function benchmarkLastIndexAnyUTF8</a></h2>
 <pre><code class="language-haxe">function benchmarkLastIndexAnyUTF8(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4289"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4339"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarklastindexhard1">function benchmarkLastIndexHard1</a></h2>
 <pre><code class="language-haxe">function benchmarkLastIndexHard1(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4107"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4154"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarklastindexhard2">function benchmarkLastIndexHard2</a></h2>
 <pre><code class="language-haxe">function benchmarkLastIndexHard2(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4111"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4158"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarklastindexhard3">function benchmarkLastIndexHard3</a></h2>
 <pre><code class="language-haxe">function benchmarkLastIndexHard3(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4115"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4162"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreadstring">function benchmarkReadString</a></h2>
 <pre><code class="language-haxe">function benchmarkReadString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2137"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2179"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkrepeat">function benchmarkRepeat</a></h2>
 <pre><code class="language-haxe">function benchmarkRepeat(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4180"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4227"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksplitemptyseparator">function benchmarkSplitEmptySeparator</a></h2>
 <pre><code class="language-haxe">function benchmarkSplitEmptySeparator(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4131"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4178"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksplitmultibyteseparator">function benchmarkSplitMultiByteSeparator</a></h2>
 <pre><code class="language-haxe">function benchmarkSplitMultiByteSeparator(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4150"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4197"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksplitnmultibyteseparator">function benchmarkSplitNMultiByteSeparator</a></h2>
 <pre><code class="language-haxe">function benchmarkSplitNMultiByteSeparator(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4170"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4217"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksplitnsinglebyteseparator">function benchmarkSplitNSingleByteSeparator</a></h2>
 <pre><code class="language-haxe">function benchmarkSplitNSingleByteSeparator(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4160"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4207"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksplitsinglebyteseparator">function benchmarkSplitSingleByteSeparator</a></h2>
 <pre><code class="language-haxe">function benchmarkSplitSingleByteSeparator(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4140"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4187"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktolower">function benchmarkToLower</a></h2>
 <pre><code class="language-haxe">function benchmarkToLower(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3435"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3480"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktoupper">function benchmarkToUpper</a></h2>
 <pre><code class="language-haxe">function benchmarkToUpper(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3418"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3463"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktovalidutf8">function benchmarkToValidUTF8</a></h2>
 <pre><code class="language-haxe">function benchmarkToValidUTF8(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4032"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4079"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktrimascii">function benchmarkTrimASCII</a></h2>
 <pre><code class="language-haxe">function benchmarkTrimASCII(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4312"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4363"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktrimbyte">function benchmarkTrimByte</a></h2>
 <pre><code class="language-haxe">function benchmarkTrimByte(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4335"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4387"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktrimspace">function benchmarkTrimSpace</a></h2>
 <pre><code class="language-haxe">function benchmarkTrimSpace(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4015"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4061"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkwritebyte">function benchmarkWriteByte</a></h2>
 <pre><code class="language-haxe">function benchmarkWriteByte(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2335"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2377"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkwriterune">function benchmarkWriteRune</a></h2>
 <pre><code class="language-haxe">function benchmarkWriteRune(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2353"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2395"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer">function exampleBuffer</a></h2>
 <pre><code class="language-haxe">function exampleBuffer():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4633"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4685"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer_bytes">function exampleBuffer_Bytes</a></h2>
 <pre><code class="language-haxe">function exampleBuffer_Bytes():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4646"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4698"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer_cap">function exampleBuffer_Cap</a></h2>
 <pre><code class="language-haxe">function exampleBuffer_Cap():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4653"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4705"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer_grow">function exampleBuffer_Grow</a></h2>
 <pre><code class="language-haxe">function exampleBuffer_Grow():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4660"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4712"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer_len">function exampleBuffer_Len</a></h2>
 <pre><code class="language-haxe">function exampleBuffer_Len():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4668"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4720"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer_next">function exampleBuffer_Next</a></h2>
 <pre><code class="language-haxe">function exampleBuffer_Next():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4675"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer_read">function exampleBuffer_Read</a></h2>
 <pre><code class="language-haxe">function exampleBuffer_Read():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4684"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4736"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer_readbyte">function exampleBuffer_ReadByte</a></h2>
 <pre><code class="language-haxe">function exampleBuffer_ReadByte():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4700"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4752"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplebuffer_reader">function exampleBuffer_reader</a></h2>
 <pre><code class="language-haxe">function exampleBuffer_reader():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4640"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4692"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplecompare">function exampleCompare</a></h2>
 <pre><code class="language-haxe">function exampleCompare():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4714"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4766"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplecompare_search">function exampleCompare_search</a></h2>
 <pre><code class="language-haxe">function exampleCompare_search():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4779"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplecontains">function exampleContains</a></h2>
 <pre><code class="language-haxe">function exampleContains():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4736"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4788"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplecontainsany">function exampleContainsAny</a></h2>
 <pre><code class="language-haxe">function exampleContainsAny():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4743"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4795"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplecontainsrune">function exampleContainsRune</a></h2>
 <pre><code class="language-haxe">function exampleContainsRune():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4750"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4802"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplecount">function exampleCount</a></h2>
 <pre><code class="language-haxe">function exampleCount():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4758"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4810"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplecut">function exampleCut</a></h2>
 <pre><code class="language-haxe">function exampleCut():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4763"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4815"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleequal">function exampleEqual</a></h2>
 <pre><code class="language-haxe">function exampleEqual():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4776"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4828"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleequalfold">function exampleEqualFold</a></h2>
 <pre><code class="language-haxe">function exampleEqualFold():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4781"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4833"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplefields">function exampleFields</a></h2>
 <pre><code class="language-haxe">function exampleFields():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4785"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4837"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplefieldsfunc">function exampleFieldsFunc</a></h2>
 <pre><code class="language-haxe">function exampleFieldsFunc():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4789"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4841"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplehasprefix">function exampleHasPrefix</a></h2>
 <pre><code class="language-haxe">function exampleHasPrefix():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4796"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4849"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplehassuffix">function exampleHasSuffix</a></h2>
 <pre><code class="language-haxe">function exampleHasSuffix():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4802"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4855"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleindex">function exampleIndex</a></h2>
 <pre><code class="language-haxe">function exampleIndex():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4809"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4862"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleindexany">function exampleIndexAny</a></h2>
 <pre><code class="language-haxe">function exampleIndexAny():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4827"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4880"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleindexbyte">function exampleIndexByte</a></h2>
 <pre><code class="language-haxe">function exampleIndexByte():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4814"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4867"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleindexfunc">function exampleIndexFunc</a></h2>
 <pre><code class="language-haxe">function exampleIndexFunc():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4819"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4872"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleindexrune">function exampleIndexRune</a></h2>
 <pre><code class="language-haxe">function exampleIndexRune():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4832"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4885"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplejoin">function exampleJoin</a></h2>
 <pre><code class="language-haxe">function exampleJoin():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4837"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4890"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplelastindex">function exampleLastIndex</a></h2>
 <pre><code class="language-haxe">function exampleLastIndex():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4843"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4896"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplelastindexany">function exampleLastIndexAny</a></h2>
 <pre><code class="language-haxe">function exampleLastIndexAny():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4849"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4902"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplelastindexbyte">function exampleLastIndexByte</a></h2>
 <pre><code class="language-haxe">function exampleLastIndexByte():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4855"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4908"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplelastindexfunc">function exampleLastIndexFunc</a></h2>
 <pre><code class="language-haxe">function exampleLastIndexFunc():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4861"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4914"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereader_len">function exampleReader_Len</a></h2>
 <pre><code class="language-haxe">function exampleReader_Len():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4867"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4920"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplerepeat">function exampleRepeat</a></h2>
 <pre><code class="language-haxe">function exampleRepeat():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4872"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4925"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereplace">function exampleReplace</a></h2>
 <pre><code class="language-haxe">function exampleReplace():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4876"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4929"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereplaceall">function exampleReplaceAll</a></h2>
 <pre><code class="language-haxe">function exampleReplaceAll():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4885"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4938"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplerunes">function exampleRunes</a></h2>
 <pre><code class="language-haxe">function exampleRunes():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4891"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4944"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplesplit">function exampleSplit</a></h2>
 <pre><code class="language-haxe">function exampleSplit():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4898"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4951"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplesplitafter">function exampleSplitAfter</a></h2>
 <pre><code class="language-haxe">function exampleSplitAfter():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4913"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4968"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplesplitaftern">function exampleSplitAfterN</a></h2>
 <pre><code class="language-haxe">function exampleSplitAfterN():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4917"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4973"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplesplitn">function exampleSplitN</a></h2>
 <pre><code class="language-haxe">function exampleSplitN():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4906"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4961"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletitle">function exampleTitle</a></h2>
 <pre><code class="language-haxe">function exampleTitle():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4922"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4978"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletolower">function exampleToLower</a></h2>
 <pre><code class="language-haxe">function exampleToLower():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4991"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5054"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletolowerspecial">function exampleToLowerSpecial</a></h2>
 <pre><code class="language-haxe">function exampleToLowerSpecial():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4995"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5058"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletotitle">function exampleToTitle</a></h2>
 <pre><code class="language-haxe">function exampleToTitle():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4926"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4982"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletotitlespecial">function exampleToTitleSpecial</a></h2>
 <pre><code class="language-haxe">function exampleToTitleSpecial():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4931"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4987"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletoupper">function exampleToUpper</a></h2>
 <pre><code class="language-haxe">function exampleToUpper():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5002"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5065"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletoupperspecial">function exampleToUpperSpecial</a></h2>
 <pre><code class="language-haxe">function exampleToUpperSpecial():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5006"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5069"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrim">function exampleTrim</a></h2>
 <pre><code class="language-haxe">function exampleTrim():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4938"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4994"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrimfunc">function exampleTrimFunc</a></h2>
 <pre><code class="language-haxe">function exampleTrimFunc():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4942"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4999"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrimleft">function exampleTrimLeft</a></h2>
 <pre><code class="language-haxe">function exampleTrimLeft():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4950"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5009"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrimleftfunc">function exampleTrimLeftFunc</a></h2>
 <pre><code class="language-haxe">function exampleTrimLeftFunc():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4954"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5013"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrimprefix">function exampleTrimPrefix</a></h2>
 <pre><code class="language-haxe">function exampleTrimPrefix():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4961"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5022"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrimright">function exampleTrimRight</a></h2>
 <pre><code class="language-haxe">function exampleTrimRight():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4980"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5041"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrimrightfunc">function exampleTrimRightFunc</a></h2>
 <pre><code class="language-haxe">function exampleTrimRightFunc():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4984"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5045"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrimspace">function exampleTrimSpace</a></h2>
 <pre><code class="language-haxe">function exampleTrimSpace():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4968"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5029"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrimsuffix">function exampleTrimSuffix</a></h2>
 <pre><code class="language-haxe">function exampleTrimSuffix():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4972"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5033"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testbasicoperations">function testBasicOperations</a></h2>
 <pre><code class="language-haxe">function testBasicOperations(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1629"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1671"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testbuffergrownegative">function testBufferGrowNegative</a></h2>
 <pre><code class="language-haxe">function testBufferGrowNegative(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3806"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3852"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testbuffergrowth">function testBufferGrowth</a></h2>
 <pre><code class="language-haxe">function testBufferGrowth(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>Tests that we occasionally compact. Issue 5154. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2314"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2356"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testbuffertruncatenegative">function testBufferTruncateNegative</a></h2>
 <pre><code class="language-haxe">function testBufferTruncateNegative(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3850"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3896"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testbuffertruncateoutofrange">function testBufferTruncateOutOfRange</a></h2>
 <pre><code class="language-haxe">function testBufferTruncateOutOfRange(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3894"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3940"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcapwithpreallocatedslice">function testCapWithPreallocatedSlice</a></h2>
 <pre><code class="language-haxe">function testCapWithPreallocatedSlice(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1787"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1829"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcapwithsliceandwrittendata">function testCapWithSliceAndWrittenData</a></h2>
 <pre><code class="language-haxe">function testCapWithSliceAndWrittenData(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1795"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1837"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcompare">function testCompare</a></h2>
 <pre><code class="language-haxe">function testCompare(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4366"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4418"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcomparebytes">function testCompareBytes</a></h2>
 <pre><code class="language-haxe">function testCompareBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4396"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4448"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcompareidenticalslice">function testCompareIdenticalSlice</a></h2>
 <pre><code class="language-haxe">function testCompareIdenticalSlice(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4386"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4438"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcontains">function testContains</a></h2>
 <pre><code class="language-haxe">function testContains(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3939"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3985"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcontainsany">function testContainsAny</a></h2>
 <pre><code class="language-haxe">function testContainsAny(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3951"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3997"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcontainsrune">function testContainsRune</a></h2>
 <pre><code class="language-haxe">function testContainsRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3960"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4006"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcountbyte">function testCountByte</a></h2>
 <pre><code class="language-haxe">function testCountByte(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>test count of a single byte across page offsets </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2835"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2878"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcountbytenomatch">function testCountByteNoMatch</a></h2>
 <pre><code class="language-haxe">function testCountByteNoMatch(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>Make sure we don't count bytes outside our window </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2892"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2935"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcut">function testCut</a></h2>
 <pre><code class="language-haxe">function testCut(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3791"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3837"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testemptyreaderconcurrent">function testEmptyReaderConcurrent</a></h2>
 <pre><code class="language-haxe">function testEmptyReaderConcurrent(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5230"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5293"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testendianbasecompare">function testEndianBaseCompare</a></h2>
 <pre><code class="language-haxe">function testEndianBaseCompare(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4461"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L4513"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testequal">function testEqual</a></h2>
 <pre><code class="language-haxe">function testEqual(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2458"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2500"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testequalexhaustive">function testEqualExhaustive</a></h2>
 <pre><code class="language-haxe">function testEqualExhaustive(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2472"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2514"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testequalfold">function testEqualFold</a></h2>
 <pre><code class="language-haxe">function testEqualFold(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3772"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3818"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testfields">function testFields</a></h2>
 <pre><code class="language-haxe">function testFields(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3248"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3291"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testfieldsfunc">function testFieldsFunc</a></h2>
 <pre><code class="language-haxe">function testFieldsFunc(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3275"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3318"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testgrow">function testGrow</a></h2>
 <pre><code class="language-haxe">function testGrow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2156"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2198"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testgrowoverflow">function testGrowOverflow</a></h2>
 <pre><code class="language-haxe">function testGrowOverflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2187"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2229"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testindex">function testIndex</a></h2>
 <pre><code class="language-haxe">function testIndex(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2604"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2646"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testindexany">function testIndexAny</a></h2>
 <pre><code class="language-haxe">function testIndexAny(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2612"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2654"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testindexbyte">function testIndexByte</a></h2>
 <pre><code class="language-haxe">function testIndexByte(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2620"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2662"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testindexbytebig">function testIndexByteBig</a></h2>
 <pre><code class="language-haxe">function testIndexByteBig(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>test a larger buffer with different sizes and alignments </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2660"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2703"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testindexbytesmall">function testIndexByteSmall</a></h2>
 <pre><code class="language-haxe">function testIndexByteSmall(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>test a small index across all page offsets </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2724"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2767"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testindexfunc">function testIndexFunc</a></h2>
 <pre><code class="language-haxe">function testIndexFunc(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3704"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3750"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testindexrune">function testIndexRune</a></h2>
 <pre><code class="language-haxe">function testIndexRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2782"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2825"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlargebytereads">function testLargeByteReads</a></h2>
 <pre><code class="language-haxe">function testLargeByteReads(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1747"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1789"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlargebytewrites">function testLargeByteWrites</a></h2>
 <pre><code class="language-haxe">function testLargeByteWrites(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1715"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1757"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlargestringreads">function testLargeStringReads</a></h2>
 <pre><code class="language-haxe">function testLargeStringReads(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1733"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1775"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlargestringwrites">function testLargeStringWrites</a></h2>
 <pre><code class="language-haxe">function testLargeStringWrites(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1697"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1739"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlastindex">function testLastIndex</a></h2>
 <pre><code class="language-haxe">function testLastIndex(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2608"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2650"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlastindexany">function testLastIndexAny</a></h2>
 <pre><code class="language-haxe">function testLastIndexAny(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2616"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2658"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlastindexbyte">function testLastIndexByte</a></h2>
 <pre><code class="language-haxe">function testLastIndexByte(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2638"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2680"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testmap">function testMap</a></h2>
 <pre><code class="language-haxe">function testMap(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3361"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3406"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testmixedreadsandwrites">function testMixedReadsAndWrites</a></h2>
 <pre><code class="language-haxe">function testMixedReadsAndWrites(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1761"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1803"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnewbuffer">function testNewBuffer</a></h2>
 <pre><code class="language-haxe">function testNewBuffer(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1597"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1639"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnewbufferstring">function testNewBufferString</a></h2>
 <pre><code class="language-haxe">function testNewBufferString(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1602"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1644"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnext">function testNext</a></h2>
 <pre><code class="language-haxe">function testNext(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2047"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnil">function testNil</a></h2>
 <pre><code class="language-haxe">function testNil(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1804"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1846"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnotequal">function testNotEqual</a></h2>
 <pre><code class="language-haxe">function testNotEqual(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p>make sure Equal returns false for minimally different strings. The data��// is all zeros except for a single one in one location. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2514"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>make sure Equal returns false for minimally different strings. The data  is all zeros except for a single one in one location. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2556"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreadafterbigseek">function testReadAfterBigSeek</a></h2>
 <pre><code class="language-haxe">function testReadAfterBigSeek(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5118"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5181"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreadbytes">function testReadBytes</a></h2>
 <pre><code class="language-haxe">function testReadBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2131"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreademptyateof">function testReadEmptyAtEOF</a></h2>
 <pre><code class="language-haxe">function testReadEmptyAtEOF(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>Was a bug: used to give EOF reading empty slice at EOF. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2235"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2277"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreadfrom">function testReadFrom</a></h2>
 <pre><code class="language-haxe">function testReadFrom(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1811"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1853"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreadfromnegativereader">function testReadFromNegativeReader</a></h2>
 <pre><code class="language-haxe">function testReadFromNegativeReader(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1881"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1923"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreadfrompanicreader">function testReadFromPanicReader</a></h2>
 <pre><code class="language-haxe">function testReadFromPanicReader(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p>Make sure that an empty Buffer remains empty when��// it is "grown" before a Read that panics </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1830"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Make sure that an empty Buffer remains empty when  it is "grown" before a Read that panics </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1872"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreadstring">function testReadString</a></h2>
 <pre><code class="language-haxe">function testReadString(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2113"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2155"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreader">function testReader</a></h2>
 <pre><code class="language-haxe">function testReader(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5013"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5076"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreaderat">function testReaderAt</a></h2>
 <pre><code class="language-haxe">function testReaderAt(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5138"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5201"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreaderatconcurrent">function testReaderAtConcurrent</a></h2>
 <pre><code class="language-haxe">function testReaderAtConcurrent(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5186"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5249"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreadercopynothing">function testReaderCopyNothing</a></h2>
 <pre><code class="language-haxe">function testReaderCopyNothing(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p>verify that copying from an empty reader always has the same results,��// regardless of the presence of a WriteTo method. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5496"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>verify that copying from an empty reader always has the same results,  regardless of the presence of a WriteTo method. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5559"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreaderdoubleunreadrune">function testReaderDoubleUnreadRune</a></h2>
 <pre><code class="language-haxe">function testReaderDoubleUnreadRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5406"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5469"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreaderlen">function testReaderLen</a></h2>
 <pre><code class="language-haxe">function testReaderLen(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5338"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5401"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreaderlensize">function testReaderLenSize</a></h2>
 <pre><code class="language-haxe">function testReaderLenSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>tests that Len is affected by reads, but Size is not. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5524"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5587"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreaderreset">function testReaderReset</a></h2>
 <pre><code class="language-haxe">function testReaderReset(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5537"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5600"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreaderwriteto">function testReaderWriteTo</a></h2>
 <pre><code class="language-haxe">function testReaderWriteTo(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5305"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5368"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreaderzero">function testReaderZero</a></h2>
 <pre><code class="language-haxe">function testReaderZero(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5570"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5633"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testrepeat">function testRepeat</a></h2>
 <pre><code class="language-haxe">function testRepeat(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3466"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3511"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testrepeatcatchesoverflow">function testRepeatCatchesOverflow</a></h2>
 <pre><code class="language-haxe">function testRepeatCatchesOverflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>See Issue golang.org/issue/16237 </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3541"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3587"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreplace">function testReplace</a></h2>
 <pre><code class="language-haxe">function testReplace(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3719"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3765"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testruneio">function testRuneIO</a></h2>
 <pre><code class="language-haxe">function testRuneIO(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1951"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1993"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testrunes">function testRunes</a></h2>
 <pre><code class="language-haxe">function testRunes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3585"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3631"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testsplit">function testSplit</a></h2>
 <pre><code class="language-haxe">function testSplit(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3169"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3212"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testsplitafter">function testSplitAfter</a></h2>
 <pre><code class="language-haxe">function testSplitAfter(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3214"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3257"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtitle">function testTitle</a></h2>
 <pre><code class="language-haxe">function testTitle(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3750"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3796"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtolower">function testToLower</a></h2>
 <pre><code class="language-haxe">function testToLower(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3414"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3459"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtotitle">function testToTitle</a></h2>
 <pre><code class="language-haxe">function testToTitle(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3761"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3807"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtoupper">function testToUpper</a></h2>
 <pre><code class="language-haxe">function testToUpper(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3410"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3455"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtovalidutf8">function testToValidUTF8</a></h2>
 <pre><code class="language-haxe">function testToValidUTF8(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3452"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3497"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtrim">function testTrim</a></h2>
 <pre><code class="language-haxe">function testTrim(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3602"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3648"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtrimfunc">function testTrimFunc</a></h2>
 <pre><code class="language-haxe">function testTrimFunc(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3681"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtrimspace">function testTrimSpace</a></h2>
 <pre><code class="language-haxe">function testTrimSpace(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3462"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L3507"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testunreadbyte">function testUnreadByte</a></h2>
 <pre><code class="language-haxe">function testUnreadByte(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2249"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2291"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testunreadruneerror">function testUnreadRuneError</a></h2>
 <pre><code class="language-haxe">function testUnreadRuneError(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5386"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L5449"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testwriteinvalidrune">function testWriteInvalidRune</a></h2>
 <pre><code class="language-haxe">function testWriteInvalidRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2039"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L2081"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testwriteto">function testWriteTo</a></h2>
 <pre><code class="language-haxe">function testWriteTo(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1936"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-main">function main</a></h2>
-<pre><code class="language-haxe">function main():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L353"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes.hx#L1978"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.bytes_test.*</code></pre>
 <h2><a name="class-binoptest">class BinOpTest</a></h2>
@@ -1032,13 +925,13 @@
 <pre><code class="language-haxe">var _i:stdgo.GoInt</code></pre>
 <h3><a name="binoptest-function-new">BinOpTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_i:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L858"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L900"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-fieldstest">class FieldsTest</a></h2>
 <pre><code class="language-haxe">var _a:stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
 <pre><code class="language-haxe">var _s:stdgo.GoString</code></pre>
 <h3><a name="fieldstest-function-new">FieldsTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_s:stdgo.GoString, ?_a:stdgo.Slice&lt;stdgo.GoString&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L904"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L946"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-indexfunctest">class IndexFuncTest</a></h2>
 <pre><code class="language-haxe">var _f:stdgo.bytes_test._Bytes_test.T_predicate</code></pre>
 <pre><code class="language-haxe">var _first:stdgo.GoInt</code></pre>
@@ -1046,14 +939,14 @@
 <pre><code class="language-haxe">var _last:stdgo.GoInt</code></pre>
 <h3><a name="indexfunctest-function-new">IndexFuncTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_in:stdgo.GoString, ?_f:stdgo.bytes_test._Bytes_test.T_predicate, ?_first:Null&lt;stdgo.GoInt&gt;, ?_last:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1090"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1132"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-repeattest">class RepeatTest</a></h2>
 <pre><code class="language-haxe">var _count:stdgo.GoInt</code></pre>
 <pre><code class="language-haxe">var _in:stdgo.GoString</code></pre>
 <pre><code class="language-haxe">var _out:stdgo.GoString</code></pre>
 <h3><a name="repeattest-function-new">RepeatTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_in:stdgo.GoString, ?_out:stdgo.GoString, ?_count:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L947"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L989"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-replacetest">class ReplaceTest</a></h2>
 <pre><code class="language-haxe">var _in:stdgo.GoString</code></pre>
 <pre><code class="language-haxe">var _n:stdgo.GoInt</code></pre>
@@ -1062,14 +955,14 @@
 <pre><code class="language-haxe">var _out:stdgo.GoString</code></pre>
 <h3><a name="replacetest-function-new">ReplaceTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_in:stdgo.GoString, ?_old:stdgo.GoString, ?_new:stdgo.GoString, ?_n:Null&lt;stdgo.GoInt&gt;, ?_out:stdgo.GoString):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1116"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1158"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-runestest">class RunesTest</a></h2>
 <pre><code class="language-haxe">var _in:stdgo.GoString</code></pre>
 <pre><code class="language-haxe">var _lossy:Bool</code></pre>
 <pre><code class="language-haxe">var _out:stdgo.Slice&lt;stdgo.GoInt32&gt;</code></pre>
 <h3><a name="runestest-function-new">RunesTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_in:stdgo.GoString, ?_out:stdgo.Slice&lt;stdgo.GoInt32&gt;, ?_lossy:Bool):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L969"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1011"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-splittest">class SplitTest</a></h2>
 <pre><code class="language-haxe">var _a:stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
 <pre><code class="language-haxe">var _n:stdgo.GoInt</code></pre>
@@ -1077,14 +970,14 @@
 <pre><code class="language-haxe">var _sep:stdgo.GoString</code></pre>
 <h3><a name="splittest-function-new">SplitTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_s:stdgo.GoString, ?_sep:stdgo.GoString, ?_n:Null&lt;stdgo.GoInt&gt;, ?_a:stdgo.Slice&lt;stdgo.GoString&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L881"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L923"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-stringtest">class StringTest</a></h2>
-<p>Test case for any function which accepts and returns a byte slice.��// For ease of creation, we write the input byte slice as a string. </p>
+<p>Test case for any function which accepts and returns a byte slice.  For ease of creation, we write the input byte slice as a string. </p>
 <pre><code class="language-haxe">var _in:stdgo.GoString</code></pre>
 <pre><code class="language-haxe">var _out:stdgo.Slice&lt;stdgo.GoUInt8&gt;</code></pre>
 <h3><a name="stringtest-function-new">StringTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_in:stdgo.GoString, ?_out:stdgo.Slice&lt;stdgo.GoUInt8&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L927"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L969"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T__struct_0_static_extension</h2>
 <h2>class T__struct_10_static_extension</h2>
 <h2>class T__struct_11_static_extension</h2>
@@ -1104,25 +997,25 @@
 <h2>class T_justReader_testReaderCopyNothing_1_static_extension</h2>
 <h3>T_justReader_testReaderCopyNothing_1_static_extension function read</h3>
 <pre><code class="language-haxe">function read(__self__:stdgo.bytes_test._Bytes_test.T_justReader_testReaderCopyNothing_1, __0:stdgo.Slice&lt;stdgo.GoUInt8&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L5733"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L5796"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_justWriter_testReaderCopyNothing_2_static_extension</h2>
 <h3>T_justWriter_testReaderCopyNothing_2_static_extension function write</h3>
 <pre><code class="language-haxe">function write(__self__:stdgo.bytes_test._Bytes_test.T_justWriter_testReaderCopyNothing_2, __0:stdgo.Slice&lt;stdgo.GoUInt8&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L5758"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L5821"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_negativeReader_static_extension</h2>
 <h3>T_negativeReader_static_extension function read</h3>
 <pre><code class="language-haxe">function read(_r:stdgo.Ref&lt;stdgo.bytes_test._Bytes_test.T_negativeReader&gt;, _0:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L5677"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L5740"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_panicReader_static_extension</h2>
 <h3>T_panicReader_static_extension function read</h3>
 <pre><code class="language-haxe">function read(_r:stdgo.bytes_test._Bytes_test.T_panicReader, _p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L5703"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L5766"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-titletest">class TitleTest</a></h2>
 <pre><code class="language-haxe">var _in:stdgo.GoString</code></pre>
 <pre><code class="language-haxe">var _out:stdgo.GoString</code></pre>
 <h3><a name="titletest-function-new">TitleTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_in:stdgo.GoString, ?_out:stdgo.GoString):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1141"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1183"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-trimfunctest">class TrimFuncTest</a></h2>
 <pre><code class="language-haxe">var _f:stdgo.bytes_test._Bytes_test.T_predicate</code></pre>
 <pre><code class="language-haxe">var _in:stdgo.GoString</code></pre>
@@ -1131,7 +1024,7 @@
 <pre><code class="language-haxe">var _trimOut:stdgo.Slice&lt;stdgo.GoUInt8&gt;</code></pre>
 <h3><a name="trimfunctest-function-new">TrimFuncTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_f:stdgo.bytes_test._Bytes_test.T_predicate, ?_in:stdgo.GoString, ?_trimOut:stdgo.Slice&lt;stdgo.GoUInt8&gt;, ?_leftOut:stdgo.Slice&lt;stdgo.GoUInt8&gt;, ?_rightOut:stdgo.Slice&lt;stdgo.GoUInt8&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1062"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1104"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-trimniltest">class TrimNilTest</a></h2>
 <pre><code class="language-haxe">var _arg:stdgo.GoString</code></pre>
 <pre><code class="language-haxe">var _f:stdgo.GoString</code></pre>
@@ -1139,7 +1032,7 @@
 <pre><code class="language-haxe">var _out:stdgo.Slice&lt;stdgo.GoUInt8&gt;</code></pre>
 <h3><a name="trimniltest-function-new">TrimNilTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_f:stdgo.GoString, ?_in:stdgo.Slice&lt;stdgo.GoUInt8&gt;, ?_arg:stdgo.GoString, ?_out:stdgo.Slice&lt;stdgo.GoUInt8&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1017"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1059"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-trimtest">class TrimTest</a></h2>
 <pre><code class="language-haxe">var _arg:stdgo.GoString</code></pre>
 <pre><code class="language-haxe">var _f:stdgo.GoString</code></pre>
@@ -1147,7 +1040,7 @@
 <pre><code class="language-haxe">var _out:stdgo.GoString</code></pre>
 <h3><a name="trimtest-function-new">TrimTest function new</a></h3>
 <pre><code class="language-haxe">function new(?_f:stdgo.GoString, ?_in:stdgo.GoString, ?_arg:stdgo.GoString, ?_out:stdgo.GoString):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L992"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/bytes_test//Bytes_test.hx#L1034"target="_blank" rel="noopener noreferrer">(view code)</a></p>
     </article>
 </body>
 </html>

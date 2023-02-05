@@ -60,10 +60,6 @@
 <h1><a name="overview">Overview</a></h1>
 <h1><a name="index">Index</a></h1><ul><li>
 <p><a href="#variables">Variables</a></p></li><li>
-<p><a href="#function-_binary"><code>function _binary(_ranges:stdgo.Slice&lt;stdgo.unicode.Range16&gt;, _r:stdgo.GoUInt16):Bool</code></a></p></li><li>
-<p><a href="#function-_casestring"><code>function _caseString(_c:stdgo.GoInt):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_faketable"><code>function _fakeTable(_n:stdgo.GoInt):stdgo.Slice&lt;stdgo.unicode.Range16&gt;</code></a></p></li><li>
-<p><a href="#function-_linear"><code>function _linear(_ranges:stdgo.Slice&lt;stdgo.unicode.Range16&gt;, _r:stdgo.GoUInt16):Bool</code></a></p></li><li>
 <p><a href="#function-exampleisdigit"><code>function exampleIsDigit():Void</code></a></p></li><li>
 <p><a href="#function-exampleisletter"><code>function exampleIsLetter():Void</code></a></p></li><li>
 <p><a href="#function-exampleislower"><code>function exampleIsLower():Void</code></a></p></li><li>
@@ -106,7 +102,6 @@
 <p><a href="#function-testtotitlecase"><code>function testToTitleCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testtouppercase"><code>function testToUpperCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testturkishcase"><code>function testTurkishCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
-<p><a href="#function-main"><code>function main():Void</code></a></p></li><li>
 <p><a href="#class-t">class T</a></p></li><li>
 <p><a href="#t-function-new"><code>function new(?_rune:stdgo.GoInt32, ?_script:stdgo.GoString):Void</code></a></p></li></ul>
 <h1><a name="variables">Variables</a></h1>
@@ -114,150 +109,135 @@
 <pre><code class="language-haxe">var _:Bool</code></pre>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode_test.Unicode</code></pre>
-<h2><a name="function-_binary">function _binary</a></h2>
-<pre><code class="language-haxe">function _binary(_ranges:stdgo.Slice&lt;stdgo.unicode.Range16&gt;, _r:stdgo.GoUInt16):Bool</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L824"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_casestring">function _caseString</a></h2>
-<pre><code class="language-haxe">function _caseString(_c:stdgo.GoInt):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L595"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_faketable">function _fakeTable</a></h2>
-<pre><code class="language-haxe">function _fakeTable(_n:stdgo.GoInt):stdgo.Slice&lt;stdgo.unicode.Range16&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L799"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_linear">function _linear</a></h2>
-<pre><code class="language-haxe">function _linear(_ranges:stdgo.Slice&lt;stdgo.unicode.Range16&gt;, _r:stdgo.GoUInt16):Bool</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L811"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleisdigit">function exampleIsDigit</a></h2>
 <pre><code class="language-haxe">function exampleIsDigit():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L384"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L385"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleisletter">function exampleIsLetter</a></h2>
 <pre><code class="language-haxe">function exampleIsLetter():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L394"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L395"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleislower">function exampleIsLower</a></h2>
 <pre><code class="language-haxe">function exampleIsLower():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L399"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L400"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleisnumber">function exampleIsNumber</a></h2>
 <pre><code class="language-haxe">function exampleIsNumber():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L389"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L390"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleisspace">function exampleIsSpace</a></h2>
 <pre><code class="language-haxe">function exampleIsSpace():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L414"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L415"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleistitle">function exampleIsTitle</a></h2>
 <pre><code class="language-haxe">function exampleIsTitle():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L409"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L410"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleisupper">function exampleIsUpper</a></h2>
 <pre><code class="language-haxe">function exampleIsUpper():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L404"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L405"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplesimplefold">function exampleSimpleFold</a></h2>
 <pre><code class="language-haxe">function exampleSimpleFold():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L337"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L338"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplespecialcase">function exampleSpecialCase</a></h2>
 <pre><code class="language-haxe">function exampleSpecialCase():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L372"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L373"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleto">function exampleTo</a></h2>
 <pre><code class="language-haxe">function exampleTo():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L346"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L347"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletolower">function exampleToLower</a></h2>
 <pre><code class="language-haxe">function exampleToLower():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L357"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L358"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletotitle">function exampleToTitle</a></h2>
 <pre><code class="language-haxe">function exampleToTitle():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L362"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L363"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletoupper">function exampleToUpper</a></h2>
 <pre><code class="language-haxe">function exampleToUpper():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L367"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L368"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-example_is">function example_is</a></h2>
 <pre><code class="language-haxe">function example_is():Void</code></pre>
-<p>Functions starting with "Is" can be used to inspect which table of range a��// rune belongs to. Note that runes may fit into more than one range. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L288"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Functions starting with "Is" can be used to inspect which table of range a  rune belongs to. Note that runes may fit into more than one range. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L289"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcalibrate">function testCalibrate</a></h2>
 <pre><code class="language-haxe">function testCalibrate(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L749"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L750"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testcategories">function testCategories</a></h2>
 <pre><code class="language-haxe">function testCategories(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L927"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L928"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdigit">function testDigit</a></h2>
 <pre><code class="language-haxe">function testDigit(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L257"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L258"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdigitoptimization">function testDigitOptimization</a></h2>
 <pre><code class="language-haxe">function testDigitOptimization(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p>Test that the special case in IsDigit agrees with the table </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L273"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L274"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testiscontrollatin1">function testIsControlLatin1</a></h2>
 <pre><code class="language-haxe">function testIsControlLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L421"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L422"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisgraphiclatin1">function testIsGraphicLatin1</a></h2>
 <pre><code class="language-haxe">function testIsGraphicLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L507"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L508"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisletter">function testIsLetter</a></h2>
 <pre><code class="language-haxe">function testIsLetter(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L559"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L560"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisletterlatin1">function testIsLetterLatin1</a></h2>
 <pre><code class="language-haxe">function testIsLetterLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L439"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L440"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testislowerlatin1">function testIsLowerLatin1</a></h2>
 <pre><code class="language-haxe">function testIsLowerLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L465"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L466"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisprintlatin1">function testIsPrintLatin1</a></h2>
 <pre><code class="language-haxe">function testIsPrintLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L491"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L492"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testispunctlatin1">function testIsPunctLatin1</a></h2>
 <pre><code class="language-haxe">function testIsPunctLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L520"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L521"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisspace">function testIsSpace</a></h2>
 <pre><code class="language-haxe">function testIsSpace(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L652"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L653"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisspacelatin1">function testIsSpaceLatin1</a></h2>
 <pre><code class="language-haxe">function testIsSpaceLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L533"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L534"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testissymbollatin1">function testIsSymbolLatin1</a></h2>
 <pre><code class="language-haxe">function testIsSymbolLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L546"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L547"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisupper">function testIsUpper</a></h2>
 <pre><code class="language-haxe">function testIsUpper(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L577"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L578"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testisupperlatin1">function testIsUpperLatin1</a></h2>
 <pre><code class="language-haxe">function testIsUpperLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L452"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L453"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlatinoffset">function testLatinOffset</a></h2>
 <pre><code class="language-haxe">function testLatinOffset(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L842"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L843"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testletteroptimizations">function testLetterOptimizations</a></h2>
 <pre><code class="language-haxe">function testLetterOptimizations(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p>Check that the optimizations for IsLetter etc. agree with the tables.��// We only need to check the Latin-1 range. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L669"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Check that the optimizations for IsLetter etc. agree with the tables.  We only need to check the Latin-1 range. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L670"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnegativerune">function testNegativeRune</a></h2>
 <pre><code class="language-haxe">function testNegativeRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L870"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L871"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testnumberlatin1">function testNumberLatin1</a></h2>
 <pre><code class="language-haxe">function testNumberLatin1(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L478"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L479"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testproperties">function testProperties</a></h2>
 <pre><code class="language-haxe">function testProperties(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L955"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L956"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testsimplefold">function testSimpleFold</a></h2>
 <pre><code class="language-haxe">function testSimpleFold(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L728"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testspecialcasenomapping">function testSpecialCaseNoMapping</a></h2>
 <pre><code class="language-haxe">function testSpecialCaseNoMapping(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L858"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L859"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testto">function testTo</a></h2>
 <pre><code class="language-haxe">function testTo(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L606"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L607"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtolowercase">function testToLowerCase</a></h2>
 <pre><code class="language-haxe">function testToLowerCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L628"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L629"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtotitlecase">function testToTitleCase</a></h2>
 <pre><code class="language-haxe">function testToTitleCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L640"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L641"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtouppercase">function testToUpperCase</a></h2>
 <pre><code class="language-haxe">function testToUpperCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L616"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L617"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testturkishcase">function testTurkishCase</a></h2>
 <pre><code class="language-haxe">function testTurkishCase(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L701"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-main">function main</a></h2>
-<pre><code class="language-haxe">function main():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L95"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode.hx#L702"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode_test.*</code></pre>
 <h2><a name="class-t">class T</a></h2>
@@ -265,7 +245,7 @@
 <pre><code class="language-haxe">var _script:stdgo.GoString</code></pre>
 <h3><a name="t-function-new">T function new</a></h3>
 <pre><code class="language-haxe">function new(?_rune:stdgo.GoInt32, ?_script:stdgo.GoString):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode_test.hx#L242"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode_test//Unicode_test.hx#L243"target="_blank" rel="noopener noreferrer">(view code)</a></p>
     </article>
 </body>
 </html>

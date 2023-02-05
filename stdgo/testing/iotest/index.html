@@ -61,20 +61,23 @@
 <p>Package iotest implements Readers and Writers useful mainly for testing. </p><details><summary>hl tests failed</summary>
 <p>
 <pre><code>Error: Command failed with error 1
-=== RUN   TestWriteLogger
+stdgo/internal/Macro.macro.hx:35: define
+=== RUN  TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
-Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 353)
-Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testing/iotest_test/Iotest.hx line 55)</code></pre>
+Called from stdgo.testing.M.run (stdgo/testing/Testing.hx line 355)
+Called from stdgo.testing.iotest_test._Iotest.$Iotest_Fields_.main (stdgo/testing/iotest_test/Iotest.hx line 56)</code></pre>
 <p></p>
 </details></p><details><summary>interp tests failed</summary>
 <p>
-<pre><code>=== RUN   TestWriteLogger
+<pre><code>stdgo/internal/Macro.macro.hx:35: define
+=== RUN  TestWriteLogger
 Exception: testing.iotest.testWriteLogger is not yet implemented
 Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/testing/iotest/Iotest.hx line 250 column 2)</code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")</code></pre>
+<pre><code>IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>
 <h1><a name="index">Index</a></h1><ul><li>
@@ -133,7 +136,7 @@ Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/t
 <pre><code class="language-haxe">import stdgo.testing.iotest.Iotest</code></pre>
 <h2><a name="function-dataerrreader">function dataErrReader</a></h2>
 <pre><code class="language-haxe">function dataErrReader(_r:stdgo.io.Reader):stdgo.io.Reader</code></pre>
-<p>DataErrReader changes the way errors are handled by a Reader. Normally, a��// Reader returns an error (typically EOF) from the first Read call after the��// last piece of data is read. DataErrReader wraps a Reader and changes its��// behavior so the final error is returned along with the final data, instead��// of in the first call after the final data. </p>
+<p>DataErrReader changes the way errors are handled by a Reader. Normally, a  Reader returns an error (typically EOF) from the first Read call after the  last piece of data is read. DataErrReader wraps a Reader and changes its  behavior so the final error is returned along with the final data, instead  of in the first call after the final data. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L283"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-errreader">function errReader</a></h2>
 <pre><code class="language-haxe">function errReader(_err:stdgo.Error):stdgo.io.Reader</code></pre>
@@ -141,30 +144,30 @@ Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/t
 <h3><a name="exampleerrreader">exampleErrReader</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleErrReader():Void {
-	var _r:stdgo.io.Io.Reader = stdgo.testing.iotest.Iotest.errReader(stdgo.errors.Errors.new_(Go.str("custom error")));
+	var _r:stdgo.io.Io.Reader = stdgo.testing.iotest.Iotest.errReader(stdgo.errors.Errors.new_(("custom error" : GoString)));
 	var __tmp__ = _r.read((null : Slice&lt;GoUInt8&gt;)),
 		_n:GoInt = __tmp__._0,
 		_err:Error = __tmp__._1;
-	stdgo.fmt.Fmt.printf(Go.str("n:   %d\nerr: %q\n"), Go.toInterface(_n), Go.toInterface(_err));
+	stdgo.fmt.Fmt.printf(("n:   %d\nerr: %q\n" : GoString), Go.toInterface(_n), Go.toInterface(_err));
 }</code></pre>
 <p></p>
 </details></p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L296"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-halfreader">function halfReader</a></h2>
 <pre><code class="language-haxe">function halfReader(_r:stdgo.io.Reader):stdgo.io.Reader</code></pre>
-<p>HalfReader returns a Reader that implements Read��// by reading half as many requested bytes from r. </p>
+<p>HalfReader returns a Reader that implements Read  by reading half as many requested bytes from r. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L273"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-newreadlogger">function newReadLogger</a></h2>
 <pre><code class="language-haxe">function newReadLogger(_prefix:stdgo.GoString, _r:stdgo.io.Reader):stdgo.io.Reader</code></pre>
-<p>NewReadLogger returns a reader that behaves like r except��// that it logs (using log.Printf) each read to standard error,��// printing the prefix and the hexadecimal data read. </p>
+<p>NewReadLogger returns a reader that behaves like r except  that it logs (using log.Printf) each read to standard error,  printing the prefix and the hexadecimal data read. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L247"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-newwritelogger">function newWriteLogger</a></h2>
 <pre><code class="language-haxe">function newWriteLogger(_prefix:stdgo.GoString, _w:stdgo.io.Writer):stdgo.io.Writer</code></pre>
-<p>NewWriteLogger returns a writer that behaves like w except��// that it logs (using log.Printf) each write to standard error,��// printing the prefix and the hexadecimal data written. </p>
+<p>NewWriteLogger returns a writer that behaves like w except  that it logs (using log.Printf) each write to standard error,  printing the prefix and the hexadecimal data written. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L239"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-onebytereader">function oneByteReader</a></h2>
 <pre><code class="language-haxe">function oneByteReader(_r:stdgo.io.Reader):stdgo.io.Reader</code></pre>
-<p>OneByteReader returns a Reader that implements��// each non-empty Read by reading one byte from r. </p>
+<p>OneByteReader returns a Reader that implements  each non-empty Read by reading one byte from r. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L266"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdataerrreader_emptyreader">function testDataErrReader_emptyReader</a></h2>
 <pre><code class="language-haxe">function testDataErrReader_emptyReader(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
@@ -195,7 +198,7 @@ Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/t
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L259"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreader">function testReader</a></h2>
 <pre><code class="language-haxe">function testReader(_r:stdgo.io.Reader, _content:stdgo.Slice&lt;stdgo.GoByte&gt;):stdgo.Error</code></pre>
-<p>TestReader tests that reading from r returns the expected file content.��// It does reads of different sizes, until EOF.��// If r implements io.ReaderAt or io.Seeker, TestReader also checks��// that those operations behave as they should.��//��// If TestReader finds any misbehaviors, it returns an error reporting them.��// The error text may span multiple lines. </p>
+<p>TestReader tests that reading from r returns the expected file content.  It does reads of different sizes, until EOF.  If r implements io.ReaderAt or io.Seeker, TestReader also checks  that those operations behave as they should.    If TestReader finds any misbehaviors, it returns an error reporting them.  The error text may span multiple lines. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L308"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-teststringsreader">function testStringsReader</a></h2>
 <pre><code class="language-haxe">function testStringsReader(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
@@ -217,11 +220,11 @@ Called from stdgo.testing.iotest._Iotest.Iotest_Fields_.testWriteLogger (stdgo/t
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L253"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-timeoutreader">function timeoutReader</a></h2>
 <pre><code class="language-haxe">function timeoutReader(_r:stdgo.io.Reader):stdgo.io.Reader</code></pre>
-<p>TimeoutReader returns ErrTimeout on the second read��// with no data. Subsequent calls to read succeed. </p>
+<p>TimeoutReader returns ErrTimeout on the second read  with no data. Subsequent calls to read succeed. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L290"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-truncatewriter">function truncateWriter</a></h2>
 <pre><code class="language-haxe">function truncateWriter(_w:stdgo.io.Writer, _n:stdgo.GoInt64):stdgo.io.Writer</code></pre>
-<p>TruncateWriter returns a Writer that writes to w��// but stops silently after n bytes. </p>
+<p>TruncateWriter returns a Writer that writes to w  but stops silently after n bytes. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing/iotest//Iotest.hx#L345"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.testing.iotest.*</code></pre>

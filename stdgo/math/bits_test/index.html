@@ -60,9 +60,6 @@
 <h1><a name="overview">Overview</a></h1>
 <h1><a name="index">Index</a></h1><ul><li>
 <p><a href="#variables">Variables</a></p></li><li>
-<p><a href="#function-_testonescount"><code>function _testOnesCount(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _x:stdgo.GoUInt64, _want:stdgo.GoInt):Void</code></a></p></li><li>
-<p><a href="#function-_testreverse"><code>function _testReverse(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _x64:stdgo.GoUInt64, _want64:stdgo.GoUInt64):Void</code></a></p></li><li>
-<p><a href="#function-_testreversebytes"><code>function _testReverseBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _x64:stdgo.GoUInt64, _want64:stdgo.GoUInt64):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkadd"><code>function benchmarkAdd(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkadd32"><code>function benchmarkAdd32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkadd64"><code>function benchmarkAdd64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
@@ -168,7 +165,6 @@
 <p><a href="#function-testsub64overflowpanic"><code>function testSub64OverflowPanic(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testtrailingzeros"><code>function testTrailingZeros(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testuintsize"><code>function testUintSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
-<p><a href="#function-main"><code>function main():Void</code></a></p></li><li>
 <p><a href="#class-t__struct_0_static_extension">class T__struct_0_static_extension</a></p></li><li>
 <p><a href="#class-t__struct_1_static_extension">class T__struct_1_static_extension</a></p></li><li>
 <p><a href="#class-t__struct_2_static_extension">class T__struct_2_static_extension</a></p></li><li>
@@ -181,42 +177,33 @@
 <pre><code class="language-haxe">import stdgo.math.bits_test.Bits</code></pre>
 <pre><code class="language-haxe">var _:Bool</code></pre>
 <pre><code class="language-haxe">var input:stdgo.GoUInt64</code></pre>
-<p>Exported (global) variable serving as input for some��// of the benchmarks to ensure side-effect free calls��// are not optimized away. </p>
+<p>Exported (global) variable serving as input for some  of the benchmarks to ensure side-effect free calls  are not optimized away. </p>
 <pre><code class="language-haxe">var output:stdgo.GoInt</code></pre>
-<p>Exported (global) variable to store function results��// during benchmarking to ensure side-effect free calls��// are not optimized away. </p>
+<p>Exported (global) variable to store function results  during benchmarking to ensure side-effect free calls  are not optimized away. </p>
 <pre><code class="language-haxe">var _:Bool</code></pre>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.math.bits_test.Bits</code></pre>
-<h2><a name="function-_testonescount">function _testOnesCount</a></h2>
-<pre><code class="language-haxe">function _testOnesCount(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _x:stdgo.GoUInt64, _want:stdgo.GoInt):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L525"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_testreverse">function _testReverse</a></h2>
-<pre><code class="language-haxe">function _testReverse(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _x64:stdgo.GoUInt64, _want64:stdgo.GoUInt64):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L789"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_testreversebytes">function _testReverseBytes</a></h2>
-<pre><code class="language-haxe">function _testReverseBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _x64:stdgo.GoUInt64, _want64:stdgo.GoUInt64):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L900"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkadd">function benchmarkAdd</a></h2>
 <pre><code class="language-haxe">function benchmarkAdd(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2142"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2144"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkadd32">function benchmarkAdd32</a></h2>
 <pre><code class="language-haxe">function benchmarkAdd32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2160"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2162"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkadd64">function benchmarkAdd64</a></h2>
 <pre><code class="language-haxe">function benchmarkAdd64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2178"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2180"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkadd64multiple">function benchmarkAdd64multiple</a></h2>
 <pre><code class="language-haxe">function benchmarkAdd64multiple(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2196"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2198"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkdiv">function benchmarkDiv</a></h2>
 <pre><code class="language-haxe">function benchmarkDiv(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2370"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2372"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkdiv32">function benchmarkDiv32</a></h2>
 <pre><code class="language-haxe">function benchmarkDiv32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2388"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2390"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkdiv64">function benchmarkDiv64</a></h2>
 <pre><code class="language-haxe">function benchmarkDiv64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2406"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2408"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkleadingzeros">function benchmarkLeadingZeros</a></h2>
 <pre><code class="language-haxe">function benchmarkLeadingZeros(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L322"target="_blank" rel="noopener noreferrer">(view code)</a></p>
@@ -234,286 +221,283 @@
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L333"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkmul">function benchmarkMul</a></h2>
 <pre><code class="language-haxe">function benchmarkMul(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2316"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2318"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkmul32">function benchmarkMul32</a></h2>
 <pre><code class="language-haxe">function benchmarkMul32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2334"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2336"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkmul64">function benchmarkMul64</a></h2>
 <pre><code class="language-haxe">function benchmarkMul64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2352"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2354"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkonescount">function benchmarkOnesCount</a></h2>
 <pre><code class="language-haxe">function benchmarkOnesCount(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L564"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L565"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkonescount16">function benchmarkOnesCount16</a></h2>
 <pre><code class="language-haxe">function benchmarkOnesCount16(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L586"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L587"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkonescount32">function benchmarkOnesCount32</a></h2>
 <pre><code class="language-haxe">function benchmarkOnesCount32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L597"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L598"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkonescount64">function benchmarkOnesCount64</a></h2>
 <pre><code class="language-haxe">function benchmarkOnesCount64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L608"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L609"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkonescount8">function benchmarkOnesCount8</a></h2>
 <pre><code class="language-haxe">function benchmarkOnesCount8(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L575"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L576"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreverse">function benchmarkReverse</a></h2>
 <pre><code class="language-haxe">function benchmarkReverse(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L830"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L831"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreverse16">function benchmarkReverse16</a></h2>
 <pre><code class="language-haxe">function benchmarkReverse16(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L852"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L853"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreverse32">function benchmarkReverse32</a></h2>
 <pre><code class="language-haxe">function benchmarkReverse32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L863"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L864"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreverse64">function benchmarkReverse64</a></h2>
 <pre><code class="language-haxe">function benchmarkReverse64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L874"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L875"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreverse8">function benchmarkReverse8</a></h2>
 <pre><code class="language-haxe">function benchmarkReverse8(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L841"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L842"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreversebytes">function benchmarkReverseBytes</a></h2>
 <pre><code class="language-haxe">function benchmarkReverseBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L935"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L936"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreversebytes16">function benchmarkReverseBytes16</a></h2>
 <pre><code class="language-haxe">function benchmarkReverseBytes16(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L946"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L947"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreversebytes32">function benchmarkReverseBytes32</a></h2>
 <pre><code class="language-haxe">function benchmarkReverseBytes32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L957"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L958"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkreversebytes64">function benchmarkReverseBytes64</a></h2>
 <pre><code class="language-haxe">function benchmarkReverseBytes64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L968"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L969"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkrotateleft">function benchmarkRotateLeft</a></h2>
 <pre><code class="language-haxe">function benchmarkRotateLeft(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L704"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L705"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkrotateleft16">function benchmarkRotateLeft16</a></h2>
 <pre><code class="language-haxe">function benchmarkRotateLeft16(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L726"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L727"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkrotateleft32">function benchmarkRotateLeft32</a></h2>
 <pre><code class="language-haxe">function benchmarkRotateLeft32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L737"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L738"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkrotateleft64">function benchmarkRotateLeft64</a></h2>
 <pre><code class="language-haxe">function benchmarkRotateLeft64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L748"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L749"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkrotateleft8">function benchmarkRotateLeft8</a></h2>
 <pre><code class="language-haxe">function benchmarkRotateLeft8(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L715"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L716"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksub">function benchmarkSub</a></h2>
 <pre><code class="language-haxe">function benchmarkSub(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2229"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2231"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksub32">function benchmarkSub32</a></h2>
 <pre><code class="language-haxe">function benchmarkSub32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2247"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2249"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksub64">function benchmarkSub64</a></h2>
 <pre><code class="language-haxe">function benchmarkSub64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2265"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2267"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarksub64multiple">function benchmarkSub64multiple</a></h2>
 <pre><code class="language-haxe">function benchmarkSub64multiple(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2283"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2285"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktrailingzeros">function benchmarkTrailingZeros</a></h2>
 <pre><code class="language-haxe">function benchmarkTrailingZeros(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L441"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L442"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktrailingzeros16">function benchmarkTrailingZeros16</a></h2>
 <pre><code class="language-haxe">function benchmarkTrailingZeros16(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L463"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L464"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktrailingzeros32">function benchmarkTrailingZeros32</a></h2>
 <pre><code class="language-haxe">function benchmarkTrailingZeros32(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L474"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L475"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktrailingzeros64">function benchmarkTrailingZeros64</a></h2>
 <pre><code class="language-haxe">function benchmarkTrailingZeros64(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L485"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L486"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarktrailingzeros8">function benchmarkTrailingZeros8</a></h2>
 <pre><code class="language-haxe">function benchmarkTrailingZeros8(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L452"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L453"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleadd32">function exampleAdd32</a></h2>
 <pre><code class="language-haxe">function exampleAdd32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2424"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2426"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleadd64">function exampleAdd64</a></h2>
 <pre><code class="language-haxe">function exampleAdd64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2450"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2454"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplediv32">function exampleDiv32</a></h2>
 <pre><code class="language-haxe">function exampleDiv32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2566"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2576"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplediv64">function exampleDiv64</a></h2>
 <pre><code class="language-haxe">function exampleDiv64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2587"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2597"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleleadingzeros16">function exampleLeadingZeros16</a></h2>
 <pre><code class="language-haxe">function exampleLeadingZeros16():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2612"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2623"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleleadingzeros32">function exampleLeadingZeros32</a></h2>
 <pre><code class="language-haxe">function exampleLeadingZeros32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2617"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2628"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleleadingzeros64">function exampleLeadingZeros64</a></h2>
 <pre><code class="language-haxe">function exampleLeadingZeros64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2622"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2633"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleleadingzeros8">function exampleLeadingZeros8</a></h2>
 <pre><code class="language-haxe">function exampleLeadingZeros8():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2608"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2618"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplelen16">function exampleLen16</a></h2>
 <pre><code class="language-haxe">function exampleLen16():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2732"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2745"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplelen32">function exampleLen32</a></h2>
 <pre><code class="language-haxe">function exampleLen32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2736"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2749"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplelen64">function exampleLen64</a></h2>
 <pre><code class="language-haxe">function exampleLen64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2740"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2753"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplelen8">function exampleLen8</a></h2>
 <pre><code class="language-haxe">function exampleLen8():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2728"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2741"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplemul32">function exampleMul32</a></h2>
 <pre><code class="language-haxe">function exampleMul32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2528"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2538"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplemul64">function exampleMul64</a></h2>
 <pre><code class="language-haxe">function exampleMul64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2547"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2557"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleonescount">function exampleOnesCount</a></h2>
 <pre><code class="language-haxe">function exampleOnesCount():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2647"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2658"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleonescount16">function exampleOnesCount16</a></h2>
 <pre><code class="language-haxe">function exampleOnesCount16():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2655"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2667"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleonescount32">function exampleOnesCount32</a></h2>
 <pre><code class="language-haxe">function exampleOnesCount32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2659"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2672"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleonescount64">function exampleOnesCount64</a></h2>
 <pre><code class="language-haxe">function exampleOnesCount64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2664"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2677"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampleonescount8">function exampleOnesCount8</a></h2>
 <pre><code class="language-haxe">function exampleOnesCount8():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2651"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2662"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereverse16">function exampleReverse16</a></h2>
 <pre><code class="language-haxe">function exampleReverse16():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2698"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2711"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereverse32">function exampleReverse32</a></h2>
 <pre><code class="language-haxe">function exampleReverse32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2703"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2716"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereverse64">function exampleReverse64</a></h2>
 <pre><code class="language-haxe">function exampleReverse64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2708"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2721"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereverse8">function exampleReverse8</a></h2>
 <pre><code class="language-haxe">function exampleReverse8():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2693"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2706"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereversebytes16">function exampleReverseBytes16</a></h2>
 <pre><code class="language-haxe">function exampleReverseBytes16():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2713"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2726"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereversebytes32">function exampleReverseBytes32</a></h2>
 <pre><code class="language-haxe">function exampleReverseBytes32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2718"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2731"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplereversebytes64">function exampleReverseBytes64</a></h2>
 <pre><code class="language-haxe">function exampleReverseBytes64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2723"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2736"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplerotateleft16">function exampleRotateLeft16</a></h2>
 <pre><code class="language-haxe">function exampleRotateLeft16():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2675"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2688"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplerotateleft32">function exampleRotateLeft32</a></h2>
 <pre><code class="language-haxe">function exampleRotateLeft32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2681"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2694"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplerotateleft64">function exampleRotateLeft64</a></h2>
 <pre><code class="language-haxe">function exampleRotateLeft64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2687"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2700"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplerotateleft8">function exampleRotateLeft8</a></h2>
 <pre><code class="language-haxe">function exampleRotateLeft8():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2669"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2682"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplesub32">function exampleSub32</a></h2>
 <pre><code class="language-haxe">function exampleSub32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2476"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2482"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-examplesub64">function exampleSub64</a></h2>
 <pre><code class="language-haxe">function exampleSub64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2502"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2510"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrailingzeros16">function exampleTrailingZeros16</a></h2>
 <pre><code class="language-haxe">function exampleTrailingZeros16():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2632"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2643"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrailingzeros32">function exampleTrailingZeros32</a></h2>
 <pre><code class="language-haxe">function exampleTrailingZeros32():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2637"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2648"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrailingzeros64">function exampleTrailingZeros64</a></h2>
 <pre><code class="language-haxe">function exampleTrailingZeros64():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2642"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2653"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-exampletrailingzeros8">function exampleTrailingZeros8</a></h2>
 <pre><code class="language-haxe">function exampleTrailingZeros8():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2627"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2638"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testadd64overflowpanic">function testAdd64OverflowPanic</a></h2>
 <pre><code class="language-haxe">function testAdd64OverflowPanic(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1325"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1326"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testaddsubuint">function testAddSubUint</a></h2>
 <pre><code class="language-haxe">function testAddSubUint(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1034"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1035"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testaddsubuint32">function testAddSubUint32</a></h2>
 <pre><code class="language-haxe">function testAddSubUint32(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1135"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1136"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testaddsubuint64">function testAddSubUint64</a></h2>
 <pre><code class="language-haxe">function testAddSubUint64(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1224"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1225"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdiv32panicoverflow">function testDiv32PanicOverflow</a></h2>
 <pre><code class="language-haxe">function testDiv32PanicOverflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1744"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1745"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdiv32paniczero">function testDiv32PanicZero</a></h2>
 <pre><code class="language-haxe">function testDiv32PanicZero(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1912"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1913"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdiv64panicoverflow">function testDiv64PanicOverflow</a></h2>
 <pre><code class="language-haxe">function testDiv64PanicOverflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1800"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1801"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdiv64paniczero">function testDiv64PanicZero</a></h2>
 <pre><code class="language-haxe">function testDiv64PanicZero(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1968"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1969"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdivpanicoverflow">function testDivPanicOverflow</a></h2>
 <pre><code class="language-haxe">function testDivPanicOverflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1688"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1689"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testdivpaniczero">function testDivPanicZero</a></h2>
 <pre><code class="language-haxe">function testDivPanicZero(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1856"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1857"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testleadingzeros">function testLeadingZeros</a></h2>
 <pre><code class="language-haxe">function testLeadingZeros(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L255"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testlen">function testLen</a></h2>
 <pre><code class="language-haxe">function testLen(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L979"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L980"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testmuldiv">function testMulDiv</a></h2>
 <pre><code class="language-haxe">function testMulDiv(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1505"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1506"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testmuldiv32">function testMulDiv32</a></h2>
 <pre><code class="language-haxe">function testMulDiv32(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1566"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1567"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testmuldiv64">function testMulDiv64</a></h2>
 <pre><code class="language-haxe">function testMulDiv64(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1621"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1622"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testonescount">function testOnesCount</a></h2>
 <pre><code class="language-haxe">function testOnesCount(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L496"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L497"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testrem32">function testRem32</a></h2>
 <pre><code class="language-haxe">function testRem32(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2024"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2025"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testrem32overflow">function testRem32Overflow</a></h2>
 <pre><code class="language-haxe">function testRem32Overflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2047"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2048"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testrem64">function testRem64</a></h2>
 <pre><code class="language-haxe">function testRem64(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2070"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2071"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testrem64overflow">function testRem64Overflow</a></h2>
 <pre><code class="language-haxe">function testRem64Overflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2093"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L2094"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreverse">function testReverse</a></h2>
 <pre><code class="language-haxe">function testReverse(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L759"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L760"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testreversebytes">function testReverseBytes</a></h2>
 <pre><code class="language-haxe">function testReverseBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L885"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L886"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testrotateleft">function testRotateLeft</a></h2>
 <pre><code class="language-haxe">function testRotateLeft(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L619"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L620"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testsub64overflowpanic">function testSub64OverflowPanic</a></h2>
 <pre><code class="language-haxe">function testSub64OverflowPanic(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1415"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L1416"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testtrailingzeros">function testTrailingZeros</a></h2>
 <pre><code class="language-haxe">function testTrailingZeros(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L377"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testuintsize">function testUintSize</a></h2>
 <pre><code class="language-haxe">function testUintSize(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L245"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-main">function main</a></h2>
-<pre><code class="language-haxe">function main():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/math/bits_test//Bits.hx#L225"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.math.bits_test.*</code></pre>
 <h2>class T__struct_0_static_extension</h2>

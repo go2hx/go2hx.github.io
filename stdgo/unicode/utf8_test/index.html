@@ -60,9 +60,6 @@
 <h1><a name="overview">Overview</a></h1>
 <h1><a name="index">Index</a></h1><ul><li>
 <p><a href="#variables">Variables</a></p></li><li>
-<p><a href="#function-_runtimedecoderune"><code>function _runtimeDecodeRune(_s:stdgo.GoString):stdgo.GoRune</code></a></p></li><li>
-<p><a href="#function-_runtimerunecount"><code>function _runtimeRuneCount(_s:stdgo.GoString):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_testsequence"><code>function _testSequence(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _s:stdgo.GoString):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkappendasciirune"><code>function benchmarkAppendASCIIRune(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkappendjapaneserune"><code>function benchmarkAppendJapaneseRune(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
 <p><a href="#function-benchmarkdecodeasciirune"><code>function benchmarkDecodeASCIIRune(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
@@ -114,7 +111,6 @@
 <p><a href="#function-testsequencing"><code>function testSequencing(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testvalid"><code>function testValid(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
 <p><a href="#function-testvalidrune"><code>function testValidRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
-<p><a href="#function-main"><code>function main():Void</code></a></p></li><li>
 <p><a href="#class-runecounttest">class RuneCountTest</a></p></li><li>
 <p><a href="#runecounttest-function-new"><code>function new(?_in:stdgo.GoString, ?_out:Null&lt;stdgo.GoInt&gt;):Void</code></a></p></li><li>
 <p><a href="#class-runelentest">class RuneLenTest</a></p></li><li>
@@ -132,15 +128,6 @@
 <pre><code class="language-haxe">var _:Bool</code></pre>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode.utf8_test.Utf8</code></pre>
-<h2><a name="function-_runtimedecoderune">function _runtimeDecodeRune</a></h2>
-<pre><code class="language-haxe">function _runtimeDecodeRune(_s:stdgo.GoString):stdgo.GoRune</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L627"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_runtimerunecount">function _runtimeRuneCount</a></h2>
-<pre><code class="language-haxe">function _runtimeRuneCount(_s:stdgo.GoString):stdgo.GoInt</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L586"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_testsequence">function _testSequence</a></h2>
-<pre><code class="language-haxe">function _testSequence(_t:stdgo.Ref&lt;stdgo.testing.T&gt;, _s:stdgo.GoString):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L689"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmarkappendasciirune">function benchmarkAppendASCIIRune</a></h2>
 <pre><code class="language-haxe">function benchmarkAppendASCIIRune(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L982"target="_blank" rel="noopener noreferrer">(view code)</a></p>
@@ -286,11 +273,11 @@
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L796"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testruntimeconversion">function testRuntimeConversion</a></h2>
 <pre><code class="language-haxe">function testRuntimeConversion(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p>Check that a range loop, len([]rune(string)) optimization and��// []rune conversions visit the same runes.��// Not really a test of this package, but the assumption is used here and��// it's good to verify. </p>
+<p>Check that a range loop, len([]rune(string)) optimization and  []rune conversions visit the same runes.  Not really a test of this package, but the assumption is used here and  it's good to verify. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L596"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testsequencing">function testSequencing</a></h2>
 <pre><code class="language-haxe">function testSequencing(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
-<p>Check that DecodeRune and DecodeLastRune correspond to��// the equivalent range loop. </p>
+<p>Check that DecodeRune and DecodeLastRune correspond to  the equivalent range loop. </p>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L576"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-testvalid">function testValid</a></h2>
 <pre><code class="language-haxe">function testValid(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
@@ -298,9 +285,6 @@
 <h2><a name="function-testvalidrune">function testValidRune</a></h2>
 <pre><code class="language-haxe">function testValidRune(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L818"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-main">function main</a></h2>
-<pre><code class="language-haxe">function main():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/unicode/utf8_test//Utf8.hx#L115"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.unicode.utf8_test.*</code></pre>
 <h2><a name="class-runecounttest">class RuneCountTest</a></h2>

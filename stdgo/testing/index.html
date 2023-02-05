@@ -83,7 +83,7 @@
 <p><a href="#b-function-reportmetric"><code>function reportMetric(n:stdgo.GoFloat64, uint:stdgo.GoString):Void</code></a></p></li><li>
 <p><a href="#b-function-resettimer"><code>function resetTimer():Void</code></a></p></li><li>
 <p><a href="#b-function-run"><code>function run(name:stdgo.GoString, f:()):Bool</code></a></p></li><li>
-<p><a href="#b-function-runparallel"><code>function runParallel(body:()):{&lt;unknown&gt;}</code></a></p></li><li>
+<p><a href="#b-function-runparallel"><code>function runParallel(body:()):Null&lt;Dynamic&gt;</code></a></p></li><li>
 <p><a href="#b-function-setbytes"><code>function setBytes(n:stdgo.GoInt64):Void</code></a></p></li><li>
 <p><a href="#b-function-setparallelism"><code>function setParallelism(p:stdgo.GoInt):Void</code></a></p></li><li>
 <p><a href="#b-function-setenv"><code>function setenv(key:stdgo.GoString, value:stdgo.GoString):Void</code></a></p></li><li>
@@ -98,7 +98,7 @@
 <p><a href="#benchmarkresult-function-allocedbytesperop"><code>function allocedBytesPerOp():stdgo.GoInt64</code></a></p></li><li>
 <p><a href="#benchmarkresult-function-allocsperop"><code>function allocsPerOp():stdgo.GoInt64</code></a></p></li><li>
 <p><a href="#benchmarkresult-function-memstring"><code>function memString():stdgo.GoString</code></a></p></li><li>
-<p><a href="#benchmarkresult-function-new"><code>function new(?n:stdgo.GoInt, ?t:{&lt;unknown&gt;}, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap&lt;stdgo.GoString, stdgo.GoFloat64&gt;):Void</code></a></p></li><li>
+<p><a href="#benchmarkresult-function-new"><code>function new(?n:stdgo.GoInt, ?t:Dynamic, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap&lt;stdgo.GoString, stdgo.GoFloat64&gt;):Void</code></a></p></li><li>
 <p><a href="#benchmarkresult-function-nsperop"><code>function nsPerOp():stdgo.GoInt64</code></a></p></li><li>
 <p><a href="#benchmarkresult-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
 <p><a href="#class-f">class F</a></p></li><li>
@@ -170,22 +170,22 @@
 <pre><code class="language-haxe">import stdgo.testing.Testing</code></pre>
 <h2><a name="function-allocsperrun">function allocsPerRun</a></h2>
 <pre><code class="language-haxe">function allocsPerRun(_runs:stdgo.GoInt, f:():Void):stdgo.GoFloat64</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L509"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L511"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-benchmark">function benchmark</a></h2>
 <pre><code class="language-haxe">function benchmark(f:()):stdgo.testing.BenchmarkResult</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L501"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L503"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-covermode">function coverMode</a></h2>
 <pre><code class="language-haxe">function coverMode():stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L499"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L501"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-mainstart">function mainStart</a></h2>
 <pre><code class="language-haxe">function mainStart(deps:stdgo.testing.T_testDeps, tests:stdgo.Slice&lt;stdgo.testing.InternalTest&gt;, benchmarks:stdgo.Slice&lt;stdgo.testing.InternalBenchmark&gt;, _0:Any, ?_1:Any):stdgo.testing.M</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L464"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L466"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-short">function short</a></h2>
 <pre><code class="language-haxe">function short():Bool</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L506"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L508"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-verbose">function verbose</a></h2>
 <pre><code class="language-haxe">function verbose():Bool</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L512"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L514"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.testing.*</code></pre>
 <h2><a name="class-b">class B</a></h2>
@@ -242,7 +242,7 @@
 <pre><code class="language-haxe">function run(name:stdgo.GoString, f:()):Bool</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L100"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="b-function-runparallel">B function runParallel</a></h3>
-<pre><code class="language-haxe">function runParallel(body:()):{&lt;unknown&gt;}</code></pre>
+<pre><code class="language-haxe">function runParallel(body:()):Null&lt;Dynamic&gt;</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L146"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="b-function-setbytes">B function setBytes</a></h3>
 <pre><code class="language-haxe">function setBytes(n:stdgo.GoInt64):Void</code></pre>
@@ -291,7 +291,7 @@
 <pre><code class="language-haxe">function memString():stdgo.GoString</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L67"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="benchmarkresult-function-new">BenchmarkResult function new</a></h3>
-<pre><code class="language-haxe">function new(?n:stdgo.GoInt, ?t:{&lt;unknown&gt;}, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap&lt;stdgo.GoString, stdgo.GoFloat64&gt;):Void</code></pre>
+<pre><code class="language-haxe">function new(?n:stdgo.GoInt, ?t:Dynamic, ?bytes:stdgo.GoInt64, ?memAllocs:stdgo.GoUInt64, ?memBytes:stdgo.GoUInt64, ?extra:stdgo.GoMap&lt;stdgo.GoString, stdgo.GoFloat64&gt;):Void</code></pre>
 <p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L39"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="benchmarkresult-function-nsperop">BenchmarkResult function nsPerOp</a></h3>
 <pre><code class="language-haxe">function nsPerOp():stdgo.GoInt64</code></pre>
@@ -366,7 +366,7 @@
 <pre><code class="language-haxe">function f()</code></pre>
 <h3><a name="internalbenchmark-function-new">InternalBenchmark function new</a></h3>
 <pre><code class="language-haxe">function new(?name:stdgo.GoString, ?f:()):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L389"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L391"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-internalexample">class InternalExample</a></h2>
 <pre><code class="language-haxe">var name:stdgo.GoString</code></pre>
 <pre><code class="language-haxe">var output:stdgo.GoString</code></pre>
@@ -375,21 +375,21 @@
 <pre><code class="language-haxe">function f():Void</code></pre>
 <h3><a name="internalexample-function-new">InternalExample function new</a></h3>
 <pre><code class="language-haxe">function new(?name:stdgo.GoString, ?f:():Void, ?output:stdgo.GoString, ?unordered:Bool):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L429"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L431"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-internalfuzztarget">class InternalFuzzTarget</a></h2>
 <pre><code class="language-haxe">var name:stdgo.GoString</code></pre>
 <h3><a name="internalfuzztarget-function-f">InternalFuzzTarget function f</a></h3>
 <pre><code class="language-haxe">function f():Void</code></pre>
 <h3><a name="internalfuzztarget-function-new">InternalFuzzTarget function new</a></h3>
 <pre><code class="language-haxe">function new(?name:stdgo.GoString, ?f:():Void):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L408"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L410"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-internaltest">class InternalTest</a></h2>
 <pre><code class="language-haxe">var name:stdgo.GoString</code></pre>
 <h3><a name="internaltest-function-f">InternalTest function f</a></h3>
 <pre><code class="language-haxe">function f()</code></pre>
 <h3><a name="internaltest-function-new">InternalTest function new</a></h3>
 <pre><code class="language-haxe">function new(name:stdgo.GoString, f:()):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L452"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/testing//Testing.hx#L454"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-m">class M</a></h2>
 <pre><code class="language-haxe">var chatty:Bool</code></pre>
 <h3><a name="m-function-new">M function new</a></h3>

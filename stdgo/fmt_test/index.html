@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go2hx stdgo</title>
+    <link rel="shortcut icon" href="logo.svg">
+    <meta property="og:title" content="go2hx stdgo"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:url" content="https://go2hx.github.io"/>
+    <meta property="og:description" content="go2hx is a Go to Haxe compiler"/>
+    <meta property="og:image" content="logo.png"/>
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="go2hx logo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="go2hx">
+    <meta name="twitter:description" content="go2hx, The Go to Haxe compiler">
+    <meta name="twitter:image" content="logo.png">
+    <meta name="twitter:image:alt" content="go2hx logo">
+    <link href="../../prism.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../style.css" />
+		<style>
+			body {
+				box-sizing: border-box;
+				min-width: 200px;
+				max-width: 980px;
+				margin: 0 auto;
+				padding: 45px;
+			}
+			@media (prefers-color-scheme: dark) {
+				body {
+					background-color: #0d1117;
+				}
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css">
+		<style>
+			.github-fork-ribbon:before {
+				background-color: #121612;
+			}
+		</style>
+</head>
+<body>
+    <a class="markdown-body"><div class="header">
+    <table>
+            <thead>
+            <th><h2><a href="https://go2hx.github.io/"><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></a></h2></th>
+            <th><h2><a href="https://go2hx.github.io/manual">manual</a></h2></th>
+            <th><h2><a href="https://github.com/go2hx/go2hx">github</a></h2></th>
+        </thead>
+    </table>
+</div></a>
+    <script src="../../prism.js"></script>
+    <article class="markdown-body">
+        <h1>Module: <code>stdgo.fmt</code></h1>
+<p><a href="../index.html">(view library index)</a></p>
+<h1><a name="overview">Overview</a></h1>
+<h1><a name="index">Index</a></h1><ul><li>
+<p><a href="#variables">Variables</a></p></li><li>
+<p><a href="#function-benchmarkfprintint"><code>function benchmarkFprintInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkfprintintnoalloc"><code>function benchmarkFprintIntNoAlloc(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkfprintfbytes"><code>function benchmarkFprintfBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkmanyargs"><code>function benchmarkManyArgs(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkscanints"><code>function benchmarkScanInts(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkscanrecursiveint"><code>function benchmarkScanRecursiveInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarkscanrecursiveintreaderwrapper"><code>function benchmarkScanRecursiveIntReaderWrapper(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfboolean"><code>function benchmarkSprintfBoolean(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfbytes"><code>function benchmarkSprintfBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfcomplex"><code>function benchmarkSprintfComplex(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfempty"><code>function benchmarkSprintfEmpty(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintffloat"><code>function benchmarkSprintfFloat(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfhexbytes"><code>function benchmarkSprintfHexBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfhexstring"><code>function benchmarkSprintfHexString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfint"><code>function benchmarkSprintfInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfintint"><code>function benchmarkSprintfIntInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfpadding"><code>function benchmarkSprintfPadding(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfprefixedint"><code>function benchmarkSprintfPrefixedInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfquotestring"><code>function benchmarkSprintfQuoteString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfslowparsingpath"><code>function benchmarkSprintfSlowParsingPath(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfstring"><code>function benchmarkSprintfString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfstringer"><code>function benchmarkSprintfStringer(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintfstructure"><code>function benchmarkSprintfStructure(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintftruncatebytes"><code>function benchmarkSprintfTruncateBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-benchmarksprintftruncatestring"><code>function benchmarkSprintfTruncateString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></a></p></li><li>
+<p><a href="#function-exampleerrorf"><code>function exampleErrorf():Void</code></a></p></li><li>
+<p><a href="#function-examplefprint"><code>function exampleFprint():Void</code></a></p></li><li>
+<p><a href="#function-examplefprintf"><code>function exampleFprintf():Void</code></a></p></li><li>
+<p><a href="#function-examplefprintln"><code>function exampleFprintln():Void</code></a></p></li><li>
+<p><a href="#function-examplefscanf"><code>function exampleFscanf():Void</code></a></p></li><li>
+<p><a href="#function-examplefscanln"><code>function exampleFscanln():Void</code></a></p></li><li>
+<p><a href="#function-examplegostringer"><code>function exampleGoStringer():Void</code></a></p></li><li>
+<p><a href="#function-exampleprint"><code>function examplePrint():Void</code></a></p></li><li>
+<p><a href="#function-exampleprintf"><code>function examplePrintf():Void</code></a></p></li><li>
+<p><a href="#function-exampleprintln"><code>function examplePrintln():Void</code></a></p></li><li>
+<p><a href="#function-examplesprint"><code>function exampleSprint():Void</code></a></p></li><li>
+<p><a href="#function-examplesprintf"><code>function exampleSprintf():Void</code></a></p></li><li>
+<p><a href="#function-examplesprintln"><code>function exampleSprintln():Void</code></a></p></li><li>
+<p><a href="#function-examplesscanf"><code>function exampleSscanf():Void</code></a></p></li><li>
+<p><a href="#function-examplestringer"><code>function exampleStringer():Void</code></a></p></li><li>
+<p><a href="#function-example_formats"><code>function example_formats():Void</code></a></p></li><li>
+<p><a href="#function-example_printers"><code>function example_printers():Void</code></a></p></li><li>
+<p><a href="#function-testappend"><code>function testAppend(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testappendf"><code>function testAppendf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testappendln"><code>function testAppendln(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testbadverbrecursion"><code>function testBadVerbRecursion(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testblank"><code>function testBlank(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testblankln"><code>function testBlankln(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testcomplexformatting"><code>function testComplexFormatting(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testcountmallocs"><code>function testCountMallocs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testeof"><code>function testEOF(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testeofalltypes"><code>function testEOFAllTypes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testeofatendofinput"><code>function testEOFAtEndOfInput(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testemptymap"><code>function testEmptyMap(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testerrorf"><code>function testErrorf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testflagparser"><code>function testFlagParser(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testfmtinterface"><code>function testFmtInterface(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testformatterflags"><code>function testFormatterFlags(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testformatterprintln"><code>function testFormatterPrintln(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testhexbyte"><code>function testHexByte(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testhexbytes"><code>function testHexBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testinf"><code>function testInf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testisspace"><code>function testIsSpace(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testlinebylinefscanf"><code>function testLineByLineFscanf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testmapprinter"><code>function testMapPrinter(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testmultiline"><code>function testMultiLine(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testnan"><code>function testNaN(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testnildoesnotbecometyped"><code>function testNilDoesNotBecomeTyped(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testpanics"><code>function testPanics(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testparsenum"><code>function testParsenum(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testreorder"><code>function testReorder(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscan"><code>function testScan(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanempty"><code>function testScanEmpty(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanints"><code>function testScanInts(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanmultiple"><code>function testScanMultiple(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscannewlinesarespaces"><code>function testScanNewlinesAreSpaces(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscannotpointer"><code>function testScanNotPointer(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanoverflow"><code>function testScanOverflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanstatecount"><code>function testScanStateCount(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanf"><code>function testScanf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanfmulti"><code>function testScanfMulti(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanfnewlinematchformat"><code>function testScanfNewlineMatchFormat(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanln"><code>function testScanln(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanlnnewlinesterminate"><code>function testScanlnNewlinesTerminate(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanlnnonewline"><code>function testScanlnNoNewline(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testscanlnwithmiddlenewline"><code>function testScanlnWithMiddleNewline(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testsliceprinter"><code>function testSlicePrinter(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testsprintf"><code>function testSprintf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-teststringer"><code>function testStringer(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-teststructprinter"><code>function testStructPrinter(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testunreadrunewithbufio"><code>function testUnreadRuneWithBufio(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#function-testwidthandprecision"><code>function testWidthAndPrecision(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></a></p></li><li>
+<p><a href="#class-a">class A</a></p></li><li>
+<p><a href="#a-function-new"><code>function new(?_i:Null&lt;stdgo.GoInt&gt;, ?_j:Null&lt;stdgo.GoUInt&gt;, ?_s:stdgo.GoString, ?_x:stdgo.Slice&lt;stdgo.GoInt&gt;):Void</code></a></p></li><li>
+<p><a href="#class-a_testnildoesnotbecometyped_0">class A_testNilDoesNotBecomeTyped_0</a></p></li><li>
+<p><a href="#a_testnildoesnotbecometyped_0-function-new"><code>function new():Void</code></a></p></li><li>
+<p><a href="#class-address">class Address</a></p></li><li>
+<p><a href="#address-function-new"><code>function new(?city:stdgo.GoString, ?state:stdgo.GoString, ?country:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#class-animal">class Animal</a></p></li><li>
+<p><a href="#animal-function-new"><code>function new(?name:stdgo.GoString, ?age:Null&lt;stdgo.GoUInt&gt;):Void</code></a></p></li><li>
+<p><a href="#animal-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-animal_static_extension">class Animal_static_extension</a></p></li><li>
+<p><a href="#animal_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-b">class B</a></p></li><li>
+<p><a href="#b-function-new"><code>function new(?i:Null&lt;stdgo.fmt_test.I&gt;, ?_j:Null&lt;stdgo.GoInt&gt;):Void</code></a></p></li><li>
+<p><a href="#class-b_testnildoesnotbecometyped_1">class B_testNilDoesNotBecomeTyped_1</a></p></li><li>
+<p><a href="#b_testnildoesnotbecometyped_1-function-new"><code>function new():Void</code></a></p></li><li>
+<p><a href="#class-c">class C</a></p></li><li>
+<p><a href="#c-function-new"><code>function new(?_i:Null&lt;stdgo.GoInt&gt;, ?b:stdgo.fmt_test.B):Void</code></a></p></li><li>
+<p><a href="#class-c_static_extension">class C_static_extension</a></p></li><li>
+<p><a href="#class-f_static_extension">class F_static_extension</a></p></li><li>
+<p><a href="#f_static_extension-function-format"><code>function format(_f:stdgo.fmt_test.F, _s:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></a></p></li><li>
+<p><a href="#class-g_static_extension">class G_static_extension</a></p></li><li>
+<p><a href="#g_static_extension-function-gostring"><code>function goString():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-i_static_extension">class I_static_extension</a></p></li><li>
+<p><a href="#i_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-intstring">class IntString</a></p></li><li>
+<p><a href="#intstring-function-new"><code>function new(?_i:Null&lt;stdgo.GoInt&gt;, ?_s:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#intstring-function-scan"><code>function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#class-intstring_static_extension">class IntString_static_extension</a></p></li><li>
+<p><a href="#intstring_static_extension-function-scan"><code>function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#class-p_static_extension">class P_static_extension</a></p></li><li>
+<p><a href="#p_static_extension-function-string"><code>function string( _p:stdgo.Pointer&lt;stdgo.fmt_test.P&gt;):stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-panicf">class PanicF</a></p></li><li>
+<p><a href="#panicf-function-new"><code>function new(?_message:stdgo.AnyInterface):Void</code></a></p></li><li>
+<p><a href="#panicf-function-format"><code>function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></a></p></li><li>
+<p><a href="#class-panicf_static_extension">class PanicF_static_extension</a></p></li><li>
+<p><a href="#panicf_static_extension-function-format"><code>function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></a></p></li><li>
+<p><a href="#class-panicgo">class PanicGo</a></p></li><li>
+<p><a href="#panicgo-function-new"><code>function new(?_message:stdgo.AnyInterface):Void</code></a></p></li><li>
+<p><a href="#panicgo-function-gostring"><code>function goString():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-panicgo_static_extension">class PanicGo_static_extension</a></p></li><li>
+<p><a href="#panicgo_static_extension-function-gostring"><code>function goString():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-panics">class PanicS</a></p></li><li>
+<p><a href="#panics-function-new"><code>function new(?_message:stdgo.AnyInterface):Void</code></a></p></li><li>
+<p><a href="#panics-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-panics_static_extension">class PanicS_static_extension</a></p></li><li>
+<p><a href="#panics_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-person">class Person</a></p></li><li>
+<p><a href="#person-function-new"><code>function new(?name:stdgo.GoString, ?age:Null&lt;stdgo.GoUInt&gt;, ?addr:stdgo.Ref&lt;stdgo.fmt_test.Address&gt;):Void</code></a></p></li><li>
+<p><a href="#person-function-gostring"><code>function goString():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-person_static_extension">class Person_static_extension</a></p></li><li>
+<p><a href="#person_static_extension-function-gostring"><code>function goString():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-recur">class Recur</a></p></li><li>
+<p><a href="#recur-function-new"><code>function new(?_i:Null&lt;stdgo.GoInt&gt;, ?_failed:stdgo.Pointer&lt;Bool&gt;):Void</code></a></p></li><li>
+<p><a href="#recur-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-recur_static_extension">class Recur_static_extension</a></p></li><li>
+<p><a href="#recur_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-recursiveint">class RecursiveInt</a></p></li><li>
+<p><a href="#recursiveint-function-new"><code>function new(?_i:Null&lt;stdgo.GoInt&gt;, ?_next:stdgo.Ref&lt;stdgo.fmt_test.RecursiveInt&gt;):Void</code></a></p></li><li>
+<p><a href="#recursiveint-function-scan"><code>function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#class-recursiveint_static_extension">class RecursiveInt_static_extension</a></p></li><li>
+<p><a href="#recursiveint_static_extension-function-scan"><code>function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#class-s">class S</a></p></li><li>
+<p><a href="#s-function-new"><code>function new(?f:Null&lt;stdgo.fmt_test.F&gt;, ?g:Null&lt;stdgo.fmt_test.G&gt;):Void</code></a></p></li><li>
+<p><a href="#class-si">class SI</a></p></li><li>
+<p><a href="#si-function-new"><code>function new(?i:stdgo.AnyInterface):Void</code></a></p></li><li>
+<p><a href="#class-scantest">class ScanTest</a></p></li><li>
+<p><a href="#scantest-function-new"><code>function new(?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface):Void</code></a></p></li><li>
+<p><a href="#class-scanfmultitest">class ScanfMultiTest</a></p></li><li>
+<p><a href="#scanfmultitest-function-new"><code>function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.Slice&lt;stdgo.AnyInterface&gt;, ?_out:stdgo.Slice&lt;stdgo.AnyInterface&gt;, ?_err:stdgo.GoString):Void</code></a></p></li><li>
+<p><a href="#class-scanftest">class ScanfTest</a></p></li><li>
+<p><a href="#scanftest-function-new"><code>function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface):Void</code></a></p></li><li>
+<p><a href="#class-tb_static_extension">class TB_static_extension</a></p></li><li>
+<p><a href="#tb_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tf32_static_extension">class TF32_static_extension</a></p></li><li>
+<p><a href="#tf32_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tf64_static_extension">class TF64_static_extension</a></p></li><li>
+<p><a href="#tf64_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tf_static_extension">class TF_static_extension</a></p></li><li>
+<p><a href="#tf_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-ti16_static_extension">class TI16_static_extension</a></p></li><li>
+<p><a href="#ti16_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-ti32_static_extension">class TI32_static_extension</a></p></li><li>
+<p><a href="#ti32_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-ti64_static_extension">class TI64_static_extension</a></p></li><li>
+<p><a href="#ti64_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-ti8_static_extension">class TI8_static_extension</a></p></li><li>
+<p><a href="#ti8_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-ti_static_extension">class TI_static_extension</a></p></li><li>
+<p><a href="#ti_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-ts_static_extension">class TS_static_extension</a></p></li><li>
+<p><a href="#ts_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tu16_static_extension">class TU16_static_extension</a></p></li><li>
+<p><a href="#tu16_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tu32_static_extension">class TU32_static_extension</a></p></li><li>
+<p><a href="#tu32_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tu64_static_extension">class TU64_static_extension</a></p></li><li>
+<p><a href="#tu64_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tu8_static_extension">class TU8_static_extension</a></p></li><li>
+<p><a href="#tu8_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tui_static_extension">class TUI_static_extension</a></p></li><li>
+<p><a href="#tui_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-tu_static_extension">class TU_static_extension</a></p></li><li>
+<p><a href="#tu_static_extension-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t__struct_0_static_extension">class T__struct_0_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_10_static_extension">class T__struct_10_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_11_static_extension">class T__struct_11_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_12_static_extension">class T__struct_12_static_extension</a></p></li><li>
+<p><a href="#t__struct_12_static_extension-function-read"><code>function read(__self__:stdgo.fmt_test._Fmt_test.T__struct_12, __0:stdgo.Slice&lt;stdgo.GoUInt8&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></a></p></li><li>
+<p><a href="#class-t__struct_13_static_extension">class T__struct_13_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_14_static_extension">class T__struct_14_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_15_static_extension">class T__struct_15_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_16_static_extension">class T__struct_16_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_1_static_extension">class T__struct_1_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_2_static_extension">class T__struct_2_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_3_static_extension">class T__struct_3_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_4_static_extension">class T__struct_4_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_5_static_extension">class T__struct_5_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_6_static_extension">class T__struct_6_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_7_static_extension">class T__struct_7_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_8_static_extension">class T__struct_8_static_extension</a></p></li><li>
+<p><a href="#class-t__struct_9_static_extension">class T__struct_9_static_extension</a></p></li><li>
+<p><a href="#class-t_byteformatter_static_extension">class T_byteFormatter_static_extension</a></p></li><li>
+<p><a href="#t_byteformatter_static_extension-function-format"><code>function format(_:stdgo.fmt_test._Fmt_test.T_byteFormatter, _f:stdgo.fmt.State, _0:stdgo.GoRune):Void</code></a></p></li><li>
+<p><a href="#class-t_bytestringer_static_extension">class T_byteStringer_static_extension</a></p></li><li>
+<p><a href="#t_bytestringer_static_extension-function-string"><code>function string(_:stdgo.fmt_test._Fmt_test.T_byteStringer):stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t_eofcounter_static_extension">class T_eofCounter_static_extension</a></p></li><li>
+<p><a href="#t_eofcounter_static_extension-function-read"><code>function read(_ec:stdgo.Ref&lt;stdgo.fmt_test._Fmt_test.T_eofCounter&gt;, _b:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></a></p></li><li>
+<p><a href="#class-t_errstring_static_extension">class T_errString_static_extension</a></p></li><li>
+<p><a href="#t_errstring_static_extension-function-error"><code>function error(_e:stdgo.fmt_test._Fmt_test.T_errString):stdgo.GoString</code></a></p></li><li>
+<p><a href="#class-t_flagprinter_static_extension">class T_flagPrinter_static_extension</a></p></li><li>
+<p><a href="#t_flagprinter_static_extension-function-format"><code>function format(_:stdgo.fmt_test._Fmt_test.T_flagPrinter, _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></a></p></li><li>
+<p><a href="#class-t_hexbytes_static_extension">class T_hexBytes_static_extension</a></p></li><li>
+<p><a href="#t_hexbytes_static_extension-function-scan"><code>function scan(_h:stdgo.Ref&lt;stdgo.fmt_test._Fmt_test.T_hexBytes&gt;, _ss:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#class-t_runescanner_static_extension">class T_runeScanner_static_extension</a></p></li><li>
+<p><a href="#t_runescanner_static_extension-function-scan"><code>function scan(_rs:stdgo.Ref&lt;stdgo.fmt_test._Fmt_test.T_runeScanner&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#class-t_teststructprinter_0">class T_testStructPrinter_0</a></p></li><li>
+<p><a href="#t_teststructprinter_0-function-new"><code>function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null&lt;stdgo.GoInt&gt;):Void</code></a></p></li><li>
+<p><a href="#class-t_writestringformatter_static_extension">class T_writeStringFormatter_static_extension</a></p></li><li>
+<p><a href="#t_writestringformatter_static_extension-function-format"><code>function format(_sf:stdgo.fmt_test._Fmt_test.T_writeStringFormatter, _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></a></p></li><li>
+<p><a href="#class-twolines_static_extension">class TwoLines_static_extension</a></p></li><li>
+<p><a href="#twolines_static_extension-function-scan"><code>function scan( _t:stdgo.Pointer&lt;stdgo.fmt_test.TwoLines&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#class-xs_static_extension">class Xs_static_extension</a></p></li><li>
+<p><a href="#xs_static_extension-function-scan"><code>function scan( _x:stdgo.Pointer&lt;stdgo.fmt_test.Xs&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#typedef-f">typedef F</a></p></li><li>
+<p><a href="#f-function-format"><code>function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></a></p></li><li>
+<p><a href="#typedef-g">typedef G</a></p></li><li>
+<p><a href="#g-function-gostring"><code>function goString():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-i">typedef I</a></p></li><li>
+<p><a href="#i-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-p">typedef P</a></p></li><li>
+<p><a href="#p-function-string"><code>function string( _p:stdgo.Pointer&lt;stdgo.fmt_test.P&gt;):stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-se">typedef SE</a></p></li><li>
+<p><a href="#typedef-tb">typedef TB</a></p></li><li>
+<p><a href="#tb-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tf">typedef TF</a></p></li><li>
+<p><a href="#tf-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tf32">typedef TF32</a></p></li><li>
+<p><a href="#tf32-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tf64">typedef TF64</a></p></li><li>
+<p><a href="#tf64-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-ti">typedef TI</a></p></li><li>
+<p><a href="#ti-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-ti16">typedef TI16</a></p></li><li>
+<p><a href="#ti16-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-ti32">typedef TI32</a></p></li><li>
+<p><a href="#ti32-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-ti64">typedef TI64</a></p></li><li>
+<p><a href="#ti64-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-ti8">typedef TI8</a></p></li><li>
+<p><a href="#ti8-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-ts">typedef TS</a></p></li><li>
+<p><a href="#ts-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tu">typedef TU</a></p></li><li>
+<p><a href="#tu-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tu16">typedef TU16</a></p></li><li>
+<p><a href="#tu16-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tu32">typedef TU32</a></p></li><li>
+<p><a href="#tu32-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tu64">typedef TU64</a></p></li><li>
+<p><a href="#tu64-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tu8">typedef TU8</a></p></li><li>
+<p><a href="#tu8-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-tui">typedef TUI</a></p></li><li>
+<p><a href="#tui-function-string"><code>function string():stdgo.GoString</code></a></p></li><li>
+<p><a href="#typedef-twolines">typedef TwoLines</a></p></li><li>
+<p><a href="#twolines-function-scan"><code>function scan( _t:stdgo.Pointer&lt;stdgo.fmt_test.TwoLines&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li><li>
+<p><a href="#typedef-xs">typedef Xs</a></p></li><li>
+<p><a href="#xs-function-scan"><code>function scan( _x:stdgo.Pointer&lt;stdgo.fmt_test.Xs&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></a></p></li></ul>
+<h1><a name="variables">Variables</a></h1>
+<pre><code class="language-haxe">import stdgo.fmt_test.Fmt</code></pre>
+<pre><code class="language-haxe">var naN:stdgo.GoFloat64</code></pre>
+<pre><code class="language-haxe">var _:Bool</code></pre>
+<h1><a name="functions">Functions</a></h1>
+<pre><code class="language-haxe">import stdgo.fmt_test.Fmt</code></pre>
+<h2><a name="function-benchmarkfprintint">function benchmarkFprintInt</a></h2>
+<pre><code class="language-haxe">function benchmarkFprintInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3504"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkfprintintnoalloc">function benchmarkFprintIntNoAlloc</a></h2>
+<pre><code class="language-haxe">function benchmarkFprintIntNoAlloc(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3527"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkfprintfbytes">function benchmarkFprintfBytes</a></h2>
+<pre><code class="language-haxe">function benchmarkFprintfBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3515"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkmanyargs">function benchmarkManyArgs</a></h2>
+<pre><code class="language-haxe">function benchmarkManyArgs(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3492"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkscanints">function benchmarkScanInts</a></h2>
+<pre><code class="language-haxe">function benchmarkScanInts(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4586"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkscanrecursiveint">function benchmarkScanRecursiveInt</a></h2>
+<pre><code class="language-haxe">function benchmarkScanRecursiveInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4601"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarkscanrecursiveintreaderwrapper">function benchmarkScanRecursiveIntReaderWrapper</a></h2>
+<pre><code class="language-haxe">function benchmarkScanRecursiveIntReaderWrapper(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4616"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfboolean">function benchmarkSprintfBoolean</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfBoolean(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3433"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfbytes">function benchmarkSprintfBytes</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3458"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfcomplex">function benchmarkSprintfComplex</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfComplex(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3425"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfempty">function benchmarkSprintfEmpty</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfEmpty(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3344"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintffloat">function benchmarkSprintfFloat</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfFloat(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3417"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfhexbytes">function benchmarkSprintfHexBytes</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfHexBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3449"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfhexstring">function benchmarkSprintfHexString</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfHexString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3441"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfint">function benchmarkSprintfInt</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3393"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfintint">function benchmarkSprintfIntInt</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfIntInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3401"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfpadding">function benchmarkSprintfPadding</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfPadding(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3336"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfprefixedint">function benchmarkSprintfPrefixedInt</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfPrefixedInt(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3409"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfquotestring">function benchmarkSprintfQuoteString</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfQuoteString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3385"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfslowparsingpath">function benchmarkSprintfSlowParsingPath</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfSlowParsingPath(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3377"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfstring">function benchmarkSprintfString</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3352"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfstringer">function benchmarkSprintfStringer</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfStringer(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3467"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintfstructure">function benchmarkSprintfStructure</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfStructure(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3476"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintftruncatebytes">function benchmarkSprintfTruncateBytes</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfTruncateBytes(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3368"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-benchmarksprintftruncatestring">function benchmarkSprintfTruncateString</a></h2>
+<pre><code class="language-haxe">function benchmarkSprintfTruncateString(_b:stdgo.Ref&lt;stdgo.testing.B&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3360"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-exampleerrorf">function exampleErrorf</a></h2>
+<pre><code class="language-haxe">function exampleErrorf():Void</code></pre>
+<p>The Errorf function lets us use formatting features  to create descriptive error messages. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L2990"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplefprint">function exampleFprint</a></h2>
+<pre><code class="language-haxe">function exampleFprint():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3086"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplefprintf">function exampleFprintf</a></h2>
+<pre><code class="language-haxe">function exampleFprintf():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3110"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplefprintln">function exampleFprintln</a></h2>
+<pre><code class="language-haxe">function exampleFprintln():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3098"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplefscanf">function exampleFscanf</a></h2>
+<pre><code class="language-haxe">function exampleFscanf():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L2996"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplefscanln">function exampleFscanln</a></h2>
+<pre><code class="language-haxe">function exampleFscanln():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3015"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplegostringer">function exampleGoStringer</a></h2>
+<pre><code class="language-haxe">function exampleGoStringer():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3932"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-exampleprint">function examplePrint</a></h2>
+<pre><code class="language-haxe">function examplePrint():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3049"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-exampleprintf">function examplePrintf</a></h2>
+<pre><code class="language-haxe">function examplePrintf():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3061"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-exampleprintln">function examplePrintln</a></h2>
+<pre><code class="language-haxe">function examplePrintln():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3055"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplesprint">function exampleSprint</a></h2>
+<pre><code class="language-haxe">function exampleSprint():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3066"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplesprintf">function exampleSprintf</a></h2>
+<pre><code class="language-haxe">function exampleSprintf():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3080"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplesprintln">function exampleSprintln</a></h2>
+<pre><code class="language-haxe">function exampleSprintln():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3073"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplesscanf">function exampleSscanf</a></h2>
+<pre><code class="language-haxe">function exampleSscanf():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3036"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-examplestringer">function exampleStringer</a></h2>
+<pre><code class="language-haxe">function exampleStringer():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L5062"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-example_formats">function example_formats</a></h2>
+<pre><code class="language-haxe">function example_formats():Void</code></pre>
+<p>These examples demonstrate the basics of printing using a format string. Printf,  Sprintf, and Fprintf all take a format string that specifies how to format the  subsequent arguments. For example, %d (we call that a 'verb') says to print the  corresponding argument, which must be an integer (or something containing an  integer, such as a slice of ints) in decimal. The verb %v ('v' for 'value')  always formats the argument in its default form, just how Print or Println would  show it. The special verb %T ('T' for 'Type') prints the type of the argument  rather than its value. The examples are not exhaustive; see the package comment  for all the details. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3154"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-example_printers">function example_printers</a></h2>
+<pre><code class="language-haxe">function example_printers():Void</code></pre>
+<p>Print, Println, and Printf lay out their arguments differently. In this example  we can compare their behaviors. Println always adds blanks between the items it  prints, while Print adds blanks only between non-string arguments and Printf  does exactly what it is told.  Sprint, Sprintln, Sprintf, Fprint, Fprintln, and Fprintf behave the same as  their corresponding Print, Println, and Printf functions shown here. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3130"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testappend">function testAppend</a></h2>
+<pre><code class="language-haxe">function testAppend(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3908"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testappendf">function testAppendf</a></h2>
+<pre><code class="language-haxe">function testAppendf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3896"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testappendln">function testAppendln</a></h2>
+<pre><code class="language-haxe">function testAppendln(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3920"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testbadverbrecursion">function testBadVerbRecursion</a></h2>
+<pre><code class="language-haxe">function testBadVerbRecursion(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3763"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testblank">function testBlank</a></h2>
+<pre><code class="language-haxe">function testBlank(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>TestBlank checks that Sprint (and hence Print, Fprint) puts spaces in the  right places, that is, between arg pairs in which neither is a string. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3698"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testblankln">function testBlankln</a></h2>
+<pre><code class="language-haxe">function testBlankln(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>TestBlankln checks that Sprintln (and hence Println, Fprintln) puts spaces in  the right places, that is, between all arg pairs. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3711"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testcomplexformatting">function testComplexFormatting</a></h2>
+<pre><code class="language-haxe">function testComplexFormatting(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>TestComplexFormatting checks that a complex always formats to the same  thing as if done by hand with two singleton prints. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3284"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testcountmallocs">function testCountMallocs</a></h2>
+<pre><code class="language-haxe">function testCountMallocs(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3539"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testeof">function testEOF</a></h2>
+<pre><code class="language-haxe">function testEOF(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>TestEOF verifies that when we scan, we see at most EOF once per call to a  Scan function, and then only when it's really an EOF. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4276"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testeofalltypes">function testEOFAllTypes</a></h2>
+<pre><code class="language-haxe">function testEOFAllTypes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4351"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testeofatendofinput">function testEOFAtEndOfInput</a></h2>
+<pre><code class="language-haxe">function testEOFAtEndOfInput(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>TestEOFAtEndOfInput verifies that we see an EOF error if we run out of input.  This was a buglet: we used to get "expected integer". </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4313"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testemptymap">function testEmptyMap</a></h2>
+<pre><code class="language-haxe">function testEmptyMap(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3678"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testerrorf">function testErrorf</a></h2>
+<pre><code class="language-haxe">function testErrorf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L2932"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testflagparser">function testFlagParser</a></h2>
+<pre><code class="language-haxe">function testFlagParser(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3561"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testfmtinterface">function testFmtInterface</a></h2>
+<pre><code class="language-haxe">function testFmtInterface(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3205"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testformatterflags">function testFormatterFlags</a></h2>
+<pre><code class="language-haxe">function testFormatterFlags(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3830"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testformatterprintln">function testFormatterPrintln</a></h2>
+<pre><code class="language-haxe">function testFormatterPrintln(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>TestFormatterPrintln checks Formatter with Sprint, Sprintln, Sprintf. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3723"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testhexbyte">function testHexByte</a></h2>
+<pre><code class="language-haxe">function testHexByte(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L5046"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testhexbytes">function testHexBytes</a></h2>
+<pre><code class="language-haxe">function testHexBytes(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>Issue 9124.  %x on bytes couldn't handle non-space bytes terminating the scan. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4635"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testinf">function testInf</a></h2>
+<pre><code class="language-haxe">function testInf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4095"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testisspace">function testIsSpace</a></h2>
+<pre><code class="language-haxe">function testIsSpace(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3778"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testlinebylinefscanf">function testLineByLineFscanf</a></h2>
+<pre><code class="language-haxe">function testLineByLineFscanf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>TestLineByLineFscanf tests that Fscanf does not read past newline. Issue  3481. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4454"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testmapprinter">function testMapPrinter</a></h2>
+<pre><code class="language-haxe">function testMapPrinter(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3652"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testmultiline">function testMultiLine</a></h2>
+<pre><code class="language-haxe">function testMultiLine(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4404"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testnan">function testNaN</a></h2>
+<pre><code class="language-haxe">function testNaN(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4063"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testnildoesnotbecometyped">function testNilDoesNotBecomeTyped</a></h2>
+<pre><code class="language-haxe">function testNilDoesNotBecomeTyped(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3816"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testpanics">function testPanics</a></h2>
+<pre><code class="language-haxe">function testPanics(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3754"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testparsenum">function testParsenum</a></h2>
+<pre><code class="language-haxe">function testParsenum(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3839"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testreorder">function testReorder</a></h2>
+<pre><code class="language-haxe">function testReorder(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3326"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscan">function testScan</a></h2>
+<pre><code class="language-haxe">function testScan(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3975"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanempty">function testScanEmpty</a></h2>
+<pre><code class="language-haxe">function testScanEmpty(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>Empty strings are not valid input when scanning a string. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4190"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanints">function testScanInts</a></h2>
+<pre><code class="language-haxe">function testScanInts(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4554"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanmultiple">function testScanMultiple</a></h2>
+<pre><code class="language-haxe">function testScanMultiple(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4156"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscannewlinesarespaces">function testScanNewlinesAreSpaces</a></h2>
+<pre><code class="language-haxe">function testScanNewlinesAreSpaces(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4704"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscannotpointer">function testScanNotPointer</a></h2>
+<pre><code class="language-haxe">function testScanNotPointer(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4231"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanoverflow">function testScanOverflow</a></h2>
+<pre><code class="language-haxe">function testScanOverflow(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4026"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanstatecount">function testScanStateCount</a></h2>
+<pre><code class="language-haxe">function testScanStateCount(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4479"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanf">function testScanf</a></h2>
+<pre><code class="language-haxe">function testScanf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3991"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanfmulti">function testScanfMulti</a></h2>
+<pre><code class="language-haxe">function testScanfMulti(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4148"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanfnewlinematchformat">function testScanfNewlineMatchFormat</a></h2>
+<pre><code class="language-haxe">function testScanfNewlineMatchFormat(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4771"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanln">function testScanln</a></h2>
+<pre><code class="language-haxe">function testScanln(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3983"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanlnnewlinesterminate">function testScanlnNewlinesTerminate</a></h2>
+<pre><code class="language-haxe">function testScanlnNewlinesTerminate(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4728"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanlnnonewline">function testScanlnNoNewline</a></h2>
+<pre><code class="language-haxe">function testScanlnNoNewline(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4244"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testscanlnwithmiddlenewline">function testScanlnWithMiddleNewline</a></h2>
+<pre><code class="language-haxe">function testScanlnWithMiddleNewline(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4256"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testsliceprinter">function testSlicePrinter</a></h2>
+<pre><code class="language-haxe">function testSlicePrinter(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3615"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testsprintf">function testSprintf</a></h2>
+<pre><code class="language-haxe">function testSprintf(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3222"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-teststringer">function testStringer</a></h2>
+<pre><code class="language-haxe">function testStringer(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L5073"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-teststructprinter">function testStructPrinter</a></h2>
+<pre><code class="language-haxe">function testStructPrinter(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3593"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testunreadrunewithbufio">function testUnreadRuneWithBufio</a></h2>
+<pre><code class="language-haxe">function testUnreadRuneWithBufio(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p>TestUnreadRuneWithBufio verifies that, at least when using bufio, successive  calls to Fscan do not lose runes. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L4378"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="function-testwidthandprecision">function testWidthAndPrecision</a></h2>
+<pre><code class="language-haxe">function testWidthAndPrecision(_t:stdgo.Ref&lt;stdgo.testing.T&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt.hx#L3745"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="classes">Classes</a></h1>
+<pre><code class="language-haxe">import stdgo.fmt_test.*</code></pre>
+<h2><a name="class-a">class A</a></h2>
+<pre><code class="language-haxe">var _i:stdgo.GoInt</code></pre>
+<pre><code class="language-haxe">var _j:stdgo.GoUInt</code></pre>
+<pre><code class="language-haxe">var _s:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var _x:stdgo.Slice&lt;stdgo.GoInt&gt;</code></pre>
+<h3><a name="a-function-new">A function new</a></h3>
+<pre><code class="language-haxe">function new(?_i:Null&lt;stdgo.GoInt&gt;, ?_j:Null&lt;stdgo.GoUInt&gt;, ?_s:stdgo.GoString, ?_x:stdgo.Slice&lt;stdgo.GoInt&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2058"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class A_testNilDoesNotBecomeTyped_0</h2>
+<h3>A_testNilDoesNotBecomeTyped_0 function new</h3>
+<pre><code class="language-haxe">function new():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L3795"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-address">class Address</a></h2>
+<p>Address has a City, State and a Country. </p>
+<pre><code class="language-haxe">var city:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var country:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var state:stdgo.GoString</code></pre>
+<h3><a name="address-function-new">Address function new</a></h3>
+<pre><code class="language-haxe">function new(?city:stdgo.GoString, ?state:stdgo.GoString, ?country:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2246"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-animal">class Animal</a></h2>
+<p>Animal has a Name and an Age to represent an animal. </p>
+<pre><code class="language-haxe">var age:stdgo.GoUInt</code></pre>
+<pre><code class="language-haxe">var name:stdgo.GoString</code></pre>
+<h3><a name="animal-function-new">Animal function new</a></h3>
+<pre><code class="language-haxe">function new(?name:stdgo.GoString, ?age:Null&lt;stdgo.GoUInt&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2461"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="animal-function-string">Animal function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p>String makes Animal satisfy the Stringer interface. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5511"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Animal_static_extension</h2>
+<h3>Animal_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p>String makes Animal satisfy the Stringer interface. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5511"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-b">class B</a></h2>
+<pre><code class="language-haxe">var _j:stdgo.GoInt</code></pre>
+<pre><code class="language-haxe">var i:stdgo.fmt_test.I</code></pre>
+<h3><a name="b-function-new">B function new</a></h3>
+<pre><code class="language-haxe">function new(?i:Null&lt;stdgo.fmt_test.I&gt;, ?_j:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2081"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class B_testNilDoesNotBecomeTyped_1</h2>
+<h3>B_testNilDoesNotBecomeTyped_1 function new</h3>
+<pre><code class="language-haxe">function new():Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L3806"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-c">class C</a></h2>
+<pre><code class="language-haxe">var _i:stdgo.GoInt</code></pre>
+<pre><code class="language-haxe">var b:stdgo.fmt_test.B</code></pre>
+<h3><a name="c-function-new">C function new</a></h3>
+<pre><code class="language-haxe">function new(?_i:Null&lt;stdgo.GoInt&gt;, ?b:stdgo.fmt_test.B):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2101"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class C_static_extension</h2>
+<h2>class F_static_extension</h2>
+<h3>F_static_extension function format</h3>
+<pre><code class="language-haxe">function format(_f:stdgo.fmt_test.F, _s:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5589"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class G_static_extension</h2>
+<h3>G_static_extension function goString</h3>
+<pre><code class="language-haxe">function goString():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5615"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class I_static_extension</h2>
+<h3>I_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5563"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-intstring">class IntString</a></h2>
+<p>IntString accepts an integer followed immediately by a string.  It tests the embedding of a scan within a scan. </p>
+<pre><code class="language-haxe">var _i:stdgo.GoInt</code></pre>
+<pre><code class="language-haxe">var _s:stdgo.GoString</code></pre>
+<h3><a name="intstring-function-new">IntString function new</a></h3>
+<pre><code class="language-haxe">function new(?_i:Null&lt;stdgo.GoInt&gt;, ?_s:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2371"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="intstring-function-scan">IntString function scan</a></h3>
+<pre><code class="language-haxe">function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5351"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class IntString_static_extension</h2>
+<h3>IntString_static_extension function scan</h3>
+<pre><code class="language-haxe">function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5351"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class P_static_extension</h2>
+<h3>P_static_extension function string</h3>
+<pre><code class="language-haxe">function string( _p:stdgo.Pointer&lt;stdgo.fmt_test.P&gt;):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5643"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-panicf">class PanicF</a></h2>
+<p>PanicF is a type that panics in Format. </p>
+<pre><code class="language-haxe">var _message:stdgo.AnyInterface</code></pre>
+<h3><a name="panicf-function-new">PanicF function new</a></h3>
+<pre><code class="language-haxe">function new(?_message:stdgo.AnyInterface):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2206"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="panicf-function-format">PanicF function format</a></h3>
+<pre><code class="language-haxe">function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></pre>
+<p>Value receiver. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5254"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class PanicF_static_extension</h2>
+<h3>PanicF_static_extension function format</h3>
+<pre><code class="language-haxe">function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></pre>
+<p>Value receiver. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5254"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-panicgo">class PanicGo</a></h2>
+<p>PanicGo is a type that panics in GoString. </p>
+<pre><code class="language-haxe">var _message:stdgo.AnyInterface</code></pre>
+<h3><a name="panicgo-function-new">PanicGo function new</a></h3>
+<pre><code class="language-haxe">function new(?_message:stdgo.AnyInterface):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2187"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="panicgo-function-gostring">PanicGo function goString</a></h3>
+<pre><code class="language-haxe">function goString():stdgo.GoString</code></pre>
+<p>Value receiver. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5222"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class PanicGo_static_extension</h2>
+<h3>PanicGo_static_extension function goString</h3>
+<pre><code class="language-haxe">function goString():stdgo.GoString</code></pre>
+<p>Value receiver. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5222"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-panics">class PanicS</a></h2>
+<p>PanicS is a type that panics in String. </p>
+<pre><code class="language-haxe">var _message:stdgo.AnyInterface</code></pre>
+<h3><a name="panics-function-new">PanicS function new</a></h3>
+<pre><code class="language-haxe">function new(?_message:stdgo.AnyInterface):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2168"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="panics-function-string">PanicS function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p>Value receiver. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5190"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class PanicS_static_extension</h2>
+<h3>PanicS_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p>Value receiver. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5190"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-person">class Person</a></h2>
+<p>Person has a Name, Age and Address. </p>
+<pre><code class="language-haxe">var addr:stdgo.Ref&lt;stdgo.fmt_test.Address&gt;</code></pre>
+<pre><code class="language-haxe">var age:stdgo.GoUInt</code></pre>
+<pre><code class="language-haxe">var name:stdgo.GoString</code></pre>
+<h3><a name="person-function-new">Person function new</a></h3>
+<pre><code class="language-haxe">function new(?name:stdgo.GoString, ?age:Null&lt;stdgo.GoUInt&gt;, ?addr:stdgo.Ref&lt;stdgo.fmt_test.Address&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2271"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="person-function-gostring">Person function goString</a></h3>
+<pre><code class="language-haxe">function goString():stdgo.GoString</code></pre>
+<p>GoString makes Person satisfy the GoStringer interface.   The return value is valid Go code that can be used to reproduce the Person struct. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5321"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Person_static_extension</h2>
+<h3>Person_static_extension function goString</h3>
+<pre><code class="language-haxe">function goString():stdgo.GoString</code></pre>
+<p>GoString makes Person satisfy the GoStringer interface.   The return value is valid Go code that can be used to reproduce the Person struct. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5321"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-recur">class Recur</a></h2>
+<pre><code class="language-haxe">var _failed:stdgo.Pointer&lt;Bool&gt;</code></pre>
+<pre><code class="language-haxe">var _i:stdgo.GoInt</code></pre>
+<h3><a name="recur-function-new">Recur function new</a></h3>
+<pre><code class="language-haxe">function new(?_i:Null&lt;stdgo.GoInt&gt;, ?_failed:stdgo.Pointer&lt;Bool&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2223"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="recur-function-string">Recur function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5280"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Recur_static_extension</h2>
+<h3>Recur_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5280"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-recursiveint">class RecursiveInt</a></h2>
+<p>RecursiveInt accepts a string matching %d.%d.%d....  and parses it into a linked list.  It allows us to benchmark recursive descent style scanners. </p>
+<pre><code class="language-haxe">var _i:stdgo.GoInt</code></pre>
+<pre><code class="language-haxe">var _next:stdgo.Ref&lt;stdgo.fmt_test.RecursiveInt&gt;</code></pre>
+<h3><a name="recursiveint-function-new">RecursiveInt function new</a></h3>
+<pre><code class="language-haxe">function new(?_i:Null&lt;stdgo.GoInt&gt;, ?_next:stdgo.Ref&lt;stdgo.fmt_test.RecursiveInt&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2439"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h3><a name="recursiveint-function-scan">RecursiveInt function scan</a></h3>
+<pre><code class="language-haxe">function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5459"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class RecursiveInt_static_extension</h2>
+<h3>RecursiveInt_static_extension function scan</h3>
+<pre><code class="language-haxe">function scan( _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5459"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-s">class S</a></h2>
+<pre><code class="language-haxe">var f:stdgo.fmt_test.F</code></pre>
+<pre><code class="language-haxe">var g:stdgo.fmt_test.G</code></pre>
+<h3><a name="s-function-new">S function new</a></h3>
+<pre><code class="language-haxe">function new(?f:Null&lt;stdgo.fmt_test.F&gt;, ?g:Null&lt;stdgo.fmt_test.G&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2120"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-si">class SI</a></h2>
+<pre><code class="language-haxe">var i:stdgo.AnyInterface</code></pre>
+<h3><a name="si-function-new">SI function new</a></h3>
+<pre><code class="language-haxe">function new(?i:stdgo.AnyInterface):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2138"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-scantest">class ScanTest</a></h2>
+<pre><code class="language-haxe">var _in:stdgo.AnyInterface</code></pre>
+<pre><code class="language-haxe">var _out:stdgo.AnyInterface</code></pre>
+<pre><code class="language-haxe">var _text:stdgo.GoString</code></pre>
+<h3><a name="scantest-function-new">ScanTest function new</a></h3>
+<pre><code class="language-haxe">function new(?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2293"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-scanfmultitest">class ScanfMultiTest</a></h2>
+<pre><code class="language-haxe">var _err:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var _format:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var _in:stdgo.Slice&lt;stdgo.AnyInterface&gt;</code></pre>
+<pre><code class="language-haxe">var _out:stdgo.Slice&lt;stdgo.AnyInterface&gt;</code></pre>
+<pre><code class="language-haxe">var _text:stdgo.GoString</code></pre>
+<h3><a name="scanfmultitest-function-new">ScanfMultiTest function new</a></h3>
+<pre><code class="language-haxe">function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.Slice&lt;stdgo.AnyInterface&gt;, ?_out:stdgo.Slice&lt;stdgo.AnyInterface&gt;, ?_err:stdgo.GoString):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2342"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="class-scanftest">class ScanfTest</a></h2>
+<pre><code class="language-haxe">var _format:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var _in:stdgo.AnyInterface</code></pre>
+<pre><code class="language-haxe">var _out:stdgo.AnyInterface</code></pre>
+<pre><code class="language-haxe">var _text:stdgo.GoString</code></pre>
+<h3><a name="scanftest-function-new">ScanfTest function new</a></h3>
+<pre><code class="language-haxe">function new(?_format:stdgo.GoString, ?_text:stdgo.GoString, ?_in:stdgo.AnyInterface, ?_out:stdgo.AnyInterface):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2316"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TB_static_extension</h2>
+<h3>TB_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6247"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TF32_static_extension</h2>
+<h3>TF32_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6195"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TF64_static_extension</h2>
+<h3>TF64_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6221"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TF_static_extension</h2>
+<h3>TF_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6169"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TI16_static_extension</h2>
+<h3>TI16_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5935"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TI32_static_extension</h2>
+<h3>TI32_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5961"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TI64_static_extension</h2>
+<h3>TI64_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5987"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TI8_static_extension</h2>
+<h3>TI8_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5909"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TI_static_extension</h2>
+<h3>TI_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5883"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TS_static_extension</h2>
+<h3>TS_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6273"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TU16_static_extension</h2>
+<h3>TU16_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6065"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TU32_static_extension</h2>
+<h3>TU32_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6091"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TU64_static_extension</h2>
+<h3>TU64_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6117"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TU8_static_extension</h2>
+<h3>TU8_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6039"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TUI_static_extension</h2>
+<h3>TUI_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6143"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TU_static_extension</h2>
+<h3>TU_static_extension function string</h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6013"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T__struct_0_static_extension</h2>
+<h2>class T__struct_10_static_extension</h2>
+<h2>class T__struct_11_static_extension</h2>
+<h2>class T__struct_12_static_extension</h2>
+<h3>T__struct_12_static_extension function read</h3>
+<pre><code class="language-haxe">function read(__self__:stdgo.fmt_test._Fmt_test.T__struct_12, __0:stdgo.Slice&lt;stdgo.GoUInt8&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L2773"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T__struct_13_static_extension</h2>
+<h2>class T__struct_14_static_extension</h2>
+<h2>class T__struct_15_static_extension</h2>
+<h2>class T__struct_16_static_extension</h2>
+<h2>class T__struct_1_static_extension</h2>
+<h2>class T__struct_2_static_extension</h2>
+<h2>class T__struct_3_static_extension</h2>
+<h2>class T__struct_4_static_extension</h2>
+<h2>class T__struct_5_static_extension</h2>
+<h2>class T__struct_6_static_extension</h2>
+<h2>class T__struct_7_static_extension</h2>
+<h2>class T__struct_8_static_extension</h2>
+<h2>class T__struct_9_static_extension</h2>
+<h2>class T_byteFormatter_static_extension</h2>
+<h3>T_byteFormatter_static_extension function format</h3>
+<pre><code class="language-haxe">function format(_:stdgo.fmt_test._Fmt_test.T_byteFormatter, _f:stdgo.fmt.State, _0:stdgo.GoRune):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5695"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_byteStringer_static_extension</h2>
+<h3>T_byteStringer_static_extension function string</h3>
+<pre><code class="language-haxe">function string(_:stdgo.fmt_test._Fmt_test.T_byteStringer):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5669"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_eofCounter_static_extension</h2>
+<h3>T_eofCounter_static_extension function read</h3>
+<pre><code class="language-haxe">function read(_ec:stdgo.Ref&lt;stdgo.fmt_test._Fmt_test.T_eofCounter&gt;, _b:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5392"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_errString_static_extension</h2>
+<h3>T_errString_static_extension function error</h3>
+<pre><code class="language-haxe">function error(_e:stdgo.fmt_test._Fmt_test.T_errString):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5537"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_flagPrinter_static_extension</h2>
+<h3>T_flagPrinter_static_extension function format</h3>
+<pre><code class="language-haxe">function format(_:stdgo.fmt_test._Fmt_test.T_flagPrinter, _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5132"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_hexBytes_static_extension</h2>
+<h3>T_hexBytes_static_extension function scan</h3>
+<pre><code class="language-haxe">function scan(_h:stdgo.Ref&lt;stdgo.fmt_test._Fmt_test.T_hexBytes&gt;, _ss:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5849"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_runeScanner_static_extension</h2>
+<h3>T_runeScanner_static_extension function scan</h3>
+<pre><code class="language-haxe">function scan(_rs:stdgo.Ref&lt;stdgo.fmt_test._Fmt_test.T_runeScanner&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5427"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_testStructPrinter_0</h2>
+<pre><code class="language-haxe">var _a:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var _b:stdgo.GoString</code></pre>
+<pre><code class="language-haxe">var _c:stdgo.GoInt</code></pre>
+<h3>T_testStructPrinter_0 function new</h3>
+<pre><code class="language-haxe">function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L3576"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class T_writeStringFormatter_static_extension</h2>
+<h3>T_writeStringFormatter_static_extension function format</h3>
+<pre><code class="language-haxe">function format(_sf:stdgo.fmt_test._Fmt_test.T_writeStringFormatter, _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5721"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class TwoLines_static_extension</h2>
+<h3>TwoLines_static_extension function scan</h3>
+<pre><code class="language-haxe">function scan( _t:stdgo.Pointer&lt;stdgo.fmt_test.TwoLines&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p>Scan attempts to read two lines into the object. Scanln should prevent this   because it stops at newline; Scan and Scanf should be fine. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5805"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2>class Xs_static_extension</h2>
+<h3>Xs_static_extension function scan</h3>
+<pre><code class="language-haxe">function scan( _x:stdgo.Pointer&lt;stdgo.fmt_test.Xs&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5758"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h1><a name="typedefs">Typedefs</a></h1>
+<pre><code class="language-haxe">import stdgo.fmt_test.*</code></pre>
+<h2><a name="typedef-f">typedef F</a></h2>
+<pre><code class="language-haxe">typedef F = var t:{&lt;&gt;}</code></pre>
+<h3><a name="f-function-format">F function format</a></h3>
+<pre><code class="language-haxe">function format( _f:stdgo.fmt.State, _c:stdgo.GoRune):Void</code></pre>
+<p>Value receiver. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5254"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-g">typedef G</a></h2>
+<pre><code class="language-haxe">typedef G = var t:{&lt;&gt;}</code></pre>
+<h3><a name="g-function-gostring">G function goString</a></h3>
+<pre><code class="language-haxe">function goString():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5615"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-i">typedef I</a></h2>
+<pre><code class="language-haxe">typedef I = var t:{&lt;&gt;}</code></pre>
+<h3><a name="i-function-string">I function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5563"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-p">typedef P</a></h2>
+<pre><code class="language-haxe">typedef P = var t:{&lt;&gt;}</code></pre>
+<p>P is a type with a String method with pointer receiver for testing %p. </p>
+<h3><a name="p-function-string">P function string</a></h3>
+<pre><code class="language-haxe">function string( _p:stdgo.Pointer&lt;stdgo.fmt_test.P&gt;):stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5643"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-se">typedef SE</a></h2>
+<pre><code class="language-haxe">typedef SE = var x:stdgo.AnyInterface</code></pre>
+<h2><a name="typedef-tb">typedef TB</a></h2>
+<pre><code class="language-haxe">typedef TB = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tb-function-string">TB function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6247"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tf">typedef TF</a></h2>
+<pre><code class="language-haxe">typedef TF = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tf-function-string">TF function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6169"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tf32">typedef TF32</a></h2>
+<pre><code class="language-haxe">typedef TF32 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tf32-function-string">TF32 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6195"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tf64">typedef TF64</a></h2>
+<pre><code class="language-haxe">typedef TF64 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tf64-function-string">TF64 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6221"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-ti">typedef TI</a></h2>
+<pre><code class="language-haxe">typedef TI = var t:{&lt;&gt;}</code></pre>
+<h3><a name="ti-function-string">TI function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5883"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-ti16">typedef TI16</a></h2>
+<pre><code class="language-haxe">typedef TI16 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="ti16-function-string">TI16 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5935"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-ti32">typedef TI32</a></h2>
+<pre><code class="language-haxe">typedef TI32 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="ti32-function-string">TI32 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5961"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-ti64">typedef TI64</a></h2>
+<pre><code class="language-haxe">typedef TI64 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="ti64-function-string">TI64 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5987"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-ti8">typedef TI8</a></h2>
+<pre><code class="language-haxe">typedef TI8 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="ti8-function-string">TI8 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5909"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-ts">typedef TS</a></h2>
+<pre><code class="language-haxe">typedef TS = var x:{&lt;&gt;}</code></pre>
+<h3><a name="ts-function-string">TS function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6273"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tu">typedef TU</a></h2>
+<pre><code class="language-haxe">typedef TU = var t:{&lt;&gt;}</code></pre>
+<h3><a name="tu-function-string">TU function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6013"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tu16">typedef TU16</a></h2>
+<pre><code class="language-haxe">typedef TU16 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tu16-function-string">TU16 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6065"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tu32">typedef TU32</a></h2>
+<pre><code class="language-haxe">typedef TU32 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tu32-function-string">TU32 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6091"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tu64">typedef TU64</a></h2>
+<pre><code class="language-haxe">typedef TU64 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tu64-function-string">TU64 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6117"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tu8">typedef TU8</a></h2>
+<pre><code class="language-haxe">typedef TU8 = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tu8-function-string">TU8 function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6039"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-tui">typedef TUI</a></h2>
+<pre><code class="language-haxe">typedef TUI = var x:{&lt;&gt;}</code></pre>
+<h3><a name="tui-function-string">TUI function string</a></h3>
+<pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L6143"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-twolines">typedef TwoLines</a></h2>
+<pre><code class="language-haxe">typedef TwoLines = var x:{&lt;&gt;}</code></pre>
+<h3><a name="twolines-function-scan">TwoLines function scan</a></h3>
+<pre><code class="language-haxe">function scan( _t:stdgo.Pointer&lt;stdgo.fmt_test.TwoLines&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p>Scan attempts to read two lines into the object. Scanln should prevent this   because it stops at newline; Scan and Scanf should be fine. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5805"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<h2><a name="typedef-xs">typedef Xs</a></h2>
+<pre><code class="language-haxe">typedef Xs = var x:{&lt;&gt;}</code></pre>
+<p>Xs accepts any non-empty run of the verb character </p>
+<h3><a name="xs-function-scan">Xs function scan</a></h3>
+<pre><code class="language-haxe">function scan( _x:stdgo.Pointer&lt;stdgo.fmt_test.Xs&gt;, _state:stdgo.fmt.ScanState, _verb:stdgo.GoRune):stdgo.Error</code></pre>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/fmt_test//Fmt_test.hx#L5758"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+    </article>
+</body>
+</html>

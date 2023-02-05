@@ -58,311 +58,421 @@
         <h1>Module: <code>stdgo.strings</code></h1>
 <p><a href="../index.html">(view library index)</a></p>
 <h1><a name="overview">Overview</a></h1>
-<p>Package strings implements simple functions to manipulate UTF-8 encoded strings.��//��// For information about UTF-8 strings in Go, see https://blog.golang.org/strings. </p><details><summary>hl tests passed</summary>
+<p>Package strings implements simple functions to manipulate UTF-8 encoded strings.    For information about UTF-8 strings in Go, see https://blog.golang.org/strings. </p><details><summary>hl tests passed</summary>
 <p>
-<pre><code>=== RUN   TestBuilder
---- PASS: TestBuilder (0.000101804733276367)
-=== RUN   TestBuilderString
---- PASS: TestBuilderString (4.38690185546875e-05)
-=== RUN   TestBuilderReset
---- PASS: TestBuilderReset (3.29017639160156e-05)
-=== RUN   TestBuilderGrow
-strings_test/Strings_test.hx:1941: testBuilderGrow skip function
---- PASS: TestBuilderGrow (2.59876251220703e-05)
-=== RUN   TestBuilderWrite2
---- PASS: TestBuilderWrite2 (1.81198120117188e-05)
-=== RUN   TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (1.9073486328125e-05)
-=== RUN   TestBuilderAllocs
-strings_test/Strings_test.hx:2049: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (1.81198120117188e-05)
-=== RUN   TestBuilderCopyPanic
-strings_test/Strings_test.hx:2063: testBuilderCopyPanic skip function
---- PASS: TestBuilderCopyPanic (1.40666961669922e-05)
-=== RUN   TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (4.1961669921875e-05)
-=== RUN   TestClone
-strings_test/Strings_test.hx:2265: testClone skip function
---- PASS: TestClone (1.78813934326172e-05)
-=== RUN   TestCompare
---- PASS: TestCompare (2.50339508056641e-05)
-=== RUN   TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (1.31130218505859e-05)
-=== RUN   TestCompareStrings
-strings_test/Strings_test.hx:2370: testCompareStrings skip function
---- PASS: TestCompareStrings (1.38282775878906e-05)
-=== RUN   TestReader
---- PASS: TestReader (0.000140190124511719)
-=== RUN   TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (3.71932983398438e-05)
-=== RUN   TestReaderAt
---- PASS: TestReaderAt (0.000252008438110352)
-=== RUN   TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (0.00030517578125)
-=== RUN   TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (0.00123691558837891)
-=== RUN   TestWriteTo
---- PASS: TestWriteTo (0.000338077545166016)
-=== RUN   TestReaderLenSize
-strings_test/Strings_test.hx:3047: testReaderLenSize skip function
---- PASS: TestReaderLenSize (1.9073486328125e-05)
-=== RUN   TestReaderReset
---- PASS: TestReaderReset (5.38825988769531e-05)
-=== RUN   TestReaderZero
---- PASS: TestReaderZero (6.50882720947266e-05)
-=== RUN   TestReplacer
-strings_test/Strings_test.hx:3200: testReplacer skip function
---- PASS: TestReplacer (1.88350677490234e-05)
-=== RUN   TestPickAlgorithm
-strings_test/Strings_test.hx:3434: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (2.90870666503906e-05)
-=== RUN   TestWriteStringError
---- PASS: TestWriteStringError (0.00142502784729004)
-=== RUN   TestGenericTrieBuilding
---- PASS: TestGenericTrieBuilding (0.00393319129943848)
-=== RUN   TestFinderNext
---- PASS: TestFinderNext (0.00168204307556152)
-=== RUN   TestFinderCreation
---- PASS: TestFinderCreation (0.00113296508789062)
-=== RUN   TestIndex
---- PASS: TestIndex (0.000349044799804688)
-=== RUN   TestLastIndex
---- PASS: TestLastIndex (3.814697265625e-05)
-=== RUN   TestIndexAny
---- PASS: TestIndexAny (0.000257968902587891)
-=== RUN   TestLastIndexAny
---- PASS: TestLastIndexAny (0.000169038772583008)
-=== RUN   TestIndexByte
---- PASS: TestIndexByte (1.31130218505859e-05)
-=== RUN   TestLastIndexByte
---- PASS: TestLastIndexByte (2.59876251220703e-05)
-=== RUN   TestIndexRandom
---- PASS: TestIndexRandom (0.294607877731323)
-=== RUN   TestIndexRune
---- PASS: TestIndexRune (0.000132083892822266)
-=== RUN   TestSplit
---- PASS: TestSplit (0.00107002258300781)
-=== RUN   TestSplitAfter
---- PASS: TestSplitAfter (0.000940799713134766)
-=== RUN   TestFields
---- PASS: TestFields (0.000480890274047852)
-=== RUN   TestFieldsFunc
---- PASS: TestFieldsFunc (0.000689983367919922)
-=== RUN   TestMap
-strings_test/Strings_test.hx:4181: testMap skip function
---- PASS: TestMap (1.97887420654297e-05)
-=== RUN   TestToUpper
---- PASS: TestToUpper (0.000494003295898438)
-=== RUN   TestToLower
---- PASS: TestToLower (0.000596046447753906)
-=== RUN   TestToValidUTF8
---- PASS: TestToValidUTF8 (0.000464916229248047)
-=== RUN   TestSpecialCase
---- PASS: TestSpecialCase (0.00304484367370605)
-=== RUN   TestTrimSpace
---- PASS: TestTrimSpace (0.000334024429321289)
-=== RUN   TestTrim
---- PASS: TestTrim (0.000205039978027344)
-=== RUN   TestTrimFunc
---- PASS: TestTrimFunc (0.000810861587524414)
-=== RUN   TestIndexFunc
---- PASS: TestIndexFunc (0.000294923782348633)
-=== RUN   TestCaseConsistency
---- PASS: TestCaseConsistency (0.0928299427032471)
-=== RUN   TestRepeat
---- PASS: TestRepeat (9.58442687988281e-05)
-=== RUN   TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (0.000268936157226562)
-=== RUN   TestRunes
---- PASS: TestRunes (0.000123977661132812)
-=== RUN   TestReadByte
---- PASS: TestReadByte (0.000134944915771484)
-=== RUN   TestReadRune
---- PASS: TestReadRune (0.000196933746337891)
-=== RUN   TestUnreadRuneError
---- PASS: TestUnreadRuneError (8.70227813720703e-05)
-=== RUN   TestReplace
---- PASS: TestReplace (0.000620841979980469)
-=== RUN   TestTitle
---- PASS: TestTitle (0.000636100769042969)
-=== RUN   TestContains
---- PASS: TestContains (8.392333984375e-05)
-=== RUN   TestContainsAny
---- PASS: TestContainsAny (0.000114917755126953)
-=== RUN   TestContainsRune
---- PASS: TestContainsRune (1.69277191162109e-05)
-=== RUN   TestEqualFold
---- PASS: TestEqualFold (0.00208210945129395)
-=== RUN   TestCount
---- PASS: TestCount (2.40802764892578e-05)
-=== RUN   TestCut
---- PASS: TestCut (2.288818359375e-05)</code></pre>
+<pre><code>=== RUN  TestBuilder
+--- PASS: TestBuilder (%!s(float64=7.796287536621094e-05))
+
+=== RUN  TestBuilderString
+--- PASS: TestBuilderString (%!s(float64=3.1948089599609375e-05))
+
+=== RUN  TestBuilderReset
+--- PASS: TestBuilderReset (%!s(float64=2.288818359375e-05))
+
+=== RUN  TestBuilderGrow
+strings_test/Strings_test.hx:1984: testBuilderGrow skip function
+--- PASS: TestBuilderGrow (%!s(float64=7.486343383789062e-05))
+
+=== RUN  TestBuilderWrite2
+--- PASS: TestBuilderWrite2 (%!s(float64=1.1920928955078125e-05))
+
+=== RUN  TestBuilderWriteByte
+--- PASS: TestBuilderWriteByte (%!s(float64=1.1920928955078125e-05))
+
+=== RUN  TestBuilderAllocs
+strings_test/Strings_test.hx:2092: testBuilderAllocs skip function
+--- PASS: TestBuilderAllocs (%!s(float64=1.2159347534179688e-05))
+
+=== RUN  TestBuilderCopyPanic
+strings_test/Strings_test.hx:2106: testBuilderCopyPanic skip function
+--- PASS: TestBuilderCopyPanic (%!s(float64=1.3113021850585938e-05))
+
+=== RUN  TestBuilderWriteInvalidRune
+--- PASS: TestBuilderWriteInvalidRune (%!s(float64=3.2901763916015625e-05))
+
+=== RUN  TestClone
+strings_test/Strings_test.hx:2308: testClone skip function
+--- PASS: TestClone (%!s(float64=1.3113021850585938e-05))
+
+=== RUN  TestCompare
+--- PASS: TestCompare (%!s(float64=2.2172927856445312e-05))
+
+=== RUN  TestCompareIdenticalString
+--- PASS: TestCompareIdenticalString (%!s(float64=6.9141387939453125e-06))
+
+=== RUN  TestCompareStrings
+strings_test/Strings_test.hx:2413: testCompareStrings skip function
+--- PASS: TestCompareStrings (%!s(float64=1.1920928955078125e-05))
+
+=== RUN  TestReader
+--- PASS: TestReader (%!s(float64=8.988380432128906e-05))
+
+=== RUN  TestReadAfterBigSeek
+--- PASS: TestReadAfterBigSeek (%!s(float64=1.5974044799804688e-05))
+
+=== RUN  TestReaderAt
+--- PASS: TestReaderAt (%!s(float64=0.0032100677490234375))
+
+=== RUN  TestReaderAtConcurrent
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0008051395416259766))
+
+=== RUN  TestEmptyReaderConcurrent
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0014510154724121094))
+
+=== RUN  TestWriteTo
+--- PASS: TestWriteTo (%!s(float64=0.00030803680419921875))
+
+=== RUN  TestReaderLenSize
+strings_test/Strings_test.hx:3090: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (%!s(float64=1.5974044799804688e-05))
+
+=== RUN  TestReaderReset
+--- PASS: TestReaderReset (%!s(float64=6.890296936035156e-05))
+
+=== RUN  TestReaderZero
+--- PASS: TestReaderZero (%!s(float64=4.506111145019531e-05))
+
+=== RUN  TestReplacer
+strings_test/Strings_test.hx:3243: testReplacer skip function
+--- PASS: TestReplacer (%!s(float64=1.1920928955078125e-05))
+
+=== RUN  TestPickAlgorithm
+strings_test/Strings_test.hx:3426: testPickAlgorithm skip function
+--- PASS: TestPickAlgorithm (%!s(float64=1.5020370483398438e-05))
+
+=== RUN  TestWriteStringError
+--- PASS: TestWriteStringError (%!s(float64=0.0015611648559570312))
+
+=== RUN  TestGenericTrieBuilding
+--- PASS: TestGenericTrieBuilding (%!s(float64=0.0042269229888916016))
+
+=== RUN  TestFinderNext
+--- PASS: TestFinderNext (%!s(float64=0.0008897781372070312))
+
+=== RUN  TestFinderCreation
+--- PASS: TestFinderCreation (%!s(float64=0.0008120536804199219))
+
+=== RUN  TestIndex
+--- PASS: TestIndex (%!s(float64=0.0002808570861816406))
+
+=== RUN  TestLastIndex
+--- PASS: TestLastIndex (%!s(float64=2.7179718017578125e-05))
+
+=== RUN  TestIndexAny
+--- PASS: TestIndexAny (%!s(float64=0.0002429485321044922))
+
+=== RUN  TestLastIndexAny
+--- PASS: TestLastIndexAny (%!s(float64=0.00013589859008789062))
+
+=== RUN  TestIndexByte
+--- PASS: TestIndexByte (%!s(float64=8.106231689453125e-06))
+
+=== RUN  TestLastIndexByte
+--- PASS: TestLastIndexByte (%!s(float64=2.09808349609375e-05))
+
+=== RUN  TestIndexRandom
+--- PASS: TestIndexRandom (%!s(float64=0.24338912963867188))
+
+=== RUN  TestIndexRune
+--- PASS: TestIndexRune (%!s(float64=0.00010514259338378906))
+
+=== RUN  TestSplit
+--- PASS: TestSplit (%!s(float64=0.0008721351623535156))
+
+=== RUN  TestSplitAfter
+--- PASS: TestSplitAfter (%!s(float64=0.0007920265197753906))
+
+=== RUN  TestFields
+--- PASS: TestFields (%!s(float64=0.0003440380096435547))
+
+=== RUN  TestFieldsFunc
+--- PASS: TestFieldsFunc (%!s(float64=0.0005300045013427734))
+
+=== RUN  TestMap
+strings_test/Strings_test.hx:4175: testMap skip function
+--- PASS: TestMap (%!s(float64=1.6927719116210938e-05))
+
+=== RUN  TestToUpper
+--- PASS: TestToUpper (%!s(float64=0.00042510032653808594))
+
+=== RUN  TestToLower
+--- PASS: TestToLower (%!s(float64=0.0003771781921386719))
+
+=== RUN  TestToValidUTF8
+--- PASS: TestToValidUTF8 (%!s(float64=0.0004279613494873047))
+
+=== RUN  TestSpecialCase
+--- PASS: TestSpecialCase (%!s(float64=0.0021719932556152344))
+
+=== RUN  TestTrimSpace
+--- PASS: TestTrimSpace (%!s(float64=0.00021386146545410156))
+
+=== RUN  TestTrim
+--- PASS: TestTrim (%!s(float64=0.0001678466796875))
+
+=== RUN  TestTrimFunc
+--- PASS: TestTrimFunc (%!s(float64=0.0007779598236083984))
+
+=== RUN  TestIndexFunc
+--- PASS: TestIndexFunc (%!s(float64=0.00024199485778808594))
+
+=== RUN  TestCaseConsistency
+--- PASS: TestCaseConsistency (%!s(float64=0.0753638744354248))
+
+=== RUN  TestRepeat
+--- PASS: TestRepeat (%!s(float64=8.0108642578125e-05))
+
+=== RUN  TestRepeatCatchesOverflow
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0007410049438476562))
+
+=== RUN  TestRunes
+--- PASS: TestRunes (%!s(float64=0.00010895729064941406))
+
+=== RUN  TestReadByte
+--- PASS: TestReadByte (%!s(float64=9.608268737792969e-05))
+
+=== RUN  TestReadRune
+--- PASS: TestReadRune (%!s(float64=0.00010704994201660156))
+
+=== RUN  TestUnreadRuneError
+--- PASS: TestUnreadRuneError (%!s(float64=6.604194641113281e-05))
+
+=== RUN  TestReplace
+--- PASS: TestReplace (%!s(float64=0.0005509853363037109))
+
+=== RUN  TestTitle
+--- PASS: TestTitle (%!s(float64=0.0004661083221435547))
+
+=== RUN  TestContains
+--- PASS: TestContains (%!s(float64=7.510185241699219e-05))
+
+=== RUN  TestContainsAny
+--- PASS: TestContainsAny (%!s(float64=8.916854858398438e-05))
+
+=== RUN  TestContainsRune
+--- PASS: TestContainsRune (%!s(float64=1.0967254638671875e-05))
+
+=== RUN  TestEqualFold
+--- PASS: TestEqualFold (%!s(float64=0.0004019737243652344))
+
+=== RUN  TestCount
+--- PASS: TestCount (%!s(float64=1.5974044799804688e-05))
+
+=== RUN  TestCut
+--- PASS: TestCut (%!s(float64=1.811981201171875e-05))
+</code></pre>
 <p></p>
 </details></p><details><summary>interp tests passed</summary>
 <p>
-<pre><code>=== RUN   TestBuilder
---- PASS: TestBuilder (0.000172853469848632812)
-=== RUN   TestBuilderString
---- PASS: TestBuilderString (0.000152826309204101562)
-=== RUN   TestBuilderReset
---- PASS: TestBuilderReset (0.000186920166015625)
-=== RUN   TestBuilderGrow
-strings_test/Strings_test.hx:1941: testBuilderGrow skip function
---- PASS: TestBuilderGrow (2.31266021728515625e-05)
-=== RUN   TestBuilderWrite2
---- PASS: TestBuilderWrite2 (4.60147857666015625e-05)
-=== RUN   TestBuilderWriteByte
---- PASS: TestBuilderWriteByte (3.0040740966796875e-05)
-=== RUN   TestBuilderAllocs
-strings_test/Strings_test.hx:2049: testBuilderAllocs skip function
---- PASS: TestBuilderAllocs (1.40666961669921875e-05)
-=== RUN   TestBuilderCopyPanic
-strings_test/Strings_test.hx:2063: testBuilderCopyPanic skip function
---- PASS: TestBuilderCopyPanic (1.40666961669921875e-05)
-=== RUN   TestBuilderWriteInvalidRune
---- PASS: TestBuilderWriteInvalidRune (0.000176906585693359375)
-=== RUN   TestClone
-strings_test/Strings_test.hx:2265: testClone skip function
---- PASS: TestClone (1.50203704833984375e-05)
-=== RUN   TestCompare
---- PASS: TestCompare (5.3882598876953125e-05)
-=== RUN   TestCompareIdenticalString
---- PASS: TestCompareIdenticalString (5.79357147216796875e-05)
-=== RUN   TestCompareStrings
-strings_test/Strings_test.hx:2370: testCompareStrings skip function
---- PASS: TestCompareStrings (1.50203704833984375e-05)
-=== RUN   TestReader
---- PASS: TestReader (0.000552892684936523438)
-=== RUN   TestReadAfterBigSeek
---- PASS: TestReadAfterBigSeek (8.0108642578125e-05)
-=== RUN   TestReaderAt
---- PASS: TestReaderAt (0.000370025634765625)
-=== RUN   TestReaderAtConcurrent
---- PASS: TestReaderAtConcurrent (0.000758886337280273438)
-=== RUN   TestEmptyReaderConcurrent
---- PASS: TestEmptyReaderConcurrent (0.0015430450439453125)
-=== RUN   TestWriteTo
---- PASS: TestWriteTo (0.00111699104309082031)
-=== RUN   TestReaderLenSize
-strings_test/Strings_test.hx:3047: testReaderLenSize skip function
---- PASS: TestReaderLenSize (1.40666961669921875e-05)
-=== RUN   TestReaderReset
---- PASS: TestReaderReset (0.000177860260009765625)
-=== RUN   TestReaderZero
---- PASS: TestReaderZero (0.000178098678588867188)
-=== RUN   TestReplacer
-strings_test/Strings_test.hx:3200: testReplacer skip function
---- PASS: TestReplacer (1.621246337890625e-05)
-=== RUN   TestPickAlgorithm
-strings_test/Strings_test.hx:3434: testPickAlgorithm skip function
---- PASS: TestPickAlgorithm (1.40666961669921875e-05)
-=== RUN   TestWriteStringError
---- PASS: TestWriteStringError (0.00227904319763183594)
-=== RUN   TestGenericTrieBuilding
---- PASS: TestGenericTrieBuilding (0.00550198554992675781)
-=== RUN   TestFinderNext
---- PASS: TestFinderNext (0.00297689437866210938)
-=== RUN   TestFinderCreation
---- PASS: TestFinderCreation (0.00351095199584960938)
-=== RUN   TestIndex
---- PASS: TestIndex (0.00218296051025390625)
-=== RUN   TestLastIndex
---- PASS: TestLastIndex (0.0001850128173828125)
-=== RUN   TestIndexAny
---- PASS: TestIndexAny (0.00151395797729492188)
-=== RUN   TestLastIndexAny
---- PASS: TestLastIndexAny (0.00090789794921875)
-=== RUN   TestIndexByte
---- PASS: TestIndexByte (9.0122222900390625e-05)
-=== RUN   TestLastIndexByte
---- PASS: TestLastIndexByte (5.3882598876953125e-05)
-=== RUN   TestIndexRandom
---- PASS: TestIndexRandom (0.684394121170044)
-=== RUN   TestIndexRune
---- PASS: TestIndexRune (0.000716924667358398438)
-=== RUN   TestSplit
---- PASS: TestSplit (0.0036830902099609375)
-=== RUN   TestSplitAfter
---- PASS: TestSplitAfter (0.00270104408264160156)
-=== RUN   TestFields
---- PASS: TestFields (0.00277209281921386719)
-=== RUN   TestFieldsFunc
---- PASS: TestFieldsFunc (0.00420093536376953125)
-=== RUN   TestMap
-strings_test/Strings_test.hx:4181: testMap skip function
---- PASS: TestMap (1.78813934326171875e-05)
-=== RUN   TestToUpper
---- PASS: TestToUpper (0.0028018951416015625)
-=== RUN   TestToLower
---- PASS: TestToLower (0.00309705734252929688)
-=== RUN   TestToValidUTF8
---- PASS: TestToValidUTF8 (0.00319886207580566406)
-=== RUN   TestSpecialCase
---- PASS: TestSpecialCase (0.0059490203857421875)
-=== RUN   TestTrimSpace
---- PASS: TestTrimSpace (0.00132894515991210938)
-=== RUN   TestTrim
---- PASS: TestTrim (0.00168895721435546875)
-=== RUN   TestTrimFunc
---- PASS: TestTrimFunc (0.00556206703186035156)
-=== RUN   TestIndexFunc
---- PASS: TestIndexFunc (0.00175786018371582031)
-=== RUN   TestCaseConsistency
---- PASS: TestCaseConsistency (0.345212936401367188)
-=== RUN   TestRepeat
---- PASS: TestRepeat (0.000262975692749023438)
-=== RUN   TestRepeatCatchesOverflow
---- PASS: TestRepeatCatchesOverflow (0.000838994979858398438)
-=== RUN   TestRunes
---- PASS: TestRunes (0.000637054443359375)
-=== RUN   TestReadByte
---- PASS: TestReadByte (0.000634908676147460938)
-=== RUN   TestReadRune
---- PASS: TestReadRune (0.000750064849853515625)
-=== RUN   TestUnreadRuneError
---- PASS: TestUnreadRuneError (0.0002460479736328125)
-=== RUN   TestReplace
---- PASS: TestReplace (0.00260186195373535156)
-=== RUN   TestTitle
---- PASS: TestTitle (0.00294804573059082031)
-=== RUN   TestContains
---- PASS: TestContains (0.00042819976806640625)
-=== RUN   TestContainsAny
---- PASS: TestContainsAny (0.000653982162475585938)
-=== RUN   TestContainsRune
---- PASS: TestContainsRune (6.198883056640625e-05)
-=== RUN   TestEqualFold
---- PASS: TestEqualFold (0.00130295753479003906)
-=== RUN   TestCount
---- PASS: TestCount (9.2983245849609375e-05)
-=== RUN   TestCut
---- PASS: TestCut (7.2002410888671875e-05)</code></pre>
+<pre><code>=== RUN  TestBuilder
+--- PASS: TestBuilder (%!s(float64=0.00013685226440429688))
+
+=== RUN  TestBuilderString
+--- PASS: TestBuilderString (%!s(float64=0.00015497207641601562))
+
+=== RUN  TestBuilderReset
+--- PASS: TestBuilderReset (%!s(float64=7.700920104980469e-05))
+
+=== RUN  TestBuilderGrow
+strings_test/Strings_test.hx:1984: testBuilderGrow skip function
+--- PASS: TestBuilderGrow (%!s(float64=1.5974044799804688e-05))
+
+=== RUN  TestBuilderWrite2
+--- PASS: TestBuilderWrite2 (%!s(float64=3.790855407714844e-05))
+
+=== RUN  TestBuilderWriteByte
+--- PASS: TestBuilderWriteByte (%!s(float64=3.0994415283203125e-05))
+
+=== RUN  TestBuilderAllocs
+strings_test/Strings_test.hx:2092: testBuilderAllocs skip function
+--- PASS: TestBuilderAllocs (%!s(float64=1.3113021850585938e-05))
+
+=== RUN  TestBuilderCopyPanic
+strings_test/Strings_test.hx:2106: testBuilderCopyPanic skip function
+--- PASS: TestBuilderCopyPanic (%!s(float64=1.0967254638671875e-05))
+
+=== RUN  TestBuilderWriteInvalidRune
+--- PASS: TestBuilderWriteInvalidRune (%!s(float64=0.00012803077697753906))
+
+=== RUN  TestClone
+strings_test/Strings_test.hx:2308: testClone skip function
+--- PASS: TestClone (%!s(float64=1.0967254638671875e-05))
+
+=== RUN  TestCompare
+--- PASS: TestCompare (%!s(float64=4.601478576660156e-05))
+
+=== RUN  TestCompareIdenticalString
+--- PASS: TestCompareIdenticalString (%!s(float64=1.5974044799804688e-05))
+
+=== RUN  TestCompareStrings
+strings_test/Strings_test.hx:2413: testCompareStrings skip function
+--- PASS: TestCompareStrings (%!s(float64=1.0967254638671875e-05))
+
+=== RUN  TestReader
+--- PASS: TestReader (%!s(float64=0.0004611015319824219))
+
+=== RUN  TestReadAfterBigSeek
+--- PASS: TestReadAfterBigSeek (%!s(float64=8.58306884765625e-05))
+
+=== RUN  TestReaderAt
+--- PASS: TestReaderAt (%!s(float64=0.0037720203399658203))
+
+=== RUN  TestReaderAtConcurrent
+--- PASS: TestReaderAtConcurrent (%!s(float64=0.0007040500640869141))
+
+=== RUN  TestEmptyReaderConcurrent
+--- PASS: TestEmptyReaderConcurrent (%!s(float64=0.0014109611511230469))
+
+=== RUN  TestWriteTo
+--- PASS: TestWriteTo (%!s(float64=0.0006849765777587891))
+
+=== RUN  TestReaderLenSize
+strings_test/Strings_test.hx:3090: testReaderLenSize skip function
+--- PASS: TestReaderLenSize (%!s(float64=1.5020370483398438e-05))
+
+=== RUN  TestReaderReset
+--- PASS: TestReaderReset (%!s(float64=0.00016617774963378906))
+
+=== RUN  TestReaderZero
+--- PASS: TestReaderZero (%!s(float64=0.0003190040588378906))
+
+=== RUN  TestReplacer
+strings_test/Strings_test.hx:3243: testReplacer skip function
+--- PASS: TestReplacer (%!s(float64=1.3113021850585938e-05))
+
+=== RUN  TestPickAlgorithm
+strings_test/Strings_test.hx:3426: testPickAlgorithm skip function
+--- PASS: TestPickAlgorithm (%!s(float64=1.0013580322265625e-05))
+
+=== RUN  TestWriteStringError
+--- PASS: TestWriteStringError (%!s(float64=0.003225088119506836))
+
+=== RUN  TestGenericTrieBuilding
+--- PASS: TestGenericTrieBuilding (%!s(float64=0.005055904388427734))
+
+=== RUN  TestFinderNext
+--- PASS: TestFinderNext (%!s(float64=0.0031888484954833984))
+
+=== RUN  TestFinderCreation
+--- PASS: TestFinderCreation (%!s(float64=0.003367900848388672))
+
+=== RUN  TestIndex
+--- PASS: TestIndex (%!s(float64=0.001664876937866211))
+
+=== RUN  TestLastIndex
+--- PASS: TestLastIndex (%!s(float64=0.00017786026000976562))
+
+=== RUN  TestIndexAny
+--- PASS: TestIndexAny (%!s(float64=0.0013689994812011719))
+
+=== RUN  TestLastIndexAny
+--- PASS: TestLastIndexAny (%!s(float64=0.0008249282836914062))
+
+=== RUN  TestIndexByte
+--- PASS: TestIndexByte (%!s(float64=8.20159912109375e-05))
+
+=== RUN  TestLastIndexByte
+--- PASS: TestLastIndexByte (%!s(float64=4.601478576660156e-05))
+
+=== RUN  TestIndexRandom
+--- PASS: TestIndexRandom (%!s(float64=0.5771031379699707))
+
+=== RUN  TestIndexRune
+--- PASS: TestIndexRune (%!s(float64=0.0005578994750976562))
+
+=== RUN  TestSplit
+--- PASS: TestSplit (%!s(float64=0.00333404541015625))
+
+=== RUN  TestSplitAfter
+--- PASS: TestSplitAfter (%!s(float64=0.002457141876220703))
+
+=== RUN  TestFields
+--- PASS: TestFields (%!s(float64=0.002110004425048828))
+
+=== RUN  TestFieldsFunc
+--- PASS: TestFieldsFunc (%!s(float64=0.0031621456146240234))
+
+=== RUN  TestMap
+strings_test/Strings_test.hx:4175: testMap skip function
+--- PASS: TestMap (%!s(float64=1.6927719116210938e-05))
+
+=== RUN  TestToUpper
+--- PASS: TestToUpper (%!s(float64=0.0021359920501708984))
+
+=== RUN  TestToLower
+--- PASS: TestToLower (%!s(float64=0.0019369125366210938))
+
+=== RUN  TestToValidUTF8
+--- PASS: TestToValidUTF8 (%!s(float64=0.002025127410888672))
+
+=== RUN  TestSpecialCase
+--- PASS: TestSpecialCase (%!s(float64=0.004745006561279297))
+
+=== RUN  TestTrimSpace
+--- PASS: TestTrimSpace (%!s(float64=0.0011510848999023438))
+
+=== RUN  TestTrim
+--- PASS: TestTrim (%!s(float64=0.0009520053863525391))
+
+=== RUN  TestTrimFunc
+--- PASS: TestTrimFunc (%!s(float64=0.004216909408569336))
+
+=== RUN  TestIndexFunc
+--- PASS: TestIndexFunc (%!s(float64=0.0013420581817626953))
+
+=== RUN  TestCaseConsistency
+--- PASS: TestCaseConsistency (%!s(float64=0.2483351230621338))
+
+=== RUN  TestRepeat
+--- PASS: TestRepeat (%!s(float64=0.0002219676971435547))
+
+=== RUN  TestRepeatCatchesOverflow
+--- PASS: TestRepeatCatchesOverflow (%!s(float64=0.0020360946655273438))
+
+=== RUN  TestRunes
+--- PASS: TestRunes (%!s(float64=0.0005538463592529297))
+
+=== RUN  TestReadByte
+--- PASS: TestReadByte (%!s(float64=0.00047588348388671875))
+
+=== RUN  TestReadRune
+--- PASS: TestReadRune (%!s(float64=0.0005462169647216797))
+
+=== RUN  TestUnreadRuneError
+--- PASS: TestUnreadRuneError (%!s(float64=0.00021910667419433594))
+
+=== RUN  TestReplace
+--- PASS: TestReplace (%!s(float64=0.002315044403076172))
+
+=== RUN  TestTitle
+--- PASS: TestTitle (%!s(float64=0.0026819705963134766))
+
+=== RUN  TestContains
+--- PASS: TestContains (%!s(float64=0.0003719329833984375))
+
+=== RUN  TestContainsAny
+--- PASS: TestContainsAny (%!s(float64=0.0005810260772705078))
+
+=== RUN  TestContainsRune
+--- PASS: TestContainsRune (%!s(float64=5.888938903808594e-05))
+
+=== RUN  TestEqualFold
+--- PASS: TestEqualFold (%!s(float64=0.0011990070343017578))
+
+=== RUN  TestCount
+--- PASS: TestCount (%!s(float64=8.296966552734375e-05))
+
+=== RUN  TestCut
+--- PASS: TestCut (%!s(float64=5.793571472167969e-05))
+</code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")</code></pre>
+<pre><code>IO.Overflow("write_ui16")
+stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>
 <h1><a name="index">Index</a></h1><ul><li>
-<p><a href="#function-_explode"><code>function _explode(_s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoString&gt;</code></a></p></li><li>
-<p><a href="#function-_gensplit"><code>function _genSplit(_s:stdgo.GoString, _sep:stdgo.GoString, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoString&gt;</code></a></p></li><li>
-<p><a href="#function-_getstringwriter"><code>function _getStringWriter(_w:stdgo.io.Writer):stdgo.io.StringWriter</code></a></p></li><li>
-<p><a href="#function-_indexfunc"><code>function _indexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_isseparator"><code>function _isSeparator(_r:stdgo.GoRune):Bool</code></a></p></li><li>
-<p><a href="#function-_lastindexfunc"><code>function _lastIndexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_longestcommonsuffix"><code>function _longestCommonSuffix(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_makeasciiset"><code>function _makeASCIISet(_chars:stdgo.GoString):{_1:Bool, _0:stdgo.strings._Strings.T_asciiSet}</code></a></p></li><li>
-<p><a href="#function-_makegenericreplacer"><code>function _makeGenericReplacer(_oldnew:stdgo.Slice&lt;stdgo.GoString&gt;):stdgo.Ref&lt;stdgo.strings._Strings.T_genericReplacer&gt;</code></a></p></li><li>
-<p><a href="#function-_makesinglestringreplacer"><code>function _makeSingleStringReplacer(_pattern:stdgo.GoString, _value:stdgo.GoString):stdgo.Ref&lt;stdgo.strings._Strings.T_singleStringReplacer&gt;</code></a></p></li><li>
-<p><a href="#function-_makestringfinder"><code>function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref&lt;stdgo.strings._Strings.T_stringFinder&gt;</code></a></p></li><li>
-<p><a href="#function-_max"><code>function _max(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt</code></a></p></li><li>
-<p><a href="#function-_noescape"><code>function _noescape(_p:stdgo.unsafe.UnsafePointer):stdgo.unsafe.UnsafePointer</code></a></p></li><li>
-<p><a href="#function-_trimleftascii"><code>function _trimLeftASCII(_s:stdgo.GoString, _as:stdgo.Ref&lt;stdgo.strings._Strings.T_asciiSet&gt;):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_trimleftbyte"><code>function _trimLeftByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_trimleftunicode"><code>function _trimLeftUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_trimrightascii"><code>function _trimRightASCII(_s:stdgo.GoString, _as:stdgo.Ref&lt;stdgo.strings._Strings.T_asciiSet&gt;):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_trimrightbyte"><code>function _trimRightByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString</code></a></p></li><li>
-<p><a href="#function-_trimrightunicode"><code>function _trimRightUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString</code></a></p></li><li>
 <p><a href="#function-clone"><code>function clone(_s:stdgo.GoString):stdgo.GoString</code></a></p></li><li>
 <p><a href="#function-compare"><code>function compare(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt</code></a></p></li><li>
 <p><a href="#function-contains"><code>function contains(_s:stdgo.GoString, _substr:stdgo.GoString):Bool</code></a></p></li><li>
@@ -553,359 +663,295 @@ strings_test/Strings_test.hx:4181: testMap skip function
 <p><a href="#exampletrimsuffix"><code>exampleTrimSuffix</code></a></p></li></ul>
 <h1><a name="functions">Functions</a></h1>
 <pre><code class="language-haxe">import stdgo.strings.Strings</code></pre>
-<h2><a name="function-_explode">function _explode</a></h2>
-<pre><code class="language-haxe">function _explode(_s:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p>explode splits s into a slice of UTF-8 strings,��// one string per Unicode character up to a maximum of n (n \&lt; 0 means no limit).��// Invalid UTF-8 sequences become correct encodings of U+FFFD. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L615"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_gensplit">function _genSplit</a></h2>
-<pre><code class="language-haxe">function _genSplit(_s:stdgo.GoString, _sep:stdgo.GoString, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p>Generic split: splits after each instance of sep,��// including sepSave bytes of sep in the subarrays. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L889"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_getstringwriter">function _getStringWriter</a></h2>
-<pre><code class="language-haxe">function _getStringWriter(_w:stdgo.io.Writer):stdgo.io.StringWriter</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L542"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_indexfunc">function _indexFunc</a></h2>
-<pre><code class="language-haxe">function _indexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt</code></pre>
-<p>indexFunc is the same as IndexFunc except that if��// truth==false, the sense of the predicate function is��// inverted. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1479"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_isseparator">function _isSeparator</a></h2>
-<pre><code class="language-haxe">function _isSeparator(_r:stdgo.GoRune):Bool</code></pre>
-<p>isSeparator reports whether the rune could mark a word boundary.��// TODO: update when package unicode captures more of the properties. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1383"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_lastindexfunc">function _lastIndexFunc</a></h2>
-<pre><code class="language-haxe">function _lastIndexFunc(_s:stdgo.GoString, _f:(), _truth:Bool):stdgo.GoInt</code></pre>
-<p>lastIndexFunc is the same as LastIndexFunc except that if��// truth==false, the sense of the predicate function is��// inverted. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1493"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_longestcommonsuffix">function _longestCommonSuffix</a></h2>
-<pre><code class="language-haxe">function _longestCommonSuffix(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L593"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_makeasciiset">function _makeASCIISet</a></h2>
-<pre><code class="language-haxe">function _makeASCIISet(_chars:stdgo.GoString):{_1:Bool, _0:stdgo.strings._Strings.T_asciiSet}</code></pre>
-<p>makeASCIISet creates a set of ASCII characters and reports whether all��// characters in chars are ASCII. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1513"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_makegenericreplacer">function _makeGenericReplacer</a></h2>
-<pre><code class="language-haxe">function _makeGenericReplacer(_oldnew:stdgo.Slice&lt;stdgo.GoString&gt;):stdgo.Ref&lt;stdgo.strings._Strings.T_genericReplacer&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L505"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_makesinglestringreplacer">function _makeSingleStringReplacer</a></h2>
-<pre><code class="language-haxe">function _makeSingleStringReplacer(_pattern:stdgo.GoString, _value:stdgo.GoString):stdgo.Ref&lt;stdgo.strings._Strings.T_singleStringReplacer&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L554"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_makestringfinder">function _makeStringFinder</a></h2>
-<pre><code class="language-haxe">function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref&lt;stdgo.strings._Strings.T_stringFinder&gt;</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L558"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_max">function _max</a></h2>
-<pre><code class="language-haxe">function _max(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L603"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_noescape">function _noescape</a></h2>
-<pre><code class="language-haxe">function _noescape(_p:stdgo.unsafe.UnsafePointer):stdgo.unsafe.UnsafePointer</code></pre>
-<p>noescape hides a pointer from escape analysis. It is the identity function��// but escape analysis doesn't think the output depends on the input.��// noescape is inlined and currently compiles down to zero instructions.��// USE CAREFULLY!��// This was copied from the runtime; see issues 23382 and 7921.��//��//go:nosplit��//go:nocheckptr </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L427"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimleftascii">function _trimLeftASCII</a></h2>
-<pre><code class="language-haxe">function _trimLeftASCII(_s:stdgo.GoString, _as:stdgo.Ref&lt;stdgo.strings._Strings.T_asciiSet&gt;):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1582"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimleftbyte">function _trimLeftByte</a></h2>
-<pre><code class="language-haxe">function _trimLeftByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1575"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimleftunicode">function _trimLeftUnicode</a></h2>
-<pre><code class="language-haxe">function _trimLeftUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1592"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimrightascii">function _trimRightASCII</a></h2>
-<pre><code class="language-haxe">function _trimRightASCII(_s:stdgo.GoString, _as:stdgo.Ref&lt;stdgo.strings._Strings.T_asciiSet&gt;):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1644"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimrightbyte">function _trimRightByte</a></h2>
-<pre><code class="language-haxe">function _trimRightByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1637"target="_blank" rel="noopener noreferrer">(view code)</a></p>
-<h2><a name="function-_trimrightunicode">function _trimRightUnicode</a></h2>
-<pre><code class="language-haxe">function _trimRightUnicode(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1654"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-clone">function clone</a></h2>
 <pre><code class="language-haxe">function clone(_s:stdgo.GoString):stdgo.GoString</code></pre>
-<p>Clone returns a fresh copy of s.��// It guarantees to make a copy of s into a new allocation,��// which can be important when retaining only a small substring��// of a much larger string. Using Clone can help such programs��// use less memory. Of course, since using Clone makes a copy,��// overuse of Clone can make programs use more memory.��// Clone should typically be used only rarely, and only when��// profiling indicates that it is needed.��// For strings of length zero the string "" will be returned��// and no allocation is made. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L444"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Clone returns a fresh copy of s.  It guarantees to make a copy of s into a new allocation,  which can be important when retaining only a small substring  of a much larger string. Using Clone can help such programs  use less memory. Of course, since using Clone makes a copy,  overuse of Clone can make programs use more memory.  Clone should typically be used only rarely, and only when  profiling indicates that it is needed.  For strings of length zero the string "" will be returned  and no allocation is made. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L429"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-compare">function compare</a></h2>
 <pre><code class="language-haxe">function compare(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt</code></pre>
-<p>Compare returns an integer comparing two strings lexicographically.��// The result will be 0 if a == b, -1 if a \&lt; b, and +1 if a \> b.��//��// Compare is included only for symmetry with package bytes.��// It is usually clearer and always faster to use the built-in��// string comparison operators ==, \&lt;, \>, and so on. </p>
+<p>Compare returns an integer comparing two strings lexicographically.  The result will be 0 if a == b, -1 if a \&lt; b, and +1 if a \> b.    Compare is included only for symmetry with package bytes.  It is usually clearer and always faster to use the built-in  string comparison operators ==, \&lt;, \>, and so on. </p>
 <h3><a name="examplecompare">exampleCompare</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleCompare():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(Go.str("a"), Go.str("b"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(Go.str("a"), Go.str("a"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(Go.str("b"), Go.str("a"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(("a" : GoString), ("b" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(("a" : GoString), ("a" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.compare(("b" : GoString), ("a" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L462"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L439"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-contains">function contains</a></h2>
 <pre><code class="language-haxe">function contains(_s:stdgo.GoString, _substr:stdgo.GoString):Bool</code></pre>
 <p>Contains reports whether substr is within s. </p>
 <h3><a name="examplecontains">exampleContains</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleContains():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(Go.str("seafood"), Go.str("foo"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(Go.str("seafood"), Go.str("bar"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(Go.str("seafood"), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(("seafood" : GoString), ("foo" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(("seafood" : GoString), ("bar" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(("seafood" : GoString), Go.str())));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.contains(Go.str(), Go.str())));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L665"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L642"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-containsany">function containsAny</a></h2>
 <pre><code class="language-haxe">function containsAny(_s:stdgo.GoString, _chars:stdgo.GoString):Bool</code></pre>
 <p>ContainsAny reports whether any Unicode code points in chars are within s. </p>
 <h3><a name="examplecontainsany">exampleContainsAny</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleContainsAny():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(Go.str("team"), Go.str("i"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(Go.str("fail"), Go.str("ui"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(Go.str("ure"), Go.str("ui"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(Go.str("failure"), Go.str("ui"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(Go.str("foo"), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("team" : GoString), ("i" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("fail" : GoString), ("ui" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("ure" : GoString), ("ui" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("failure" : GoString), ("ui" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(("foo" : GoString), Go.str())));
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsAny(Go.str(), Go.str())));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L672"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L649"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-containsrune">function containsRune</a></h2>
 <pre><code class="language-haxe">function containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool</code></pre>
 <p>ContainsRune reports whether the Unicode code point r is within s. </p>
 <h3><a name="examplecontainsrune">exampleContainsRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleContainsRune():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsRune(Go.str("aardvark"), (97 : GoInt32))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsRune(Go.str("timeout"), (97 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsRune(("aardvark" : GoString), (97 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.containsRune(("timeout" : GoString), (97 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L679"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L656"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-count">function count</a></h2>
 <pre><code class="language-haxe">function count(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt</code></pre>
-<p>Count counts the number of non-overlapping instances of substr in s.��// If substr is an empty string, Count returns 1 + the number of Unicode code points in s. </p>
+<p>Count counts the number of non-overlapping instances of substr in s.  If substr is an empty string, Count returns 1 + the number of Unicode code points in s. </p>
 <h3><a name="examplecount">exampleCount</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleCount():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.count(Go.str("cheese"), Go.str("e"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.count(Go.str("five"), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.count(("cheese" : GoString), ("e" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.count(("five" : GoString), Go.str())));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L644"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L621"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-cut">function cut</a></h2>
 <pre><code class="language-haxe">function cut(_s:stdgo.GoString, _sep:stdgo.GoString):{_2:Bool, _1:stdgo.GoString, _0:stdgo.GoString}</code></pre>
-<p>Cut slices s around the first instance of sep,��// returning the text before and after sep.��// The found result reports whether sep appears in s.��// If sep does not appear in s, cut returns s, "", false. </p>
+<p>Cut slices s around the first instance of sep,  returning the text before and after sep.  The found result reports whether sep appears in s.  If sep does not appear in s, cut returns s, "", false. </p>
 <h3><a name="examplecut">exampleCut</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleCut():Void {
 	var _show:(GoString, GoString) -&gt; Void = function(_s:GoString, _sep:GoString):Void {
 		var __tmp__ = stdgo.strings.Strings.cut(_s, _sep), _before:GoString = __tmp__._0, _after:GoString = __tmp__._1, _found:Bool = __tmp__._2;
-		stdgo.fmt.Fmt.printf(Go.str("Cut(%q, %q) = %q, %q, %v\n"), Go.toInterface(_s), Go.toInterface(_sep), Go.toInterface(_before), Go.toInterface(_after),
-			Go.toInterface(_found));
+		stdgo.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : GoString), Go.toInterface(_s), Go.toInterface(_sep), Go.toInterface(_before),
+			Go.toInterface(_after), Go.toInterface(_found));
 	};
-	_show(Go.str("Gopher"), Go.str("Go"));
-	_show(Go.str("Gopher"), Go.str("ph"));
-	_show(Go.str("Gopher"), Go.str("er"));
-	_show(Go.str("Gopher"), Go.str("Badger"));
+	_show(("Gopher" : GoString), ("Go" : GoString));
+	_show(("Gopher" : GoString), ("ph" : GoString));
+	_show(("Gopher" : GoString), ("er" : GoString));
+	_show(("Gopher" : GoString), ("Badger" : GoString));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1941"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1918"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-dumptables">function dumpTables</a></h2>
 <pre><code class="language-haxe">function dumpTables(_pattern:stdgo.GoString):{_1:stdgo.Slice&lt;stdgo.GoInt&gt;, _0:stdgo.Slice&lt;stdgo.GoInt&gt;}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L476"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L453"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-equalfold">function equalFold</a></h2>
 <pre><code class="language-haxe">function equalFold(_s:stdgo.GoString, _t:stdgo.GoString):Bool</code></pre>
-<p>EqualFold reports whether s and t, interpreted as UTF-8 strings,��// are equal under simple Unicode case-folding, which is a more general��// form of case-insensitivity. </p>
+<p>EqualFold reports whether s and t, interpreted as UTF-8 strings,  are equal under simple Unicode case-folding, which is a more general  form of case-insensitivity. </p>
 <h3><a name="exampleequalfold">exampleEqualFold</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleEqualFold():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(Go.str("Go"), Go.str("go"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(Go.str("AB"), Go.str("ab"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(Go.str("ß"), Go.str("ss"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(("Go" : GoString), ("go" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(("AB" : GoString), ("ab" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.equalFold(("ß" : GoString), ("ss" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1787"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1764"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-fields">function fields</a></h2>
 <pre><code class="language-haxe">function fields(_s:stdgo.GoString):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p>Fields splits the string s around each instance of one or more consecutive white space��// characters, as defined by unicode.IsSpace, returning a slice of substrings of s or an��// empty slice if s contains only white space. </p>
+<p>Fields splits the string s around each instance of one or more consecutive white space  characters, as defined by unicode.IsSpace, returning a slice of substrings of s or an  empty slice if s contains only white space. </p>
 <h3><a name="examplefields">exampleFields</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleFields():Void {
-	stdgo.fmt.Fmt.printf(Go.str("Fields are: %q"), Go.toInterface(stdgo.strings.Strings.fields(Go.str("  foo bar  baz   "))));
+	stdgo.fmt.Fmt.printf(("Fields are: %q" : GoString), Go.toInterface(stdgo.strings.Strings.fields(("  foo bar  baz   " : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L993"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L970"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-fieldsfunc">function fieldsFunc</a></h2>
 <pre><code class="language-haxe">function fieldsFunc(_s:stdgo.GoString, _f:()):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p>FieldsFunc splits the string s at each run of Unicode code points c satisfying f(c)��// and returns an array of slices of s. If all code points in s satisfy f(c) or the��// string is empty, an empty slice is returned.��//��// FieldsFunc makes no guarantees about the order in which it calls f(c)��// and assumes that f always returns the same value for a given c. </p>
+<p>FieldsFunc splits the string s at each run of Unicode code points c satisfying f(c)  and returns an array of slices of s. If all code points in s satisfy f(c) or the  string is empty, an empty slice is returned.    FieldsFunc makes no guarantees about the order in which it calls f(c)  and assumes that f always returns the same value for a given c. </p>
 <h3><a name="examplefieldsfunc">exampleFieldsFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleFieldsFunc():Void {
 	var _f:GoInt32-&gt;Bool = function(_c:GoRune):Bool {
 		return !stdgo.unicode.Unicode.isLetter(_c) &amp;&amp; !stdgo.unicode.Unicode.isNumber(_c);
 	};
-	stdgo.fmt.Fmt.printf(Go.str("Fields are: %q"), Go.toInterface(stdgo.strings.Strings.fieldsFunc(Go.str("  foo1;bar2,baz3..."), _f)));
+	stdgo.fmt.Fmt.printf(("Fields are: %q" : GoString), Go.toInterface(stdgo.strings.Strings.fieldsFunc(("  foo1;bar2,baz3..." : GoString), _f)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1068"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1045"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-hasprefix">function hasPrefix</a></h2>
 <pre><code class="language-haxe">function hasPrefix(_s:stdgo.GoString, _prefix:stdgo.GoString):Bool</code></pre>
 <p>HasPrefix tests whether the string s begins with prefix. </p>
 <h3><a name="examplehasprefix">exampleHasPrefix</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleHasPrefix():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(Go.str("Gopher"), Go.str("Go"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(Go.str("Gopher"), Go.str("C"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(Go.str("Gopher"), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : GoString), ("Go" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : GoString), ("C" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasPrefix(("Gopher" : GoString), Go.str())));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1124"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1101"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-hassuffix">function hasSuffix</a></h2>
 <pre><code class="language-haxe">function hasSuffix(_s:stdgo.GoString, _suffix:stdgo.GoString):Bool</code></pre>
 <p>HasSuffix tests whether the string s ends with suffix. </p>
 <h3><a name="examplehassuffix">exampleHasSuffix</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleHasSuffix():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(Go.str("Amigo"), Go.str("go"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(Go.str("Amigo"), Go.str("O"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(Go.str("Amigo"), Go.str("Ami"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(Go.str("Amigo"), Go.str())));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : GoString), ("go" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : GoString), ("O" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : GoString), ("Ami" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.hasSuffix(("Amigo" : GoString), Go.str())));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1131"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1108"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-index">function index</a></h2>
 <pre><code class="language-haxe">function index(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt</code></pre>
 <p>Index returns the index of the first instance of substr in s, or -1 if substr is not present in s. </p>
 <h3><a name="exampleindex">exampleIndex</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndex():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(Go.str("chicken"), Go.str("ken"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(Go.str("chicken"), Go.str("dmr"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(("chicken" : GoString), ("ken" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(("chicken" : GoString), ("dmr" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1861"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1838"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexany">function indexAny</a></h2>
 <pre><code class="language-haxe">function indexAny(_s:stdgo.GoString, _chars:stdgo.GoString):stdgo.GoInt</code></pre>
-<p>IndexAny returns the index of the first instance of any Unicode code point��// from chars in s, or -1 if no Unicode code point from chars is present in s. </p>
+<p>IndexAny returns the index of the first instance of any Unicode code point  from chars in s, or -1 if no Unicode code point from chars is present in s. </p>
 <h3><a name="exampleindexany">exampleIndexAny</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndexAny():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexAny(Go.str("chicken"), Go.str("aeiouy"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexAny(Go.str("crwth"), Go.str("aeiouy"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexAny(("chicken" : GoString), ("aeiouy" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexAny(("crwth" : GoString), ("aeiouy" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L762"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L739"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexbyte">function indexByte</a></h2>
 <pre><code class="language-haxe">function indexByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt</code></pre>
 <p>IndexByte returns the index of the first instance of c in s, or -1 if c is not present in s. </p>
 <h3><a name="exampleindexbyte">exampleIndexByte</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndexByte():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(Go.str("golang"), (103 : GoUInt8))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(Go.str("gophers"), (104 : GoUInt8))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(Go.str("golang"), (120 : GoUInt8))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(("golang" : GoString), (103 : GoUInt8))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(("gophers" : GoString), (104 : GoUInt8))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexByte(("golang" : GoString), (120 : GoUInt8))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L731"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L708"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexfunc">function indexFunc</a></h2>
 <pre><code class="language-haxe">function indexFunc(_s:stdgo.GoString, _f:()):stdgo.GoInt</code></pre>
-<p>IndexFunc returns the index into s of the first Unicode��// code point satisfying f(c), or -1 if none do. </p>
+<p>IndexFunc returns the index into s of the first Unicode  code point satisfying f(c), or -1 if none do. </p>
 <h3><a name="exampleindexfunc">exampleIndexFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndexFunc():Void {
 	var _f:GoInt32-&gt;Bool = function(_c:GoRune):Bool {
 		return stdgo.unicode.Unicode.is_(stdgo.unicode.Unicode.han, _c);
 	};
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexFunc(Go.str("Hello, 世界"), _f)));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexFunc(Go.str("Hello, world"), _f)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexFunc(("Hello, 世界" : GoString), _f)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexFunc(("Hello, world" : GoString), _f)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1462"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1439"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-indexrune">function indexRune</a></h2>
 <pre><code class="language-haxe">function indexRune(_s:stdgo.GoString, _r:stdgo.GoRune):stdgo.GoInt</code></pre>
-<p>IndexRune returns the index of the first instance of the Unicode code point��// r, or -1 if rune is not present in s.��// If r is utf8.RuneError, it returns the first instance of any��// invalid UTF-8 byte sequence. </p>
+<p>IndexRune returns the index of the first instance of the Unicode code point  r, or -1 if rune is not present in s.  If r is utf8.RuneError, it returns the first instance of any  invalid UTF-8 byte sequence. </p>
 <h3><a name="exampleindexrune">exampleIndexRune</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleIndexRune():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexRune(Go.str("chicken"), (107 : GoInt32))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexRune(Go.str("chicken"), (100 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexRune(("chicken" : GoString), (107 : GoInt32))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.indexRune(("chicken" : GoString), (100 : GoInt32))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L741"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L718"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-join">function join</a></h2>
 <pre><code class="language-haxe">function join(_elems:stdgo.Slice&lt;stdgo.GoString&gt;, _sep:stdgo.GoString):stdgo.GoString</code></pre>
-<p>Join concatenates the elements of its first argument to create a single string. The separator��// string sep is placed between elements in the resulting string. </p>
+<p>Join concatenates the elements of its first argument to create a single string. The separator  string sep is placed between elements in the resulting string. </p>
 <h3><a name="examplejoin">exampleJoin</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleJoin():Void {
-	var _s = (new Slice&lt;GoString&gt;(0, 0, Go.str("foo"), Go.str("bar"), Go.str("baz")) : Slice&lt;GoString&gt;);
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.join(_s, Go.str(", "))));
+	var _s = (new Slice&lt;GoString&gt;(0, 0, ("foo" : GoString), ("bar" : GoString), ("baz" : GoString)) : Slice&lt;GoString&gt;);
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.join(_s, (", " : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1098"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1075"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-lastindex">function lastIndex</a></h2>
 <pre><code class="language-haxe">function lastIndex(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt</code></pre>
 <p>LastIndex returns the index of the last instance of substr in s, or -1 if substr is not present in s. </p>
 <h3><a name="examplelastindex">exampleLastIndex</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleLastIndex():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(Go.str("go gopher"), Go.str("go"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndex(Go.str("go gopher"), Go.str("go"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndex(Go.str("go gopher"), Go.str("rodent"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.index(("go gopher" : GoString), ("go" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndex(("go gopher" : GoString), ("go" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndex(("go gopher" : GoString), ("rodent" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L686"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L663"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-lastindexany">function lastIndexAny</a></h2>
 <pre><code class="language-haxe">function lastIndexAny(_s:stdgo.GoString, _chars:stdgo.GoString):stdgo.GoInt</code></pre>
-<p>LastIndexAny returns the index of the last instance of any Unicode code��// point from chars in s, or -1 if no Unicode code point from chars is��// present in s. </p>
+<p>LastIndexAny returns the index of the last instance of any Unicode code  point from chars in s, or -1 if no Unicode code point from chars is  present in s. </p>
 <h3><a name="examplelastindexany">exampleLastIndexAny</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleLastIndexAny():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(Go.str("go gopher"), Go.str("go"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(Go.str("go gopher"), Go.str("rodent"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(Go.str("go gopher"), Go.str("fail"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : GoString), ("go" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : GoString), ("rodent" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexAny(("go gopher" : GoString), ("fail" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L804"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L781"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-lastindexbyte">function lastIndexByte</a></h2>
 <pre><code class="language-haxe">function lastIndexByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt</code></pre>
 <p>LastIndexByte returns the index of the last instance of c in s, or -1 if c is not present in s. </p>
 <h3><a name="examplelastindexbyte">exampleLastIndexByte</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleLastIndexByte():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(Go.str("Hello, world"), (108 : GoUInt8))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(Go.str("Hello, world"), (111 : GoUInt8))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(Go.str("Hello, world"), (120 : GoUInt8))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : GoString), (108 : GoUInt8))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : GoString), (111 : GoUInt8))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexByte(("Hello, world" : GoString), (120 : GoUInt8))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L873"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L850"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-lastindexfunc">function lastIndexFunc</a></h2>
 <pre><code class="language-haxe">function lastIndexFunc(_s:stdgo.GoString, _f:()):stdgo.GoInt</code></pre>
-<p>LastIndexFunc returns the index into s of the last��// Unicode code point satisfying f(c), or -1 if none do. </p>
+<p>LastIndexFunc returns the index into s of the last  Unicode code point satisfying f(c), or -1 if none do. </p>
 <h3><a name="examplelastindexfunc">exampleLastIndexFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleLastIndexFunc():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(Go.str("go 123"), stdgo.unicode.Unicode.isNumber)));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(Go.str("123 go"), stdgo.unicode.Unicode.isNumber)));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(Go.str("go"), stdgo.unicode.Unicode.isNumber)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("go 123" : GoString), stdgo.unicode.Unicode.isNumber)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("123 go" : GoString), stdgo.unicode.Unicode.isNumber)));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.lastIndexFunc(("go" : GoString), stdgo.unicode.Unicode.isNumber)));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1470"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1447"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-map">function map</a></h2>
 <pre><code class="language-haxe">function map(_mapping:(), _s:stdgo.GoString):stdgo.GoString</code></pre>
-<p>Map returns a copy of the string s with all its characters modified��// according to the mapping function. If mapping returns a negative value, the character is��// dropped from the string with no replacement. </p>
+<p>Map returns a copy of the string s with all its characters modified  according to the mapping function. If mapping returns a negative value, the character is  dropped from the string with no replacement. </p>
 <h3><a name="examplemap">exampleMap</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleMap():Void {
@@ -917,617 +963,613 @@ strings_test/Strings_test.hx:4181: testMap skip function
 		};
 		return _r;
 	};
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.map(_rot13, Go.str("\'Twas brillig and the slithy gopher..."))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.map(_rot13, ("\'Twas brillig and the slithy gopher..." : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1140"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1117"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-newreader">function newReader</a></h2>
 <pre><code class="language-haxe">function newReader(_s:stdgo.GoString):stdgo.Ref&lt;stdgo.strings.Reader&gt;</code></pre>
-<p>NewReader returns a new Reader reading from s.��// It is similar to bytes.NewBufferString but more efficient and read-only. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L485"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>NewReader returns a new Reader reading from s.  It is similar to bytes.NewBufferString but more efficient and read-only. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L462"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-newreplacer">function newReplacer</a></h2>
 <pre><code class="language-haxe">function newReplacer(_oldnew:haxe.Rest&lt;stdgo.GoString&gt;):stdgo.Ref&lt;stdgo.strings.Replacer&gt;</code></pre>
-<p>NewReplacer returns a new Replacer from a list of old, new string��// pairs. Replacements are performed in the order they appear in the��// target string, without overlapping matches. The old string��// comparisons are done in argument order.��//��// NewReplacer panics if given an odd number of arguments. </p>
+<p>NewReplacer returns a new Replacer from a list of old, new string  pairs. Replacements are performed in the order they appear in the  target string, without overlapping matches. The old string  comparisons are done in argument order.    NewReplacer panics if given an odd number of arguments. </p>
 <h3><a name="examplenewreplacer">exampleNewReplacer</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleNewReplacer():Void {
-	var _r = stdgo.strings.Strings.newReplacer(Go.str("&lt;"), Go.str("&amp;lt;"), Go.str("&gt;"), Go.str("&amp;gt;"));
-	stdgo.fmt.Fmt.println(Go.toInterface(_r.replace(Go.str("This is &lt;b&gt;HTML&lt;/b&gt;!"))));
+	var _r = stdgo.strings.Strings.newReplacer(("&lt;" : GoString), ("&amp;lt;" : GoString), ("&gt;" : GoString), ("&amp;gt;" : GoString));
+	stdgo.fmt.Fmt.println(Go.toInterface(_r.replace(("This is &lt;b&gt;HTML&lt;/b&gt;!" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L497"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L474"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-repeat">function repeat</a></h2>
 <pre><code class="language-haxe">function repeat(_s:stdgo.GoString, _count:stdgo.GoInt):stdgo.GoString</code></pre>
-<p>Repeat returns a new string consisting of count copies of the string s.��//��// It panics if count is negative or if��// the result of (len(s) * count) overflows. </p>
+<p>Repeat returns a new string consisting of count copies of the string s.    It panics if count is negative or if  the result of (len(s) * count) overflows. </p>
 <h3><a name="examplerepeat">exampleRepeat</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleRepeat():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(Go.str("ba") + stdgo.strings.Strings.repeat(Go.str("na"), (2 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(("ba" : GoString) + stdgo.strings.Strings.repeat(("na" : GoString), (2 : GoInt))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1190"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1167"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-replace">function replace</a></h2>
 <pre><code class="language-haxe">function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString, _n:stdgo.GoInt):stdgo.GoString</code></pre>
-<p>Replace returns a copy of the string s with the first n��// non-overlapping instances of old replaced by new.��// If old is empty, it matches at the beginning of the string��// and after each UTF-8 sequence, yielding up to k+1 replacements��// for a k-rune string.��// If n \&lt; 0, there is no limit on the number of replacements. </p>
+<p>Replace returns a copy of the string s with the first n  non-overlapping instances of old replaced by new.  If old is empty, it matches at the beginning of the string  and after each UTF-8 sequence, yielding up to k+1 replacements  for a k-rune string.  If n \&lt; 0, there is no limit on the number of replacements. </p>
 <h3><a name="examplereplace">exampleReplace</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleReplace():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replace(Go.str("oink oink oink"), Go.str("k"), Go.str("ky"), (2 : GoInt))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replace(Go.str("oink oink oink"), Go.str("oink"), Go.str("moo"), (-1 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replace(("oink oink oink" : GoString), ("k" : GoString), ("ky" : GoString), (2 : GoInt))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replace(("oink oink oink" : GoString), ("oink" : GoString), ("moo" : GoString), (-1 : GoInt))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1733"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1710"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-replaceall">function replaceAll</a></h2>
 <pre><code class="language-haxe">function replaceAll(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString):stdgo.GoString</code></pre>
-<p>ReplaceAll returns a copy of the string s with all��// non-overlapping instances of old replaced by new.��// If old is empty, it matches at the beginning of the string��// and after each UTF-8 sequence, yielding up to k+1 replacements��// for a k-rune string. </p>
+<p>ReplaceAll returns a copy of the string s with all  non-overlapping instances of old replaced by new.  If old is empty, it matches at the beginning of the string  and after each UTF-8 sequence, yielding up to k+1 replacements  for a k-rune string. </p>
 <h3><a name="examplereplaceall">exampleReplaceAll</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleReplaceAll():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replaceAll(Go.str("oink oink oink"), Go.str("oink"), Go.str("moo"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.replaceAll(("oink oink oink" : GoString), ("oink" : GoString), ("moo" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1778"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1755"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-split">function split</a></h2>
 <pre><code class="language-haxe">function split(_s:stdgo.GoString, _sep:stdgo.GoString):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p>Split slices s into all substrings separated by sep and returns a slice of��// the substrings between those separators.��//��// If s does not contain sep and sep is not empty, Split returns a��// slice of length 1 whose only element is s.��//��// If sep is empty, Split splits after each UTF-8 sequence. If both s��// and sep are empty, Split returns an empty slice.��//��// It is equivalent to SplitN with a count of -1.��//��// To split around the first instance of a separator, see Cut. </p>
+<p>Split slices s into all substrings separated by sep and returns a slice of  the substrings between those separators.    If s does not contain sep and sep is not empty, Split returns a  slice of length 1 whose only element is s.    If sep is empty, Split splits after each UTF-8 sequence. If both s  and sep are empty, Split returns an empty slice.    It is equivalent to SplitN with a count of -1.    To split around the first instance of a separator, see Cut. </p>
 <h3><a name="examplesplit">exampleSplit</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSplit():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.strings.Strings.split(Go.str("a,b,c"), Go.str(","))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.strings.Strings.split(Go.str("a man a plan a canal panama"), Go.str("a "))));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.strings.Strings.split(Go.str(" xyz "), Go.str())));
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.strings.Strings.split(Go.str(), Go.str("Bernardo O\'Higgins"))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.split(("a,b,c" : GoString), ("," : GoString))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.split(("a man a plan a canal panama" : GoString), ("a " : GoString))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.split((" xyz " : GoString), Go.str())));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.split(Go.str(), ("Bernardo O\'Higgins" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L968"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L945"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-splitafter">function splitAfter</a></h2>
 <pre><code class="language-haxe">function splitAfter(_s:stdgo.GoString, _sep:stdgo.GoString):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p>SplitAfter slices s into all substrings after each instance of sep and��// returns a slice of those substrings.��//��// If s does not contain sep and sep is not empty, SplitAfter returns��// a slice of length 1 whose only element is s.��//��// If sep is empty, SplitAfter splits after each UTF-8 sequence. If��// both s and sep are empty, SplitAfter returns an empty slice.��//��// It is equivalent to SplitAfterN with a count of -1. </p>
+<p>SplitAfter slices s into all substrings after each instance of sep and  returns a slice of those substrings.    If s does not contain sep and sep is not empty, SplitAfter returns  a slice of length 1 whose only element is s.    If sep is empty, SplitAfter splits after each UTF-8 sequence. If  both s and sep are empty, SplitAfter returns an empty slice.    It is equivalent to SplitAfterN with a count of -1. </p>
 <h3><a name="examplesplitafter">exampleSplitAfter</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSplitAfter():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.strings.Strings.splitAfter(Go.str("a,b,c"), Go.str(","))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.splitAfter(("a,b,c" : GoString), ("," : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L984"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L961"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-splitaftern">function splitAfterN</a></h2>
 <pre><code class="language-haxe">function splitAfterN(_s:stdgo.GoString, _sep:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p>SplitAfterN slices s into substrings after each instance of sep and��// returns a slice of those substrings.��//��// The count determines the number of substrings to return:��//��//�n \> 0: at most n substrings; the last substring will be the unsplit remainder.��//�n == 0: the result is nil (zero substrings)��//�n \&lt; 0: all substrings��//��// Edge cases for s and sep (for example, empty strings) are handled��// as described in the documentation for SplitAfter. </p>
+<p>SplitAfterN slices s into substrings after each instance of sep and  returns a slice of those substrings.    The count determines the number of substrings to return:     n \> 0: at most n substrings; the last substring will be the unsplit remainder.   n == 0: the result is nil (zero substrings)   n \&lt; 0: all substrings    Edge cases for s and sep (for example, empty strings) are handled  as described in the documentation for SplitAfter. </p>
 <h3><a name="examplesplitaftern">exampleSplitAfterN</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSplitAfterN():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.strings.Strings.splitAfterN(Go.str("a,b,c"), Go.str(","), (2 : GoInt))));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.splitAfterN(("a,b,c" : GoString), ("," : GoString), (2 : GoInt))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L950"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L927"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-splitn">function splitN</a></h2>
 <pre><code class="language-haxe">function splitN(_s:stdgo.GoString, _sep:stdgo.GoString, _n:stdgo.GoInt):stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
-<p>SplitN slices s into substrings separated by sep and returns a slice of��// the substrings between those separators.��//��// The count determines the number of substrings to return:��//��//�n \> 0: at most n substrings; the last substring will be the unsplit remainder.��//�n == 0: the result is nil (zero substrings)��//�n \&lt; 0: all substrings��//��// Edge cases for s and sep (for example, empty strings) are handled��// as described in the documentation for Split.��//��// To split around the first instance of a separator, see Cut. </p>
+<p>SplitN slices s into substrings separated by sep and returns a slice of  the substrings between those separators.    The count determines the number of substrings to return:     n \> 0: at most n substrings; the last substring will be the unsplit remainder.   n == 0: the result is nil (zero substrings)   n \&lt; 0: all substrings    Edge cases for s and sep (for example, empty strings) are handled  as described in the documentation for Split.    To split around the first instance of a separator, see Cut. </p>
 <h3><a name="examplesplitn">exampleSplitN</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleSplitN():Void {
-	stdgo.fmt.Fmt.printf(Go.str("%q\n"), Go.toInterface(stdgo.strings.Strings.splitN(Go.str("a,b,c"), Go.str(","), (2 : GoInt))));
-	var _z = stdgo.strings.Strings.splitN(Go.str("a,b,c"), Go.str(","), (0 : GoInt));
-	stdgo.fmt.Fmt.printf(Go.str("%q (nil = %v)\n"), Go.toInterface(_z), Go.toInterface(_z == null));
+	stdgo.fmt.Fmt.printf(("%q\n" : GoString), Go.toInterface(stdgo.strings.Strings.splitN(("a,b,c" : GoString), ("," : GoString), (2 : GoInt))));
+	var _z = stdgo.strings.Strings.splitN(("a,b,c" : GoString), ("," : GoString), (0 : GoInt));
+	stdgo.fmt.Fmt.printf(("%q (nil = %v)\n" : GoString), Go.toInterface(_z), Go.toInterface(_z == null));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L933"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L910"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-stringfind">function stringFind</a></h2>
 <pre><code class="language-haxe">function stringFind(_pattern:stdgo.GoString, _text:stdgo.GoString):stdgo.GoInt</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L472"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L449"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-title">function title</a></h2>
 <pre><code class="language-haxe">function title(_s:stdgo.GoString):stdgo.GoString</code></pre>
-<p>Title returns a copy of the string s with all Unicode letters that begin words��// mapped to their Unicode title case.��//��// Deprecated: The rule Title uses for word boundaries does not handle Unicode��// punctuation properly. Use golang.org/x/text/cases instead. </p>
+<p>Title returns a copy of the string s with all Unicode letters that begin words  mapped to their Unicode title case.    Deprecated: The rule Title uses for word boundaries does not handle Unicode  punctuation properly. Use golang.org/x/text/cases instead. </p>
 <h3><a name="exampletitle">exampleTitle</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTitle():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(Go.str("her royal highness"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(Go.str("loud noises"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(Go.str("хлеб"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(("her royal highness" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(("loud noises" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.title(("хлеб" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1409"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1386"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-tolower">function toLower</a></h2>
 <pre><code class="language-haxe">function toLower(_s:stdgo.GoString):stdgo.GoString</code></pre>
 <p>ToLower returns s with all Unicode letters mapped to their lower case. </p>
 <h3><a name="exampletolower">exampleToLower</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToLower():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toLower(Go.str("Gopher"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toLower(("Gopher" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1257"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1234"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-tolowerspecial">function toLowerSpecial</a></h2>
 <pre><code class="language-haxe">function toLowerSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.GoString):stdgo.GoString</code></pre>
-<p>ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to their��// lower case using the case mapping specified by c. </p>
+<p>ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to their  lower case using the case mapping specified by c. </p>
 <h3><a name="exampletolowerspecial">exampleToLowerSpecial</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToLowerSpecial():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toLowerSpecial(stdgo.unicode.Unicode.turkishCase, Go.str("Önnek İş"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toLowerSpecial(stdgo.unicode.Unicode.turkishCase, ("Önnek İş" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1314"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1291"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-totitle">function toTitle</a></h2>
 <pre><code class="language-haxe">function toTitle(_s:stdgo.GoString):stdgo.GoString</code></pre>
-<p>ToTitle returns a copy of the string s with all Unicode letters mapped to��// their Unicode title case. </p>
+<p>ToTitle returns a copy of the string s with all Unicode letters mapped to  their Unicode title case. </p>
 <h3><a name="exampletotitle">exampleToTitle</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToTitle():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(Go.str("her royal highness"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(Go.str("loud noises"))));
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(Go.str("хлеб"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(("her royal highness" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(("loud noises" : GoString))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitle(("хлеб" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1298"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1275"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-totitlespecial">function toTitleSpecial</a></h2>
 <pre><code class="language-haxe">function toTitleSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.GoString):stdgo.GoString</code></pre>
-<p>ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to their��// Unicode title case, giving priority to the special casing rules. </p>
+<p>ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to their  Unicode title case, giving priority to the special casing rules. </p>
 <h3><a name="exampletotitlespecial">exampleToTitleSpecial</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToTitleSpecial():Void {
 	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toTitleSpecial(stdgo.unicode.Unicode.turkishCase,
-		Go.str("dünyanın ilk borsa yapısı Aizonai kabul edilir"))));
+		("dünyanın ilk borsa yapısı Aizonai kabul edilir" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1322"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1299"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-toupper">function toUpper</a></h2>
 <pre><code class="language-haxe">function toUpper(_s:stdgo.GoString):stdgo.GoString</code></pre>
 <p>ToUpper returns s with all Unicode letters mapped to their upper case. </p>
 <h3><a name="exampletoupper">exampleToUpper</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToUpper():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toUpper(Go.str("Gopher"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toUpper(("Gopher" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1217"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1194"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-toupperspecial">function toUpperSpecial</a></h2>
 <pre><code class="language-haxe">function toUpperSpecial(_c:stdgo.unicode.SpecialCase, _s:stdgo.GoString):stdgo.GoString</code></pre>
-<p>ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to their��// upper case using the case mapping specified by c. </p>
+<p>ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to their  upper case using the case mapping specified by c. </p>
 <h3><a name="exampletoupperspecial">exampleToUpperSpecial</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleToUpperSpecial():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toUpperSpecial(stdgo.unicode.Unicode.turkishCase, Go.str("örnek iş"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.toUpperSpecial(stdgo.unicode.Unicode.turkishCase, ("örnek iş" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1306"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1283"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-tovalidutf8">function toValidUTF8</a></h2>
 <pre><code class="language-haxe">function toValidUTF8(_s:stdgo.GoString, _replacement:stdgo.GoString):stdgo.GoString</code></pre>
-<p>ToValidUTF8 returns a copy of the string s with each run of invalid UTF-8 byte sequences��// replaced by the replacement string, which may be empty. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1330"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>ToValidUTF8 returns a copy of the string s with each run of invalid UTF-8 byte sequences  replaced by the replacement string, which may be empty. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1307"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trim">function trim</a></h2>
 <pre><code class="language-haxe">function trim(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString</code></pre>
-<p>Trim returns a slice of the string s with all leading and��// trailing Unicode code points contained in cutset removed. </p>
+<p>Trim returns a slice of the string s with all leading and  trailing Unicode code points contained in cutset removed. </p>
 <h3><a name="exampletrim">exampleTrim</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrim():Void {
-	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trim(Go.str("¡¡¡Hello, Gophers!!!"), Go.str("!¡"))));
+	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trim(("¡¡¡Hello, Gophers!!!" : GoString), ("!¡" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1533"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1510"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimfunc">function trimFunc</a></h2>
 <pre><code class="language-haxe">function trimFunc(_s:stdgo.GoString, _f:()):stdgo.GoString</code></pre>
-<p>TrimFunc returns a slice of the string s with all leading��// and trailing Unicode code points c satisfying f(c) removed. </p>
+<p>TrimFunc returns a slice of the string s with all leading  and trailing Unicode code points c satisfying f(c) removed. </p>
 <h3><a name="exampletrimfunc">exampleTrimFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimFunc():Void {
-	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimFunc(Go.str("¡¡¡Hello, Gophers!!!"), function(_r:GoRune):Bool {
+	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimFunc(("¡¡¡Hello, Gophers!!!" : GoString), function(_r:GoRune):Bool {
 		return !stdgo.unicode.Unicode.isLetter(_r) &amp;&amp; !stdgo.unicode.Unicode.isNumber(_r);
 	})));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1454"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1431"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimleft">function trimLeft</a></h2>
 <pre><code class="language-haxe">function trimLeft(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString</code></pre>
-<p>TrimLeft returns a slice of the string s with all leading��// Unicode code points contained in cutset removed.��//��// To remove a prefix, use TrimPrefix instead. </p>
+<p>TrimLeft returns a slice of the string s with all leading  Unicode code points contained in cutset removed.    To remove a prefix, use TrimPrefix instead. </p>
 <h3><a name="exampletrimleft">exampleTrimLeft</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimLeft():Void {
-	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimLeft(Go.str("¡¡¡Hello, Gophers!!!"), Go.str("!¡"))));
+	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimLeft(("¡¡¡Hello, Gophers!!!" : GoString), ("!¡" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1557"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1534"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimleftfunc">function trimLeftFunc</a></h2>
 <pre><code class="language-haxe">function trimLeftFunc(_s:stdgo.GoString, _f:()):stdgo.GoString</code></pre>
-<p>TrimLeftFunc returns a slice of the string s with all leading��// Unicode code points c satisfying f(c) removed. </p>
+<p>TrimLeftFunc returns a slice of the string s with all leading  Unicode code points c satisfying f(c) removed. </p>
 <h3><a name="exampletrimleftfunc">exampleTrimLeftFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimLeftFunc():Void {
-	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimLeftFunc(Go.str("¡¡¡Hello, Gophers!!!"), function(_r:GoRune):Bool {
+	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimLeftFunc(("¡¡¡Hello, Gophers!!!" : GoString), function(_r:GoRune):Bool {
 		return !stdgo.unicode.Unicode.isLetter(_r) &amp;&amp; !stdgo.unicode.Unicode.isNumber(_r);
 	})));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1425"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1402"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimprefix">function trimPrefix</a></h2>
 <pre><code class="language-haxe">function trimPrefix(_s:stdgo.GoString, _prefix:stdgo.GoString):stdgo.GoString</code></pre>
-<p>TrimPrefix returns s without the provided leading prefix string.��// If s doesn't start with prefix, s is returned unchanged. </p>
+<p>TrimPrefix returns s without the provided leading prefix string.  If s doesn't start with prefix, s is returned unchanged. </p>
 <h3><a name="exampletrimprefix">exampleTrimPrefix</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimPrefix():Void {
-	var _s:GoString = Go.str("¡¡¡Hello, Gophers!!!");
-	_s = stdgo.strings.Strings.trimPrefix(_s, Go.str("¡¡¡Hello, "));
-	_s = stdgo.strings.Strings.trimPrefix(_s, Go.str("¡¡¡Howdy, "));
+	var _s:GoString = ("¡¡¡Hello, Gophers!!!" : GoString);
+	_s = stdgo.strings.Strings.trimPrefix(_s, ("¡¡¡Hello, " : GoString));
+	_s = stdgo.strings.Strings.trimPrefix(_s, ("¡¡¡Howdy, " : GoString));
 	stdgo.fmt.Fmt.print(Go.toInterface(_s));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1707"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1684"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimright">function trimRight</a></h2>
 <pre><code class="language-haxe">function trimRight(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString</code></pre>
-<p>TrimRight returns a slice of the string s, with all trailing��// Unicode code points contained in cutset removed.��//��// To remove a suffix, use TrimSuffix instead. </p>
+<p>TrimRight returns a slice of the string s, with all trailing  Unicode code points contained in cutset removed.    To remove a suffix, use TrimSuffix instead. </p>
 <h3><a name="exampletrimright">exampleTrimRight</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimRight():Void {
-	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimRight(Go.str("¡¡¡Hello, Gophers!!!"), Go.str("!¡"))));
+	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimRight(("¡¡¡Hello, Gophers!!!" : GoString), ("!¡" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1619"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1596"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimrightfunc">function trimRightFunc</a></h2>
 <pre><code class="language-haxe">function trimRightFunc(_s:stdgo.GoString, _f:()):stdgo.GoString</code></pre>
-<p>TrimRightFunc returns a slice of the string s with all trailing��// Unicode code points c satisfying f(c) removed. </p>
+<p>TrimRightFunc returns a slice of the string s with all trailing  Unicode code points c satisfying f(c) removed. </p>
 <h3><a name="exampletrimrightfunc">exampleTrimRightFunc</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimRightFunc():Void {
-	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimRightFunc(Go.str("¡¡¡Hello, Gophers!!!"), function(_r:GoRune):Bool {
+	stdgo.fmt.Fmt.print(Go.toInterface(stdgo.strings.Strings.trimRightFunc(("¡¡¡Hello, Gophers!!!" : GoString), function(_r:GoRune):Bool {
 		return !stdgo.unicode.Unicode.isLetter(_r) &amp;&amp; !stdgo.unicode.Unicode.isNumber(_r);
 	})));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1437"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1414"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimspace">function trimSpace</a></h2>
 <pre><code class="language-haxe">function trimSpace(_s:stdgo.GoString):stdgo.GoString</code></pre>
-<p>TrimSpace returns a slice of the string s, with all leading��// and trailing white space removed, as defined by Unicode. </p>
+<p>TrimSpace returns a slice of the string s, with all leading  and trailing white space removed, as defined by Unicode. </p>
 <h3><a name="exampletrimspace">exampleTrimSpace</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimSpace():Void {
-	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.trimSpace(Go.str(" \t\n Hello, Gophers \n\t\r\n"))));
+	stdgo.fmt.Fmt.println(Go.toInterface(stdgo.strings.Strings.trimSpace((" \t\n Hello, Gophers \n\t\r\n" : GoString))));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1679"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1656"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="function-trimsuffix">function trimSuffix</a></h2>
 <pre><code class="language-haxe">function trimSuffix(_s:stdgo.GoString, _suffix:stdgo.GoString):stdgo.GoString</code></pre>
-<p>TrimSuffix returns s without the provided trailing suffix string.��// If s doesn't end with suffix, s is returned unchanged. </p>
+<p>TrimSuffix returns s without the provided trailing suffix string.  If s doesn't end with suffix, s is returned unchanged. </p>
 <h3><a name="exampletrimsuffix">exampleTrimSuffix</a></h3><details><summary></summary>
 <p>
 <pre><code class="language-haxe">function exampleTrimSuffix():Void {
-	var _s:GoString = Go.str("¡¡¡Hello, Gophers!!!");
-	_s = stdgo.strings.Strings.trimSuffix(_s, Go.str(", Gophers!!!"));
-	_s = stdgo.strings.Strings.trimSuffix(_s, Go.str(", Marmots!!!"));
+	var _s:GoString = ("¡¡¡Hello, Gophers!!!" : GoString);
+	_s = stdgo.strings.Strings.trimSuffix(_s, (", Gophers!!!" : GoString));
+	_s = stdgo.strings.Strings.trimSuffix(_s, (", Marmots!!!" : GoString));
 	stdgo.fmt.Fmt.print(Go.toInterface(_s));
 }</code></pre>
 <p></p>
 </details></p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1718"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L1695"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h1><a name="classes">Classes</a></h1>
 <pre><code class="language-haxe">import stdgo.strings.*</code></pre>
 <h2><a name="class-builder">class Builder</a></h2>
-<p>A Builder is used to efficiently build a string using Write methods.��// It minimizes memory copying. The zero value is ready to use.��// Do not copy a non-zero Builder. </p>
+<p>A Builder is used to efficiently build a string using Write methods.  It minimizes memory copying. The zero value is ready to use.  Do not copy a non-zero Builder. </p>
 <pre><code class="language-haxe">var _addr:stdgo.Ref&lt;stdgo.strings.Builder&gt;</code></pre>
-<p>of receiver, to detect copies by value </p>
 <pre><code class="language-haxe">var _buf:stdgo.Slice&lt;stdgo.GoUInt8&gt;</code></pre>
 <h3><a name="builder-function-new">Builder function new</a></h3>
 <pre><code class="language-haxe">function new(?_addr:stdgo.Ref&lt;stdgo.strings.Builder&gt;, ?_buf:stdgo.Slice&lt;stdgo.GoUInt8&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L63"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L59"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-_copycheck">Builder function _copyCheck</a></h3>
 <pre><code class="language-haxe">function _copyCheck():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2173"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2150"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-_grow">Builder function _grow</a></h3>
 <pre><code class="language-haxe">function _grow( _n:stdgo.GoInt):Void</code></pre>
-<p>grow copies the buffer to a new, larger buffer so that there are at least n���// bytes of capacity beyond len(b.buf). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2127"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>grow copies the buffer to a new, larger buffer so that there are at least n   bytes of capacity beyond len(b.buf). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2104"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-cap">Builder function cap</a></h3>
 <pre><code class="language-haxe">function cap():stdgo.GoInt</code></pre>
-<p>Cap returns the capacity of the builder's underlying byte slice. It is the���// total space allocated for the string being built and includes any bytes���// already written. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2149"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Cap returns the capacity of the builder's underlying byte slice. It is the   total space allocated for the string being built and includes any bytes   already written. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2126"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-grow">Builder function grow</a></h3>
 <pre><code class="language-haxe">function grow( _n:stdgo.GoInt):Void</code></pre>
-<p>Grow grows b's capacity, if necessary, to guarantee space for���// another n bytes. After Grow(n), at least n bytes can be written to b���// without another allocation. If n is negative, Grow panics. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2112"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Grow grows b's capacity, if necessary, to guarantee space for   another n bytes. After Grow(n), at least n bytes can be written to b   without another allocation. If n is negative, Grow panics. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-len">Builder function len</a></h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
 <p>Len returns the number of accumulated bytes; b.Len() == len(b.String()). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2157"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2134"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-reset">Builder function reset</a></h3>
 <pre><code class="language-haxe">function reset():Void</code></pre>
 <p>Reset resets the Builder to be empty. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2138"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2115"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-string">Builder function string</a></h3>
 <pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
 <p>String returns the accumulated string. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2165"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2142"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-write">Builder function write</a></h3>
 <pre><code class="language-haxe">function write( _p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>Write appends the contents of p to b's buffer.���// Write always returns len(p), nil. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2100"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Write appends the contents of p to b's buffer.   Write always returns len(p), nil. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2077"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-writebyte">Builder function writeByte</a></h3>
 <pre><code class="language-haxe">function writeByte( _c:stdgo.GoByte):stdgo.Error</code></pre>
-<p>WriteByte appends the byte c to b's buffer.���// The returned error is always nil. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteByte appends the byte c to b's buffer.   The returned error is always nil. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2066"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-writerune">Builder function writeRune</a></h3>
 <pre><code class="language-haxe">function writeRune( _r:stdgo.GoRune):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>WriteRune appends the UTF-8 encoding of Unicode code point r to b's buffer.���// It returns the length of r and a nil error. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2069"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteRune appends the UTF-8 encoding of Unicode code point r to b's buffer.   It returns the length of r and a nil error. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2046"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="builder-function-writestring">Builder function writeString</a></h3>
 <pre><code class="language-haxe">function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>WriteString appends the contents of s to b's buffer.���// It returns the length of s and a nil error. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2058"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteString appends the contents of s to b's buffer.   It returns the length of s and a nil error. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2035"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class Builder_static_extension</h2>
 <h3>Builder_static_extension function _copyCheck</h3>
 <pre><code class="language-haxe">function _copyCheck():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2173"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2150"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function _grow</h3>
 <pre><code class="language-haxe">function _grow( _n:stdgo.GoInt):Void</code></pre>
-<p>grow copies the buffer to a new, larger buffer so that there are at least n���// bytes of capacity beyond len(b.buf). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2127"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>grow copies the buffer to a new, larger buffer so that there are at least n   bytes of capacity beyond len(b.buf). </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2104"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function cap</h3>
 <pre><code class="language-haxe">function cap():stdgo.GoInt</code></pre>
-<p>Cap returns the capacity of the builder's underlying byte slice. It is the���// total space allocated for the string being built and includes any bytes���// already written. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2149"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Cap returns the capacity of the builder's underlying byte slice. It is the   total space allocated for the string being built and includes any bytes   already written. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2126"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function grow</h3>
 <pre><code class="language-haxe">function grow( _n:stdgo.GoInt):Void</code></pre>
-<p>Grow grows b's capacity, if necessary, to guarantee space for���// another n bytes. After Grow(n), at least n bytes can be written to b���// without another allocation. If n is negative, Grow panics. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2112"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Grow grows b's capacity, if necessary, to guarantee space for   another n bytes. After Grow(n), at least n bytes can be written to b   without another allocation. If n is negative, Grow panics. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function len</h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
 <p>Len returns the number of accumulated bytes; b.Len() == len(b.String()). </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2157"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2134"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function reset</h3>
 <pre><code class="language-haxe">function reset():Void</code></pre>
 <p>Reset resets the Builder to be empty. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2138"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2115"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function string</h3>
 <pre><code class="language-haxe">function string():stdgo.GoString</code></pre>
 <p>String returns the accumulated string. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2165"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2142"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function write</h3>
 <pre><code class="language-haxe">function write( _p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>Write appends the contents of p to b's buffer.���// Write always returns len(p), nil. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2100"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Write appends the contents of p to b's buffer.   Write always returns len(p), nil. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2077"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function writeByte</h3>
 <pre><code class="language-haxe">function writeByte( _c:stdgo.GoByte):stdgo.Error</code></pre>
-<p>WriteByte appends the byte c to b's buffer.���// The returned error is always nil. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2089"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteByte appends the byte c to b's buffer.   The returned error is always nil. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2066"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function writeRune</h3>
 <pre><code class="language-haxe">function writeRune( _r:stdgo.GoRune):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>WriteRune appends the UTF-8 encoding of Unicode code point r to b's buffer.���// It returns the length of r and a nil error. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2069"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteRune appends the UTF-8 encoding of Unicode code point r to b's buffer.   It returns the length of r and a nil error. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2046"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Builder_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString( _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p>WriteString appends the contents of s to b's buffer.���// It returns the length of s and a nil error. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2058"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>WriteString appends the contents of s to b's buffer.   It returns the length of s and a nil error. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2035"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-reader">class Reader</a></h2>
-<p>A Reader implements the io.Reader, io.ReaderAt, io.ByteReader, io.ByteScanner,��// io.RuneReader, io.RuneScanner, io.Seeker, and io.WriterTo interfaces by reading��// from a string.��// The zero value for Reader operates like a Reader of an empty string. </p>
+<p>A Reader implements the io.Reader, io.ReaderAt, io.ByteReader, io.ByteScanner,  io.RuneReader, io.RuneScanner, io.Seeker, and io.WriterTo interfaces by reading  from a string.  The zero value for Reader operates like a Reader of an empty string. </p>
 <pre><code class="language-haxe">var _i:stdgo.GoInt64</code></pre>
-<p>current reading index </p>
 <pre><code class="language-haxe">var _prevRune:stdgo.GoInt</code></pre>
-<p>index of previous rune; or \&lt; 0 </p>
 <pre><code class="language-haxe">var _s:stdgo.GoString</code></pre>
 <h3><a name="reader-function-new">Reader function new</a></h3>
 <pre><code class="language-haxe">function new(?_s:stdgo.GoString, ?_i:stdgo.GoInt64, ?_prevRune:Null&lt;stdgo.GoInt&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L97"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L85"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-len">Reader function len</a></h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
-<p>Len returns the number of bytes of the unread portion of the���// string. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2456"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Len returns the number of bytes of the unread portion of the   string. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2433"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-read">Reader function read</a></h3>
 <pre><code class="language-haxe">function read( _b:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>Read implements the io.Reader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2429"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2406"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-readat">Reader function readAt</a></h3>
 <pre><code class="language-haxe">function readAt( _b:stdgo.Slice&lt;stdgo.GoByte&gt;, _off:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>ReadAt implements the io.ReaderAt interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2410"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2387"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-readbyte">Reader function readByte</a></h3>
 <pre><code class="language-haxe">function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}</code></pre>
 <p>ReadByte implements the io.ByteReader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2396"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2373"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-readrune">Reader function readRune</a></h3>
 <pre><code class="language-haxe">function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
 <p>ReadRune implements the io.RuneReader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2354"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2331"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-reset">Reader function reset</a></h3>
 <pre><code class="language-haxe">function reset( _s:stdgo.GoString):Void</code></pre>
 <p>Reset resets the Reader to be reading from s. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2277"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2254"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-seek">Reader function seek</a></h3>
 <pre><code class="language-haxe">function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
 <p>Seek implements the io.Seeker interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2315"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2292"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-size">Reader function size</a></h3>
 <pre><code class="language-haxe">function size():stdgo.GoInt64</code></pre>
-<p>Size returns the original length of the underlying string.���// Size is the number of bytes available for reading via ReadAt.���// The returned value is always the same and is not affected by calls���// to any other method. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2447"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Size returns the original length of the underlying string.   Size is the number of bytes available for reading via ReadAt.   The returned value is always the same and is not affected by calls   to any other method. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2424"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-unreadbyte">Reader function unreadByte</a></h3>
 <pre><code class="language-haxe">function unreadByte():stdgo.Error</code></pre>
 <p>UnreadByte implements the io.ByteScanner interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2383"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2360"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-unreadrune">Reader function unreadRune</a></h3>
 <pre><code class="language-haxe">function unreadRune():stdgo.Error</code></pre>
 <p>UnreadRune implements the io.RuneScanner interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2338"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2315"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="reader-function-writeto">Reader function writeTo</a></h3>
 <pre><code class="language-haxe">function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
 <p>WriteTo implements the io.WriterTo interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2290"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2267"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class Reader_static_extension</h2>
 <h3>Reader_static_extension function len</h3>
 <pre><code class="language-haxe">function len():stdgo.GoInt</code></pre>
-<p>Len returns the number of bytes of the unread portion of the���// string. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2456"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Len returns the number of bytes of the unread portion of the   string. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2433"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function read</h3>
 <pre><code class="language-haxe">function read( _b:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>Read implements the io.Reader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2429"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2406"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function readAt</h3>
 <pre><code class="language-haxe">function readAt( _b:stdgo.Slice&lt;stdgo.GoByte&gt;, _off:stdgo.GoInt64):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>ReadAt implements the io.ReaderAt interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2410"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2387"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function readByte</h3>
 <pre><code class="language-haxe">function readByte():{_1:stdgo.Error, _0:stdgo.GoByte}</code></pre>
 <p>ReadByte implements the io.ByteReader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2396"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2373"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function readRune</h3>
 <pre><code class="language-haxe">function readRune():{_2:stdgo.Error, _1:stdgo.GoInt, _0:stdgo.GoRune}</code></pre>
 <p>ReadRune implements the io.RuneReader interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2354"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2331"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function reset</h3>
 <pre><code class="language-haxe">function reset( _s:stdgo.GoString):Void</code></pre>
 <p>Reset resets the Reader to be reading from s. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2277"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2254"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function seek</h3>
 <pre><code class="language-haxe">function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
 <p>Seek implements the io.Seeker interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2315"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2292"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function size</h3>
 <pre><code class="language-haxe">function size():stdgo.GoInt64</code></pre>
-<p>Size returns the original length of the underlying string.���// Size is the number of bytes available for reading via ReadAt.���// The returned value is always the same and is not affected by calls���// to any other method. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2447"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>Size returns the original length of the underlying string.   Size is the number of bytes available for reading via ReadAt.   The returned value is always the same and is not affected by calls   to any other method. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2424"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function unreadByte</h3>
 <pre><code class="language-haxe">function unreadByte():stdgo.Error</code></pre>
 <p>UnreadByte implements the io.ByteScanner interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2383"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2360"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function unreadRune</h3>
 <pre><code class="language-haxe">function unreadRune():stdgo.Error</code></pre>
 <p>UnreadRune implements the io.RuneScanner interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2338"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2315"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Reader_static_extension function writeTo</h3>
 <pre><code class="language-haxe">function writeTo( _w:stdgo.io.Writer):{_1:stdgo.Error, _0:stdgo.GoInt64}</code></pre>
 <p>WriteTo implements the io.WriterTo interface. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2290"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2267"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2><a name="class-replacer">class Replacer</a></h2>
-<p>Replacer replaces a list of strings with replacements.��// It is safe for concurrent use by multiple goroutines. </p>
+<p>Replacer replaces a list of strings with replacements.  It is safe for concurrent use by multiple goroutines. </p>
 <pre><code class="language-haxe">var _oldnew:stdgo.Slice&lt;stdgo.GoString&gt;</code></pre>
 <pre><code class="language-haxe">var _once:stdgo.sync.Once</code></pre>
-<p>guards buildOnce method </p>
 <pre><code class="language-haxe">var _r:stdgo.strings._Strings.T_replacer</code></pre>
 <h3><a name="replacer-function-new">Replacer function new</a></h3>
 <pre><code class="language-haxe">function new(?_once:stdgo.sync.Once, ?_r:Null&lt;stdgo.strings._Strings.T_replacer&gt;, ?_oldnew:stdgo.Slice&lt;stdgo.GoString&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L127"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L111"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="replacer-function-_build">Replacer function _build</a></h3>
 <pre><code class="language-haxe">function _build():stdgo.strings._Strings.T_replacer</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2530"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2507"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="replacer-function-_buildonce">Replacer function _buildOnce</a></h3>
 <pre><code class="language-haxe">function _buildOnce():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2579"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2556"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="replacer-function-printtrie">Replacer function printTrie</a></h3>
 <pre><code class="language-haxe">function printTrie():stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2585"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2562"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="replacer-function-replace">Replacer function replace</a></h3>
 <pre><code class="language-haxe">function replace( _s:stdgo.GoString):stdgo.GoString</code></pre>
 <p>Replace returns a copy of s with all replacements performed. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2524"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2501"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="replacer-function-replacer">Replacer function replacer</a></h3>
 <pre><code class="language-haxe">function replacer():stdgo.AnyInterface</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2592"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2569"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3><a name="replacer-function-writestring">Replacer function writeString</a></h3>
 <pre><code class="language-haxe">function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>WriteString writes s to w with all replacements performed. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2514"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2491"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class Replacer_static_extension</h2>
 <h3>Replacer_static_extension function _build</h3>
 <pre><code class="language-haxe">function _build():stdgo.strings._Strings.T_replacer</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2530"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2507"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Replacer_static_extension function _buildOnce</h3>
 <pre><code class="language-haxe">function _buildOnce():Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2579"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2556"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Replacer_static_extension function printTrie</h3>
 <pre><code class="language-haxe">function printTrie():stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2585"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2562"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Replacer_static_extension function replace</h3>
 <pre><code class="language-haxe">function replace( _s:stdgo.GoString):stdgo.GoString</code></pre>
 <p>Replace returns a copy of s with all replacements performed. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2524"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2501"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Replacer_static_extension function replacer</h3>
 <pre><code class="language-haxe">function replacer():stdgo.AnyInterface</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2592"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2569"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>Replacer_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString( _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>WriteString writes s to w with all replacements performed. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2514"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2491"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_appendSliceWriter_static_extension</h2>
 <h3>T_appendSliceWriter_static_extension function write</h3>
 <pre><code class="language-haxe">function write(_w:stdgo.Ref&lt;stdgo.strings._Strings.T_appendSliceWriter&gt;, _p:stdgo.Slice&lt;stdgo.GoByte&gt;):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>Write writes to the buffer to satisfy io.Writer. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3153"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3130"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>T_appendSliceWriter_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString(_w:stdgo.Ref&lt;stdgo.strings._Strings.T_appendSliceWriter&gt;, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
 <p>WriteString writes to the buffer without string-\>[]byte-\>string allocations. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3144"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3121"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_asciiSet_static_extension</h2>
 <h3>T_asciiSet_static_extension function _contains</h3>
 <pre><code class="language-haxe">function _contains(_as:stdgo.Ref&lt;stdgo.strings._Strings.T_asciiSet&gt;, _c:stdgo.GoByte):Bool</code></pre>
 <p>contains reports whether c is inside the set. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3257"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3234"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_byteReplacer_static_extension</h2>
 <h3>T_byteReplacer_static_extension function replace</h3>
 <pre><code class="language-haxe">function replace(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_byteReplacer&gt;, _s:stdgo.GoString):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3209"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3186"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>T_byteReplacer_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_byteReplacer&gt;, _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3184"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3161"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_byteStringReplacer_static_extension</h2>
 <h3>T_byteStringReplacer_static_extension function replace</h3>
 <pre><code class="language-haxe">function replace(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_byteStringReplacer&gt;, _s:stdgo.GoString):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3018"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2995"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>T_byteStringReplacer_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_byteStringReplacer&gt;, _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2975"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2952"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_genericReplacer_static_extension</h2>
 <h3>T_genericReplacer_static_extension function _lookup</h3>
 <pre><code class="language-haxe">function _lookup(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_genericReplacer&gt;, _s:stdgo.GoString, _ignoreRoot:Bool):{_2:Bool, _1:stdgo.GoInt, _0:stdgo.GoString}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2772"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2749"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>T_genericReplacer_static_extension function _printNode</h3>
 <pre><code class="language-haxe">function _printNode(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_genericReplacer&gt;, _t:stdgo.Ref&lt;stdgo.strings._Strings.T_trieNode&gt;, _depth:stdgo.GoInt):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2809"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2786"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>T_genericReplacer_static_extension function replace</h3>
 <pre><code class="language-haxe">function replace(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_genericReplacer&gt;, _s:stdgo.GoString):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2765"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2742"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>T_genericReplacer_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_genericReplacer&gt;, _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2704"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2681"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_singleStringReplacer_static_extension</h2>
 <h3>T_singleStringReplacer_static_extension function replace</h3>
 <pre><code class="language-haxe">function replace(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_singleStringReplacer&gt;, _s:stdgo.GoString):stdgo.GoString</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2925"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2902"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h3>T_singleStringReplacer_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString(_r:stdgo.Ref&lt;stdgo.strings._Strings.T_singleStringReplacer&gt;, _w:stdgo.io.Writer, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2883"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2860"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_stringFinder_static_extension</h2>
 <h3>T_stringFinder_static_extension function _next</h3>
 <pre><code class="language-haxe">function _next(_f:stdgo.Ref&lt;stdgo.strings._Strings.T_stringFinder&gt;, _text:stdgo.GoString):stdgo.GoInt</code></pre>
-<p>next returns the index in text of the first occurrence of the pattern. If���// the pattern is not found, it returns -1. </p>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3093"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p>next returns the index in text of the first occurrence of the pattern. If   the pattern is not found, it returns -1. </p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L3070"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_stringWriter_static_extension</h2>
 <h3>T_stringWriter_static_extension function writeString</h3>
 <pre><code class="language-haxe">function writeString(_w:stdgo.strings._Strings.T_stringWriter, _s:stdgo.GoString):{_1:stdgo.Error, _0:stdgo.GoInt}</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2853"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2830"target="_blank" rel="noopener noreferrer">(view code)</a></p>
 <h2>class T_trieNode_static_extension</h2>
 <h3>T_trieNode_static_extension function _add</h3>
 <pre><code class="language-haxe">function _add(_t:stdgo.Ref&lt;stdgo.strings._Strings.T_trieNode&gt;, _key:stdgo.GoString, _val:stdgo.GoString, _priority:stdgo.GoInt, _r:stdgo.Ref&lt;stdgo.strings._Strings.T_genericReplacer&gt;):Void</code></pre>
-<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2619"target="_blank" rel="noopener noreferrer">(view code)</a></p>
+<p><a href="https://github.com/go2hx/go2hx/tree/master/stdgo/strings//Strings.hx#L2596"target="_blank" rel="noopener noreferrer">(view code)</a></p>
     </article>
 </body>
 </html>
