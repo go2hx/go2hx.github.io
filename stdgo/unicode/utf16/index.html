@@ -61,22 +61,22 @@
 <p>Package utf16 implements encoding and decoding of UTF-16 sequences. </p><details><summary>hl tests passed</summary>
 <p>
 <pre><code>=== RUN  TestConstants
---- PASS: TestConstants (%!s(float64=5.3882598876953125e-05))
+--- PASS: TestConstants (%!s(float64=4.9114227294921875e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0012159347534179688))
+--- PASS: TestEncode (%!s(float64=0.0012288093566894531))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=2.7179718017578125e-05))
+--- PASS: TestEncodeRune (%!s(float64=2.5987625122070312e-05))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0003230571746826172))
+--- PASS: TestDecode (%!s(float64=0.0003139972686767578))
 
 === RUN  TestDecodeRune
 --- PASS: TestDecodeRune (%!s(float64=9.059906005859375e-06))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=1.0013580322265625e-05))
+--- PASS: TestIsSurrogate (%!s(float64=2.288818359375e-05))
 </code></pre>
 <p></p>
 </details></p><details><summary>interp tests passed</summary>
@@ -85,24 +85,25 @@
 --- PASS: TestConstants (%!s(float64=2.9087066650390625e-05))
 
 === RUN  TestEncode
---- PASS: TestEncode (%!s(float64=0.0009059906005859375))
+--- PASS: TestEncode (%!s(float64=0.0008759498596191406))
 
 === RUN  TestEncodeRune
---- PASS: TestEncodeRune (%!s(float64=0.00011920928955078125))
+--- PASS: TestEncodeRune (%!s(float64=0.00011610984802246094))
 
 === RUN  TestDecode
---- PASS: TestDecode (%!s(float64=0.0005788803100585938))
+--- PASS: TestDecode (%!s(float64=0.0005879402160644531))
 
 === RUN  TestDecodeRune
---- PASS: TestDecodeRune (%!s(float64=4.982948303222656e-05))
+--- PASS: TestDecodeRune (%!s(float64=5.221366882324219e-05))
 
 === RUN  TestIsSurrogate
---- PASS: TestIsSurrogate (%!s(float64=2.288818359375e-05))
+--- PASS: TestIsSurrogate (%!s(float64=2.2172927856445312e-05))
 </code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")
+<pre><code>stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
+IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>

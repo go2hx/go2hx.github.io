@@ -60,20 +60,23 @@
 <h1><a name="overview">Overview</a></h1>
 <p>Package base64 implements base64 encoding as specified by RFC 4648. </p><details><summary>hl tests failed</summary>
 <p>
-<pre><code>Error: Command failed with error 1
+<pre><code>stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
+Error: Command failed with error 1
 stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestEncode
 Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="</code></pre>
 <p></p>
 </details></p><details><summary>interp tests failed</summary>
 <p>
-<pre><code>stdgo/internal/Macro.macro.hx:35: define
+<pre><code>stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
+stdgo/internal/Macro.macro.hx:35: define
 === RUN  TestEncode
 Encode("\x14\xfb\x9c\x03\xd9") = "FPucA9k", want "FPucA9k="</code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")
+<pre><code>stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
+IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>

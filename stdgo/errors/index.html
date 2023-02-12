@@ -61,48 +61,49 @@
 <p>Package errors implements functions to manipulate errors.    The New function creates errors whose only content is a text message.    The Unwrap, Is and As functions work on errors that may wrap other errors.  An error wraps another error if its type has the method     Unwrap() error    If e.Unwrap() returns a non-nil error w, then we say that e wraps w.    Unwrap unpacks wrapped errors. If its argument's type has an  Unwrap method, it calls the method once. Otherwise, it returns nil.    A simple way to create wrapped errors is to call fmt.Errorf and apply the %w verb  to the error argument:     errors.Unwrap(fmt.Errorf("... %w ...", ..., err, ...))    returns err.    Is unwraps its first argument sequentially looking for an error that matches the  second. It reports whether it finds a match. It should be used in preference to  simple equality checks:     if errors.Is(err, fs.ErrExist)    is preferable to     if err == fs.ErrExist    because the former will succeed if err wraps fs.ErrExist.    As unwraps its first argument sequentially looking for an error that can be  assigned to its second argument, which must be a pointer. If it succeeds, it  performs the assignment and returns true. Otherwise, it returns false. The form     var perr \<em>fs.PathError   if errors.As(err, &amp;perr) {    fmt.Println(perr.Path)   }    is preferable to     if perr, ok := err.(\</em>fs.PathError); ok {    fmt.Println(perr.Path)   }    because the former will succeed if err wraps an *fs.PathError. </p><details><summary>hl tests passed</summary>
 <p>
 <pre><code>=== RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=9.083747863769531e-05))
+--- PASS: TestNewEqual (%!s(float64=8.821487426757812e-05))
 
 === RUN  TestErrorMethod
---- PASS: TestErrorMethod (%!s(float64=7.152557373046875e-06))
+--- PASS: TestErrorMethod (%!s(float64=8.106231689453125e-06))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=4.410743713378906e-05))
+--- PASS: TestIs (%!s(float64=4.291534423828125e-05))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.007941007614135742))
+--- PASS: TestAs (%!s(float64=0.008021116256713867))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0006079673767089844))
+--- PASS: TestAsValidation (%!s(float64=0.0006089210510253906))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=9.298324584960938e-05))
+--- PASS: TestUnwrap (%!s(float64=9.393692016601562e-05))
 </code></pre>
 <p></p>
 </details></p><details><summary>interp tests passed</summary>
 <p>
 <pre><code>=== RUN  TestNewEqual
---- PASS: TestNewEqual (%!s(float64=0.00011801719665527344))
+--- PASS: TestNewEqual (%!s(float64=0.00011992454528808594))
 
 === RUN  TestErrorMethod
 --- PASS: TestErrorMethod (%!s(float64=2.09808349609375e-05))
 
 === RUN  TestIs
---- PASS: TestIs (%!s(float64=0.0001709461212158203))
+--- PASS: TestIs (%!s(float64=0.000164031982421875))
 
 === RUN  TestAs
---- PASS: TestAs (%!s(float64=0.01238107681274414))
+--- PASS: TestAs (%!s(float64=0.012224912643432617))
 
 === RUN  TestAsValidation
---- PASS: TestAsValidation (%!s(float64=0.0015299320220947266))
+--- PASS: TestAsValidation (%!s(float64=0.0016210079193115234))
 
 === RUN  TestUnwrap
---- PASS: TestUnwrap (%!s(float64=0.0002219676971435547))
+--- PASS: TestUnwrap (%!s(float64=0.00022602081298828125))
 </code></pre>
 <p></p>
 </details></p><details><summary>jvm tests failed</summary>
 <p>
-<pre><code>IO.Overflow("write_ui16")
+<pre><code>stdgo/reflect/Reflect.hx:2977: characters 28-35 : Warning : Potential typo detected (expected similar values are refType). Consider using `var keyType` instead
+IO.Overflow("write_ui16")
 stdgo/internal/Macro.macro.hx:35: define</code></pre>
 <p></p>
 </details></p>
