@@ -102,7 +102,7 @@ private function saveContent(dir,path,file) {
     if (FileSystem.exists(Path.join([dir,path,"index.html"]))) {
         temp = new Template(File.getContent(Path.join([dir,path,"index.html"])));
         trace(Path.join([dir,path,file]) + " -> " + Path.join([path,Path.withoutExtension(file) + ".html"]));
-        File.saveContent(exportPath + Path.join([path,Path.withoutExtension(file) + ".html"]),temp.execute({content: content, header: header})); // index.html template
+        File.saveContent(exportPath + Path.join([path,Path.withoutExtension(file).toLowerCase() + ".html"]),temp.execute({content: content, header: header})); // index.html template
     }else{
         throw  "not found index.html at: " + dir + " | " + path;
     }
