@@ -9,7 +9,7 @@ var header:String = "";
 var support:String = "";
 var go:String = "";
 
-var exportPath = ""; // add trailing backslash at end
+var exportPath = "page/"; // add trailing backslash at end
 
 function main() {
     if (exportPath != "" && !FileSystem.exists(exportPath))
