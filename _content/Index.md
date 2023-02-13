@@ -8,17 +8,13 @@
 
 Source-to-Source Go to Haxe compiler.
 
-Use Go libs with ease! [**Get started!**](./manual/getstarted.html)
-
-[![haxe](made-with-haxe.svg)](https://haxe.org)
-[![go](https://forthebadge.com/images/badges/made-with-go.svg)](https://go.dev/)
-
-
-[What's supported?](./manual/subset.html)
+Use Go libs with ease!
+    
+[**Get started!**](./manual/getstarted.html)
 
 [Manual](./manual/index.html)
 
-<details><summary>Standard Library compatibility/api docs</summary>::support::</details>
+<details open><summary>Standard Library compatibility/api docs</summary>::support::</details>
 <details><summary>FAQ</summary>
 
 ## Can library X be compiled?
