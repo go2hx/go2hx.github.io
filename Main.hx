@@ -18,8 +18,40 @@ function main() {
         Sys.command("git clone --depth 1 https://github.com/go2hx/go2hx");
     header = File.getContent("_content/header.html");
     var path = "go2hx/stdgo/README.md";
-
-    support = readmeToHtmlLink(Markdown.markdownToHtml(File.getContent("go2hx/stdgo/stdgo.md")),false);
+    final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
+    support = File.getContent("go2hx/stdgo/stdgo.md");
+    final lines = support.split("\n");
+    var startIndex = 0;
+    final targets = ["hl", "interp"];
+    trace(lines);
+    for (i in 0...lines.length) {
+        if (lines[i].charAt(0) == "|") {
+            startIndex++;
+        }
+        switch startIndex {
+            case 1:
+                lines[i] = StringTools.replace(lines[i], "compile", "docs");
+                lines[i] += " " + targets.join(" | ") + " |";
+            case 2:
+                lines[i] += " --- | --- |";
+            default:
+                final str = "| [";
+                final index = lines[i].indexOf(str);
+                if (index != -1) {
+                    var line = lines[i].substring(index + str.length,lines[i].indexOf("]",index));
+                    line = line.substr("stdgo.".length);
+                    line = StringTools.replace(line,".","/");
+                    for (target in targets) {
+                        if (stdList.indexOf('$target|$line') != -1) {
+                            lines[i] += " ✅ |";
+                        }else{
+                            lines[i] += " ❌ |";
+                        }
+                    }
+                }
+        }
+    }
+    support = readmeToHtmlLink(Markdown.markdownToHtml(lines.join("\n")), false);
     final dir = "_content";
     for (path in FileSystem.readDirectory(dir)) {
         if (Path.extension(path) == "md") {
