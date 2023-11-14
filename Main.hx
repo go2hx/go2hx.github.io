@@ -22,8 +22,7 @@ function main() {
     support = File.getContent("go2hx/stdgo/stdgo.md");
     final lines = support.split("\n");
     var startIndex = 0;
-    final targets = ["hl", "interp"];
-    trace(lines);
+    final targets = ["hl"];
     for (i in 0...lines.length) {
         if (lines[i].charAt(0) == "|") {
             startIndex++;
@@ -41,11 +40,16 @@ function main() {
                     var line = lines[i].substring(index + str.length,lines[i].indexOf("]",index));
                     line = line.substr("stdgo.".length);
                     line = StringTools.replace(line,".","/");
-                    for (target in targets) {
-                        if (stdList.indexOf('$target|$line') != -1) {
-                            lines[i] += " ✅ |";
-                        }else{
-                            lines[i] += " ❌ |";
+                    final noTestStr = "| no |";
+                    if (lines[i].substr(lines[i].length - noTestStr.length) == noTestStr) {
+                        lines[i] += [for (i in 0...targets.length) " _ |"].join("");
+                    }else{
+                        for (target in targets) {
+                            if (stdList.indexOf('$target|$line') != -1) {
+                                lines[i] += " ✅ |";
+                            }else{
+                                lines[i] += " ❌ |";
+                            }
                         }
                     }
                 }
