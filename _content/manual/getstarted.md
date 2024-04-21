@@ -15,7 +15,11 @@ func main() {
     println("hello world")
 }
 ```
-Run compiler:
+Run compiler and run in interp mode:
 ```sh
-haxelib run go2hx ./main.go
+haxelib run go2hx ./main.go --interp
+```
+See list of commands and other targets to invoke such as ``--hl build.hl``
+```sh
+haxelib run go2hx
 ```
