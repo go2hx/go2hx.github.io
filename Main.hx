@@ -22,6 +22,9 @@ function main() {
     var path = "go2hx/stdgo/README.md";
     final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
     support = File.getContent("go2hx/stdgo/stdgo.md");
+    support = StringTools.replace(support, "._internal", "");
+    support = StringTools.replace(support, "/_internal", "");
+    trace(support);
     final lines = support.split("\n");
     var startIndex = 0;
     final targets = ["hl"];
@@ -108,6 +111,8 @@ private function readmeToHtmlLink(content:String,isStdgoPath:Bool):String {
 
 private function stdgoRecursive(dir:String,depth:Int) {
     for (path in FileSystem.readDirectory(dir)) {
+        if (path == "_internal" || path == "internal")
+            continue;
         path = Path.join([dir,path]);
         if (FileSystem.isDirectory(path)) {
             FileSystem.createDirectory(exportPath + path.substr("go2hx/".length));
