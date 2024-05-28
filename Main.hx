@@ -15,7 +15,7 @@ function main() {
     if (exportPath != "" && !FileSystem.exists(exportPath))
         FileSystem.createDirectory(exportPath);
     if (!FileSystem.exists("go2hx"))
-        Sys.command("git clone --depth 1 https://github.com/go2hx/go2hx");
+        Sys.command("git clone https://github.com/go2hx/go2hx");
     header = File.getContent("_content/header.html");
     var path = "go2hx/stdgo/README.md";
     final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
@@ -29,7 +29,7 @@ function main() {
         }
         switch startIndex {
             case 1:
-                lines[i] = StringTools.replace(lines[i], "compile", "docs");
+                //lines[i] = StringTools.replace(lines[i], "compile", "docs");
                 lines[i] += " " + targets.join(" | ") + " |";
             case 2:
                 lines[i] += " --- | --- |";
