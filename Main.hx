@@ -124,9 +124,11 @@ private function stdgoRecursive(dir:String,depth:Int) {
                 path = path.substr(0,path.length - "README.md".length);
                 final fullpath = "https://github.com/go2hx/go2hx/tree/master/" + path.substr("go2hx/".length);
                 content = StringTools.replace(content,"[\\(view code\\)](<.","[\\(view code\\)](<" + fullpath);
+                content = StringTools.replace(content,"[\\(view file containing code\\)](<.","[\\(view file containing code\\)](<" + fullpath);
                 content = prettyprint(Markdown.markdownToHtml(content));
                 // open new tab for code preview
                 content = StringTools.replace(content,">(view code)</a>",'target="_blank" rel="noopener noreferrer">(view code)</a>');
+                content = StringTools.replace(content,">(view file containing code)</a>",'target="_blank" rel="noopener noreferrer">(view file containing code)</a>');
                 trace(path);
                 final temp = new Template(File.getContent("_content/stdgo.html"));
                 final depth = [for (i in 0...depth) ".."].join("/");
