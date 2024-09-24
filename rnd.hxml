@@ -1,0 +1,4 @@
+-cp samples
+-m Rnd
+-lib go2hx
+--js page/samples/rnd.js

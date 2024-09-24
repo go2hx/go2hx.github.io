@@ -12,6 +12,8 @@ Use Go libs with ease!
     
 [**Get started!**](./manual/getstarted.html)
 
+[Samples](./samples/index.html)
+
 [Manual](./manual/index.html)
 
 <details open><summary>Standard Library compatibility/api docs</summary>::support::</details>
