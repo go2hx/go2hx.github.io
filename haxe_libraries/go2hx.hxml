@@ -1,3 +1,4 @@
+# @install: echo "install"
 -cp go2hx
 go2hx/extraParams.hxml
 -D go2hx=0.0.1
