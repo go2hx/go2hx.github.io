@@ -38,6 +38,8 @@ jobs:
         run: npx lix download
       - name: Build
         run: npx haxe build.hxml
+      - name: Build samples
+        run: npx haxe samples.hxml
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
