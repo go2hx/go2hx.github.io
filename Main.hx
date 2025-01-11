@@ -21,14 +21,31 @@ function main() {
     header = File.getContent("_content/header.html");
     var path = "go2hx/stdgo/README.md";
     final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
-    support = File.getContent("go2hx/stdgo/stdgo.md");
-    support = StringTools.replace(support, "._internal", "");
-    support = StringTools.replace(support, "/_internal", "");
-    trace(support);
-    final lines = support.split("\n");
-    var startIndex = 0;
-    final targets = ["hl"];
-    for (i in 0...lines.length) {
+    final targets = ["hl","interp","jvm","php","js"];
+    final lines = ["| module | " + targets.join(" | ") + " |"];
+    var spacer = "|";
+    for (i in 0...targets.length + 1) {
+        spacer += " --- |";
+    }
+    lines.push(spacer);
+    final allTests:Array<String> = haxe.Json.parse(File.getContent("go2hx/data/tests.json"));
+    for (i in 0...allTests.length) {
+        lines[i + 2] = allTests[i] + " |";
+    }
+    trace(lines.join("\n"));
+    for (target in targets) {
+        final path = 'go2hx/tests/std_$target.json';
+        final data:Array<String> = haxe.Json.parse(File.getContent(path)).map(s -> s.split("|")[1]);
+
+        for (i in 0...allTests.length) {
+            if (data.indexOf(allTests[i]) != -1) {
+                lines[i + 2] += " ✅ |";
+            }else{
+                lines[i + 2] += " ❌ |";
+            }
+        }
+    }
+    /*for (i in 0...lines.length) {
         if (lines[i].charAt(0) == "|") {
             startIndex++;
         }
@@ -59,7 +76,7 @@ function main() {
                     }
                 }
         }
-    }
+    }*/
     support = readmeToHtmlLink(Markdown.markdownToHtml(lines.join("\n")), false);
     final dir = "_content";
     for (path in FileSystem.readDirectory(dir)) {
