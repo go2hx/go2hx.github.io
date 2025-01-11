@@ -28,7 +28,8 @@ function main() {
         spacer += " --- |";
     }
     lines.push(spacer);
-    final allTests:Array<String> = haxe.Json.parse(File.getContent("go2hx/data/tests.json"));
+    var allTests:Array<String> = haxe.Json.parse(File.getContent("go2hx/data/tests.json"));
+    allTests = allTests.filter(test -> test.indexOf("internal") == -1);
     for (i in 0...allTests.length) {
         lines[i + 2] = allTests[i] + " |";
     }
