@@ -48,6 +48,7 @@ function main() {
             if (hasSameCommit != -1) {
                 if (!checkedCommit) {
                     Sys.println("same commit found: " + hasSameCommit);
+                    Sys.exit(0);
                 }
                 checkedCommit = true;
                 // testing
