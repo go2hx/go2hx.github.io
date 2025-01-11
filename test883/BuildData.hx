@@ -19,9 +19,9 @@ final targets = [
 function main() {
     final results:Dynamic = sys.FileSystem.exists("test883/results.json") ? Json.parse(sys.io.File.getContent("test883/results.json")) : {};
     final time = Date.now().toString();
-    final commit = getCommit();
     var checkedCommit = false;
     Sys.setCwd("go2hx");
+    final commit = getCommit();
     for (test in tests) {
         final parts = test.split("_");
         final total = Json.parse(File.getContent('tests/$test.json')).length;
