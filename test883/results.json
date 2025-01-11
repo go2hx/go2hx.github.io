@@ -1,1 +1,272 @@
-{}
+{
+    "yaegi_hard_js": [
+        {
+            "name": "yaegi_hard_js",
+            "total": 181,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "yaegi_hard_jvm": [
+        {
+            "name": "yaegi_hard_jvm",
+            "total": 181,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "go_medium_hl": [
+        {
+            "name": "go_medium_hl",
+            "total": 95,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 76
+        }
+    ],
+    "yaegi_medium_js": [
+        {
+            "name": "yaegi_medium_js",
+            "total": 277,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 7
+        }
+    ],
+    "yaegi_hard_hl": [
+        {
+            "name": "yaegi_hard_hl",
+            "total": 181,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "yaegi_medium_jvm": [
+        {
+            "name": "yaegi_medium_jvm",
+            "total": 277,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "go_medium_jvm": [
+        {
+            "name": "go_medium_jvm",
+            "total": 95,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 8
+        }
+    ],
+    "yaegi_medium_hl": [
+        {
+            "name": "yaegi_medium_hl",
+            "total": 277,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 251
+        }
+    ],
+    "yaegi_easy_jvm": [
+        {
+            "name": "yaegi_easy_jvm",
+            "total": 370,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 149
+        }
+    ],
+    "yaegi_hard_php": [
+        {
+            "name": "yaegi_hard_php",
+            "total": 181,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "go_medium_js": [
+        {
+            "name": "go_medium_js",
+            "total": 95,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 66
+        }
+    ],
+    "yaegi_easy_js": [
+        {
+            "name": "yaegi_easy_js",
+            "total": 370,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 230
+        }
+    ],
+    "go_easy_interp": [
+        {
+            "name": "go_easy_interp",
+            "total": 346,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 333
+        }
+    ],
+    "yaegi_medium_php": [
+        {
+            "name": "yaegi_medium_php",
+            "total": 277,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "go_easy_php": [
+        {
+            "name": "go_easy_php",
+            "total": 346,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 342
+        }
+    ],
+    "go_hard_interp": [
+        {
+            "name": "go_hard_interp",
+            "total": 204,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "go_medium_interp": [
+        {
+            "name": "go_medium_interp",
+            "total": 95,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 75
+        }
+    ],
+    "go_medium_php": [
+        {
+            "name": "go_medium_php",
+            "total": 95,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 53
+        }
+    ],
+    "go_easy_js": [
+        {
+            "name": "go_easy_js",
+            "total": 346,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 331
+        }
+    ],
+    "yaegi_hard_interp": [
+        {
+            "name": "yaegi_hard_interp",
+            "total": 181,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "go_easy_jvm": [
+        {
+            "name": "go_easy_jvm",
+            "total": 346,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 160
+        }
+    ],
+    "go_hard_js": [
+        {
+            "name": "go_hard_js",
+            "total": 204,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "yaegi_easy_php": [
+        {
+            "name": "yaegi_easy_php",
+            "total": 370,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 43
+        }
+    ],
+    "go_easy_hl": [
+        {
+            "name": "go_easy_hl",
+            "total": 346,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 339
+        }
+    ],
+    "go_hard_php": [
+        {
+            "name": "go_hard_php",
+            "total": 204,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "yaegi_medium_interp": [
+        {
+            "name": "yaegi_medium_interp",
+            "total": 277,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 251
+        }
+    ],
+    "go_hard_jvm": [
+        {
+            "name": "go_hard_jvm",
+            "total": 204,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ],
+    "yaegi_easy_hl": [
+        {
+            "name": "yaegi_easy_hl",
+            "total": 370,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 370
+        }
+    ],
+    "yaegi_easy_interp": [
+        {
+            "name": "yaegi_easy_interp",
+            "total": 370,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 370
+        }
+    ],
+    "go_hard_hl": [
+        {
+            "name": "go_hard_hl",
+            "total": 204,
+            "commit": "1dc518950dbe4a23a6d341c86a297cdb0fcdf013",
+            "time": "2025-01-11 21:37:11",
+            "passing": 0
+        }
+    ]
+}
