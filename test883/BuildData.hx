@@ -4,7 +4,7 @@ import haxe.Json;
 final tests = [
     "go_easy", "go_medium", "go_hard",
     "yaegi_easy", "yaegi_medium", "yaegi_hard",
-    //"std-all",
+    "std_all",
 ];
 
 final targets = [
@@ -24,7 +24,7 @@ function main() {
     final commit = getCommit();
     for (test in tests) {
         final parts = test.split("_");
-        final total = Json.parse(File.getContent('tests/$test.json')).length;
+        final total = test == "std_all" ? 0 : Json.parse(File.getContent('tests/$test.json')).length;
         for (target in targets) {
             final name = test + "_" + target;
             final subResults:Array<Result> = Reflect.hasField(results, name) ? Reflect.field(results,name) : [];
@@ -35,16 +35,40 @@ function main() {
                     break;
                 }
             }
-            final path = 'tests/$name.json';
-            final passing= sys.FileSystem.exists(path) ? Json.parse(File.getContent(path)).length : 0;
-            trace(name, passing, total);
-            final data:Result = {
-                time: time,
-                name: name,
-                commit: commit,
-                passing: passing,
-                total: total,
-            };
+            var data:Result = null;
+            if (test != "std_all") {
+                final path = 'tests/$name.json';
+                final passing= sys.FileSystem.exists(path) ? Json.parse(File.getContent(path)).length : 0;
+                //trace(name, passing, total);
+                data = {
+                    time: time,
+                    name: name,
+                    commit: commit,
+                    passing: passing,
+                    total: total,
+                };
+            }else{
+                final stdLogsPath = "tests/stdlogs/";
+                for (path in sys.FileSystem.readDirectory(stdLogsPath)) {
+                    if (haxe.io.Path.extension(path) != "json")
+                        continue;
+                    var funcName = haxe.io.Path.withoutDirectory(haxe.io.Path.withoutExtension(path));
+                    if (!StringTools.endsWith(funcName, "_" + target))
+                        continue;
+                    funcName = funcName.substr(0, funcName.length - ("_" + target).length);
+                    //trace(name);
+                    final data:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = haxe.Json.parse(sys.io.File.getContent(stdLogsPath + path));
+                    subResults.push({
+                        time: time,
+                        name: funcName,
+                        commit: commit,
+                        passing: data.passes.length,
+                        total: data.runs.length,
+                    });
+                    Reflect.setField(results, name, subResults);
+                }
+                continue;
+            }
             if (hasSameCommit != -1) {
                 if (!checkedCommit) {
                     Sys.println("same commit found: " + hasSameCommit);
