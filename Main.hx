@@ -37,12 +37,14 @@ function main() {
     for (target in targets) {
         final path = 'go2hx/tests/std_$target.json';
         final data:Array<String> = haxe.Json.parse(File.getContent(path)).map(s -> s.split("|")[1]);
-
+        //trace(target, data);
         for (i in 0...allTests.length) {
+            final test = StringTools.replace(allTests[i], "/", "_");
+            final link = 'https://github.com/go2hx/go2hx/blob/master/tests/stdlogs/${test}_$target.log'; 
             if (data.indexOf(allTests[i]) != -1) {
-                lines[i + 2] += " ✅ |";
+                lines[i + 2] += ' ✅ |';
             }else{
-                lines[i + 2] += " ❌ |";
+                lines[i + 2] += ' [❌ log]($link) |';
             }
         }
     }
@@ -147,7 +149,7 @@ private function stdgoRecursive(dir:String,depth:Int) {
                 // open new tab for code preview
                 content = StringTools.replace(content,">(view code)</a>",'target="_blank" rel="noopener noreferrer">(view code)</a>');
                 content = StringTools.replace(content,">(view file containing code)</a>",'target="_blank" rel="noopener noreferrer">(view file containing code)</a>');
-                trace(path);
+                //trace(path);
                 final temp = new Template(File.getContent("_content/stdgo.html"));
                 final depth = [for (i in 0...depth) ".."].join("/");
                 File.saveContent(exportPath + Path.join([Path.withoutExtension(path.substr("go2hx/".length)),"index.html"]),temp.execute({content: content,depth: depth,fullpath: fullpath,header: header}));

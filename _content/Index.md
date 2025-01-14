@@ -16,6 +16,9 @@ Use Go libs with ease!
 
 [Manual](./manual/index.html)
 
+[Progress Graph!](./test883/index.html)
+<!--<iframe src="https://go2hx.github.io/test883/">-->
+
 <details open><summary>Standard Library compatibility/api docs</summary>::support::</details>
 <details><summary>FAQ</summary>
 
