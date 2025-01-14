@@ -102,6 +102,30 @@ function run(test:String, target:String) {
 				}
 			},
 			legend: {
+                onClick: (e, legendItem, legend) -> {
+                    var index = legendItem.datasetIndex;
+                    var ci = legend.chart;
+                    var meta = ci.getDatasetMeta(index);
+                    var othersHidden = false;
+                    var selectedHidden = ci.data.datasets[index].hidden;
+                    (ci.data.datasets : Dynamic).forEach(function(dataset, i) {
+                        if (i != index && dataset.hidden) {
+                            othersHidden = true;
+                        }
+                    });
+                    (ci.data.datasets : Dynamic).forEach(function(dataset:Dynamic, i) {
+                        if (othersHidden) {
+                            if (selectedHidden) {
+                                dataset.hidden = i != index;
+                            }else{
+                                dataset.hidden = false;
+                            }
+                        }else{
+                            dataset.hidden = i != index;
+                        }
+                    });
+                    ci.update();
+                },
 				labels: {
 					font: {
 						size: 26,
@@ -115,12 +139,20 @@ function run(test:String, target:String) {
             time: {
                 unit: "day",
             },
+            ticks: {
+                font: {
+                    size: 20,
+                }
+            }
         },
         y: {
-            type: 'logarithmic',
+            //type: 'logarithmic',
             max: 100,
             ticks: {
                 callback: (value, index, values) -> '$value%',
+                font: {
+                    size: 20,
+                }
             },
         },
     }

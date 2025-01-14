@@ -16,8 +16,23 @@ final targets = [
     "php",    // 1
 ];
 
+function filterData(results:Dynamic) {
+    //trace(Reflect.fields(results).length);
+    //return;
+    for (field in Reflect.fields(results)) {
+        var data:Array<Dynamic> = Reflect.field(results, field);
+        for (i in 0...data.length) {
+            if (data[i].total == 0)
+                data.remove(data[i]);
+        }
+    }
+    sys.io.File.saveContent("test883/results.json", Json.stringify(results, null, "    "));
+    Sys.exit(0);
+}
+
 function main() {
     final results:Dynamic = sys.FileSystem.exists("test883/results.json") ? Json.parse(sys.io.File.getContent("test883/results.json")) : {};
+    //filterData(results);
     final time = Date.now().toString();
     var checkedCommit = false;
     Sys.setCwd("go2hx");
@@ -40,6 +55,8 @@ function main() {
                 final path = 'tests/$name.json';
                 final passing= sys.FileSystem.exists(path) ? Json.parse(File.getContent(path)).length : 0;
                 //trace(name, passing, total);
+                if (total == 0)
+                    continue;
                 data = {
                     time: time,
                     name: name,
@@ -58,6 +75,8 @@ function main() {
                     funcName = funcName.substr(0, funcName.length - ("_" + target).length);
                     //trace(name);
                     final data:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = haxe.Json.parse(sys.io.File.getContent(stdLogsPath + path));
+                    if (data.runs.length == 0)
+                        continue;
                     subResults.push({
                         time: time,
                         name: funcName,
