@@ -1,6 +1,7 @@
+#if js
+import js.html.LabelElement;
 import js.html.CanvasElement;
 import js.html.SelectElement;
-#if js
 import haxe.Json;
 import haxe.Resource;
 import js.Browser.document;
@@ -10,6 +11,9 @@ import js.html.Console;
 import js.html.Headers;
 
 function main() {
+    final build:LabelElement = cast Browser.document.getElementById("build");
+    //Browser.alert(buildInfo());
+    build.innerText = "last updated: " + buildInfo();
     final test:SelectElement = cast Browser.document.getElementById("test");
     final target:SelectElement = cast Browser.document.getElementById("target");
     test.onchange = () -> {
@@ -62,6 +66,7 @@ function run(test:String, target:String) {
 	final delay = 1200;
 	final delayBetweenPoints = delay / results.length;
 	var options = {
+        responsive: true,
         tooltips: {
             mode: "index",
             intersect: false,
@@ -73,6 +78,18 @@ function run(test:String, target:String) {
             intersect: true
         },
         plugins: {
+            zoom: {
+                zoom: {
+                  mode: "x",
+                  wheel: {
+                    enabled: true,
+                  },
+                },
+                pan: {
+                  enabled: true,
+                  mode: "x",
+                },
+              },
 			tooltip: {
                 //enabled: false,
 				callbacks: {
@@ -144,4 +161,12 @@ typedef Result = {
 	total:Int,
 	commit:String,
 }
+#end
+
+#if macro
+macro function buildInfo():haxe.macro.Expr {
+    return macro $v{Date.now().toString()};
+}
+#else
+macro function buildInfo():haxe.macro.Expr;
 #end
