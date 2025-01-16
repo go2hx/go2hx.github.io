@@ -22,11 +22,12 @@ function filterData(results:Dynamic) {
     for (field in Reflect.fields(results)) {
         var data:Array<Dynamic> = Reflect.field(results, field);
         for (i in 0...data.length) {
-            if (data[i].total == 0)
+            if (data[i].total < 2)
                 data.remove(data[i]);
         }
     }
     sys.io.File.saveContent("test883/results.json", Json.stringify(results, null, "    "));
+    trace("finish filterData");
     Sys.exit(0);
 }
 
@@ -55,7 +56,7 @@ function main() {
                 final path = 'tests/$name.json';
                 final passing= sys.FileSystem.exists(path) ? Json.parse(File.getContent(path)).length : 0;
                 //trace(name, passing, total);
-                if (total == 0)
+                if (total < 2)
                     continue;
                 data = {
                     time: time,
