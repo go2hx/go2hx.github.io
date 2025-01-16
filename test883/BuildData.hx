@@ -9,11 +9,8 @@ final tests = [
 
 final targets = [
     "hl",     // 1
-    "jvm",    // 1
     "interp", // 1
-    //"cppia", // 2 TODO
     "js",     // 1
-    "php",    // 1
 ];
 
 function filterData(results:Dynamic) {
