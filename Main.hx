@@ -33,7 +33,7 @@ function main() {
     for (i in 0...allTests.length) {
         lines[i + 2] = allTests[i] + " |";
     }
-    trace(lines.join("\n"));
+    //trace(lines.join("\n"));
     for (target in targets) {
         final path = 'go2hx/tests/std_$target.json';
         final data:Array<String> = haxe.Json.parse(File.getContent(path)).map(s -> s.split("|")[1]);
@@ -44,7 +44,21 @@ function main() {
             if (data.indexOf(allTests[i]) != -1) {
                 lines[i + 2] += ' ✅ |';
             }else{
-                lines[i + 2] += ' [❌ log]($link) |';
+
+                if (FileSystem.exists('go2hx/tests/stdlogs/${test}_$target.json')) {
+                    final data = haxe.Json.parse(File.getContent('go2hx/tests/stdlogs/${test}_$target.json'));
+                    final pass = data.passes.length;
+                    final total = data.runs.length;
+                    if (pass > 1 && total > 0) {
+                        //final graphLink = 'test883/index.html#${test}_$target';
+                        lines[i + 2] += ' [❌ log]($link) $pass/$total|';
+                        continue;
+                    }
+                }
+                final pass = 0;
+                final total = 0;
+                final graphLink = 'test883/index.html#${test}_$target';
+                lines[i + 2] += ' [❌ error]($link)|';
             }
         }
     }
