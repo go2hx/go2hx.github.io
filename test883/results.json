@@ -195,6 +195,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 0
+        },
+        {
+            "name": "yaegi_hard_js",
+            "total": 181,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
         }
     ],
     "yaegi_hard_jvm": [
@@ -486,6 +493,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 77
+        },
+        {
+            "name": "go_medium_hl",
+            "total": 93,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 77
         }
     ],
     "yaegi_medium_js": [
@@ -684,6 +698,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 198
+        },
+        {
+            "name": "yaegi_medium_js",
+            "total": 274,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 198
         }
     ],
     "yaegi_hard_hl": [
@@ -881,6 +902,13 @@
             "total": 181,
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
+            "passing": 0
+        },
+        {
+            "name": "yaegi_hard_hl",
+            "total": 181,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
             "passing": 0
         }
     ],
@@ -3691,6 +3719,132 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 31
+        },
+        {
+            "name": "compress_bzip2",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 3
+        },
+        {
+            "name": "io_fs",
+            "total": 14,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 7
+        },
+        {
+            "name": "internal_abi",
+            "total": 2,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "internal_poll",
+            "total": 9,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 3
+        },
+        {
+            "name": "syscall",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 2
+        },
+        {
+            "name": "testing_quick",
+            "total": 8,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "path_filepath",
+            "total": 39,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 20
+        },
+        {
+            "name": "math_cmplx",
+            "total": 23,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 15
+        },
+        {
+            "name": "crypto_sha1",
+            "total": 7,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 6
+        },
+        {
+            "name": "fmt",
+            "total": 51,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 31
+        },
+        {
+            "name": "encoding_binary",
+            "total": 30,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 16
+        },
+        {
+            "name": "testing_fstest",
+            "total": 5,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "internal_testenv",
+            "total": 3,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 2
+        },
+        {
+            "name": "internal_godebug",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "internal_godebugs",
+            "total": 1,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "image_color",
+            "total": 10,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 9
+        },
+        {
+            "name": "testing_iotest",
+            "total": 15,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "internal_cpu",
+            "total": 1,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
         }
     ],
     "yaegi_medium_jvm": [
@@ -4074,6 +4228,13 @@
             "total": 274,
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
+            "passing": 266
+        },
+        {
+            "name": "yaegi_medium_hl",
+            "total": 274,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
             "passing": 266
         }
     ],
@@ -4459,6 +4620,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 76
+        },
+        {
+            "name": "go_medium_js",
+            "total": 93,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 76
         }
     ],
     "yaegi_easy_js": [
@@ -4657,6 +4825,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 230
+        },
+        {
+            "name": "yaegi_easy_js",
+            "total": 370,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 230
         }
     ],
     "go_easy_interp": [
@@ -4854,6 +5029,13 @@
             "total": 346,
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
+            "passing": 333
+        },
+        {
+            "name": "go_easy_interp",
+            "total": 346,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
             "passing": 333
         }
     ],
@@ -8438,6 +8620,167 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 16
+        },
+        {
+            "name": "testing_iotest",
+            "total": 15,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "testing_quick",
+            "total": 8,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "internal_godebugs",
+            "total": 1,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "compress_bzip2",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 3
+        },
+        {
+            "name": "image_color",
+            "total": 10,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 9
+        },
+        {
+            "name": "math_bits",
+            "total": 26,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 23
+        },
+        {
+            "name": "hash_adler32",
+            "total": 2,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "crypto_sha1",
+            "total": 7,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 6
+        },
+        {
+            "name": "internal_abi",
+            "total": 2,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "internal_godebug",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "syscall",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 2
+        },
+        {
+            "name": "internal_testenv",
+            "total": 3,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 2
+        },
+        {
+            "name": "testing_fstest",
+            "total": 5,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "encoding_base64",
+            "total": 17,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 16
+        },
+        {
+            "name": "path_filepath",
+            "total": 39,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 19
+        },
+        {
+            "name": "fmt",
+            "total": 51,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 31
+        },
+        {
+            "name": "internal_poll",
+            "total": 7,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 2
+        },
+        {
+            "name": "bytes",
+            "total": 87,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 85
+        },
+        {
+            "name": "strconv",
+            "total": 56,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 62
+        },
+        {
+            "name": "internal_cpu",
+            "total": 2,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "encoding_binary",
+            "total": 30,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 17
+        },
+        {
+            "name": "strings",
+            "total": 67,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 64
+        },
+        {
+            "name": "io_fs",
+            "total": 14,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 7
         }
     ],
     "std_all_interp": [
@@ -11352,6 +11695,139 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 9
+        },
+        {
+            "name": "compress_bzip2",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 3
+        },
+        {
+            "name": "crypto_sha1",
+            "total": 7,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 6
+        },
+        {
+            "name": "path_filepath",
+            "total": 39,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 19
+        },
+        {
+            "name": "internal_cpu",
+            "total": 1,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "encoding_binary",
+            "total": 30,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 17
+        },
+        {
+            "name": "testing_iotest",
+            "total": 15,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "internal_testenv",
+            "total": 3,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 2
+        },
+        {
+            "name": "internal_godebug",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "image_color",
+            "total": 10,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 9
+        },
+        {
+            "name": "fmt",
+            "total": 51,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 31
+        },
+        {
+            "name": "syscall",
+            "total": 4,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 2
+        },
+        {
+            "name": "internal_poll",
+            "total": 9,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 3
+        },
+        {
+            "name": "math",
+            "total": 76,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 79
+        },
+        {
+            "name": "testing_fstest",
+            "total": 5,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 1
+        },
+        {
+            "name": "internal_abi",
+            "total": 2,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "math_cmplx",
+            "total": 24,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 15
+        },
+        {
+            "name": "internal_godebugs",
+            "total": 1,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
+        },
+        {
+            "name": "io_fs",
+            "total": 14,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 7
+        },
+        {
+            "name": "testing_quick",
+            "total": 8,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
         }
     ],
     "go_hard_interp": [
@@ -11550,6 +12026,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 0
+        },
+        {
+            "name": "go_hard_interp",
+            "total": 204,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
         }
     ],
     "go_medium_interp": [
@@ -11747,6 +12230,13 @@
             "total": 93,
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
+            "passing": 75
+        },
+        {
+            "name": "go_medium_interp",
+            "total": 93,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
             "passing": 75
         }
     ],
@@ -12039,6 +12529,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 332
+        },
+        {
+            "name": "go_easy_js",
+            "total": 346,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 332
         }
     ],
     "yaegi_hard_interp": [
@@ -12236,6 +12733,13 @@
             "total": 181,
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
+            "passing": 0
+        },
+        {
+            "name": "yaegi_hard_interp",
+            "total": 181,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
             "passing": 0
         }
     ],
@@ -12528,6 +13032,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 0
+        },
+        {
+            "name": "go_hard_js",
+            "total": 204,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 0
         }
     ],
     "yaegi_easy_php": [
@@ -12818,6 +13329,13 @@
             "total": 346,
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
+            "passing": 339
+        },
+        {
+            "name": "go_easy_hl",
+            "total": 346,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
             "passing": 339
         }
     ],
@@ -13110,6 +13628,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 266
+        },
+        {
+            "name": "yaegi_medium_interp",
+            "total": 274,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 266
         }
     ],
     "go_hard_jvm": [
@@ -13401,6 +13926,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 370
+        },
+        {
+            "name": "yaegi_easy_hl",
+            "total": 370,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 370
         }
     ],
     "yaegi_easy_interp": [
@@ -13599,6 +14131,13 @@
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
             "passing": 370
+        },
+        {
+            "name": "yaegi_easy_interp",
+            "total": 370,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
+            "passing": 370
         }
     ],
     "go_hard_hl": [
@@ -13796,6 +14335,13 @@
             "total": 204,
             "commit": "452e38262cd486dcf2ce56a64f93a7ae635ad4cc",
             "time": "2025-01-22 16:01:50",
+            "passing": 0
+        },
+        {
+            "name": "go_hard_hl",
+            "total": 204,
+            "commit": "b9430f96f167af333bee99d0ff7b3a32e8b9f99f",
+            "time": "2025-01-25 20:01:48",
             "passing": 0
         }
     ]
