@@ -1,0 +1,4 @@
+# @install: lix --silent download "gh://github.com/markknol/hxobfuscator#69f4a9d37655569cd945d802d180c43498056e10" into hxobfuscator/0.0.1/github/69f4a9d37655569cd945d802d180c43498056e10
+-cp ${HAXE_LIBCACHE}/hxobfuscator/0.0.1/github/69f4a9d37655569cd945d802d180c43498056e10/src
+-D hxobfuscator=0.0.1
+--macro HxObfuscator.use()

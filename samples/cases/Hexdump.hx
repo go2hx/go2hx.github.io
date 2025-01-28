@@ -1,9 +1,11 @@
 package cases;
 
+import stdgo.encoding.hex.Hex;
+
 function main() {
     Template.createTextTemplate(data -> {
-    final input = data.input;
+    final input = data.input.value;
     final output = data.output;
-    output.value = stdgo.encoding.hex.Hex.dump(input.value.split("").map(c -> c.charCodeAt(0)));
+    output.value = Hex.dump(input.split("").map(c -> c.charCodeAt(0)));
    });
 }
