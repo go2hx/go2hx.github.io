@@ -22,9 +22,9 @@ function main() {
     var path = "go2hx/stdgo/README.md";
     final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
     final targets = ["hl","interp","js"];
-    final lines = ["| module | " + targets.join(" | ") + " |"];
+    final lines = ["| module | " + targets.concat(["info"]).join(" | ") + " |"];
     var spacer = "|";
-    for (i in 0...targets.length + 1) {
+    for (i in 0...targets.length + 2) {
         spacer += " --- |";
     }
     lines.push(spacer);
@@ -62,38 +62,10 @@ function main() {
             }
         }
     }
-    /*for (i in 0...lines.length) {
-        if (lines[i].charAt(0) == "|") {
-            startIndex++;
-        }
-        switch startIndex {
-            case 1:
-                //lines[i] = StringTools.replace(lines[i], "compile", "docs");
-                lines[i] += " " + targets.join(" | ") + " |";
-            case 2:
-                lines[i] += " --- | --- |";
-            default:
-                final str = "| [";
-                final index = lines[i].indexOf(str);
-                if (index != -1) {
-                    var line = lines[i].substring(index + str.length,lines[i].indexOf("]",index));
-                    line = line.substr("stdgo.".length);
-                    line = StringTools.replace(line,".","/");
-                    final noTestStr = "| no |";
-                    if (lines[i].substr(lines[i].length - noTestStr.length) == noTestStr) {
-                        lines[i] += [for (i in 0...targets.length) " _ |"].join("");
-                    }else{
-                        for (target in targets) {
-                            if (stdList.indexOf('$target|$line') != -1) {
-                                lines[i] += " ✅ |";
-                            }else{
-                                lines[i] += " ❌ |";
-                            }
-                        }
-                    }
-                }
-        }
-    }*/
+    // add info section
+    for (i in 0...allTests.length) {
+        lines[i + 2] += '[imports](https://pkg.go.dev/${allTests[i]}?tab=imports)|';
+    }
     support = readmeToHtmlLink(Markdown.markdownToHtml(lines.join("\n")), false);
     final dir = "_content";
     for (path in FileSystem.readDirectory(dir)) {
