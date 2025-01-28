@@ -36,10 +36,10 @@ jobs:
         run: npm i lix -g
       - name: Run lix
         run: npx lix download
-      - name: Build
-        run: npx haxe build.hxml
       - name: Build samples
         run: npx haxe samples.hxml
+      - name: Build
+        run: npx haxe build.hxml
       - name: Build graph data
         run: npx haxe build_data.hxml
       - name: Build graph
