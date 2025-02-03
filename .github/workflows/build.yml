@@ -46,6 +46,8 @@ jobs:
         run: npx haxe build_data.hxml
       - name: Build graph
         run: npx haxe graph.hxml
+      - name: Build dox api
+        run: npx haxe build_dox.hxml
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload pages artifact

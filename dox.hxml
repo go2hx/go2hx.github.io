@@ -1,0 +1,8 @@
+-cp go2hx
+-D doc-gen
+#-lib go2hx
+-main DoxMain
+--hl dummy.hl
+-xml go2hx.xml
+-lib dox
+--no-output

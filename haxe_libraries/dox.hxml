@@ -1,0 +1,8 @@
+# @install: lix --silent download "gh://github.com/HaxeFoundation/dox#e92caadca75c540f77e44e78305e86fcf6347670" into dox/1.6.0/github/e92caadca75c540f77e44e78305e86fcf6347670
+# @run: haxelib run-dir dox "${HAXE_LIBCACHE}/dox/1.6.0/github/e92caadca75c540f77e44e78305e86fcf6347670"
+-lib hxargs
+-lib hxparse
+-lib hxtemplo
+-lib markdown
+-cp ${HAXE_LIBCACHE}/dox/1.6.0/github/e92caadca75c540f77e44e78305e86fcf6347670/src
+-D dox=1.6.0

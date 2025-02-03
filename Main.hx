@@ -12,12 +12,6 @@ var go:String = "";
 var exportPath = "page/"; // add trailing backslash at end
 
 function main() {
-    if (exportPath != "" && !FileSystem.exists(exportPath))
-        FileSystem.createDirectory(exportPath);
-    if (!FileSystem.exists("go2hx"))
-        Sys.command("git clone https://github.com/go2hx/go2hx");
-    if (!FileSystem.exists("page/stdgo"))
-        FileSystem.createDirectory("page/stdgo");
     header = File.getContent("_content/header.html");
     var path = "go2hx/stdgo/README.md";
     final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
