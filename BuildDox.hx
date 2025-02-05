@@ -17,8 +17,9 @@ function main() {
 function createDox(title:String, desc:String, repo:String, topLevel:String, inStr:String, output:String, command:String) {
     if (!sys.FileSystem.exists('page/$output'))
         sys.FileSystem.createDirectory('page/output');
-    if (title == "go2hx Compiler")
+    /*if (title == "go2hx Compiler") {
         sys.io.File.copy("page/logoapi.svg", 'page/$output/logo.svg');
+    }*/
     Sys.command('haxe dox.hxml $command');
     final version = haxe.Json.parse(sys.io.File.getContent("go2hx/haxelib.json")).version;
     // -D logo logo.svg
