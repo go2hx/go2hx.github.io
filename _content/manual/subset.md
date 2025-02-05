@@ -2,7 +2,7 @@
 
 
 * [Passing stdlibs on supported targets](https://go2hx.github.io/stdgo/index.html) for example: unicode,math,string on hashlink and interp
-* The go language excluding the [stdlib](https://pkg.go.dev/std).
+* The Golanguage excluding generics, goroutines and channels.
 
 
 ### Unsupported

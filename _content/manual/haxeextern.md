@@ -1,6 +1,6 @@
 # Haxe extern
 
-Refrence Haxe code with ease from Golang.
+Use Haxe code with ease from Go.
 
 ## main.go
 ```go

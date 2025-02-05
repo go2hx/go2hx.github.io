@@ -7,6 +7,6 @@
 * [Reflection](./reflection.html)
 * [Debugging](./debugging.html)
 * [Ast](./ast.html)
-* [Go macro](https://github.com/go2hx/go2hx/tree/master/stdgo#readme)
+* [Go macro api [link to api]](https://go2hx.github.io/api/stdgo/Go.html)
 * [Project structure](./projectstructure.html)
 * [Name conversions](./nameconversions.html)

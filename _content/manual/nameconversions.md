@@ -3,7 +3,7 @@
 Go uses uppercase field/class/method names to mark a field as public access and non as private.
 The Haxe compiler requires uppercase class names, but has no requirement for fields however the best practice is for field names to be lowercase camelCasing styled.
 
-The compiler go2hx converts go styled names to Haxe styled names with a set of rules.
+The compiler go2hx converts Gostyled names to Haxe styled names with a set of rules.
 
 * Method/Field names: uppercase to lowercase, and lowercase to underline.
 * Class names: uppercase no conversion, and lowercase to "T_" prefix added.

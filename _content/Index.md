@@ -16,7 +16,7 @@ Use Go libs with ease!
 
 [Manual](./manual/index.html)
 
-[Progress Graph!](./test883/index.html)
+[In progress tracking graph](./test883/index.html)
 
 <details open><summary>Standard Library compatibility/api docs</summary>::support::</details>
 <details><summary>FAQ</summary>
@@ -56,14 +56,14 @@ The project is still at an experimental level, so expect undocumented problems t
 <summary>how to proceed!</summary>
 
 ## What time is the error happening?: 
-* go compiler time (``./export.go`` named: go4hx)
+* Go compiler time (``./export.go`` named: go4hx)
 * Haxe compiler time (``src/Typer.hx`` and ``./stdgo/internal/reflect/Reflect.hx`` etc)
 * compile time (Haxe build tools example: ``haxe build.hxml``)
 * runtime (Code running example: ``hl build.hl`` or ``node build.js``).
 
 ## How can the code causing the error be reduced to a simple sample?
 * Use ``./rnd/main.go`` as a testbed and run it with: ``haxe rnd.hxml``
-* Modify the go code with debug prints or the Haxe compiled code with traces and figure out where is the precise error point.
+* Modify the Go code with debug prints or the Haxe compiled code with traces and figure out where is the precise error point.
 * Copy over structs and interfaces if needed that are used by the erroring code sample.
 * Make usage of go2hx's reflection for example:
 ```go
