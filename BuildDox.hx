@@ -10,7 +10,7 @@ function main() {
     trace("regexp2");
     addImport("github_dot_com.dlclark.regexp2.Regexp2");
     // create dox for regexp2
-    createDox("go2hx regexp2", "Precompiled regexp2 library in Haxe", "regexp2", "github_dot_com.dlclark.regexp2", "github_dot_com.dlclark.regexp2", "regexp2/api", "-lib go2hx_regexp2");
+    createDox("go2hx regexp2", "Precompiled regexp2 library in Haxe", "regexp2", "github_dot_com.dlclark.regexp2", ".", "regexp2/api", "-lib go2hx_regexp2");
 }
 
 function createDox(title:String, desc:String, repo:String, topLevel:String, inStr:String, output:String, command:String) {
