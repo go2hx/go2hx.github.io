@@ -8,8 +8,6 @@ function main() {
     createDox("go2hx Compiler", "Go to Haxe source-to-source compiler", "go2hx", "stdgo", "stdgo", "api", "-cp go2hx");
     // regexp2
     addImport("github_dot_com.dlclark.regexp2.Regexp2");
-    // install regexp2 lib
-    Sys.command("haxelib git go2hx_regexp2 https://github.com/go2hx/regexp2");
     // create dox for regexp2
     createDox("go2hx regexp2", "Precompiled regexp2 library in Haxe", "regexp2", "github_dot_com.dlclark.regexp2", "github_dot_com.dlclark.regexp2", "regexp2/api", "-lib go2hx_regexp2");
 }
