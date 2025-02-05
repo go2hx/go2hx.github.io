@@ -1,12 +1,13 @@
 function main() {
 
-    //Sys.command("rm -d -r page/api/hashes");
-    //if (sys.FileSystem.exists("page/api/hashes/go2hx.md5"))
+    Sys.command("rm -d -r page/api/hashes");
+    // if (sys.FileSystem.exists("page/api/hashes/go2hx.md5"))
     //    sys.FileSystem.deleteFile('page/api/hashes/go2hx.md5');
     // std
     addStdImports();
     createDox("go2hx Compiler", "Go to Haxe source-to-source compiler", "go2hx", "stdgo", "stdgo", "api", "-cp go2hx");
     // regexp2
+    trace("regexp2");
     addImport("github_dot_com.dlclark.regexp2.Regexp2");
     // create dox for regexp2
     createDox("go2hx regexp2", "Precompiled regexp2 library in Haxe", "regexp2", "github_dot_com.dlclark.regexp2", "github_dot_com.dlclark.regexp2", "regexp2/api", "-lib go2hx_regexp2");
@@ -40,7 +41,7 @@ function addStdImports() {
 
 function addImport(imp:String) {
     final imps = [
-        'import "$imp";',
+        'import $imp;',
         "function main() {}",
     ];
     sys.io.File.saveContent("DoxMain.hx", imps.join("\n"));
