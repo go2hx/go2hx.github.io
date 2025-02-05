@@ -1,5 +1,5 @@
-# @install: lix --silent download "gh://github.com/go2hx/regexp2#78813ed0669a442d5125e6ec7ac6c753717ea43f" into go2hx_regexp2/0.1.0/github/78813ed0669a442d5125e6ec7ac6c753717ea43f
--cp ${HAXE_LIBCACHE}/go2hx_regexp2/0.1.0/github/78813ed0669a442d5125e6ec7ac6c753717ea43f/golibs
+# @install: lix --silent download "gh://github.com/go2hx/regexp2#6d77c265bd8e89f3a93a10c64ed079138f6b311a" into go2hx_regexp2/0.1.0/github/6d77c265bd8e89f3a93a10c64ed079138f6b311a
+-cp ${HAXE_LIBCACHE}/go2hx_regexp2/0.1.0/github/6d77c265bd8e89f3a93a10c64ed079138f6b311a/golibs
 -D go2hx_regexp2=0.1.0
 -D go2hx
 --macro stdgo._internal.internal.Macro.init()
