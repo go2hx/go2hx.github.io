@@ -21,7 +21,8 @@ function createDox(title:String, desc:String, repo:String, topLevel:String, inSt
         sys.io.File.copy("page/logoapi.svg", 'page/$output/logo.svg');
     Sys.command('haxe dox.hxml $command');
     final version = haxe.Json.parse(sys.io.File.getContent("go2hx/haxelib.json")).version;
-    Sys.command('haxelib run dox -D description "$desc" -D toplevel-package $topLevel -D website https://go2hx.github.io -D logo logo.svg -i go2hx.xml -o page/$output --title "$title" -D version $version -in $inStr -D source-path https://github.com/go2hx/$repo/blob/master/"');
+    // -D logo logo.svg
+    Sys.command('haxelib run dox -D description "$desc" -D toplevel-package $topLevel -D website https://go2hx.github.io -i go2hx.xml -o page/$output --title "$title" -D version $version -in $inStr -D source-path https://github.com/go2hx/$repo/blob/master/"');
 }
 
 function addStdImports() {
