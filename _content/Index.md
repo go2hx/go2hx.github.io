@@ -18,7 +18,7 @@ Use Go libs with ease!
 
 [In progress tracking graph](./test883/index.html)
 
-[Getting started! [external link to README]](https://github.com/go2hx/go2hx?tab=readme-ov-file#getting-started)
+[Getting started! [link to github README]](https://github.com/go2hx/go2hx#getting-started)
 
 <details open><summary>Standard Library compatibility/api docs</summary>::support::</details>
 <details><summary>FAQ</summary>
