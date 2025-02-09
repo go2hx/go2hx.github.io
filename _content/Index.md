@@ -10,13 +10,15 @@ Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
 Use Go libs with ease!
     
-[**Get started!**](./manual/getstarted.html)
+[Stdlib Api](./api/index.html)
 
 [Samples](./samples/index.html)
 
 [Manual](./manual/index.html)
 
 [In progress tracking graph](./test883/index.html)
+
+[Getting started! [external link to README]](https://github.com/go2hx/go2hx?tab=readme-ov-file#getting-started)
 
 <details open><summary>Standard Library compatibility/api docs</summary>::support::</details>
 <details><summary>FAQ</summary>
