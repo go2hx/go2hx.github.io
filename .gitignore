@@ -7,3 +7,10 @@ Host.hx
 host.hxml
 *.hl
 notes.txt
+!./page/samples/harmonica.min.js
+golibs
+page/manual
+page/samples
+page/stdgo
+page/index.html
+page/api
