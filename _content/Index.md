@@ -4,7 +4,7 @@
 
 <h1><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></h1>
 
-*warning: experimental version.*
+*warning: experimental 0.1.0 version.*
 
 Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
