@@ -1,9 +1,9 @@
 package;
 
 import haxe.Template;
-import sys.io.File;
 import haxe.io.Path;
 import sys.FileSystem;
+import sys.io.File;
 
 var header:String = "";
 var support:String = "";
@@ -24,6 +24,7 @@ function main() {
     lines.push(spacer);
     var allTests:Array<String> = haxe.Json.parse(File.getContent("go2hx/data/tests.json"));
     allTests = allTests.filter(test -> test.indexOf("internal") == -1);
+    allTests.sort((a, b) -> a > b ? 1 : -1); 
     for (i in 0...allTests.length) {
         lines[i + 2] = allTests[i] + " |";
     }
