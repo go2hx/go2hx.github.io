@@ -468,6 +468,8 @@ class Window {
 		var x, y, ev;
 		var pos = this.canvasPos;
 		for (touch in e.changedTouches) {
+			curMouseX = touch.clientX;
+			curMouseY = touch.clientY;
 			x = Math.round((touch.clientX - pos.left) * getPixelRatio());
 			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
 			ev = new Event(EPush, x, y);
@@ -481,6 +483,8 @@ class Window {
 		var x, y, ev;
 		var pos = this.canvasPos;
 		for (touch in e.changedTouches) {
+			curMouseX = touch.clientX;
+			curMouseY = touch.clientY;
 			x = Math.round((touch.clientX - pos.left) * getPixelRatio());
 			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
 			ev = new Event(EMove, x, y);
