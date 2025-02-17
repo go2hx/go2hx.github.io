@@ -33,7 +33,7 @@ function main() {
         final normalSize = FileSystem.stat('page/samples/$name.js').size >> 10;
         trace("normalSize " + normalSize);
         // minified
-        cmd += "-lib closure" + (obfuscateBool ? "-lib hxobfuscator" : "");
+        cmd += "-lib closure" + (obfuscateBool ? " -lib hxobfuscator" : "");
         Sys.println(cmd);
         final code = runCode ? Sys.command(cmd) : 0;
         if (code != 0)
