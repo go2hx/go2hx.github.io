@@ -12,7 +12,17 @@ function main() {
             continue;
         final fileName = file.withoutExtension();
         final name = fileName.toLowerCase();
-        var cmd = 'haxe -cp samples -m cases.$fileName -lib go2hx -js page/samples/$name.js --dce full ';
+        var extraCommand = "-lib go2hx";
+        var hasDCE = true;
+        switch name {
+            case "harmonica":
+                extraCommand = "-lib heaps -lib go2hx_harmonica";
+                hasDCE = false;
+            default:
+                trace("skip!");
+                continue;
+        }
+        var cmd = 'haxe -cp samples -m cases.$fileName $extraCommand -js page/samples/$name.js ' + (hasDCE ? "--dce full" : "");
         // normal
         Sys.println(cmd);
         final code = runCode ? Sys.command(cmd) : 0;
