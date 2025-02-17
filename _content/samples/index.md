@@ -7,3 +7,5 @@
 - [Text scanner](textscanner.html)
 
 - [Unicode char](unicodechar.html)
+
+- [Physics based animations](harmonica.html)
