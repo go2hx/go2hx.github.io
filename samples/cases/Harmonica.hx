@@ -91,7 +91,7 @@ class Example extends hxd.App {
 		circle.y = data.left;
 		yVelocity = data.right;
 		// rotate when xVelocity changes
-		circle.rotation += xVelocity / 1000 / 8;
+		circle.rotation += Math.min(xVelocity, 2_000) / 1000 / 8;
 		// skewing
 		circle.scaleY = (1 - 0.5 * (Math.min(yVelocity, 2_000) / 4000)) * multi;
 		circle.scaleX = (1 + 0.25 * (Math.min(xVelocity, 2_000) / 4000)) * multi;
