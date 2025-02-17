@@ -14,12 +14,14 @@ function main() {
         final name = fileName.toLowerCase();
         var extraCommand = "-lib go2hx";
         var hasDCE = true;
+        var obfuscateBool = true;
         switch name {
             case "harmonica":
                 extraCommand = "-lib heaps -lib go2hx_harmonica";
                 hasDCE = false;
+                obfuscateBool = false;
             default:
-                //trace("skip!");
+               // trace("skip!");
                 //continue;
         }
         var cmd = 'haxe -cp samples -m cases.$fileName $extraCommand -js page/samples/$name.js ' + (hasDCE ? "--dce full" : "");
@@ -31,7 +33,7 @@ function main() {
         final normalSize = FileSystem.stat('page/samples/$name.js').size >> 10;
         trace("normalSize " + normalSize);
         // minified
-        cmd += "-lib hxobfuscator -lib closure";
+        cmd += "-lib closure" + (obfuscateBool ? "-lib hxobfuscator" : "");
         Sys.println(cmd);
         final code = runCode ? Sys.command(cmd) : 0;
         if (code != 0)
