@@ -37,7 +37,21 @@ class Example extends hxd.App {
 
 	override function update(dt:Float) {
 		var window = hxd.Window.getInstance();
-		final dis = hxd.Math.distance(Math.abs(circle.x - window.mouseX), Math.abs(circle.y - window.mouseY));
+		if (!window.isFocused)
+			return;
+		// keep mouse within bounds of the canvas
+		var mouseX = window.mouseX;
+		var mouseY = window.mouseY;
+		if (mouseX < 0)
+			mouseX = 0;
+		if (mouseX > s2d.width)
+			mouseX = s2d.width;
+		if (mouseY < 0)
+			mouseY = 0;
+		if (mouseY > s2d.height)
+			mouseY = s2d.height;
+
+		final dis = hxd.Math.distance(Math.abs(circle.x - mouseX), Math.abs(circle.y - mouseY));
 
 		if (Math.abs(dis) < radius * 4) {
 			if (flying && Math.abs(xVelocity) < 600 * multi && Math.abs(yVelocity) < 600 * multi) {
@@ -82,11 +96,11 @@ class Example extends hxd.App {
 		if (maxSpeed < Math.abs(yVelocity))
 			maxSpeed = Math.abs(yVelocity);
 		
-		final data = spring.update(circle.x, xVelocity, window.mouseX);
+		final data = spring.update(circle.x, xVelocity, mouseX);
 		// tuple (x,velocityX)
 		circle.x = data.left;
 		xVelocity = data.right;
-		final data = spring.update(circle.y, yVelocity, window.mouseY);
+		final data = spring.update(circle.y, yVelocity, mouseY);
 		// tuple (y,velocityY)
 		circle.y = data.left;
 		yVelocity = data.right;
@@ -113,6 +127,9 @@ class Example extends hxd.App {
 			circle.y = window.height + radius * 2;
 			//yVelocity *= 1.2;
 		}
+		// slowly kill off velocity
+		xVelocity *= 0.98;
+		yVelocity *= 0.98;
 	}
 	 // if we the window has been resized
 	 override function onResize() {

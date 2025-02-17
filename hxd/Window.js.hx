@@ -275,7 +275,7 @@ class Window {
 				for ( file in e.dataTransfer.files ) new NativeDroppedFile(file)
 			],
 			Math.round((e.clientX - pos.left) * getPixelRatio()),
-+			Math.round((e.clientY - pos.top) * getPixelRatio())
+			Math.round((e.clientY - pos.top) * getPixelRatio())
 		);
 		for( dt in dropTargets ) dt(ev);
 	}
@@ -296,8 +296,8 @@ class Window {
 	public function setCursorPos( x : Int, y : Int, emitEvent : Bool = false ) : Void {
 		if ( mouseMode == Absolute ) throw "setCursorPos only allowed in relative mouse modes on this platform.";
 		var pos = canvasPos;
-+		curMouseX = x + pos.left;
-+		curMouseY = y + pos.top;
+		curMouseX = x + pos.left;
+		curMouseY = y + pos.top;
 		if (emitEvent) event(new hxd.Event(EMove, x, y));
 	}
 
@@ -469,7 +469,7 @@ class Window {
 		var pos = this.canvasPos;
 		for (touch in e.changedTouches) {
 			x = Math.round((touch.clientX - pos.left) * getPixelRatio());
-+			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
+			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
 			ev = new Event(EPush, x, y);
 			ev.touchId = touch.identifier;
 			event(ev);
@@ -482,7 +482,7 @@ class Window {
 		var pos = this.canvasPos;
 		for (touch in e.changedTouches) {
 			x = Math.round((touch.clientX - pos.left) * getPixelRatio());
-+			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
+			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
 			ev = new Event(EMove, x, y);
 			ev.touchId = touch.identifier;
 			event(ev);
@@ -495,7 +495,7 @@ class Window {
 		var pos = this.canvasPos;
 		for (touch in e.changedTouches) {
 			x = Math.round((touch.clientX - pos.left) * getPixelRatio());
-+			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
+			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
 			ev = new Event(ERelease, x, y);
 			ev.touchId = touch.identifier;
 			event(ev);
