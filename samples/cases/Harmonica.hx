@@ -37,8 +37,8 @@ class Example extends hxd.App {
 
 	override function update(dt:Float) {
 		var window = hxd.Window.getInstance();
-		if (!window.isFocused)
-			return;
+		if (!window.isFocused && !hxd.System.getValue(IsTouch)) return;
+
 		// keep mouse within bounds of the canvas
 		var mouseX = window.mouseX;
 		var mouseY = window.mouseY;
