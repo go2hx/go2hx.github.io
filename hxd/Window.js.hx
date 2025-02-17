@@ -270,11 +270,12 @@ class Window {
 	function handleDragAndDropEvent( e : js.html.DragEvent ) {
 		e.preventDefault();
 		if ( e.type == "dragover" || e.dataTransfer == null || e.dataTransfer.files.length == 0 ) return;
+		var pos = canvasPos;
 		var ev = new DropFileEvent([
 				for ( file in e.dataTransfer.files ) new NativeDroppedFile(file)
 			],
-			Math.round((e.clientX - canvasPos.left) * getPixelRatio()),
-			Math.round((e.clientY - canvasPos.top) * getPixelRatio())
+			Math.round((e.clientX - pos.left) * getPixelRatio()),
++			Math.round((e.clientY - pos.top) * getPixelRatio())
 		);
 		for( dt in dropTargets ) dt(ev);
 	}
@@ -294,8 +295,9 @@ class Window {
 
 	public function setCursorPos( x : Int, y : Int, emitEvent : Bool = false ) : Void {
 		if ( mouseMode == Absolute ) throw "setCursorPos only allowed in relative mouse modes on this platform.";
-		curMouseX = x + canvasPos.left;
-		curMouseY = y + canvasPos.top;
+		var pos = canvasPos;
++		curMouseX = x + pos.left;
++		curMouseY = y + pos.top;
 		if (emitEvent) event(new hxd.Event(EMove, x, y));
 	}
 
@@ -464,9 +466,10 @@ class Window {
 	function onTouchStart(e:js.html.TouchEvent) {
 		e.preventDefault();
 		var x, y, ev;
+		var pos = this.canvasPos;
 		for (touch in e.changedTouches) {
-			x = Math.round((touch.clientX - canvasPos.left) * getPixelRatio());
-			y = Math.round((touch.clientY - canvasPos.top) * getPixelRatio());
+			x = Math.round((touch.clientX - pos.left) * getPixelRatio());
++			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
 			ev = new Event(EPush, x, y);
 			ev.touchId = touch.identifier;
 			event(ev);
@@ -476,9 +479,10 @@ class Window {
 	function onTouchMove(e:js.html.TouchEvent) {
 		e.preventDefault();
 		var x, y, ev;
+		var pos = this.canvasPos;
 		for (touch in e.changedTouches) {
-			x = Math.round((touch.clientX - canvasPos.left) * getPixelRatio());
-			y = Math.round((touch.clientY - canvasPos.top) * getPixelRatio());
+			x = Math.round((touch.clientX - pos.left) * getPixelRatio());
++			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
 			ev = new Event(EMove, x, y);
 			ev.touchId = touch.identifier;
 			event(ev);
@@ -488,9 +492,10 @@ class Window {
 	function onTouchEnd(e:js.html.TouchEvent) {
 		e.preventDefault();
 		var x, y, ev;
+		var pos = this.canvasPos;
 		for (touch in e.changedTouches) {
-			x = Math.round((touch.clientX - canvasPos.left) * getPixelRatio());
-			y = Math.round((touch.clientY - canvasPos.top) * getPixelRatio());
+			x = Math.round((touch.clientX - pos.left) * getPixelRatio());
++			y = Math.round((touch.clientY - pos.top) * getPixelRatio());
 			ev = new Event(ERelease, x, y);
 			ev.touchId = touch.identifier;
 			event(ev);
