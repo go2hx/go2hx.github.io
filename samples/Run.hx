@@ -19,8 +19,8 @@ function main() {
                 extraCommand = "-lib heaps -lib go2hx_harmonica";
                 hasDCE = false;
             default:
-                trace("skip!");
-                continue;
+                //trace("skip!");
+                //continue;
         }
         var cmd = 'haxe -cp samples -m cases.$fileName $extraCommand -js page/samples/$name.js ' + (hasDCE ? "--dce full" : "");
         // normal
