@@ -128,7 +128,7 @@ function run(test:String, target:String) {
                 },
 				labels: {
 					font: {
-						size: 26,
+						//size: 26,
 					}
 				}
 			}
@@ -141,7 +141,7 @@ function run(test:String, target:String) {
             },
             ticks: {
                 font: {
-                    size: 20,
+                    //size: 20,
                 }
             }
         },
@@ -151,7 +151,7 @@ function run(test:String, target:String) {
             ticks: {
                 callback: (value, index, values) -> '$value%',
                 font: {
-                    size: 20,
+                    //size: 20,
                 }
             },
         },
