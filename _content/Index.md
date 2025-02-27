@@ -41,9 +41,9 @@ No and it's not within the scope of the project, however happy to knowledge tran
 ### Can high performance be achieved with the compiled code?
 Yes! There is no inherent systemic issue with the compiled code having comparable speeds with normal Haxe code. The compiler does AST to AST translation so it is at the same level of abstraction for the Haxe compiler to be able to optimize the code in the same way as if it was handwritten.
 
-The layer functions or interop files for the go2hx styled Haxe code to normal Haxe code does certantily have a performance penality, however for basics types it can be 0 because of Haxe's 0 cost abstractions, and in the case of structures or other cases where this is an allocation, it is possible to use the internal go2hx datatypes to not by the penality at the cost of ease of use.
+The layer functions or interop files for the go2hx styled Haxe code to normal Haxe code does certantily have a performance penality, however for basics types it can be 0 because of Haxe's 0 cost abstractions, and in the case of structures or other cases where this is an allocation, it is possible to use the internal go2hx datatypes to not pay the penality (at the cost of ease of use).
 
-This area is truthfully not very explored because of the priority of getting the compiler correct before more time is put into greater ease of use and performance. If it is however a painpoint for your usecase, we would love to hear more about it and improve it.
+This area is truthfully not very explored because of the priority of getting the compiler correct. If it is a painpoint for your usecase, we would love to hear more about it and improve it.
 
 ### Why not use externs instead of compiling Go code into Haxe?
 Because externs prevent multi target usage of the compiler and they need to be maintained and written. This project is meant to provide 100s of thousands of high quality tested Go libraries with no maintance and no need to write an abstraction level.
