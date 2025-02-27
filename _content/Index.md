@@ -8,79 +8,55 @@
 
 Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
-Use Go libs with ease!
     
 [Stdlib Api](./api/index.html)
 
 [Samples](./samples/index.html)
 
-[Manual](./manual/index.html)
+[Progress graphs](./test883/index.html)
 
-[In progress tracking graph](./test883/index.html)
+[Getting started! [link to README]](https://github.com/go2hx/go2hx#getting-started)
 
-[Getting started! [link to github README]](https://github.com/go2hx/go2hx#getting-started)
+<details open><summary>Standard Library compatibility</summary>::support::</details>
+<details open><summary>FAQ</summary>
 
-<details open><summary>Standard Library compatibility/api docs</summary>::support::</details>
-<details><summary>FAQ</summary>
+### Can library X be compiled?
 
-## Can library X be compiled?
-Maybe, to see if the library is supported at the moment ``go get library_here`` the library and then run:
-```sh
-go list -f '{{ .Imports }}' library here
-```
-Then check to see if the standard libraries used are all passing with the compatibility table above.
+#### Check online via:
+<iframe src="https://go2hx.mki.sh/" width="400" height="500"></iframe>
 
 
+#### Manual check:
+You would need to check what imports and language features the library is using.
 
-## Does the compiler support Go as a Haxe target?
-No and it's not within the scope of the project.
 
-## Why not use externs instead of compiling Go code into Haxe?
-Because externs can target lock a code base and they require maintenance, abstraction code etc.
+If it uses unsafe or generics, the library will not work.
 
-## Cgo support?
+
+If it uses networking or unsupported stdlibs it also will not work.
+
+### Does the compiler support Go as a Haxe target?
+No and it's not within the scope of the project, however happy to knowledge transfer and support any Go target for Haxe.
+
+### Can high performance be achieved with the compiled code?
+Yes! There is no inherent systemic issue with the compiled code having comparable speeds with normal Haxe code. The compiler does AST to AST translation so it is at the same level of abstraction for the Haxe compiler to be able to optimize the code in the same way as if it was handwritten.
+
+The layer functions or interop files for the go2hx styled Haxe code to normal Haxe code does certantily have a performance penality, however for basics types it can be 0 because of Haxe's 0 cost abstractions, and in the case of structures or other cases where this is an allocation, it is possible to use the internal go2hx datatypes to not by the penality at the cost of ease of use.
+
+This area is truthfully not very explored because of the priority of getting the compiler correct before more time is put into greater ease of use and performance. If it is however a painpoint for your usecase, we would love to hear more about it and improve it.
+
+### Why not use externs instead of compiling Go code into Haxe?
+Because externs prevent multi target usage of the compiler and they need to be maintained and written. This project is meant to provide 100s of thousands of high quality tested Go libraries with no maintance and no need to write an abstraction level.
+
+### Cgo support?
 Not available but planned and happily accepting contributions for it!
 
-## How does this compare to Gopherjs or Go wasm?
+### How does this compare to Gopherjs or Go wasm?
 go2hx's design is built with Haxe devs in mind, therefore the goals align with Haxe dev advantages of the compiler, with that said go2hx does have some advantages already, smaller code generation, access to Haxe's compiler tooling such as dce and optimizations, and Haxe as a language being very portable, high level and statically typed.
 
-## What internals does stdlib use?
-go2hx's compiler, compiles the standard library packages for example ``os``. After compilation a Patcher system switches out functions/variables/structs for a Haxe equivalent, for example ``os.Open`` uses ``sys.io.File.read`` and ``sys.io.File.write``.
-
-</details>
-
-### Contributing:
-
-The project is still at an experimental level, so expect undocumented problems to spring up.
-**The best way to contribute** is to simply use the compiler on code you would like and inevitably run into errors. From there we can answer some questions to see:
-
-<details>
-<summary>how to proceed!</summary>
-
-## What time is the error happening?: 
-* Go compiler time (``./export.go`` named: go4hx)
-* Haxe compiler time (``src/Typer.hx`` and ``./stdgo/internal/reflect/Reflect.hx`` etc)
-* compile time (Haxe build tools example: ``haxe build.hxml``)
-* runtime (Code running example: ``hl build.hl`` or ``node build.js``).
-
-## How can the code causing the error be reduced to a simple sample?
-* Use ``./rnd/main.go`` as a testbed and run it with: ``haxe rnd.hxml``
-* Modify the Go code with debug prints or the Haxe compiled code with traces and figure out where is the precise error point.
-* Copy over structs and interfaces if needed that are used by the erroring code sample.
-* Make usage of go2hx's reflection for example:
-```go
-println(reflect.TypeOf(value).String())
-```
-
-## Does the code throw "not implemented" error?
-* Look at the unimplemented function's [documentation](https://pkg.go.dev/std)
-* Implement the missing functionality into the Patcher ``./src/Patch.hx`` following the naming convention ``path:FunctionName`` or ``path.Type:FunctionName`` for [recv functions](./ast.html).
-
-## Is the type casting invalid?
-* Look into ``./src/Typer.hx`` and search for ``function checkType`` for implicit type conversions and for casts ``function castTranslate``
-* A lot of helper type functions are called in ``./stdgo/internal/reflect/Reflect`` for example ``getUnderlying`` and the entire module is imported into ``Typer.hx`` so you won't see clear reference that the code is there.
-
-</details>
+### What internals does stdlib use?
+The compiler uses Haxe stdlib implmentations when interacting with the fileysytem and primitive math operations.
+In other cases the internals are transpiled into Haxe code and uses those.
 
 #### Have issues and/or want to contribute?
 [![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/go2hx/go2hx)

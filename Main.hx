@@ -15,7 +15,7 @@ function main() {
     header = File.getContent("_content/header.html");
     var path = "go2hx/stdgo/README.md";
     final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
-    final targets = ["hl","interp","js", "cpp"];
+    final targets = ["hl","interp","js"];
     final lines = ["| module | " + targets.concat(["info"]).join(" | ") + " |"];
     var spacer = "|";
     for (i in 0...targets.length + 2) {
