@@ -1,22 +1,16 @@
 
-<img src="logo.svg" width="420" align="right"/>
+<img src="logo.svg" width="340" align="right"/>
 
 
-<h1><font color="#357b99">go</font><font color="#cad0d8">2</font><font color="#e2ac3f">hx</font></h1>
+<br>
+<br>
 
-*warning: experimental 0.1.0 version.*
+    Open source Haxe compiler
 
-Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
+    Compiles Go code into Haxe.
 
-    
-[Stdlib Api](./api/index.html)
 
-[Samples](./samples/index.html)
-
-[Progress graphs](./test883/index.html)
-
-[Getting started! [link to README]](https://github.com/go2hx/go2hx#getting-started)
-
+[Get started!](https://github.com/go2hx/go2hx#getting-started)
 <details open><summary>Standard Library compatibility</summary>::support::</details>
 <details open><summary>FAQ</summary>
 
