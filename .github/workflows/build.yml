@@ -48,6 +48,12 @@ jobs:
         run: npx haxe build_data.hxml
       - name: Build graph
         run: npx haxe graph.hxml
+      - name: Install Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Install MDBook
+        run: cargo install mdbook
+      - name: MDbook
+        run: mdbook build -d page/docs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload pages artifact
