@@ -20,3 +20,4 @@
 
 # Misc
 - [FAQ](./misc/faq.md)
+- [Challenges](./misc/challenges.md)
