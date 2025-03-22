@@ -7,7 +7,7 @@
 
     Open source Haxe compiler
 
-    Compiles Go code into Haxe.
+    Import Go libraries in your Haxe projects
 
 
 [Get started!](https://github.com/go2hx/go2hx#getting-started)
