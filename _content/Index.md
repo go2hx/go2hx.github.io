@@ -14,9 +14,7 @@
 
 [Cool graphs!](https://go2hx.github.io/test883)
 
- <iframe width="420" height="315"
-src="https://www.youtube.com/embed/fzyGwSGyoRw">
-</iframe> 
+<iframe width="420" height="315" src="https://www.youtube.com/embed/fzyGwSGyoRw">
 
 <details open><summary>Standard Library compatibility</summary>::support::</details>
 <details open><summary>FAQ</summary>
