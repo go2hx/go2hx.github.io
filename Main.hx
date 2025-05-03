@@ -7,6 +7,8 @@ import sys.io.File;
 
 var header:String = "";
 var support:String = "";
+var supportBuildInfo:String = "";
+var supportLastUpdated:String = "";
 var go:String = "";
 
 var exportPath = "page/"; // add trailing backslash at end
@@ -61,6 +63,8 @@ function main() {
     for (i in 0...allTests.length) {
         lines[i + 2] += '[imports](https://pkg.go.dev/${allTests[i]}?tab=imports)|';
     }
+    supportBuildInfo = readmeToHtmlLink(Markdown.markdownToHtml(buildInfo()), false);
+    supportLastUpdated = readmeToHtmlLink(Markdown.markdownToHtml(lastUpdated()), false);
     support = readmeToHtmlLink(Markdown.markdownToHtml(lines.join("\n")), false);
     final dir = "_content";
     for (path in FileSystem.readDirectory(dir)) {
@@ -142,7 +146,7 @@ private function stdgoRecursive(dir:String,depth:Int) {
 private function saveContent(dir,path,file) {
     var content = File.getContent(Path.join([dir,path,file]));
     var temp = new Template(content);
-    content = temp.execute({support: support}); // index.md template
+    content = temp.execute({support: support, buildInfo: supportBuildInfo, lastUpdated: supportLastUpdated}); // index.md template
     content = prettyprint(Markdown.markdownToHtml(content));
     content = highlight(content);
     if (FileSystem.exists(Path.join([dir,path,"index.html"]))) {
@@ -187,3 +191,29 @@ private function execUrl(url:String):Void {
 		default:
 	}
 }
+
+#if macro
+macro function buildInfo():haxe.macro.Expr {
+    Sys.setCwd("go2hx");
+    var process = new sys.io.Process('git', ['rev-parse', 'HEAD']);
+    Sys.setCwd("..");
+	if (process.exitCode() != 0) {
+		var message = process.stderr.readAll().toString();
+		throw "Cannot execute `git rev-arse HEAD` " + message;
+	}
+	final version = process.stdout.readLine();
+    final str = "*commit: [" + version.substr(0,7) + '](https://github.com/go2hx/go2hx/commit/$version)*';
+    return macro $v{str};
+}
+#else
+macro function buildInfo():haxe.macro.Expr;
+#end
+
+#if macro
+macro function lastUpdated():haxe.macro.Expr {
+   final str = "*last updated: " + Date.now().toString() + "*";
+   return macro $v{str};
+}
+#else
+macro function lastUpdated():haxe.macro.Expr;
+#end

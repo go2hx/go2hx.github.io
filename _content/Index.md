@@ -3,20 +3,24 @@
 
 
 <br>
-<br>
 
-    Open source Haxe compiler
+Open source Haxe compiler
 
-    Import Go libraries in your Haxe projects
+Import Go libraries in your Haxe projects
 
 
 [Get started!](https://github.com/go2hx/go2hx#getting-started)
 
 [Cool graphs!](https://go2hx.github.io/test883)
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/fzyGwSGyoRw"></iframe>
+<iframe width="420" height="315" src="https://www.youtube.com/watch?v=qVaynJJ941M&t"></iframe>
 
-<details open><summary>Standard Library compatibility</summary>::support::</details>
+<details open>
+    <summary>Standard Library compatibility</summary>
+    ::lastUpdated::
+    ::buildInfo::
+    ::support::
+    </details>
 <details open><summary>FAQ</summary>
 
 ### Can library X be compiled?
