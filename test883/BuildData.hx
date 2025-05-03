@@ -63,7 +63,7 @@ function main() {
                     total: total,
                 };
             }else{
-                final stdLogsPath = "tests/stdlogs/";
+                final stdLogsPath = "tests/logs/";
                 for (path in sys.FileSystem.readDirectory(stdLogsPath)) {
                     if (haxe.io.Path.extension(path) != "json")
                         continue;

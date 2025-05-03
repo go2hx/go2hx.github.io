@@ -37,13 +37,13 @@ function main() {
         //trace(target, data);
         for (i in 0...allTests.length) {
             final test = StringTools.replace(allTests[i], "/", "_");
-            final link = 'https://github.com/go2hx/go2hx/blob/master/tests/stdlogs/${test}_$target.log'; 
+            final link = 'https://github.com/go2hx/go2hx/blob/master/tests/logs/${test}_$target.log'; 
             if (data.indexOf(allTests[i]) != -1) {
                 lines[i + 2] += ' ✅ |';
             }else{
 
-                if (FileSystem.exists('go2hx/tests/stdlogs/${test}_$target.json')) {
-                    final data = haxe.Json.parse(File.getContent('go2hx/tests/stdlogs/${test}_$target.json'));
+                if (FileSystem.exists('go2hx/tests/logs/${test}_$target.json')) {
+                    final data = haxe.Json.parse(File.getContent('go2hx/tests/logs/${test}_$target.json'));
                     final pass = data.passes.length;
                     final total = data.runs.length;
                     if (pass > 1 && total > 0) {

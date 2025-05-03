@@ -104,7 +104,7 @@ function run(test:String, target:String) {
 			legend: {
                 onClick: (e, legendItem, legend) -> {
                     var index = legendItem.datasetIndex;
-                    var ci = legend.chart;
+                    var ci:Dynamic = legend.chart;
                     var meta = ci.getDatasetMeta(index);
                     var othersHidden = false;
                     var selectedHidden = ci.data.datasets[index].hidden;
@@ -184,7 +184,7 @@ function run(test:String, target:String) {
     }
 }
 
-var chart = null;
+var chart:Dynamic = null;
 
 typedef Result = {
 	time:String,
@@ -197,7 +197,8 @@ typedef Result = {
 
 #if macro
 macro function buildInfo():haxe.macro.Expr {
-    return macro $v{Date.now().toString()};
+    final str = Date.now().toString();
+    return macro $v{str};
 }
 #else
 macro function buildInfo():haxe.macro.Expr;
