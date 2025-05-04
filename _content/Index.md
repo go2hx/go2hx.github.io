@@ -1,8 +1,5 @@
-
-<img src="logo.svg" width="340" align="right"/>
-
-
 <br>
+<img src="logo.svg" width="270" align="right"/>
 
 Open source Haxe compiler
 
@@ -13,7 +10,11 @@ Import Go libraries in your Haxe projects
 
 [Test883 graph](https://go2hx.github.io/test883)
 
+<br>
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qVaynJJ941M?si=duCffVM3qA2nySgt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<br>
 
 <details open>
     <summary>Standard Library compatibility</summary>
@@ -21,7 +22,7 @@ Import Go libraries in your Haxe projects
     ::buildInfo::
     ::support::
     </details>
-<details open><summary>FAQ</summary>
+<details><summary>FAQ</summary>
 
 ### Can library X be compiled?
 
