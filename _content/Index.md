@@ -9,11 +9,11 @@ Open source Haxe compiler
 Import Go libraries in your Haxe projects
 
 
-[Get started!](https://github.com/go2hx/go2hx#getting-started)
+[Getting started](https://github.com/go2hx/go2hx#getting-started)
 
-[Cool graphs!](https://go2hx.github.io/test883)
+[Test883 graph](https://go2hx.github.io/test883)
 
-<iframe width="420" height="315" src="https://www.youtube.com/watch?v=qVaynJJ941M&t"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qVaynJJ941M?si=duCffVM3qA2nySgt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 <details open>
     <summary>Standard Library compatibility</summary>
