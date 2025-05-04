@@ -1033,20 +1033,25 @@ html {
 
 
 .header {
-  padding: 10px 16px;
+  /* padding: 10px 16px; */
   backdrop-filter: saturate(90%) blur(6px);
   position: sticky;
   display: flex;
   top: 0;
 }
+.header-section {
+  min-width: 640px;
+  max-width: 640px;
+  margin: 0 auto;
+}
 @media (prefers-color-scheme: dark) {
   .header {
-    background: rgba(14,16,22,0.5);
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 @media (prefers-color-scheme: light) {
   .header {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(231, 222, 222, 0.5);
   }
 }
 
