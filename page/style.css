@@ -1040,7 +1040,7 @@ html {
   top: 0;
 }
 .header-section {
-  min-width: 640px;
+  /* min-width: 640px; */
   max-width: 640px;
   margin: 0 auto;
 }
