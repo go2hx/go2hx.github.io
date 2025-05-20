@@ -54,7 +54,7 @@ function run(test:String, target:String) {
         trace(result.passing, result.total);
 		sets[result.name].data.push({
 			x: js.lib.Date.fromHaxeDate(Date.fromString(result.time)),
-			y: (result.passing / result.total) * 100,
+			y: result.passing,
 			total: result.total,
             commit: result.commit,
             passes: result.passing,
@@ -146,14 +146,13 @@ function run(test:String, target:String) {
             }
         },
         y: {
-            //type: 'logarithmic',
-            max: 100,
-            ticks: {
-                callback: (value, index, values) -> '$value%',
+            // the data maximum used for determining the ticks is Math.max(dataMax, suggestedMax)
+            /*ticks: {
+                callback: (value, index, values) -> '$value',
                 font: {
                     //size: 20,
                 }
-            },
+            },*/
         },
     }
 	};
