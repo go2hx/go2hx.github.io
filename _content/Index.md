@@ -5,10 +5,7 @@ Open source Haxe compiler
 
 Import Go libraries in your Haxe projects
 
-
 [Getting started](https://github.com/go2hx/go2hx#getting-started)
-
-[Test883 graph](https://go2hx.github.io/test883)
 
 <br>
 
