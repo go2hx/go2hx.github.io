@@ -18,7 +18,7 @@ function main() {
     var path = "go2hx/stdgo/README.md";
     final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
     final targets = ["hl","interp","js"];
-    final lines = ["| module | " + targets.concat(["info"]).join(" | ") + " |"];
+    final lines = ["| module | " + targets.join(" | ") + " |"];
     var spacer = "|";
     for (i in 0...targets.length + 2) {
         spacer += " --- |";
@@ -28,7 +28,7 @@ function main() {
     allTests = allTests.filter(test -> test.indexOf("internal") == -1);
     allTests.sort((a, b) -> a > b ? 1 : -1); 
     for (i in 0...allTests.length) {
-        lines[i + 2] = allTests[i] + " |";
+        lines[i + 2] = "[" + allTests[i] + "]" + '(https://pkg.go.dev/${allTests[i]}?tab=imports)' + " |";
     }
     //trace(lines.join("\n"));
     for (target in targets) {
@@ -48,20 +48,16 @@ function main() {
                     final total = data.runs.length;
                     if (pass > 1 && total > 0) {
                         //final graphLink = 'test883/index.html#${test}_$target';
-                        lines[i + 2] += ' [❌ log]($link) $pass/$total|';
+                        lines[i + 2] += '[❌runtime]($link)<br>$pass/$total|';
                         continue;
                     }
                 }
                 final pass = 0;
                 final total = 0;
                 final graphLink = 'test883/index.html#${test}_$target';
-                lines[i + 2] += ' [❌ error]($link)|';
+                lines[i + 2] += '[❌buildtime]($link)|';
             }
         }
-    }
-    // add info section
-    for (i in 0...allTests.length) {
-        lines[i + 2] += '[imports](https://pkg.go.dev/${allTests[i]}?tab=imports)|';
     }
     supportBuildInfo = readmeToHtmlLink(Markdown.markdownToHtml(buildInfo()), false);
     supportLastUpdated = readmeToHtmlLink(Markdown.markdownToHtml(lastUpdated()), false);
