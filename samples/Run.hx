@@ -24,7 +24,7 @@ function main() {
                // trace("skip!");
                 //continue;
         }
-        var cmd = 'haxe -cp samples -m cases.$fileName $extraCommand -js page/samples/$name.js ' + (hasDCE ? "--dce full " : "");
+        var cmd = 'haxe -cp samples -cp go2hx/golibs -m cases.$fileName $extraCommand -js page/samples/$name.js ' + (hasDCE ? "--dce full " : "");
         // normal
         Sys.println(cmd);
         final code = runCode ? Sys.command(cmd) : 0;

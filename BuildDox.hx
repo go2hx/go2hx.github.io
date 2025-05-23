@@ -1,13 +1,13 @@
 function main() {
-
     Sys.command("rm -d -r page/api/hashes");
-    // if (sys.FileSystem.exists("page/api/hashes/go2hx.md5"))
-    //    sys.FileSystem.deleteFile('page/api/hashes/go2hx.md5');
-    // std
+    if (sys.FileSystem.exists("page/api/hashes/go2hx.md5"))
+       sys.FileSystem.deleteFile('page/api/hashes/go2hx.md5');
     addStdImports();
-    createDox("go2hx Compiler", "Go to Haxe source-to-source compiler", "go2hx", "stdgo", "stdgo", "api", "-cp go2hx");
+    createDox("go2hx Compiler", "Go to Haxe source-to-source compiler", "go2hx", "stdgo", "stdgo", "api", "-lib go2hx");
+    return;
     // regexp2
     trace("regexp2");
+    Sys.command("rm -d -r page/regexp2/api/hashes");
     addImport("github_dot_com.dlclark.regexp2.Regexp2");
     // create dox for regexp2
     createDox("go2hx regexp2", "Precompiled regexp2 library in Haxe", "regexp2", "github_dot_com.dlclark.regexp2", ".", "regexp2/api", "-lib go2hx_regexp2");
@@ -22,7 +22,9 @@ function createDox(title:String, desc:String, repo:String, topLevel:String, inSt
     Sys.command('haxe dox.hxml $command');
     final version = haxe.Json.parse(sys.io.File.getContent("go2hx/haxelib.json")).version;
     // -D logo logo.svg
-    Sys.command('haxelib run dox -D description "$desc" -D toplevel-package $topLevel -D website https://go2hx.github.io -i go2hx.xml -o page/$output --title "$title" -D version $version -in $inStr -D source-path "https://github.com/go2hx/$repo/blob/master/"');
+    final cmd = 'haxelib run dox -D description "$desc" -D toplevel-package $topLevel -D website https://go2hx.github.io -i go2hx.xml -o page/$output --title "$title" -D version $version -in $topLevel -D source-path "https://github.com/go2hx/$repo/blob/master/"';
+    trace(cmd);
+    Sys.command(cmd);
 }
 
 function addStdImports() {
