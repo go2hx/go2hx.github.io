@@ -1,3 +1,2 @@
 -cp go2hx/std/go/_std
--cp go2hx/std/go/_std/extraParams.hxml
--D go2hx=0.0.1
+go2hx/extraParams.hxml
