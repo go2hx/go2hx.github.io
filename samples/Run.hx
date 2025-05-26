@@ -7,6 +7,7 @@ using StringTools;
 inline var runCode = true;
 
 function main() {
+    Sys.command("haxelib run go2hx text/scanner hash/adler32 strings");
     for (file in FileSystem.readDirectory("samples/cases")) {
         if (file.extension() != "hx")
             continue;
@@ -24,7 +25,7 @@ function main() {
                // trace("skip!");
                 //continue;
         }
-        var cmd = 'npx haxe -cp samples -cp go2hx/golibs -m cases.$fileName $extraCommand -js page/samples/$name.js ' + (hasDCE ? "--dce full " : "");
+        var cmd = 'npx haxe -cp samples -cp golibs -m cases.$fileName $extraCommand -js page/samples/$name.js ' + (hasDCE ? "--dce full " : "");
         // normal
         Sys.println(cmd);
         final code = runCode ? Sys.command(cmd) : 0;
