@@ -36,6 +36,8 @@ jobs:
         run: npm i lix -g
       - name: clone go2hx
         run: git clone --depth 1 --recursive https://github.com/go2hx/go2hx
+      - name: go2hx dev
+        run: npx haxelib dev go2hx go2hx
       - name: Run lix
         run: npx lix download
       - name: Build setup
