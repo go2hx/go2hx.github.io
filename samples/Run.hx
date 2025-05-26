@@ -7,7 +7,7 @@ using StringTools;
 inline var runCode = true;
 
 function main() {
-    Sys.command("haxelib run go2hx text/scanner hash/adler32 strings");
+    Sys.command("haxelib run go2hx text/scanner hash/adler32 strings encoding/hex");
     for (file in FileSystem.readDirectory("samples/cases")) {
         if (file.extension() != "hx")
             continue;
