@@ -17,8 +17,6 @@ function main() {
             "haxe",
             "-cp",
             "samples",
-            "-cp",
-            "golibs",
             "-m",
             'cases.$fileName',
             '-js',
@@ -35,6 +33,8 @@ function main() {
                 hasDCE = false;
                 obfuscateBool = false;
             default:
+                args.push("-cp");
+                args.push("golibs");
                 args.push("--macro");
                 args.push("Go2hxMacro.init()");
                // trace("skip!");
@@ -47,7 +47,7 @@ function main() {
         // normal
         final code = runCode ? Sys.command("npx", args) : 0;
         if (code != 0)
-            throw 'failed running command';
+            throw 'failed running command: ' + args.join(" ");
         final normalSize = FileSystem.stat('page/samples/$name.js').size >> 10;
         trace("normalSize " + normalSize);
         // minified
