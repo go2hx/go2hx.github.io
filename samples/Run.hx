@@ -11,6 +11,8 @@ function main() {
     for (file in FileSystem.readDirectory("samples/cases")) {
         if (file.extension() != "hx")
             continue;
+        final fileName = file.withoutExtension();
+        final name = fileName.toLowerCase();
         var args = [
             "haxe",
             "-cp",
@@ -22,8 +24,6 @@ function main() {
             '-js',
             'page/samples/$name.js'
         ];
-        final fileName = file.withoutExtension();
-        final name = fileName.toLowerCase();
         args.push("--macro");
         args.push("Go2hxMacro.init()");
         var hasDCE = true;
@@ -45,10 +45,9 @@ function main() {
             args.push("full");
         }
         // normal
-        Sys.println(cmd);
         final code = runCode ? Sys.command("npx", args) : 0;
         if (code != 0)
-            throw 'failed running command: $cmd';
+            throw 'failed running command';
         final normalSize = FileSystem.stat('page/samples/$name.js').size >> 10;
         trace("normalSize " + normalSize);
         // minified
@@ -58,10 +57,9 @@ function main() {
             args.push("-lib");
             args.push("hxobfuscator");
         }
-        Sys.println("npx", args);
-        final code = runCode ? Sys.command(cmd) : 0;
+        final code = runCode ? Sys.command("npx", args) : 0;
         if (code != 0)
-            throw 'failed running command: $cmd';
+            throw 'failed running command';
 
         final minifiedSize = FileSystem.stat('page/samples/$name.min.js').size >> 10;
         trace("minifiedSize " + minifiedSize);
