@@ -3,7 +3,7 @@ function main() {
     if (sys.FileSystem.exists("page/api/hashes/go2hx.md5"))
        sys.FileSystem.deleteFile('page/api/hashes/go2hx.md5');
     addStdImports();
-    createDox("go2hx Compiler", "Go to Haxe source-to-source compiler", "go2hx", "stdgo", "stdgo", "api", "-lib go2hx");
+    createDox("go2hx Compiler", "Go to Haxe source-to-source compiler", "go2hx", "stdgo", "stdgo", "api", "-cp golibs");
     return;
     // regexp2
     trace("regexp2");

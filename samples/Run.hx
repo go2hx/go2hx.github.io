@@ -11,31 +11,54 @@ function main() {
     for (file in FileSystem.readDirectory("samples/cases")) {
         if (file.extension() != "hx")
             continue;
+        var args = [
+            "haxe",
+            "-cp",
+            "samples",
+            "-cp",
+            "golibs",
+            "-m",
+            'cases.$fileName',
+            '-js',
+            'page/samples/$name.js'
+        ];
         final fileName = file.withoutExtension();
         final name = fileName.toLowerCase();
-        var extraCommand = "-lib go2hx";
+        args.push("--macro");
+        args.push("Go2hxMacro.init()");
         var hasDCE = true;
         var obfuscateBool = true;
         switch name {
             case "harmonica":
-                extraCommand = "-lib heaps -lib go2hx_harmonica";
+                args.push("-lib");
+                args.push("heaps");
+                args.push("-lib");
+                args.push("go2hx_harmonica");
                 hasDCE = false;
                 obfuscateBool = false;
             default:
                // trace("skip!");
                 //continue;
         }
-        var cmd = 'npx haxe -cp samples -cp golibs -m cases.$fileName $extraCommand -js page/samples/$name.js ' + (hasDCE ? "--dce full " : "");
+        if (hasDCE) {
+            args.push("--dce");
+            args.push("full");
+        }
         // normal
         Sys.println(cmd);
-        final code = runCode ? Sys.command(cmd) : 0;
+        final code = runCode ? Sys.command("npx", args) : 0;
         if (code != 0)
             throw 'failed running command: $cmd';
         final normalSize = FileSystem.stat('page/samples/$name.js').size >> 10;
         trace("normalSize " + normalSize);
         // minified
-        cmd += "-lib closure" + (obfuscateBool ? " -lib hxobfuscator" : "");
-        Sys.println(cmd);
+        args.push("-lib");
+        args.push("-closure");
+        if (obfuscateBool) {
+            args.push("-lib");
+            args.push("hxobfuscator");
+        }
+        Sys.println("npx", args);
         final code = runCode ? Sys.command(cmd) : 0;
         if (code != 0)
             throw 'failed running command: $cmd';

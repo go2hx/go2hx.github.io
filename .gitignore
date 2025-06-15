@@ -18,3 +18,5 @@ page/index.html
 page/api
 page/regexp2
 apitest
+go.mod
+go.sum

@@ -1,4 +1,7 @@
 -cp samples
 -m Rnd
--lib go2hx
---js page/samples/rnd.js
+--macro Go2hxMacro.init()
+-lib heaps
+-cp golibs
+#--interp
+--js page/samples/rnd.min.js
