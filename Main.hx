@@ -98,7 +98,7 @@ private function prettyprint(content:String) {
 }
 
 private function stdgo() {
-    stdgoRecursive("go2hx/stdgo",1);
+    stdgoRecursive("go2hx/golibs/stdgo",1);
 }
 
 private function readmeToHtmlLink(content:String,isStdgoPath:Bool):String {
