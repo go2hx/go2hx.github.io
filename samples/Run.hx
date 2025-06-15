@@ -24,8 +24,6 @@ function main() {
             '-js',
             'page/samples/$name.js'
         ];
-        args.push("--macro");
-        args.push("Go2hxMacro.init()");
         var hasDCE = true;
         var obfuscateBool = true;
         switch name {
@@ -37,6 +35,8 @@ function main() {
                 hasDCE = false;
                 obfuscateBool = false;
             default:
+                args.push("--macro");
+                args.push("Go2hxMacro.init()");
                // trace("skip!");
                 //continue;
         }
