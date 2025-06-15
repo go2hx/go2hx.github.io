@@ -52,7 +52,7 @@ function main() {
         trace("normalSize " + normalSize);
         // minified
         args.push("-lib");
-        args.push("-closure");
+        args.push("closure");
         if (obfuscateBool) {
             args.push("-lib");
             args.push("hxobfuscator");
