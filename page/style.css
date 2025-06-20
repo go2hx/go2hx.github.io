@@ -131,6 +131,7 @@
 .markdown-body figcaption,
 .markdown-body figure {
   display: block;
+  width: fit-content;
 }
 
 .markdown-body summary {
