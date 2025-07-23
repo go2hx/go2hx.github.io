@@ -10,7 +10,6 @@ final tests = [
 final targets = [
     "hl",     // 1
     "interp", // 1
-    "js",     // 1
 ];
 
 function filterData(results:Dynamic) {
@@ -18,8 +17,9 @@ function filterData(results:Dynamic) {
     //return;
     for (field in Reflect.fields(results)) {
         var data:Array<Dynamic> = Reflect.field(results, field);
+        trace(field, data.length);
         for (i in 0...data.length) {
-            if (data[i].total < 2)
+            if (data[i].passing > data[i].total)
                 data.remove(data[i]);
         }
     }
