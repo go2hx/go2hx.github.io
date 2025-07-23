@@ -35,8 +35,8 @@ function main() {
             default:
                 args.push("-cp");
                 args.push("golibs");
-                args.push("--macro");
-                args.push("Go2hxMacro.init()");
+                args.push("-w");
+                args.push("-WStaticInitOrder");
                // trace("skip!");
                 //continue;
         }
