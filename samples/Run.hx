@@ -7,6 +7,8 @@ using StringTools;
 inline var runCode = true;
 
 function main() {
+    Sys.println("disabled until Javascript is supported again");
+    return;
     Sys.command("haxelib run go2hx text/scanner hash/adler32 strings encoding/hex");
     for (file in FileSystem.readDirectory("samples/cases")) {
         if (file.extension() != "hx")
