@@ -15,7 +15,7 @@ var exportPath = "page/"; // add trailing backslash at end
 
 function main() {
     header = File.getContent("_content/header.html");
-    var path = "go2hx/stdgo/README.md";
+    var path = "go2hx/go/README.md";
     final stdList:Array<String> = haxe.Json.parse(File.getContent("go2hx/tests/std.json"));
     final targets = ["hl","interp"];
     final lines = ["| module | " + targets.join(" | ") + " |"];
@@ -98,14 +98,14 @@ private function prettyprint(content:String) {
 }
 
 private function stdgo() {
-    stdgoRecursive("go2hx/golibs/stdgo",1);
+    stdgoRecursive("go2hx/golibs/go",1);
 }
 
 private function readmeToHtmlLink(content:String,isStdgoPath:Bool):String {
     content = StringTools.replace(content,"README.md","index.html");
     content = StringTools.replace(content,"stdgo.md","index.html");
     if (!isStdgoPath) {
-        content = StringTools.replace(content,'a href=".','a href="./stdgo');
+        content = StringTools.replace(content,'a href=".','a href="./go');
     }
     return content;
 }
@@ -131,7 +131,7 @@ private function stdgoRecursive(dir:String,depth:Int) {
                 content = StringTools.replace(content,">(view code)</a>",'target="_blank" rel="noopener noreferrer">(view code)</a>');
                 content = StringTools.replace(content,">(view file containing code)</a>",'target="_blank" rel="noopener noreferrer">(view file containing code)</a>');
                 //trace(path);
-                final temp = new Template(File.getContent("_content/stdgo.html"));
+                final temp = new Template(File.getContent("_content/go.html"));
                 final depth = [for (i in 0...depth) ".."].join("/");
                 File.saveContent(exportPath + Path.join([Path.withoutExtension(path.substr("go2hx/".length)),"index.html"]),temp.execute({content: content,depth: depth,fullpath: fullpath,header: header}));
             }

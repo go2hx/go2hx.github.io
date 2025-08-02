@@ -3,7 +3,7 @@ function main() {
     if (sys.FileSystem.exists("page/api/hashes/go2hx.md5"))
        sys.FileSystem.deleteFile('page/api/hashes/go2hx.md5');
     addStdImports();
-    createDox("go2hx Compiler", "Go to Haxe source-to-source compiler", "go2hx", "stdgo", "stdgo", "api", "-cp golibs");
+    createDox("go2hx Compiler", "Go to Haxe source-to-source compiler", "go2hx", "go", "api", "-cp golibs");
     return;
     // regexp2
     trace("regexp2");
@@ -34,7 +34,7 @@ function addStdImports() {
         std = std.substr("hl|".length);
         final fileName = title(haxe.io.Path.withoutDirectory(std));
         std = StringTools.replace(std, "/", ".");
-        final path = 'stdgo.$std.$fileName';
+        final path = 'go.$std.$fileName';
         imps.push('import $path;');
     }
     imps.push("function main() {}");
