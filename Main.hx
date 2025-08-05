@@ -79,7 +79,6 @@ function main() {
             saveContent(dir,path,file);
         }
     }
-    stdgo();
     if (exportPath != "") {
         for (path in FileSystem.readDirectory(".")) {
             switch Path.extension(path) {
