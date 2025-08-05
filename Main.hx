@@ -97,10 +97,6 @@ private function prettyprint(content:String) {
     return content;
 }
 
-private function stdgo() {
-    stdgoRecursive("go2hx/golibs/go",1);
-}
-
 private function readmeToHtmlLink(content:String,isStdgoPath:Bool):String {
     content = StringTools.replace(content,"README.md","index.html");
     content = StringTools.replace(content,"stdgo.md","index.html");
@@ -108,35 +104,6 @@ private function readmeToHtmlLink(content:String,isStdgoPath:Bool):String {
         content = StringTools.replace(content,'a href=".','a href="./go');
     }
     return content;
-}
-
-private function stdgoRecursive(dir:String,depth:Int) {
-    for (path in FileSystem.readDirectory(dir)) {
-        if (path == "_internal" || path == "internal")
-            continue;
-        path = Path.join([dir,path]);
-        if (FileSystem.isDirectory(path)) {
-            FileSystem.createDirectory(exportPath + path.substr("go2hx/".length));
-            stdgoRecursive(path,depth+1);
-        }else{
-            if (Path.extension(path) == "md") {
-                var content = File.getContent(path);
-                content = readmeToHtmlLink(content,true);
-                path = path.substr(0,path.length - "README.md".length);
-                final fullpath = "https://github.com/go2hx/go2hx/tree/master/" + path.substr("go2hx/".length);
-                content = StringTools.replace(content,"[\\(view code\\)](<.","[\\(view code\\)](<" + fullpath);
-                content = StringTools.replace(content,"[\\(view file containing code\\)](<.","[\\(view file containing code\\)](<" + fullpath);
-                content = prettyprint(Markdown.markdownToHtml(content));
-                // open new tab for code preview
-                content = StringTools.replace(content,">(view code)</a>",'target="_blank" rel="noopener noreferrer">(view code)</a>');
-                content = StringTools.replace(content,">(view file containing code)</a>",'target="_blank" rel="noopener noreferrer">(view file containing code)</a>');
-                //trace(path);
-                final temp = new Template(File.getContent("_content/go.html"));
-                final depth = [for (i in 0...depth) ".."].join("/");
-                File.saveContent(exportPath + Path.join([Path.withoutExtension(path.substr("go2hx/".length)),"index.html"]),temp.execute({content: content,depth: depth,fullpath: fullpath,header: header}));
-            }
-        }
-    }
 }
 
 private function saveContent(dir,path,file) {
