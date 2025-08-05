@@ -33,7 +33,10 @@ function addStdImports() {
     for (std in list) {
         std = std.substr("hl|".length);
         final fileName = title(haxe.io.Path.withoutDirectory(std));
-        std = StringTools.replace(std, "/", ".");
+        final paths = std.split("/");
+        if (paths.length > 0 && paths[0] == "go")
+            paths[0] += "_";
+        std = paths.join(".");
         final path = 'go.$std.$fileName';
         imps.push('import $path;');
     }
