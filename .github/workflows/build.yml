@@ -40,6 +40,8 @@ jobs:
         run: npx haxelib dev go2hx go2hx
       - name: Run lix
         run: npx lix download
+      - name: Setup hxcpp
+        run: haxe -cp go2hx/extra/scripts --run SetupHxcpp
       - name: Build setup
         run: npx haxe setup.hxml
       - name: Build dox api
