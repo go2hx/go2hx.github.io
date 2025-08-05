@@ -2,7 +2,7 @@
 -main DoxMain
 --hl dummy.hl
 -xml go2hx.xml
--cp go2hx/golibs
+-cp golibs
 -D doc-gen
 -lib dox
 --no-output
