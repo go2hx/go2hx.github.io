@@ -10,7 +10,6 @@ host.hxml
 notes.txt
 golibs
 .vscode
-page/docs
 page/manual
 page/samples
 page/stdgo
